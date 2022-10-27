@@ -1,5 +1,10 @@
 const calendarObject = require("calendar-object")
-const yearNow = new Date().getFullYear()
+const today = new Date()
+const dayNow = String(today.getDate()).padStart(2, "0")
+const monthNow = String(today.getMonth() + 1).padStart(2, "0") // Jan is 0
+const yearNow = today.getFullYear()
+
+console.log(dayNow + " " + monthNow + " " + yearNow)
 
 // This is a calendar object of 3 years: last year, this year, and next year
 const blankCalendar = calendarObject.getCalendar(
@@ -27,8 +32,9 @@ const newHabit = ({
   reward = "",
   streakForReward = 15,
   lastUpdated = "",
+  streakToEstablish = 66,
 }) => {
-  const getProperties = () => {
+  const readProperties = () => {
     return {
       name,
       id,
@@ -43,10 +49,11 @@ const newHabit = ({
       reward,
       streakForReward,
       lastUpdated,
+      streakToEstablish,
     }
   }
 
-  const editProperties = ({
+  const updateProperties = ({
     newName,
     newEstablished,
     newProgressObject,
@@ -59,23 +66,50 @@ const newHabit = ({
     newReward,
     newStreakForReward,
     newLastUpdated,
+    newStreakToEstablish,
   }) => {
-    if (newName) name = newName
+    const clone = {
+      name,
+      id,
+      established,
+      progressObject,
+      currentStreak,
+      longestStreak,
+      period,
+      number,
+      missedTimes,
+      trigger,
+      reward,
+      streakForReward,
+      lastUpdated,
+      streakToEstablish,
+    }
+    if (newName) clone.name = newName
     if (newEstablished !== null && newEstablished !== undefined)
-      established = newEstablished
-    if (newProgressObject) progressObject = newProgressObject
-    if (newCurrentStreak) currentStreak = newCurrentStreak
-    if (newLongestStreak) longestStreak = newLongestStreak
-    if (newPeriod) period = newPeriod
-    if (newNumber) number = newNumber
-    if (newMissedTimes) missedTimes = newMissedTimes
-    if (newTrigger) trigger = newTrigger
-    if (newReward) reward = newReward
-    if (newStreakForReward) streakForReward = newStreakForReward
-    if (newLastUpdated) lastUpdated = newLastUpdated
+      clone.established = newEstablished
+    if (newProgressObject) clone.progressObject = newProgressObject
+    if (newCurrentStreak) clone.currentStreak = newCurrentStreak
+    if (newLongestStreak) clone.longestStreak = newLongestStreak
+    if (newPeriod) clone.period = newPeriod
+    if (newNumber) clone.number = newNumber
+    if (newMissedTimes) clone.missedTimes = newMissedTimes
+    if (newTrigger) clone.trigger = newTrigger
+    if (newReward) clone.reward = newReward
+    if (newStreakForReward) clone.streakForReward = newStreakForReward
+    if (newLastUpdated) clone.lastUpdated = newLastUpdated
+    if (newStreakToEstablish) clone.streakToEstablish = newStreakToEstablish
+
+    return newHabit(clone)
   }
 
-  return { getProperties, editProperties }
+  const updateDay = ({ year, month, day, taskFinished, taskNotes }) => {
+    progressObject[year][month][day] = {
+      finished: taskFinished,
+      notes: taskNotes,
+    }
+  }
+
+  return { name, id, readProperties, updateProperties, updateDay }
 }
 
 export default newHabit

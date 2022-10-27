@@ -1,43 +1,60 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import newHabit from "./newHabit.js"
 
 const App = () => {
-  const [habits, setHabits] = useState({})
+  const habit1 = newHabit({ name: "Habit 1 established", established: true })
+  const habit2 = newHabit({ name: "Habit 2 unestablished", established: false })
+  const [habits, setHabits] = useState([habit1, habit2])
 
-  const sampleHabit = {
-    name: "",
-    id: window.crypto.randomUUID(),
-    established: false,
-    progressObject: {},
-    currentStreak: 0,
-    longestStreak: 0,
-    period: "daily",
-    number: 1, // for each period
-    missedTimes: 0,
-    trigger: "",
-    reward: "",
-    streakForReward: 15,
-    lastUpdated: "",
+  const createHabit = (habit) => {
+    const nextHabits = [...habits]
+    nextHabits.push(habit)
+    setHabits(nextHabits)
   }
 
-  // Progress Array
-  const sampleProgressArray = [
-    {
-      date: "",
-      finished: "half-assed", // Was the task done this date? true, false, or half-assed
-      notes: "",
-    },
-  ]
+  const readEstablishedHabits = () => {
+    return habits.filter((habit) => {
+      return habit.readProperties().established === true
+    })
+  }
 
-  const habit1 = newHabit({})
-  const habit2 = newHabit({})
+  const readUnestablishedHabits = () => {
+    return habits.filter((habit) => {
+      return habit.readProperties().established === false
+    })
+  }
 
-  console.table(habit1.getProperties().progressObject)
+  const updateHabit = (index, propertiesToEdit) => {
+    // {
+    //   newSomethijng: "hellp",
+    //   newOtherThiing: 2133,
+    // }
+    const nextHabits = [...habits]
+    const habitToEdit = nextHabits[index]
+    const updatedHabit = habitToEdit.updateProperties(propertiesToEdit)
+
+    nextHabits[index] = updatedHabit
+
+    setHabits(nextHabits)
+  }
+
+  const deleteHabit = (habit) => {
+    const nextHabits = [...habits]
+    const index = nextHabits.indexOf(habit)
+    if (index !== -1) {
+      nextHabits.splice(index, 1)
+    }
+    setHabits(nextHabits)
+  }
+
+  useEffect(() => {
+    console.log(readEstablishedHabits())
+  }, [])
+
   return (
     <div className="App">
       <header className="App-header">
-        <main>
-        </main>
+        <main></main>
       </header>
     </div>
   )
