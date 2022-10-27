@@ -1,6 +1,10 @@
 # Habit App
 
-## Organize this later
+## Description
+
+This is a non-punishing app that will help the user form habits. Its main idea is that it takes 66 days to form a habit.
+
+## Rules (In progress)
 
 1. Have two groups: "set habits" and "unset habits"
 2. It takes 66 days on average to form a habit, but it's actually a range depending on the person and the habit (from 18 days to 254 days)
