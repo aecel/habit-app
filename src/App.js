@@ -5,6 +5,11 @@ const App = () => {
   const habit1 = newHabit({ name: "Habit 1 established", established: true })
   const habit2 = newHabit({ name: "Habit 2 unestablished", established: false })
   const [habits, setHabits] = useState([habit1, habit2])
+  const [settings, setSettings] = useState({
+    theme: "dark",
+    daysToEstablishHabit: 66,
+    
+  })
 
   const createHabit = (habit) => {
     const nextHabits = [...habits]
