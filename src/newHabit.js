@@ -21,7 +21,7 @@ const blankCalendar = calendarObject.getCalendar(
 const newHabit = ({
   name = "",
   id = window.crypto.randomUUID(),
-  established = false,
+  stable = false,
   progressObject = blankCalendar,
   currentStreak = 0,
   longestStreak = 0,
@@ -32,13 +32,12 @@ const newHabit = ({
   reward = "",
   streakForReward = 15,
   lastUpdated = "",
-  streakToEstablish = 66,
 }) => {
   const readProperties = () => {
     return {
       name,
       id,
-      established,
+      stable,
       progressObject,
       currentStreak,
       longestStreak,
@@ -49,13 +48,12 @@ const newHabit = ({
       reward,
       streakForReward,
       lastUpdated,
-      streakToEstablish,
     }
   }
 
   const updateProperties = ({
     newName,
-    newEstablished,
+    newStable,
     newProgressObject,
     newCurrentStreak,
     newLongestStreak,
@@ -66,12 +64,11 @@ const newHabit = ({
     newReward,
     newStreakForReward,
     newLastUpdated,
-    newStreakToEstablish,
   }) => {
     const clone = {
       name,
       id,
-      established,
+      stable,
       progressObject,
       currentStreak,
       longestStreak,
@@ -82,11 +79,10 @@ const newHabit = ({
       reward,
       streakForReward,
       lastUpdated,
-      streakToEstablish,
     }
     if (newName) clone.name = newName
-    if (newEstablished !== null && newEstablished !== undefined)
-      clone.established = newEstablished
+    if (newStable !== null && newStable !== undefined)
+      clone.stable = newStable
     if (newProgressObject) clone.progressObject = newProgressObject
     if (newCurrentStreak) clone.currentStreak = newCurrentStreak
     if (newLongestStreak) clone.longestStreak = newLongestStreak
@@ -97,7 +93,6 @@ const newHabit = ({
     if (newReward) clone.reward = newReward
     if (newStreakForReward) clone.streakForReward = newStreakForReward
     if (newLastUpdated) clone.lastUpdated = newLastUpdated
-    if (newStreakToEstablish) clone.streakToEstablish = newStreakToEstablish
 
     return newHabit(clone)
   }

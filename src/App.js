@@ -2,12 +2,12 @@ import { useEffect, useState } from "react"
 import newHabit from "./newHabit.js"
 
 const App = () => {
-  const habit1 = newHabit({ name: "Habit 1 established", established: true })
-  const habit2 = newHabit({ name: "Habit 2 unestablished", established: false })
+  const habit1 = newHabit({ name: "Habit 1 stable", stable: true })
+  const habit2 = newHabit({ name: "Habit 2 unstable", stable: false })
   const [habits, setHabits] = useState([habit1, habit2])
   const [settings, setSettings] = useState({
     theme: "dark",
-    daysToEstablishHabit: 66,
+    daysToStableHabit: 66,
     
   })
 
@@ -17,15 +17,15 @@ const App = () => {
     setHabits(nextHabits)
   }
 
-  const readEstablishedHabits = () => {
+  const readStableHabits = () => {
     return habits.filter((habit) => {
-      return habit.readProperties().established === true
+      return habit.readProperties().stable === true
     })
   }
 
-  const readUnestablishedHabits = () => {
+  const readUnstableHabits = () => {
     return habits.filter((habit) => {
-      return habit.readProperties().established === false
+      return habit.readProperties().stable === false
     })
   }
 
@@ -53,7 +53,7 @@ const App = () => {
   }
 
   useEffect(() => {
-    console.log(readEstablishedHabits())
+    console.log(readStableHabits())
   }, [])
 
   return (
