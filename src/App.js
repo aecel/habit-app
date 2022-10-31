@@ -2,13 +2,14 @@ import { useEffect, useState } from "react"
 import newHabit from "./newHabit.js"
 
 const App = () => {
-  const habit1 = newHabit({ name: "Habit 1 stable", stable: true })
-  const habit2 = newHabit({ name: "Habit 2 unstable", stable: false })
+  const habit1 = newHabit({ name: "Stable Habit", stable: true })
+  const habit2 = newHabit({ name: "Unstable Habit", stable: false })
   const [habits, setHabits] = useState([habit1, habit2])
   const [settings, setSettings] = useState({
     theme: "dark",
     daysToStableHabit: 66,
-    
+    unstableHabitLimit: 1,
+    daysToBreakHabit: 3,
   })
 
   const createHabit = (habit) => {
@@ -52,9 +53,44 @@ const App = () => {
     setHabits(nextHabits)
   }
 
+  const promoteHabit = () => {}
+
+  const demoteHabit = () => {
+    const nextHabits = [...habits]
+    const stableHabits = readStableHabits()
+    for (const stableHabit of stableHabits) {
+      // check if missed streak >= daysToBreakHabit (from settings)
+      // then update to stable: false
+    }
+  }
+
+  const updateSettings = (propertiesToEdit) => {
+    // {
+    //   theme: "dark",
+    //   daysToStableHabit: 66,
+    //   unstableHabitLimit: 1,
+    //   daysToBreakHabit: 3,
+    // }
+    const nextSettings = { ...settings }
+    for (const property in propertiesToEdit) {
+      nextSettings[property] = propertiesToEdit[property]
+    }
+
+    setSettings(nextSettings)
+  }
+
   useEffect(() => {
-    console.log(readStableHabits())
+    updateSettings({
+      theme: "light",
+      daysToStableHabit: 15,
+      unstableHabitLimit: 5,
+      daysToBreakHabit: 10,
+    })
   }, [])
+
+  useEffect(() => {
+    console.log(settings)
+  }, [settings])
 
   return (
     <div className="App">
