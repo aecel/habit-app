@@ -75,6 +75,7 @@ const newHabit = ({
     }
   }
 
+  // Returns an updated newHabit clone
   const updateProperties = ({
     newName,
     newStable,
@@ -89,21 +90,7 @@ const newHabit = ({
     newStreakForReward,
     newLastUpdated,
   }) => {
-    const clone = {
-      name,
-      id,
-      stable,
-      calendar,
-      currentStreak,
-      longestStreak,
-      period,
-      number,
-      missedTimes,
-      trigger,
-      reward,
-      streakForReward,
-      lastUpdated,
-    }
+    const clone = readProperties()
     if (newName) clone.name = newName
     if (newStable !== null && newStable !== undefined) clone.stable = newStable
     if (newCalendar) clone.calendar = newCalendar
@@ -116,18 +103,40 @@ const newHabit = ({
     if (newReward) clone.reward = newReward
     if (newStreakForReward) clone.streakForReward = newStreakForReward
     if (newLastUpdated) clone.lastUpdated = newLastUpdated
-
     return newHabit(clone)
   }
 
+  // Returns an updated newHabit clone
   const updateDay = ({ year, month, day, taskDone, taskNotes }) => {
-    calendar[year][month][day] = {
-      done: taskDone,
-      notes: taskNotes,
-    }
+    const calendarClone = calendar
+    if (taskDone) calendarClone[year][month][day].done = taskDone
+    if (taskNotes) calendarClone[year][month][day].notes = taskNotes
+    return updateProperties({ newCalendar: calendarClone })
   }
 
-  return { name, id, readProperties, updateProperties, updateDay, addAYear }
+  const triToggleDay = ({ year, month, day }) => {
+    const calendarClone = calendar
+    const currentTaskDone = calendarClone[year][month][day].done
+    if (currentTaskDone === "") {
+      calendarClone[year][month][day].done = "true"
+    } else if (currentTaskDone === "true") {
+      calendarClone[year][month][day].done = "half-assed"
+    } else if (currentTaskDone === "half-assed") {
+      calendarClone[year][month][day].done = ""
+    }
+    return updateProperties({ newCalendar: calendarClone })
+  }
+
+  return {
+    name,
+    id,
+    stable,
+    calendar,
+    readProperties,
+    updateProperties,
+    updateDay,
+    triToggleDay,
+  }
 }
 
 export default newHabit

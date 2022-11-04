@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import newHabit from "./newHabit.js"
+import "./styles/style.css"
 
 const App = () => {
   const habit1 = newHabit({ name: "Stable Habit", stable: true })
@@ -51,7 +52,34 @@ const App = () => {
     const habitToEdit = nextHabits[index]
     const updatedHabit = habitToEdit.updateProperties(propertiesToEdit)
     nextHabits[index] = updatedHabit
+    setHabits(nextHabits)
+  }
 
+  const updateDay = ({ id, year, month, day, taskDone, taskNotes }) => {
+    const nextHabits = [...habits]
+    const index = getIndexById(id)
+    const habitToEdit = nextHabits[index]
+    const updatedHabit = habitToEdit.updateDay({
+      year,
+      month,
+      day,
+      taskDone,
+      taskNotes,
+    })
+    nextHabits[index] = updatedHabit
+    setHabits(nextHabits)
+  }
+
+  const triToggleDay = ({ id, year, month, day }) => {
+    const nextHabits = [...habits]
+    const index = getIndexById(id)
+    const habitToEdit = nextHabits[index]
+    const updatedHabit = habitToEdit.triToggleDay({
+      year,
+      month,
+      day,
+    })
+    nextHabits[index] = updatedHabit
     setHabits(nextHabits)
   }
 
@@ -67,14 +95,18 @@ const App = () => {
   const promoteHabit = (id) => {
     const nextHabits = [...habits]
     const index = getIndexById(id)
-    nextHabits[index].updateProperties({ newStable: true })
+    const updatedHabit = nextHabits[index].updateProperties({ newStable: true })
+    nextHabits[index] = updatedHabit
     setHabits(nextHabits)
   }
 
   const demoteHabit = (id) => {
     const nextHabits = [...habits]
     const index = getIndexById(id)
-    nextHabits[index].updateProperties({ newStable: false })
+    const updatedHabit = nextHabits[index].updateProperties({
+      newStable: false,
+    })
+    nextHabits[index] = updatedHabit
     setHabits(nextHabits)
   }
 
@@ -94,18 +126,12 @@ const App = () => {
   }
 
   useEffect(() => {
-    // updateSettings({
-    //   theme: "light",
-    //   daysToStableHabit: 15,
-    //   unstableHabitLimit: 5,
-    //   daysToBreakHabit: 10,
-    // })
-    console.log(getIndexById("doesntexistlul"))
+    deleteHabit(habit1.readProperties().id)
   }, [])
 
   useEffect(() => {
-    console.log(settings)
-  }, [settings])
+    console.table(habits)
+  }, [habits])
 
   return (
     <div className="App">
