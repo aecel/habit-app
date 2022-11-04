@@ -12,6 +12,16 @@ const App = () => {
     daysToBreakHabit: 3,
   })
 
+  const getIndexById = (id) => {
+    // Get index of a habit if you give the id
+    // Returns -1 if id does not exist
+    const targetHabit = habits.filter((habit) => {
+      return habit.readProperties().id === id
+    })[0]
+    const index = habits.indexOf(targetHabit)
+    return index
+  }
+
   const createHabit = (habit) => {
     const nextHabits = [...habits]
     nextHabits.push(habit)
@@ -30,41 +40,46 @@ const App = () => {
     })
   }
 
-  const updateHabit = (index, propertiesToEdit) => {
+  const updateHabit = (id, propertiesToEdit) => {
+    // propertiesToEdit sample:
     // {
     //   newSomethijng: "hellp",
     //   newOtherThiing: 2133,
     // }
     const nextHabits = [...habits]
+    const index = getIndexById(id)
     const habitToEdit = nextHabits[index]
     const updatedHabit = habitToEdit.updateProperties(propertiesToEdit)
-
     nextHabits[index] = updatedHabit
 
     setHabits(nextHabits)
   }
 
-  const deleteHabit = (habit) => {
+  const deleteHabit = (id) => {
     const nextHabits = [...habits]
-    const index = nextHabits.indexOf(habit)
+    const index = getIndexById(id)
     if (index !== -1) {
       nextHabits.splice(index, 1)
     }
     setHabits(nextHabits)
   }
 
-  const promoteHabit = () => {}
-
-  const demoteHabit = () => {
+  const promoteHabit = (id) => {
     const nextHabits = [...habits]
-    const stableHabits = readStableHabits()
-    for (const stableHabit of stableHabits) {
-      // check if missed streak >= daysToBreakHabit (from settings)
-      // then update to stable: false
-    }
+    const index = getIndexById(id)
+    nextHabits[index].updateProperties({ newStable: true })
+    setHabits(nextHabits)
+  }
+
+  const demoteHabit = (id) => {
+    const nextHabits = [...habits]
+    const index = getIndexById(id)
+    nextHabits[index].updateProperties({ newStable: false })
+    setHabits(nextHabits)
   }
 
   const updateSettings = (propertiesToEdit) => {
+    // propertiesToEdit sample:
     // {
     //   theme: "dark",
     //   daysToStableHabit: 66,
@@ -75,17 +90,17 @@ const App = () => {
     for (const property in propertiesToEdit) {
       nextSettings[property] = propertiesToEdit[property]
     }
-
     setSettings(nextSettings)
   }
 
   useEffect(() => {
-    updateSettings({
-      theme: "light",
-      daysToStableHabit: 15,
-      unstableHabitLimit: 5,
-      daysToBreakHabit: 10,
-    })
+    // updateSettings({
+    //   theme: "light",
+    //   daysToStableHabit: 15,
+    //   unstableHabitLimit: 5,
+    //   daysToBreakHabit: 10,
+    // })
+    console.log(getIndexById("doesntexistlul"))
   }, [])
 
   useEffect(() => {
