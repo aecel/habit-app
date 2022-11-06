@@ -2,7 +2,7 @@
 
 ## Description
 
-This is a non-punishing app that will help the user form habits. Its main idea is that it takes 66 days to form a habit.
+This is a non-punishing app that will help the user form habits.
 
 ## Rules (In progress)
 

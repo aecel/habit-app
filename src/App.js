@@ -130,10 +130,40 @@ const App = () => {
 
   useEffect(() => {
     // deleteHabit(habit1.readProperties().id)
+    updateDay({
+      id: habit1.readProperties().id,
+      year: 2022,
+      month: 11,
+      day: 4,
+      taskDone: "half-assed",
+    })
+    updateDay({
+      id: habit1.readProperties().id,
+      year: 2022,
+      month: 11,
+      day: 5,
+      taskDone: "half-assed",
+    })
+    updateDay({
+      id: habit1.readProperties().id,
+      year: 2022,
+      month: 11,
+      day: 6,
+      taskDone: "true",
+    })
+
+    updateDay({
+      id: habit2.readProperties().id,
+      year: 2022,
+      month: 11,
+      day: 1,
+      taskDone: "half-assed",
+    })
   }, [])
 
   useEffect(() => {
     console.table(habits)
+    console.table(Object.entries(habit1.readCalendar()[2022][11]))
   }, [habits])
 
   return (

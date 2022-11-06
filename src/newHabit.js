@@ -1,40 +1,10 @@
-const calendarObject = require("calendar-object")
-const today = new Date()
-// const dayNow = String(today.getDate()).padStart(2, "0")
-// const monthNow = String(today.getMonth() + 1).padStart(2, "0")
-const yearNow = today.getFullYear()
-
-// console.log(dayNow + " " + monthNow + " " + yearNow)
-
-// This is a calendar object of 3 years: last year, this year, and next year
-const blankCalendar = calendarObject.getCalendar(
-  [yearNow - 1],
-  [yearNow],
-  [yearNow + 1]
-)
-
-for (const year in blankCalendar) {
-  for (const month in blankCalendar[year]) {
-    for (const day in blankCalendar[year][month]) {
-      // initial state of a day in the calendar
-      blankCalendar[year][month][day] = {
-        done: "",
-        notes: "",
-      }
-    }
-  }
-}
-
-// To access a date:
-// calendar[year][month][day]
-// e.g
-// calendar[2022][12][1] = { some data }
+import getBlankCalendar from "./getBlankCalendar"
 
 const newHabit = ({
   name = "",
   id = window.crypto.randomUUID(),
   stable = false,
-  calendar = blankCalendar,
+  calendar = getBlankCalendar(),
   currentStreak = 0,
   longestStreak = 0,
   period = "daily",
@@ -46,15 +16,15 @@ const newHabit = ({
   lastUpdated = "",
   dateCreated = new Date(),
 }) => {
-  const addAYear = (calendarObj) => {
-    // Get the latest year of the calendar object input
-    const index = calendarObj.length - 1
-    const latestYear = Object.keys(calendarObj)[index]
+  // const addAYear = (calendarObj) => {
+  //   // Get the latest year of the calendar object input
+  //   const index = calendarObj.length - 1
+  //   const latestYear = Object.keys(calendarObj)[index]
 
-    // Append the next year to the calendar object
-    const yearToAdd = calendarObject.getCalendar([latestYear + 1])
-    calendarObj.push(yearToAdd)
-  }
+  //   // Append the next year to the calendar object
+  //   const yearToAdd = calendarObject.getCalendar([latestYear + 1])
+  //   calendarObj.push(yearToAdd)
+  // }
 
   const readProperties = () => {
     return {
@@ -73,6 +43,10 @@ const newHabit = ({
       lastUpdated,
       dateCreated,
     }
+  }
+
+  const readCalendar = () => {
+    return calendar
   }
 
   // Returns an updated newHabit clone
@@ -133,6 +107,7 @@ const newHabit = ({
     stable,
     calendar,
     readProperties,
+    readCalendar,
     updateProperties,
     updateDay,
     triToggleDay,
