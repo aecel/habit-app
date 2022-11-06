@@ -1,7 +1,10 @@
-import { useEffect, useState } from "react"
+import { createContext, useContext, useEffect, useState } from "react"
+import HabitCard from "./components/HabitCard.js"
 import newHabit from "./newHabit.js"
 import "./styles/style.css"
 
+const HabitContext = createContext()
+export const useHabits = () => useContext(HabitContext)
 const App = () => {
   const habit1 = newHabit({ name: "Stable Habit", stable: true })
   const habit2 = newHabit({ name: "Unstable Habit", stable: false })
@@ -126,7 +129,7 @@ const App = () => {
   }
 
   useEffect(() => {
-    deleteHabit(habit1.readProperties().id)
+    // deleteHabit(habit1.readProperties().id)
   }, [])
 
   useEffect(() => {
@@ -134,11 +137,11 @@ const App = () => {
   }, [habits])
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <main></main>
-      </header>
-    </div>
+    <HabitContext.Provider value={{ habits: habits, settings: settings }}>
+      <div className="App">
+        <HabitCard />
+      </div>
+    </HabitContext.Provider>
   )
 }
 
