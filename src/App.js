@@ -20,7 +20,7 @@ const App = () => {
     // Get index of a habit if you give the id
     // Returns -1 if id does not exist
     const targetHabit = habits.filter((habit) => {
-      return habit.readProperties().id === id
+      return habit.readId() === id
     })[0]
     const index = habits.indexOf(targetHabit)
     return index
@@ -34,13 +34,13 @@ const App = () => {
 
   const readStableHabits = () => {
     return habits.filter((habit) => {
-      return habit.readProperties().stable === true
+      return habit.readStable() === true
     })
   }
 
   const readUnstableHabits = () => {
     return habits.filter((habit) => {
-      return habit.readProperties().stable === false
+      return habit.readStable() === false
     })
   }
 
@@ -76,6 +76,7 @@ const App = () => {
   const triToggleDay = ({ id, year, month, day }) => {
     const nextHabits = [...habits]
     const index = getIndexById(id)
+    console.log(id)
     const habitToEdit = nextHabits[index]
     const updatedHabit = habitToEdit.triToggleDay({
       year,
@@ -128,46 +129,69 @@ const App = () => {
     setSettings(nextSettings)
   }
 
-  useEffect(() => {
-    // deleteHabit(habit1.readProperties().id)
-    updateDay({
-      id: habit1.readProperties().id,
-      year: 2022,
-      month: 11,
-      day: 4,
-      taskDone: "half-assed",
-    })
-    updateDay({
-      id: habit1.readProperties().id,
-      year: 2022,
-      month: 11,
-      day: 5,
-      taskDone: "half-assed",
-    })
-    updateDay({
-      id: habit1.readProperties().id,
-      year: 2022,
-      month: 11,
-      day: 6,
-      taskDone: "true",
-    })
+  const habitFunctions = {
+    getIndexById,
+    createHabit,
+    readStableHabits,
+    readUnstableHabits,
+    updateHabit,
+    updateDay,
+    triToggleDay,
+    deleteHabit,
+    promoteHabit,
+    demoteHabit,
+    updateSettings,
+  }
 
-    updateDay({
-      id: habit2.readProperties().id,
-      year: 2022,
-      month: 11,
-      day: 1,
-      taskDone: "half-assed",
-    })
+  useEffect(() => {
+    // deleteHabit(habit1.readId())
+    // updateDay({
+    //   id: habit1.readId(),
+    //   year: 2022,
+    //   month: 11,
+    //   day: 4,
+    //   taskDone: "half-assed",
+    // })
+    // updateDay({
+    //   id: habit1.readId(),
+    //   year: 2022,
+    //   month: 11,
+    //   day: 5,
+    //   taskDone: "half-assed",
+    // })
+    // updateDay({
+    //   id: habit1.readId(),
+    //   year: 2022,
+    //   month: 11,
+    //   day: 6,
+    //   taskDone: "so true",
+    // })
+
+    // updateDay({
+    //   id: habit2.readId(),
+    //   year: 2022,
+    //   month: 11,
+    //   day: 1,
+    //   taskDone: "half-assed",
+    // })
   }, [])
 
   useEffect(() => {
-    console.table(habits)
-    console.table(Object.entries(habit1.readCalendar()[2022][11]))
+    // console.table(habits)
+    console.log("Stable Habit")
+    console.table(Object.entries(habits[0].readCalendar()[2022][11]))
+    console.log("Unstable Habit")
+    console.table(Object.entries(habits[1].readCalendar()[2022][11]))
   }, [habits])
 
   return (
-    <HabitContext.Provider value={{ habits: habits, settings: settings }}>
+    <HabitContext.Provider
+      value={{
+        habits: habits,
+        settings: settings,
+        habitFunctions: habitFunctions,
+      }}
+    >
       <div className="App">
         <HabitCard />
       </div>
