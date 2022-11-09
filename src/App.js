@@ -7,14 +7,19 @@ const HabitContext = createContext()
 export const useHabits = () => useContext(HabitContext)
 const App = () => {
   const habit1 = newHabit({ name: "Stable Habit", stable: true })
-  const habit2 = newHabit({ name: "Unstable Habit", stable: false })
-  const [habits, setHabits] = useState([habit1, habit2])
-  const [settings, setSettings] = useState({
+  const habit2 = newHabit({
+    name: "Unstable Habit",
+    stable: false,
+    daysToStableHabit: 3,
+  })
+  const defaultSettings = {
     theme: "dark",
     daysToStableHabit: 66,
     unstableHabitLimit: 1,
     daysToBreakHabit: 3,
-  })
+  }
+  const [habits, setHabits] = useState([habit1, habit2])
+  const [settings, setSettings] = useState(defaultSettings)
 
   const getIndexById = (id) => {
     // Get index of a habit if you give the id
@@ -129,6 +134,16 @@ const App = () => {
     setSettings(nextSettings)
   }
 
+  const updateStable = (id) => {
+    const nextHabits = [...habits]
+    const index = getIndexById(id)
+    const habitToUpdate = nextHabits[index]
+    const updatedHabit = habitToUpdate.updateStable()
+    console.log(updatedHabit)
+    nextHabits[index] = updatedHabit
+    setHabits(nextHabits)
+  }
+
   const habitFunctions = {
     getIndexById,
     createHabit,
@@ -141,6 +156,7 @@ const App = () => {
     promoteHabit,
     demoteHabit,
     updateSettings,
+    updateStable,
   }
 
   useEffect(() => {
@@ -166,7 +182,6 @@ const App = () => {
     //   day: 6,
     //   taskDone: "so true",
     // })
-
     // updateDay({
     //   id: habit2.readId(),
     //   year: 2022,

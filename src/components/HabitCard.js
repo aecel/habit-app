@@ -4,6 +4,7 @@ const HabitCard = () => {
   const habits = useHabits().habits
   const habitFunctions = useHabits().habitFunctions
   const triToggleDay = habitFunctions.triToggleDay
+  const updateStable = habitFunctions.updateStable
 
   const today = new Date()
   //   const dayNow = String(today.getDate()).padStart(2, "0")
@@ -25,6 +26,9 @@ const HabitCard = () => {
               <p>Longest Streak: {habit.getMaxStreak()}</p>
               <p>Current Streak: {habit.getCurrentStreak()}</p>
               <p>Last Updated: {habit.readLastUpdated()}</p>
+              <p>Last Missed Streak: {habit.getLastMissedStreak()}</p>
+              <p>Days to Stabilize Habit: {habit.readDaysToStableHabit()}</p>
+              <p>Days to Break Habit: {habit.readDaysToBreakHabit()}</p>
               <div className="calendar">
                 {Object.entries(habit.readCalendar()[yearNow][monthNow]).map(
                   (day) => {
@@ -40,14 +44,15 @@ const HabitCard = () => {
                             month: monthNow,
                             day: day[0],
                           })
+                          updateStable(habit.readId())
                         }}
                         style={{
                           cursor: "pointer",
                           backgroundColor: `${
                             day[1]["done"] === "so true"
-                              ? "#26A641"
+                              ? "#39D353"
                               : day[1]["done"] === "half-assed"
-                              ? "#0E4429"
+                              ? "#006D32"
                               : "#161B22"
                           }`,
                         }}

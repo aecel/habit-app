@@ -1,5 +1,10 @@
 import getBlankCalendar from "./getBlankCalendar"
 
+const today = new Date()
+const dayNow = today.getDate()
+const monthNow = today.getMonth() + 1
+const yearNow = today.getFullYear()
+
 const newHabit = ({
   name = "",
   id = window.crypto.randomUUID(),
@@ -12,6 +17,8 @@ const newHabit = ({
   streakForReward = 15,
   lastUpdated = "",
   dateCreated = new Date(),
+  daysToStableHabit = 66,
+  daysToBreakHabit = 3,
 }) => {
   // const addAYear = (calendarObj) => {
   //   // Get the latest year of the calendar object input
@@ -36,6 +43,8 @@ const newHabit = ({
       streakForReward,
       lastUpdated,
       dateCreated,
+      daysToStableHabit,
+      daysToBreakHabit,
     }
   }
 
@@ -84,6 +93,8 @@ const newHabit = ({
 
     return date + " " + time
   }
+  const readDaysToStableHabit = () => daysToStableHabit
+  const readDaysToBreakHabit = () => daysToBreakHabit
 
   // Returns an updated newHabit clone
   const updateProperties = ({
@@ -95,6 +106,8 @@ const newHabit = ({
     newTrigger,
     newReward,
     newStreakForReward,
+    newDaysToStableHabit,
+    newDaysToBreakHabit,
   }) => {
     const clone = readProperties()
     if (newName) clone.name = newName
@@ -105,6 +118,8 @@ const newHabit = ({
     if (newTrigger) clone.trigger = newTrigger
     if (newReward) clone.reward = newReward
     if (newStreakForReward) clone.streakForReward = newStreakForReward
+    if (newDaysToStableHabit) clone.daysToStableHabit = newDaysToStableHabit
+    if (newDaysToBreakHabit) clone.daysToBreakHabit = newDaysToBreakHabit
     return newHabit(clone)
   }
 
@@ -194,6 +209,51 @@ const newHabit = ({
     }
   }
 
+  const dateOfLastGreenTask = () => {
+    let date = []
+    for (const year in calendar) {
+      for (const month in calendar[year]) {
+        for (const day in calendar[year][month]) {
+          if (calendar[year][month][day].done !== "") {
+            date = [year, month, day]
+          }
+        }
+      }
+    }
+    return date
+  }
+
+  const getLastMissedStreak = () => {
+    let count = 0
+    const date = dateOfLastGreenTask()
+    for (let year = date[0]; year <= yearNow; year++) {
+      for (let month = date[1]; month <= monthNow; month++) {
+        for (let day = date[2]; day <= dayNow; day++) {
+          if (calendar[year][month][day].done === "") {
+            count++
+          }
+        }
+      }
+    }
+    return count
+  }
+
+  // Returns a clone of newHabit
+  // Something's wrong
+  const updateStable = () => {
+    if (!stable && getCurrentStreak() >= daysToStableHabit) {
+      return updateProperties({ newStable: true })
+    } else if (
+      stable &&
+      getCurrentStreak() === 0 &&
+      getLastMissedStreak() >= daysToBreakHabit
+    ) {
+      return updateProperties({ newStable: false })
+    } else {
+      return updateProperties({})
+    }
+  }
+
   return {
     readName,
     readId,
@@ -206,6 +266,8 @@ const newHabit = ({
     readStreakForReward,
     readLastUpdated,
     readDateCreated,
+    readDaysToStableHabit,
+    readDaysToBreakHabit,
     updateProperties,
     updateDay,
     triToggleDay,
@@ -213,6 +275,8 @@ const newHabit = ({
     getStreaks,
     getMaxStreak,
     getCurrentStreak,
+    getLastMissedStreak,
+    updateStable,
   }
 }
 
