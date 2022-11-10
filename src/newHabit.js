@@ -50,7 +50,7 @@ const newHabit = ({
 
   const readName = () => name
   const readId = () => id
-  const readStable = () => stable
+  const isStable = () => stable
   const readCalendar = () => calendar
   const readPeriod = () => period
   const readNumber = () => number
@@ -198,17 +198,6 @@ const newHabit = ({
     return longestStreak
   }
 
-  // Will only work if future days cannot be changed
-  const getCurrentStreak = () => {
-    const streaks = getStreaks()
-
-    if (streaks.length > 0) {
-      return streaks[streaks.length - 1]
-    } else {
-      return 0
-    }
-  }
-
   const dateOfLastGreenTask = () => {
     let date = []
     for (const year in calendar) {
@@ -223,12 +212,14 @@ const newHabit = ({
     return date
   }
 
+  // Last Missed Streak does not count today
+  // so you still have a chance to do your task and make it green
   const getLastMissedStreak = () => {
     let count = 0
     const date = dateOfLastGreenTask()
     for (let year = date[0]; year <= yearNow; year++) {
       for (let month = date[1]; month <= monthNow; month++) {
-        for (let day = date[2]; day <= dayNow; day++) {
+        for (let day = date[2]; day < dayNow; day++) {
           if (calendar[year][month][day].done === "") {
             count++
           }
@@ -238,16 +229,23 @@ const newHabit = ({
     return count
   }
 
+  // Will only work if future days cannot be changed
+  const getCurrentStreak = () => {
+    const streaks = getStreaks()
+
+    if (streaks.length > 0 && getLastMissedStreak() < daysToBreakHabit) {
+      return streaks[streaks.length - 1]
+    } else {
+      return 0
+    }
+  }
+
   // Returns a clone of newHabit
   // Something's wrong
   const updateStable = () => {
     if (!stable && getCurrentStreak() >= daysToStableHabit) {
       return updateProperties({ newStable: true })
-    } else if (
-      stable &&
-      getCurrentStreak() === 0 &&
-      getLastMissedStreak() >= daysToBreakHabit
-    ) {
+    } else if (stable && getLastMissedStreak() >= daysToBreakHabit) {
       return updateProperties({ newStable: false })
     } else {
       return updateProperties({})
@@ -257,7 +255,7 @@ const newHabit = ({
   return {
     readName,
     readId,
-    readStable,
+    isStable,
     readCalendar,
     readPeriod,
     readNumber,

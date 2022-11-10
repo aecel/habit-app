@@ -39,13 +39,13 @@ const App = () => {
 
   const readStableHabits = () => {
     return habits.filter((habit) => {
-      return habit.readStable() === true
+      return habit.isStable() === true
     })
   }
 
   const readUnstableHabits = () => {
     return habits.filter((habit) => {
-      return habit.readStable() === false
+      return habit.isStable() === false
     })
   }
 

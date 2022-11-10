@@ -19,7 +19,7 @@ const HabitCard = () => {
             <div key={habit.readId()} className="habit-card">
               <p>Title: {habit.readName()}</p>
               <p>Id: {habit.readId()}</p>
-              <p>Stable: {habit.readStable() ? "Sooo truue" : "False"}</p>
+              <p>Stable: {habit.isStable() ? "Sooo truue" : "False"}</p>
               <p>Date Created: {habit.readDateCreated()}</p>
               <p>Green Tasks: {habit.countGreenTasks()}</p>
               <p>Streaks: {JSON.stringify(habit.getStreaks())}</p>
