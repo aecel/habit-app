@@ -23,7 +23,7 @@ This is a non-punishing app that will help the user form habits.
 15. When setting up a new unstable habit for the first time, there would be a guide for the user to make it a small step muna. Give examples like, if you want to go to the gym early, make it so that you wake up early muna ganun. The unstable habit can also evolve. From "wake up early" to "wake up early and change to gym shoes" and then to "wake up early and change to gym clothes" until you reach your main goal to go to the gym early. Ganern. I'm not completely sure how to implement this. Maybe after a certain number of days, there would be a pop-up asking you to edit the unstable habit to its next step or something. Idk. Or make it so that these steps are the children of your main goal.
 16. Make the stable habits very pretty/cool so it's a dopamine hit when you see them. It should look better the longer it is.
 17. There is an option where you only half assed the task. (e.g. You only flossed your bottom teeth instead of all your teeth lol) This will continue your streak pa rin. So there are 3 colors na, gray, dark green, green.
-18. You can choose to reward yourself when you hit a number of days that you have stable (e.g. I will buy myself a slice of Gouda when I hit 15 days) 
+18. You can choose to reward yourself when you hit a number of days that you have set (e.g. I will buy myself a slice of Gouda when I hit 15 days) 
 19. Make an option to set an alarm during a particular time. Either that or a trigger/situation. What happens before or after the habit?
 20. Display your progress in percentage, current streak, longest streak.
 21. Just an idea: stable habits can evolve to solidified habits. There can be 10 levels, all levels named after the mohs scale levels. (Talc to Diamond)

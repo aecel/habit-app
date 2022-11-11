@@ -101,17 +101,15 @@ const App = () => {
     setHabits(nextHabits)
   }
 
-  const promoteHabit = (id) => {
+  const promoteHabit = (index) => {
     const nextHabits = [...habits]
-    const index = getIndexById(id)
     const updatedHabit = nextHabits[index].updateProperties({ newStable: true })
     nextHabits[index] = updatedHabit
     setHabits(nextHabits)
   }
 
-  const demoteHabit = (id) => {
+  const demoteHabit = (index) => {
     const nextHabits = [...habits]
-    const index = getIndexById(id)
     const updatedHabit = nextHabits[index].updateProperties({
       newStable: false,
     })
@@ -138,10 +136,18 @@ const App = () => {
     const nextHabits = [...habits]
     const index = getIndexById(id)
     const habitToUpdate = nextHabits[index]
-    const updatedHabit = habitToUpdate.updateStable()
-    console.log(updatedHabit)
-    nextHabits[index] = updatedHabit
-    setHabits(nextHabits)
+    if (
+      !habitToUpdate.isStable() &&
+      habitToUpdate.getCurrentStreak() >= habitToUpdate.readDaysToStableHabit()
+    ) {
+      promoteHabit(index)
+    } else if (
+      habitToUpdate.isStable() &&
+      habitToUpdate.getLastMissedStreak() >=
+        habitToUpdate.readDaysToBreakHabit()
+    ) {
+      demoteHabit(index)
+    }
   }
 
   const habitFunctions = {
@@ -161,34 +167,34 @@ const App = () => {
 
   useEffect(() => {
     // deleteHabit(habit1.readId())
-    // updateDay({
-    //   id: habit1.readId(),
-    //   year: 2022,
-    //   month: 11,
-    //   day: 4,
-    //   taskDone: "half-assed",
-    // })
-    // updateDay({
-    //   id: habit1.readId(),
-    //   year: 2022,
-    //   month: 11,
-    //   day: 5,
-    //   taskDone: "half-assed",
-    // })
-    // updateDay({
-    //   id: habit1.readId(),
-    //   year: 2022,
-    //   month: 11,
-    //   day: 6,
-    //   taskDone: "so true",
-    // })
-    // updateDay({
-    //   id: habit2.readId(),
-    //   year: 2022,
-    //   month: 11,
-    //   day: 1,
-    //   taskDone: "half-assed",
-    // })
+    updateDay({
+      id: habit1.readId(),
+      year: 2022,
+      month: 11,
+      day: 4,
+      taskDone: "half-assed",
+    })
+    updateDay({
+      id: habit1.readId(),
+      year: 2022,
+      month: 11,
+      day: 5,
+      taskDone: "half-assed",
+    })
+    updateDay({
+      id: habit1.readId(),
+      year: 2022,
+      month: 11,
+      day: 6,
+      taskDone: "so true",
+    })
+    updateDay({
+      id: habit2.readId(),
+      year: 2022,
+      month: 11,
+      day: 1,
+      taskDone: "half-assed",
+    })
   }, [])
 
   useEffect(() => {

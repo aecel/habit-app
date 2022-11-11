@@ -241,14 +241,22 @@ const newHabit = ({
   }
 
   // Returns a clone of newHabit
-  // Something's wrong
-  const updateStable = () => {
-    if (!stable && getCurrentStreak() >= daysToStableHabit) {
-      return updateProperties({ newStable: true })
-    } else if (stable && getLastMissedStreak() >= daysToBreakHabit) {
-      return updateProperties({ newStable: false })
+  // It's kinda working
+  // const updateStable = () => {
+  //   if (!stable && getCurrentStreak() >= daysToStableHabit) {
+  //     return updateProperties({ newStable: true })
+  //   } else if (stable && getLastMissedStreak() >= daysToBreakHabit) {
+  //     return updateProperties({ newStable: false })
+  //   } else {
+  //     return updateProperties({})
+  //   }
+  // }
+
+  const getDemotionWarning = () => {
+    if (stable && daysToBreakHabit() - 1 === getLastMissedStreak()) {
+      return "Your stable habit is about to be demoted!"
     } else {
-      return updateProperties({})
+      return null
     }
   }
 
@@ -274,7 +282,8 @@ const newHabit = ({
     getMaxStreak,
     getCurrentStreak,
     getLastMissedStreak,
-    updateStable,
+    // updateStable,
+    getDemotionWarning,
   }
 }
 
