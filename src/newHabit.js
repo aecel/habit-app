@@ -106,6 +106,7 @@ const newHabit = ({
     newTrigger,
     newReward,
     newStreakForReward,
+    newLastUpdated,
     newDaysToStableHabit,
     newDaysToBreakHabit,
   }) => {
@@ -118,6 +119,7 @@ const newHabit = ({
     if (newTrigger) clone.trigger = newTrigger
     if (newReward) clone.reward = newReward
     if (newStreakForReward) clone.streakForReward = newStreakForReward
+    if (newLastUpdated) clone.lastUpdated = newLastUpdated
     if (newDaysToStableHabit) clone.daysToStableHabit = newDaysToStableHabit
     if (newDaysToBreakHabit) clone.daysToBreakHabit = newDaysToBreakHabit
     return newHabit(clone)
@@ -128,8 +130,10 @@ const newHabit = ({
     const calendarClone = calendar
     if (taskDone) calendarClone[year][month][day].done = taskDone
     if (taskNotes) calendarClone[year][month][day].notes = taskNotes
-    lastUpdated = new Date()
-    return updateProperties({ newCalendar: calendarClone })
+    return updateProperties({
+      newCalendar: calendarClone,
+      newLastUpdated: new Date(),
+    })
   }
 
   // Returns an updated newHabit clone
@@ -144,8 +148,10 @@ const newHabit = ({
       calendarClone[year][month][day].done = ""
     }
 
-    lastUpdated = new Date()
-    return updateProperties({ newCalendar: calendarClone })
+    return updateProperties({
+      newCalendar: calendarClone,
+      newLastUpdated: new Date(),
+    })
   }
 
   const countGreenTasks = () => {
@@ -229,7 +235,6 @@ const newHabit = ({
     return count
   }
 
-  // Will only work if future days cannot be changed
   const getCurrentStreak = () => {
     const streaks = getStreaks()
 
@@ -260,6 +265,34 @@ const newHabit = ({
     }
   }
 
+  const isUpdateNeeded = () => {
+    if (lastUpdated !== "") {
+      const msPerDay = 1000 * 60 * 60 * 24
+      const today = new Date()
+      const todayUtc = Date.UTC(
+        today.getFullYear(),
+        today.getMonth(),
+        today.getDate()
+      )
+      const lastUpdatedUtc = Date.UTC(
+        lastUpdated.getFullYear(),
+        lastUpdated.getMonth(),
+        lastUpdated.getDate()
+      )
+      const diffTime = todayUtc - lastUpdatedUtc
+      const diffDays = Math.floor(diffTime / msPerDay)
+      // return diffTime / 1000 + " seconds"
+      // return diffTime + " milliseconds"
+      // return diffDays + " days"
+      if (diffDays>= 14) {
+        return true
+      } else {
+        return false
+      }
+    }
+    return false
+  }
+
   return {
     readName,
     readId,
@@ -284,6 +317,7 @@ const newHabit = ({
     getLastMissedStreak,
     // updateStable,
     getDemotionWarning,
+    isUpdateNeeded,
   }
 }
 

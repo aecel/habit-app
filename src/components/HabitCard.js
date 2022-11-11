@@ -29,6 +29,7 @@ const HabitCard = () => {
               <p>Last Missed Streak: {habit.getLastMissedStreak()}</p>
               <p>Days to Stabilize Habit: {habit.readDaysToStableHabit()}</p>
               <p>Days to Break Habit: {habit.readDaysToBreakHabit()}</p>
+              <p>Time Diff: {habit.isUpdateNeeded()}</p>
               <div className="calendar">
                 {Object.entries(habit.readCalendar()[yearNow][monthNow]).map(
                   (day) => {

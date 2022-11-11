@@ -97,8 +97,8 @@ const App = () => {
     const index = getIndexById(id)
     if (index !== -1) {
       nextHabits.splice(index, 1)
+      setHabits(nextHabits)
     }
-    setHabits(nextHabits)
   }
 
   const promoteHabit = (index) => {
@@ -117,21 +117,6 @@ const App = () => {
     setHabits(nextHabits)
   }
 
-  const updateSettings = (propertiesToEdit) => {
-    // propertiesToEdit sample:
-    // {
-    //   theme: "dark",
-    //   daysToStableHabit: 66,
-    //   unstableHabitLimit: 1,
-    //   daysToBreakHabit: 3,
-    // }
-    const nextSettings = { ...settings }
-    for (const property in propertiesToEdit) {
-      nextSettings[property] = propertiesToEdit[property]
-    }
-    setSettings(nextSettings)
-  }
-
   const updateStable = (id) => {
     const nextHabits = [...habits]
     const index = getIndexById(id)
@@ -148,6 +133,14 @@ const App = () => {
     ) {
       demoteHabit(index)
     }
+  }
+
+  const updateSettings = (propertiesToEdit) => {
+    const nextSettings = { ...settings }
+    for (const property in propertiesToEdit) {
+      nextSettings[property] = propertiesToEdit[property]
+    }
+    setSettings(nextSettings)
   }
 
   const habitFunctions = {
