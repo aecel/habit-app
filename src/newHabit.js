@@ -1,4 +1,6 @@
 import getBlankCalendar from "./getBlankCalendar"
+import getDayDiff from "./getDayDiff"
+import getReadableDate from "./getReadableDate"
 
 const today = new Date()
 const dayNow = today.getDate()
@@ -58,40 +60,16 @@ const newHabit = ({
   const readReward = () => reward
   const readStreakForReward = () => streakForReward
   const readLastUpdated = () => {
-    if (lastUpdated !== "") {
-      const date =
-        lastUpdated.getFullYear() +
-        "-" +
-        String(lastUpdated.getMonth() + 1).padStart(2, "0") +
-        "-" +
-        String(lastUpdated.getDate()).padStart(2, "0")
-      const time =
-        String(lastUpdated.getHours()).padStart(2, "0") +
-        ":" +
-        String(lastUpdated.getMinutes()).padStart(2, "0") +
-        ":" +
-        String(lastUpdated.getSeconds()).padStart(2, "0")
-
-      return date + " " + time
+    if (!lastUpdated) {
+      return "It's undefined, bruh"
+    } else if (lastUpdated !== "") {
+      return getReadableDate(lastUpdated)
     } else {
       return "Never"
     }
   }
   const readDateCreated = () => {
-    const date =
-      dateCreated.getFullYear() +
-      "-" +
-      String(dateCreated.getMonth() + 1).padStart(2, "0") +
-      "-" +
-      String(dateCreated.getDate()).padStart(2, "0")
-    const time =
-      String(dateCreated.getHours()).padStart(2, "0") +
-      ":" +
-      String(dateCreated.getMinutes()).padStart(2, "0") +
-      ":" +
-      String(dateCreated.getSeconds()).padStart(2, "0")
-
-    return date + " " + time
+    return getReadableDate(dateCreated)
   }
   const readDaysToStableHabit = () => daysToStableHabit
   const readDaysToBreakHabit = () => daysToBreakHabit
@@ -266,25 +244,8 @@ const newHabit = ({
   }
 
   const isUpdateNeeded = () => {
-    if (lastUpdated !== "") {
-      const msPerDay = 1000 * 60 * 60 * 24
-      const today = new Date()
-      const todayUtc = Date.UTC(
-        today.getFullYear(),
-        today.getMonth(),
-        today.getDate()
-      )
-      const lastUpdatedUtc = Date.UTC(
-        lastUpdated.getFullYear(),
-        lastUpdated.getMonth(),
-        lastUpdated.getDate()
-      )
-      const diffTime = todayUtc - lastUpdatedUtc
-      const diffDays = Math.floor(diffTime / msPerDay)
-      // return diffTime / 1000 + " seconds"
-      // return diffTime + " milliseconds"
-      // return diffDays + " days"
-      if (diffDays>= 14) {
+    if (lastUpdated && lastUpdated !== "") {
+      if (getDayDiff(new Date(), lastUpdated) >= 14) {
         return true
       } else {
         return false
@@ -317,6 +278,7 @@ const newHabit = ({
     getLastMissedStreak,
     // updateStable,
     getDemotionWarning,
+    getDayDiff,
     isUpdateNeeded,
   }
 }
