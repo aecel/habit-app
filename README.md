@@ -28,3 +28,10 @@ This is a non-punishing app that will help the user form habits.
 20. Display your progress in percentage, current streak, longest streak.
 21. Just an idea: stable habits can evolve to solidified habits. There can be 10 levels, all levels named after the mohs scale levels. (Talc to Diamond)
 22. Add a sound/animation when you update a day
+
+## Known bugs
+
+## What I learned
+1. Use setHabits only once every update. Don't use more than two functions to use setHabits at the same time.
+2. !"" === true lmao
+3. Convert dates to utc for cases where dates span a DST change

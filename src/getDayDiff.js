@@ -24,12 +24,18 @@ const getDayDiff = (date1, date2) => {
     // return diffDays + " days"
 
     return diffDays
-  } else if (!date1 && !date2) {
+  } if (date1 === undefined && date2 === undefined) {
     return "Both dates are undefined"
-  } else if (!date1) {
+  } else if (date1 === undefined) {
     return "Date 1 is undefined"
-  } else if (!date2) {
+  } else if (date2 === undefined) {
     return "Date 2 is undefined"
+  } else if (date1 === "" && date2 === "") {
+    return "Both dates are empty strings"
+  } else if (date1 === "") {
+    return "Date 1 is an empty string"
+  } else if (date2 === "") {
+    return "Date 2 is an empty string"
   } else {
     return "What have you done lol"
   }

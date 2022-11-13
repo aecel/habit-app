@@ -60,12 +60,10 @@ const newHabit = ({
   const readReward = () => reward
   const readStreakForReward = () => streakForReward
   const readLastUpdated = () => {
-    if (!lastUpdated) {
-      return "It's undefined, bruh"
-    } else if (lastUpdated !== "") {
-      return getReadableDate(lastUpdated)
-    } else {
+    if (lastUpdated === "") {
       return "Never"
+    } else {
+      return getReadableDate(lastUpdated)
     }
   }
   const readDateCreated = () => {
@@ -73,6 +71,8 @@ const newHabit = ({
   }
   const readDaysToStableHabit = () => daysToStableHabit
   const readDaysToBreakHabit = () => daysToBreakHabit
+
+  const getLastUpdated = () => lastUpdated
 
   // Returns an updated newHabit clone
   const updateProperties = ({
@@ -100,21 +100,21 @@ const newHabit = ({
     if (newLastUpdated) clone.lastUpdated = newLastUpdated
     if (newDaysToStableHabit) clone.daysToStableHabit = newDaysToStableHabit
     if (newDaysToBreakHabit) clone.daysToBreakHabit = newDaysToBreakHabit
+
     return newHabit(clone)
   }
 
   // Returns an updated newHabit clone
-  const updateDay = ({ year, month, day, taskDone, taskNotes }) => {
-    const calendarClone = calendar
-    if (taskDone) calendarClone[year][month][day].done = taskDone
-    if (taskNotes) calendarClone[year][month][day].notes = taskNotes
-    return updateProperties({
-      newCalendar: calendarClone,
-      newLastUpdated: new Date(),
-    })
-  }
+  // const updateDay = ({ year, month, day, taskDone, taskNotes }) => {
+  //   const calendarClone = calendar
+  //   if (taskDone) calendarClone[year][month][day].done = taskDone
+  //   if (taskNotes) calendarClone[year][month][day].notes = taskNotes
+  //   return updateProperties({
+  //     newCalendar: calendarClone,
+  //     newLastUpdated: new Date(),
+  //   })
+  // }
 
-  // Returns an updated newHabit clone
   const triToggleDay = ({ year, month, day }) => {
     const calendarClone = calendar
     const currentTaskDone = calendarClone[year][month][day].done
@@ -126,10 +126,24 @@ const newHabit = ({
       calendarClone[year][month][day].done = ""
     }
 
-    return updateProperties({
-      newCalendar: calendarClone,
-      newLastUpdated: new Date(),
-    })
+    if (!stable && getCurrentStreak() >= daysToStableHabit) {
+      return updateProperties({
+        newStable: true,
+        newCalendar: calendarClone,
+        newLastUpdated: new Date(),
+      })
+    } else if (stable && getLastMissedStreak() >= daysToBreakHabit) {
+      return updateProperties({
+        newStable: false,
+        newCalendar: calendarClone,
+        newLastUpdated: new Date(),
+      })
+    } else {
+      return updateProperties({
+        newCalendar: calendarClone,
+        newLastUpdated: new Date(),
+      })
+    }
   }
 
   const countGreenTasks = () => {
@@ -201,6 +215,7 @@ const newHabit = ({
   const getLastMissedStreak = () => {
     let count = 0
     const date = dateOfLastGreenTask()
+    if (date.length === 0) return Infinity
     for (let year = date[0]; year <= yearNow; year++) {
       for (let month = date[1]; month <= monthNow; month++) {
         for (let day = date[2]; day < dayNow; day++) {
@@ -223,19 +238,7 @@ const newHabit = ({
     }
   }
 
-  // Returns a clone of newHabit
-  // It's kinda working
-  // const updateStable = () => {
-  //   if (!stable && getCurrentStreak() >= daysToStableHabit) {
-  //     return updateProperties({ newStable: true })
-  //   } else if (stable && getLastMissedStreak() >= daysToBreakHabit) {
-  //     return updateProperties({ newStable: false })
-  //   } else {
-  //     return updateProperties({})
-  //   }
-  // }
-
-  const getDemotionWarning = () => {
+  const isAboutToBeDemoted = () => {
     if (stable && daysToBreakHabit() - 1 === getLastMissedStreak()) {
       return "Your stable habit is about to be demoted!"
     } else {
@@ -268,17 +271,18 @@ const newHabit = ({
     readDateCreated,
     readDaysToStableHabit,
     readDaysToBreakHabit,
+    getLastUpdated,
     updateProperties,
-    updateDay,
     triToggleDay,
+    // updateDay,
+    // triToggleDay,
     countGreenTasks,
     getStreaks,
     getMaxStreak,
     getCurrentStreak,
     getLastMissedStreak,
     // updateStable,
-    getDemotionWarning,
-    getDayDiff,
+    isAboutToBeDemoted,
     isUpdateNeeded,
   }
 }

@@ -1,10 +1,10 @@
 import { useHabits } from "../App"
+import getDayDiff from "../getDayDiff"
 
 const HabitCard = () => {
   const habits = useHabits().habits
   const habitFunctions = useHabits().habitFunctions
   const triToggleDay = habitFunctions.triToggleDay
-  const updateStable = habitFunctions.updateStable
 
   const today = new Date()
   //   const dayNow = String(today.getDate()).padStart(2, "0")
@@ -25,12 +25,24 @@ const HabitCard = () => {
               <p>Streaks: {JSON.stringify(habit.getStreaks())}</p>
               <p>Longest Streak: {habit.getMaxStreak()}</p>
               <p>Current Streak: {habit.getCurrentStreak()}</p>
-              <p>Last Updated: {habit.readLastUpdated()}</p>
+              <p>
+                Last Updated:{" "}
+                {habit.getLastUpdated() !== undefined
+                  ? habit.readLastUpdated()
+                  : "It's undefined bruh"}
+              </p>
               <p>Last Missed Streak: {habit.getLastMissedStreak()}</p>
               <p>Days to Stabilize Habit: {habit.readDaysToStableHabit()}</p>
               <p>Days to Break Habit: {habit.readDaysToBreakHabit()}</p>
-              <p>Day Diff: {habit.getDayDiff()} days</p>
-              <p>Is Update Needed? {habit.isUpdateNeeded() ? "Yeppers" : "Nope"}</p>
+              <p>
+                Day Diff: {getDayDiff(new Date(), habit.getLastUpdated())} days
+              </p>
+              <p>
+                Is Update Needed?{" "}
+                {habit.isUpdateNeeded()
+                  ? "Yeppers"
+                  : "Nope"}
+              </p>
               <div className="calendar">
                 {Object.entries(habit.readCalendar()[yearNow][monthNow]).map(
                   (day) => {
@@ -39,15 +51,12 @@ const HabitCard = () => {
                         key={day[0]}
                         className="day"
                         onClick={() => {
-                          console.log(day[0])
                           triToggleDay({
                             id: habit.readId(),
                             year: yearNow,
                             month: monthNow,
                             day: day[0],
                           })
-                          updateStable(habit.readId())
-                          console.log(typeof habit.getDayDiff())
                         }}
                         style={{
                           cursor: "pointer",

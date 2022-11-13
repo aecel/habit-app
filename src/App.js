@@ -6,7 +6,7 @@ import "./styles/style.css"
 const HabitContext = createContext()
 export const useHabits = () => useContext(HabitContext)
 const App = () => {
-  const habit1 = newHabit({ name: "Stable Habit", stable: true })
+  const habit1 = newHabit({ name: "Stable Habit", stable: true, lastUpdated: new Date("2022-10-30") })
   const habit2 = newHabit({
     name: "Unstable Habit",
     stable: false,
@@ -49,7 +49,7 @@ const App = () => {
     })
   }
 
-  const updateHabit = (id, propertiesToEdit) => {
+  const triToggleDay = ({ id, year, month, day }) => {
     // propertiesToEdit sample:
     // {
     //   newSomethijng: "hellp",
@@ -58,7 +58,7 @@ const App = () => {
     const nextHabits = [...habits]
     const index = getIndexById(id)
     const habitToEdit = nextHabits[index]
-    const updatedHabit = habitToEdit.updateProperties(propertiesToEdit)
+    const updatedHabit = habitToEdit.triToggleDay({ year, month, day })
     nextHabits[index] = updatedHabit
     setHabits(nextHabits)
   }
@@ -73,20 +73,6 @@ const App = () => {
       day,
       taskDone,
       taskNotes,
-    })
-    nextHabits[index] = updatedHabit
-    setHabits(nextHabits)
-  }
-
-  const triToggleDay = ({ id, year, month, day }) => {
-    const nextHabits = [...habits]
-    const index = getIndexById(id)
-    console.log(id)
-    const habitToEdit = nextHabits[index]
-    const updatedHabit = habitToEdit.triToggleDay({
-      year,
-      month,
-      day,
     })
     nextHabits[index] = updatedHabit
     setHabits(nextHabits)
@@ -117,24 +103,6 @@ const App = () => {
     setHabits(nextHabits)
   }
 
-  const updateStable = (id) => {
-    const nextHabits = [...habits]
-    const index = getIndexById(id)
-    const habitToUpdate = nextHabits[index]
-    if (
-      !habitToUpdate.isStable() &&
-      habitToUpdate.getCurrentStreak() >= habitToUpdate.readDaysToStableHabit()
-    ) {
-      promoteHabit(index)
-    } else if (
-      habitToUpdate.isStable() &&
-      habitToUpdate.getLastMissedStreak() >=
-        habitToUpdate.readDaysToBreakHabit()
-    ) {
-      demoteHabit(index)
-    }
-  }
-
   const updateSettings = (propertiesToEdit) => {
     const nextSettings = { ...settings }
     for (const property in propertiesToEdit) {
@@ -148,53 +116,51 @@ const App = () => {
     createHabit,
     readStableHabits,
     readUnstableHabits,
-    updateHabit,
-    updateDay,
     triToggleDay,
+    updateDay,
     deleteHabit,
     promoteHabit,
     demoteHabit,
     updateSettings,
-    updateStable,
   }
 
   useEffect(() => {
     // deleteHabit(habit1.readId())
-    updateDay({
-      id: habit1.readId(),
-      year: 2022,
-      month: 11,
-      day: 4,
-      taskDone: "half-assed",
-    })
-    updateDay({
-      id: habit1.readId(),
-      year: 2022,
-      month: 11,
-      day: 5,
-      taskDone: "half-assed",
-    })
-    updateDay({
-      id: habit1.readId(),
-      year: 2022,
-      month: 11,
-      day: 6,
-      taskDone: "so true",
-    })
-    updateDay({
-      id: habit2.readId(),
-      year: 2022,
-      month: 11,
-      day: 1,
-      taskDone: "half-assed",
-    })
+    // updateDay({
+    //   id: habit1.readId(),
+    //   year: 2022,
+    //   month: 11,
+    //   day: 4,
+    //   taskDone: "half-assed",
+    // })
+    // updateDay({
+    //   id: habit1.readId(),
+    //   year: 2022,
+    //   month: 11,
+    //   day: 5,
+    //   taskDone: "half-assed",
+    // })
+    // updateDay({
+    //   id: habit1.readId(),
+    //   year: 2022,
+    //   month: 11,
+    //   day: 6,
+    //   taskDone: "so true",
+    // })
+    // updateDay({
+    //   id: habit2.readId(),
+    //   year: 2022,
+    //   month: 11,
+    //   day: 1,
+    //   taskDone: "half-assed",
+    // })
   }, [])
 
   useEffect(() => {
     // console.table(habits)
-    console.log("Stable Habit")
+    console.log("Stable Habit Table:")
     console.table(Object.entries(habits[0].readCalendar()[2022][11]))
-    console.log("Unstable Habit")
+    console.log("Unstable Habit Table:")
     console.table(Object.entries(habits[1].readCalendar()[2022][11]))
   }, [habits])
 
