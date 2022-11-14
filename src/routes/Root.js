@@ -1,11 +1,11 @@
 import { createContext, useContext, useEffect, useState } from "react"
-import TestHabitCards from "./components/TestHabitCards.js"
-import newHabit from "./newHabit.js"
-import "./styles/style.css"
+import TestHabitCards from "../components/TestHabitCards.js"
+import newHabit from "../newHabit.js"
+import "../styles/style.css"
 
 const HabitContext = createContext()
 export const useHabits = () => useContext(HabitContext)
-const App = () => {
+const Root = () => {
   const habit1 = newHabit({ name: "Stable Habit", stable: true, lastUpdated: new Date("2022-10-30") })
   const habit2 = newHabit({
     name: "Unstable Habit",
@@ -172,11 +172,14 @@ const App = () => {
         habitFunctions: habitFunctions,
       }}
     >
-      <div className="App">
+      <div className="Root">
+        <header>
+            
+        </header>
         <TestHabitCards />
       </div>
     </HabitContext.Provider>
   )
 }
 
-export default App
+export default Root

@@ -8,6 +8,7 @@ html {
 
 .habit-cards {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 50px;
@@ -45,16 +46,8 @@ html {
 .year-calendar {
   margin-top: 20px;
   display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  grid-template-rows: repeat(10, 1fr);
-  gap: 3px;
-}
-
-.year-calendar-month {
-  margin-top: 20px;
-  display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  grid-template-rows: repeat(10, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+  grid-auto-flow: column;
   gap: 3px;
 }
 
@@ -63,9 +56,9 @@ html {
   align-items: center;
   justify-content: center;
   padding: 2px;
-  height: 20px;
-  width: 20px;
-  border-radius: 50%;
+  height: 12px;
+  width: 12px;
+  border-radius: 5px;
   background-color: black;
-  font-size: 10px;
+  font-size: 8px;
 }

@@ -104,48 +104,6 @@ const newHabit = ({
     return newHabit(clone)
   }
 
-  // Returns an updated newHabit clone
-  // const updateDay = ({ year, month, day, taskDone, taskNotes }) => {
-  //   const calendarClone = calendar
-  //   if (taskDone) calendarClone[year][month][day].done = taskDone
-  //   if (taskNotes) calendarClone[year][month][day].notes = taskNotes
-  //   return updateProperties({
-  //     newCalendar: calendarClone,
-  //     newLastUpdated: new Date(),
-  //   })
-  // }
-
-  const triToggleDay = ({ year, month, day }) => {
-    const calendarClone = calendar
-    const currentTaskDone = calendarClone[year][month][day].done
-    if (currentTaskDone === "") {
-      calendarClone[year][month][day].done = "so true"
-    } else if (currentTaskDone === "so true") {
-      calendarClone[year][month][day].done = "half-assed"
-    } else if (currentTaskDone === "half-assed") {
-      calendarClone[year][month][day].done = ""
-    }
-
-    if (!stable && getCurrentStreak() >= daysToStableHabit) {
-      return updateProperties({
-        newStable: true,
-        newCalendar: calendarClone,
-        newLastUpdated: new Date(),
-      })
-    } else if (stable && getLastMissedStreak() >= daysToBreakHabit) {
-      return updateProperties({
-        newStable: false,
-        newCalendar: calendarClone,
-        newLastUpdated: new Date(),
-      })
-    } else {
-      return updateProperties({
-        newCalendar: calendarClone,
-        newLastUpdated: new Date(),
-      })
-    }
-  }
-
   const countGreenTasks = () => {
     let count = 0
     for (const year in calendar) {
@@ -238,6 +196,47 @@ const newHabit = ({
     }
   }
 
+  const getCalculatedStable = () => {
+    let calculatedStable = stable
+    if (!stable && getCurrentStreak() >= daysToStableHabit) {
+      calculatedStable = true
+    } else if (stable && getLastMissedStreak() >= daysToBreakHabit) {
+      calculatedStable = false
+    }
+
+    return calculatedStable
+  }
+
+  // Returns an updated newHabit clone
+  const updateDay = ({ year, month, day, taskDone, taskNotes }) => {
+    const calendarClone = calendar
+    if (taskDone) calendarClone[year][month][day].done = taskDone
+    if (taskNotes) calendarClone[year][month][day].notes = taskNotes
+    return updateProperties({
+      newStable: getCalculatedStable(),
+      newCalendar: calendarClone,
+      newLastUpdated: new Date(),
+    })
+  }
+
+  const triToggleDay = ({ year, month, day }) => {
+    const calendarClone = calendar
+    const currentTaskDone = calendarClone[year][month][day].done
+    if (currentTaskDone === "") {
+      calendarClone[year][month][day].done = "so true"
+    } else if (currentTaskDone === "so true") {
+      calendarClone[year][month][day].done = "half-assed"
+    } else if (currentTaskDone === "half-assed") {
+      calendarClone[year][month][day].done = ""
+    }
+
+    return updateProperties({
+      newStable: getCalculatedStable(),
+      newCalendar: calendarClone,
+      newLastUpdated: new Date(),
+    })
+  }
+
   const isAboutToBeDemoted = () => {
     if (stable && daysToBreakHabit - 1 === getLastMissedStreak()) {
       return true
@@ -257,6 +256,11 @@ const newHabit = ({
     return false
   }
 
+  const getPercentageToStable = () => {
+    const percent = Math.round(getCurrentStreak()/daysToStableHabit)
+    return percent
+  }
+
   return {
     readName,
     readId,
@@ -273,17 +277,16 @@ const newHabit = ({
     readDaysToBreakHabit,
     getLastUpdated,
     updateProperties,
-    triToggleDay,
-    // updateDay,
-    // triToggleDay,
     countGreenTasks,
     getStreaks,
     getMaxStreak,
     getCurrentStreak,
     getLastMissedStreak,
-    // updateStable,
+    triToggleDay,
+    updateDay,
     isAboutToBeDemoted,
     isUpdateNeeded,
+    getPercentageToStable,
   }
 }
 

@@ -1,4 +1,4 @@
-import { useHabits } from "../App"
+import { useHabits } from "../routes/Root"
 import getDayDiff from "../getDayDiff"
 
 const TestHabitCards = () => {
@@ -95,13 +95,13 @@ const TestHabitCards = () => {
                         data-key={day[0]}
                         className="year-calendar-day"
                         onClick={
-                          dayNow >= day[0] && monthNow >= month[0]
+                          (dayNow >= day[0] && monthNow === Number(month[0])) ||
+                          monthNow > month[0]
                             ? () => {
-                                console.log(typeof month[0])
                                 triToggleDay({
                                   id: habit.readId(),
                                   year: yearNow,
-                                  month: month[0],
+                                  month: month[0], 
                                   day: day[0],
                                 })
                               }
