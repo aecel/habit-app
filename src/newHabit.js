@@ -239,10 +239,10 @@ const newHabit = ({
   }
 
   const isAboutToBeDemoted = () => {
-    if (stable && daysToBreakHabit() - 1 === getLastMissedStreak()) {
-      return "Your stable habit is about to be demoted!"
+    if (stable && daysToBreakHabit - 1 === getLastMissedStreak()) {
+      return true
     } else {
-      return null
+      return false
     }
   }
 

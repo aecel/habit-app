@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react"
-import HabitCard from "./components/HabitCard.js"
+import TestHabitCards from "./components/TestHabitCards.js"
 import newHabit from "./newHabit.js"
 import "./styles/style.css"
 
@@ -173,7 +173,7 @@ const App = () => {
       }}
     >
       <div className="App">
-        <HabitCard />
+        <TestHabitCards />
       </div>
     </HabitContext.Provider>
   )

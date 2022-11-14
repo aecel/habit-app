@@ -41,3 +41,31 @@ html {
   background-color: black;
   font-size: 12px;
 }
+
+.year-calendar {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  gap: 3px;
+}
+
+.year-calendar-month {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  gap: 3px;
+}
+
+.year-calendar-day {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background-color: black;
+  font-size: 10px;
+}
