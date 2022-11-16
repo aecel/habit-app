@@ -15,6 +15,7 @@ const newHabit = ({
   period = "daily",
   number = 1, // for each period
   trigger = "",
+  immediateReward = "",
   reward = "",
   streakForReward = 15,
   lastUpdated = "",
@@ -41,6 +42,7 @@ const newHabit = ({
       period,
       number,
       trigger,
+      immediateReward,
       reward,
       streakForReward,
       lastUpdated,
@@ -57,6 +59,7 @@ const newHabit = ({
   const readPeriod = () => period
   const readNumber = () => number
   const readTrigger = () => trigger
+  const readImmediateReward = () => immediateReward
   const readReward = () => reward
   const readStreakForReward = () => streakForReward
   const readLastUpdated = () => {
@@ -82,6 +85,7 @@ const newHabit = ({
     newPeriod,
     newNumber,
     newTrigger,
+    newImmediateReward,
     newReward,
     newStreakForReward,
     newLastUpdated,
@@ -95,6 +99,7 @@ const newHabit = ({
     if (newPeriod) clone.period = newPeriod
     if (newNumber) clone.number = newNumber
     if (newTrigger) clone.trigger = newTrigger
+    if (newImmediateReward) clone.immediateReward = newImmediateReward
     if (newReward) clone.reward = newReward
     if (newStreakForReward) clone.streakForReward = newStreakForReward
     if (newLastUpdated) clone.lastUpdated = newLastUpdated
@@ -257,7 +262,7 @@ const newHabit = ({
   }
 
   const getPercentageToStable = () => {
-    const percent = Math.round(getCurrentStreak()/daysToStableHabit)
+    const percent = Math.round(getCurrentStreak() / daysToStableHabit)
     return percent
   }
 
@@ -269,6 +274,7 @@ const newHabit = ({
     readPeriod,
     readNumber,
     readTrigger,
+    readImmediateReward,
     readReward,
     readStreakForReward,
     readLastUpdated,

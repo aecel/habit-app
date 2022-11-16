@@ -1,5 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+
 :root {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Lato", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: rgb(236, 236, 236);
 }
 
@@ -131,25 +133,73 @@ button {
 }
 
 #AddHabit {
-  padding: 20px;
+  margin: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#add-habit-form {
+  padding: 40px;
   background-color: #0d1117;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  border-radius: 10px;
-  text-align: center;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
+  /* align-items: center; */
   gap: 50px;
+  border-radius: 10px;
+  width: 300px;
 }
 
 button {
   padding: 10px 20px;
   background-color: #145820;
-  border-radius: 15px;
+  border-radius: 10px;
   cursor: pointer;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+input[type="text"],
+textarea {
+  all: unset;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: rgb(50, 50, 50);
+  color: white;
+  border: none;
+}
+
+label,
+input[type="text"],
+textarea {
+  font-size: 0.9rem;
+}
+
+input[type="radio"] {
+  width: 20px;
+  height: 20px;
+  padding: 10px;
+  background-color: rgb(50, 50, 50);
+  border: none;
+  accent-color: #145820;
+}
+
+.form-item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-item-radios {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-item-radio {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
