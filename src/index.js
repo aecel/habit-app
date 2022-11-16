@@ -2,6 +2,7 @@ import React from "react"
 import ReactDOM from "react-dom/client"
 import { createHashRouter, RouterProvider } from "react-router-dom"
 import TestHabitCards from "./components/TestHabitCards"
+import AddHabit from "./routes/AddHabit"
 import ErrorElement from "./routes/ErrorElement"
 // import App from "./App"
 import Root from "./routes/Root"
@@ -45,7 +46,7 @@ const router = createHashRouter([
           },
           {
             path: "/addhabit",
-            element: <></>,
+            element: <AddHabit />,
           },
         ],
       },
