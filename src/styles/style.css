@@ -3,12 +3,15 @@
 :root {
   font-family: "Lato", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: rgb(236, 236, 236);
+  --dark-green: #145820;
+  --gray: #272727;
+  --darkest-gray: #0d1117;
 }
 
 html,
 body {
   margin: 0;
-  background-color: rgb(39, 39, 39);
+  background-color: var(--gray);
 }
 
 .habit-cards {
@@ -21,7 +24,7 @@ body {
 
 .habit-card {
   padding: 20px;
-  background-color: #0d1117;
+  background-color: var(--darkest-gray);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -75,7 +78,7 @@ body {
   width: 100%;
   box-sizing: border-box;
   color: white;
-  background-color: #272727;
+  background-color: var(--gray);
   /* border-radius: 20px; */
   /* margin: 30px; */
   display: flex;
@@ -97,23 +100,12 @@ nav {
 }
 
 .chosen-tab {
-  background-color: #145820;
+  background-color: var(--dark-green);
 }
 
 a,
 button {
   all: unset;
-}
-
-.add-habit {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 40px;
-  width: 40px;
-  background-color: rgb(18, 63, 40);
-  border-radius: 50%;
-  cursor: pointer;
 }
 
 .bottom-ghost-div {
@@ -142,7 +134,7 @@ button {
 
 #add-habit-form {
   padding: 40px;
-  background-color: #0d1117;
+  background-color: var(--darkest-gray);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -154,7 +146,7 @@ button {
 
 button {
   padding: 10px 20px;
-  background-color: #145820;
+  background-color: var(--dark-green);
   border-radius: 10px;
   cursor: pointer;
   text-align: center;
@@ -166,7 +158,7 @@ textarea {
   all: unset;
   border-radius: 10px;
   padding: 10px;
-  background-color: rgb(50, 50, 50);
+  background-color: var(--gray);
   color: white;
   border: none;
 }
@@ -181,9 +173,9 @@ input[type="radio"] {
   width: 20px;
   height: 20px;
   padding: 10px;
-  background-color: rgb(50, 50, 50);
   border: none;
-  accent-color: #145820;
+  accent-color: var(--dark-green);
+  cursor: pointer;
 }
 
 .form-item {
@@ -202,4 +194,9 @@ input[type="radio"] {
   display: flex;
   align-items: center;
   gap: 20px;
+}
+
+label[for="stable"],
+label[for="unstable"] {
+  cursor: pointer;
 }

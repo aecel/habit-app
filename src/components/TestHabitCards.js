@@ -11,6 +11,10 @@ const TestHabitCards = () => {
   const monthNow = today.getMonth() + 1
   const yearNow = today.getFullYear()
 
+  const lightGreen = "#39D353"
+  const darkGreen = "#006D32"
+  const darkGray = "#1e242d"
+  const darkerGray = "#0D1117"
   return (
     <>
       <div className="habit-cards">
@@ -69,14 +73,14 @@ const TestHabitCards = () => {
                                 cursor: "pointer",
                                 backgroundColor: `${
                                   day[1]["done"] === "so true"
-                                    ? "#39D353"
+                                    ? `${lightGreen}`
                                     : day[1]["done"] === "half-assed"
-                                    ? "#006D32"
-                                    : "#1e242d"
+                                    ? `${darkGreen}`
+                                    : `${darkGray}`
                                 }`,
                               }
                             : {
-                                backgroundColor: "#0D1117",
+                                backgroundColor: `${darkerGray}`,
                               }
                         }
                       >
@@ -114,14 +118,14 @@ const TestHabitCards = () => {
                                 cursor: "pointer",
                                 backgroundColor: `${
                                   day[1]["done"] === "so true"
-                                    ? "#39D353"
+                                    ? `${lightGreen}`
                                     : day[1]["done"] === "half-assed"
-                                    ? "#006D32"
-                                    : "#1e242d"
+                                    ? `${darkGreen}`
+                                    : `${darkGray}`
                                 }`,
                               }
                             : {
-                                backgroundColor: "#0D1117",
+                                backgroundColor: `${darkerGray}`,
                               }
                         }
                       >
