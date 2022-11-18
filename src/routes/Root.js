@@ -124,6 +124,20 @@ const Root = () => {
     setSettings(nextSettings)
   }
 
+  const submitAddHabitForm = (event) => {
+    event.preventDefault()
+    const form = event.target.parentElement
+    console.log("Form" + form)
+    const formData = new FormData(form)
+    const name = formData.get("habit-name")
+    const stable = formData.get("stability")
+    const trigger = formData.get("trigger")
+    const immediateReward = formData.get("immediate-reward")
+
+    console.log({ name, stable, trigger, immediateReward })
+    form.reset()
+  }
+
   const habitFunctions = {
     getIndexById,
     createHabit,
@@ -135,6 +149,7 @@ const Root = () => {
     promoteHabit,
     demoteHabit,
     updateSettings,
+    submitAddHabitForm
   }
 
   useEffect(() => {
@@ -191,7 +206,7 @@ const Root = () => {
         <footer className="navbar">
           <nav>
             <NavLink
-            data-tip="Test Habits"
+              data-tip="Test Habits"
               to={"/testhabits"}
               id="testhabits"
               className={({ isActive, isPending }) =>
@@ -205,7 +220,7 @@ const Root = () => {
               <img className="header-tab-svg" src={testHabitsSvg} alt="" />
             </NavLink>
             <NavLink
-            data-tip="All Habits"
+              data-tip="All Habits"
               to={"/allhabits"}
               id="allhabits"
               className={({ isActive, isPending }) =>
@@ -216,11 +231,10 @@ const Root = () => {
                   : "header-tab"
               }
             >
-              
               <img className="header-tab-svg" src={allHabitsSvg} alt="" />
             </NavLink>
             <NavLink
-            data-tip="Calendar"
+              data-tip="Calendar"
               to={"/yearcalendar"}
               id="yearcalendar"
               className={({ isActive, isPending }) =>
@@ -231,11 +245,10 @@ const Root = () => {
                   : "header-tab"
               }
             >
-              
               <img className="header-tab-svg" src={calendarSvg} alt="" />
             </NavLink>
             <NavLink
-            data-tip="Home"
+              data-tip="Home"
               to={"/"}
               id="home"
               className={() =>
@@ -244,11 +257,10 @@ const Root = () => {
                   : "header-tab"
               }
             >
-              
               <img className="header-tab-svg" src={homeSvg} alt="" />
             </NavLink>
             <NavLink
-            data-tip="Stable Habits"
+              data-tip="Stable Habits"
               to={"/stablehabits"}
               id="stablehabits"
               className={({ isActive, isPending }) =>
@@ -259,11 +271,10 @@ const Root = () => {
                   : "header-tab"
               }
             >
-              
               <img className="header-tab-svg" src={stableHabitsSvg} alt="" />
             </NavLink>
             <NavLink
-            data-tip="Stats"
+              data-tip="Stats"
               to={"/stats"}
               id="stats"
               className={({ isActive, isPending }) =>
@@ -274,11 +285,10 @@ const Root = () => {
                   : "header-tab"
               }
             >
-              
               <img className="header-tab-svg" src={statsSvg} alt="" />
             </NavLink>
             <NavLink
-            data-tip="Settings"
+              data-tip="Settings"
               to={"/settings"}
               id="settings"
               className={({ isActive, isPending }) =>
@@ -289,11 +299,10 @@ const Root = () => {
                   : "header-tab"
               }
             >
-              
               <img className="header-tab-svg" src={settingsSvg} alt="" />
             </NavLink>
             <NavLink
-            data-tip="Add Habit"
+              data-tip="Add Habit"
               to={"/addhabit"}
               id="addhabit"
               className={({ isActive, isPending }) =>
@@ -304,11 +313,9 @@ const Root = () => {
                   : "header-tab"
               }
             >
-              
               <img className="header-tab-svg" src={addHabitSvg} alt="" />
             </NavLink>
           </nav>
-          
         </footer>
         <div className="bottom-ghost-div"></div>
         <ReactTooltip />
