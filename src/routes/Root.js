@@ -124,17 +124,24 @@ const Root = () => {
     setSettings(nextSettings)
   }
 
-  const submitAddHabitForm = (event) => {
+  const submitAddHabitForm = (event, form) => {
     event.preventDefault()
-    const form = event.target.parentElement
-    console.log("Form" + form)
+    // const form = event.target.parentElement
     const formData = new FormData(form)
     const name = formData.get("habit-name")
-    const stable = formData.get("stability")
+    const stability = formData.get("stability")
+    let stable
+    if (stability === "stable") {
+      stable = true
+    } else {
+      stable = false
+    }
     const trigger = formData.get("trigger")
     const immediateReward = formData.get("immediate-reward")
 
-    console.log({ name, stable, trigger, immediateReward })
+    const properties = { name, stable, trigger, immediateReward }
+    const habitToCreate = newHabit(properties)
+    createHabit(habitToCreate)
     form.reset()
   }
 
@@ -149,7 +156,7 @@ const Root = () => {
     promoteHabit,
     demoteHabit,
     updateSettings,
-    submitAddHabitForm
+    submitAddHabitForm,
   }
 
   useEffect(() => {

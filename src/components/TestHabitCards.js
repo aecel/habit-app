@@ -24,6 +24,8 @@ const TestHabitCards = () => {
               <p>Title: {habit.readName()}</p>
               <p>Id: {habit.readId()}</p>
               <p>Stable: {habit.isStable() ? "Sooo truue" : "False"}</p>
+              <p>Trigger: {habit.readTrigger()}</p>
+              <p>Immediate Reward: {habit.readImmediateReward()}</p>
               <p>Date Created: {habit.readDateCreated()}</p>
               <p>Green Tasks: {habit.countGreenTasks()}</p>
               <p>Streaks: {JSON.stringify(habit.getStreaks())}</p>

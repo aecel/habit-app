@@ -1,12 +1,14 @@
+import { useRef } from "react"
 import { useHabits } from "./Root"
 
 const AddHabit = () => {
   const habitFunctions = useHabits().habitFunctions
   const submitAddHabitForm = habitFunctions.submitAddHabitForm
+  const formRef = useRef()
 
   return (
     <div id="AddHabit">
-      <form id="add-habit-form">
+      <form id="add-habit-form" ref={formRef} action="">
         <div>All items with asterisk (*) are required</div>
         <div className="form-item">
           <label htmlFor="habit-name">Name of Habit *</label>
@@ -15,11 +17,17 @@ const AddHabit = () => {
         <div className="form-item-radios">
           <label>What kind of habit is this? *</label>
           <div className="form-item-radio">
-            <input id="unstable" name="stability" type="radio" value="unstable" defaultChecked />
+            <input
+              id="unstable"
+              name="stability"
+              type="radio"
+              value="unstable"
+              defaultChecked
+            />
             <label htmlFor="unstable">This is a habit I want to form</label>
           </div>
           <div className="form-item-radio">
-            <input id="stable" name="stability" type="radio" value="stable"/>
+            <input id="stable" name="stability" type="radio" value="stable" />
             <label htmlFor="stable">
               This is a stable habit <br></br>(I have been doing this daily for
               66 days or more)
@@ -52,7 +60,9 @@ const AddHabit = () => {
         <button
           id="add-habit-submit"
           type="submit"
-          onClick={submitAddHabitForm}
+          onSubmit={(event) => {
+            submitAddHabitForm(event, formRef.current)
+          }}
         >
           Add Habit
         </button>
