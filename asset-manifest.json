@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/github.io/habit-app/static/css/main.b6c8a81b.css",
+    "main.js": "/github.io/habit-app/static/js/main.f1b39940.js",
+    "static/media/peepo-sad.gif": "/github.io/habit-app/static/media/peepo-sad.f67eeae981afbf81e543.gif",
+    "static/media/calendar.svg": "/github.io/habit-app/static/media/calendar.e8513aa918b99c56bf79a50414f81167.svg",
+    "static/media/settings.svg": "/github.io/habit-app/static/media/settings.46d83119fbf87ac6a82d8af93efe4278.svg",
+    "static/media/stablehabits.svg": "/github.io/habit-app/static/media/stablehabits.4999e0aa92efe500c101752e79446bf2.svg",
+    "static/media/allhabits.svg": "/github.io/habit-app/static/media/allhabits.1f8fe30c80bd0af8f530ef06076edfd3.svg",
+    "static/media/testhabits.svg": "/github.io/habit-app/static/media/testhabits.4810b2eca1084e338beb2ed3a4138950.svg",
+    "static/media/addhabit.svg": "/github.io/habit-app/static/media/addhabit.0a6a38648265fea02f7fdc60522b3f70.svg",
+    "static/media/home.svg": "/github.io/habit-app/static/media/home.df5e37596d9d6be45855f9f0be96abe7.svg",
+    "static/media/stats.svg": "/github.io/habit-app/static/media/stats.70c2fed94bd672b58f684ba84de6fa9b.svg",
+    "index.html": "/github.io/habit-app/index.html",
+    "main.b6c8a81b.css.map": "/github.io/habit-app/static/css/main.b6c8a81b.css.map",
+    "main.f1b39940.js.map": "/github.io/habit-app/static/js/main.f1b39940.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b6c8a81b.css",
+    "static/js/main.f1b39940.js"
+  ]
+}
