@@ -4,7 +4,6 @@ import { createHashRouter, RouterProvider } from "react-router-dom"
 import TestHabitCards from "./components/TestHabitCards"
 import AddHabit from "./routes/AddHabit"
 import ErrorElement from "./routes/ErrorElement"
-// import App from "./App"
 import Root from "./routes/Root"
 
 const router = createHashRouter([
@@ -18,7 +17,7 @@ const router = createHashRouter([
         children: [
           {
             index: true,
-            element: <TestHabitCards />,
+            element: <ErrorElement />,
           },
           {
             path: "/testhabits",

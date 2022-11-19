@@ -1,6 +1,6 @@
 import { useRef, useState } from "react"
 import AddHabitModal from "../components/AddHabitModal"
-import { useHabits } from "./Root"
+import { useHabits } from "../useHabits"
 
 const AddHabit = () => {
   const habitFunctions = useHabits().habitFunctions
@@ -17,7 +17,7 @@ const AddHabit = () => {
   }
 
   const [name, setName] = useState()
-  const onInputNameBlur = (event) => {
+  const onInputNameChange = (event) => {
     setName(event.target.value)
   }
 
@@ -32,7 +32,7 @@ const AddHabit = () => {
             name="habit-name"
             type="text"
             required
-            onBlur={onInputNameBlur}
+            onChange={onInputNameChange}
           />
         </div>
         <div className="form-item-radios">

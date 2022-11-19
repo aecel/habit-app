@@ -1,5 +1,5 @@
-import { useHabits } from "../routes/Root"
 import getDayDiff from "../getDayDiff"
+import { useHabits } from "../useHabits"
 
 const TestHabitCards = () => {
   const habits = useHabits().habits

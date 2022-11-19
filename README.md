@@ -31,6 +31,7 @@ This is a non-punishing app that will help the user form habits.
 23. When you drag through squares, they all change to green or darkgreen or whatever
 
 ## Known bugs
+1. When switching from an empty route to a route like Add Habit or Test Habits, the navbar jumps. It's not super aligned.
 
 ## What I learned
 1. Use setHabits only once every update. Don't use more than two functions to use setHabits at the same time.

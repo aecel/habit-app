@@ -1,7 +1,16 @@
+import { useRef } from "react"
+
 const AddHabitModal = ({ name }) => {
+  const modalRef = useRef()
+  const onClick = () => {
+    modalRef.current.style.display = "none"
+  }
   return (
-    <div id="AddHabitModal">
-      <div className="modal">{JSON.stringify(name)} added</div>
+    <div id="AddHabitModal" ref={modalRef}>
+      <span className="close" onClick={onClick}>
+        &times;
+      </span>
+      <p>{JSON.stringify(name)} added to your habits</p>
     </div>
   )
 }
