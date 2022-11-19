@@ -124,6 +124,8 @@ button {
   width: auto;
 }
 
+/* Add Habit Route */
+
 #AddHabit {
   margin: 50px;
   display: flex;
@@ -199,4 +201,26 @@ input[type="radio"] {
 label[for="stable"],
 label[for="unstable"] {
   cursor: pointer;
+}
+
+/* Add Habit Modal */
+
+#AddHabitModal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+.modal {
+  background-color: var(--dark-green);
+  opacity: 80%;
+  width: 200px;
+  padding: 20px;
+  margin: 10% auto;
+  border-radius: 15px;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.723);
 }

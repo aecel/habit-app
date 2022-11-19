@@ -124,8 +124,7 @@ const Root = () => {
     setSettings(nextSettings)
   }
 
-  const submitAddHabitForm = (event, form) => {
-    event.preventDefault()
+  const submitAddHabitForm = (form) => {
     // const form = event.target.parentElement
     const formData = new FormData(form)
     const name = formData.get("habit-name")

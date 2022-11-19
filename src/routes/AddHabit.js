@@ -1,18 +1,39 @@
-import { useRef } from "react"
+import { useRef, useState } from "react"
+import AddHabitModal from "../components/AddHabitModal"
 import { useHabits } from "./Root"
 
 const AddHabit = () => {
   const habitFunctions = useHabits().habitFunctions
   const submitAddHabitForm = habitFunctions.submitAddHabitForm
   const formRef = useRef()
+  const modal = document.getElementById("AddHabitModal")
+  const onSubmit = (event) => {
+    event.preventDefault()
+    submitAddHabitForm(formRef.current)
+    modal.style.display = "block"
+    setTimeout(()=>{
+      modal.style.display="none"
+    },5000)
+  }
+
+  const [name, setName] = useState()
+  const onInputNameBlur = (event) => {
+    setName(event.target.value)
+  }
 
   return (
     <div id="AddHabit">
-      <form id="add-habit-form" ref={formRef} action="">
+      <form id="add-habit-form" ref={formRef} action="" onSubmit={onSubmit}>
         <div>All items with asterisk (*) are required</div>
         <div className="form-item">
           <label htmlFor="habit-name">Name of Habit *</label>
-          <input id="habit-name" name="habit-name" type="text" required />
+          <input
+            id="habit-name"
+            name="habit-name"
+            type="text"
+            required
+            onBlur={onInputNameBlur}
+          />
         </div>
         <div className="form-item-radios">
           <label>What kind of habit is this? *</label>
@@ -57,15 +78,10 @@ const AddHabit = () => {
             placeholder="I get to have a glass of water or I get to take a deep breath"
           />
         </div>
-        <button
-          id="add-habit-submit"
-          type="submit"
-          onSubmit={(event) => {
-            submitAddHabitForm(event, formRef.current)
-          }}
-        >
+        <button id="add-habit-submit" type="submit">
           Add Habit
         </button>
+        <AddHabitModal name={name} />
       </form>
     </div>
   )
