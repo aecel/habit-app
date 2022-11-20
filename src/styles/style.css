@@ -237,3 +237,18 @@ label[for="unstable"] {
   text-decoration: none;
   cursor: pointer;
 }
+
+/* Settings Route */
+
+#Settings {
+  margin: 50px;
+  padding: 40px;
+  background-color: var(--darkest-gray);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+  gap: 50px;
+  border-radius: 10px;
+  width: 300px;
+}

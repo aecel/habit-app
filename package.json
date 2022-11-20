@@ -1,7 +1,7 @@
 {
   "name": "habit-app",
   "version": "0.1.0",
-  "homepage": "https://aecel/github.io/habit-app/",
+  "homepage": "https://aecel.github.io/habit-app/",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",

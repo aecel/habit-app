@@ -5,6 +5,7 @@ import TestHabitCards from "./components/TestHabitCards"
 import AddHabit from "./routes/AddHabit"
 import ErrorElement from "./routes/ErrorElement"
 import Root from "./routes/Root"
+import Settings from "./routes/Settings"
 
 const router = createHashRouter([
   {
@@ -41,7 +42,7 @@ const router = createHashRouter([
           },
           {
             path: "/settings",
-            element: <></>,
+            element: <Settings />,
           },
           {
             path: "/addhabit",
