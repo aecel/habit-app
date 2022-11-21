@@ -1,9 +1,11 @@
 import { createContext, useContext, useEffect, useState } from "react"
 import newHabit from "./newHabit"
+import { SettingsProvider, useSettings } from "./useSettings"
 
 const HabitContext = createContext()
 export const useHabits = () => useContext(HabitContext)
 export const HabitsProvider = ({ children }) => {
+  const settings = useSettings().settings
   const habit1 = newHabit({
     name: "Stable Habit",
     stable: true,
@@ -14,14 +16,8 @@ export const HabitsProvider = ({ children }) => {
     stable: false,
     daysToStableHabit: 3,
   })
-  const defaultSettings = {
-    theme: "dark",
-    daysToStableHabit: 66,
-    unstableHabitLimit: 1,
-    daysToBreakHabit: 3,
-  }
+
   const [habits, setHabits] = useState([habit1, habit2])
-  const [settings, setSettings] = useState(defaultSettings)
 
   const getIndexById = (id) => {
     // Get index of a habit if you give the id
@@ -105,14 +101,6 @@ export const HabitsProvider = ({ children }) => {
     setHabits(nextHabits)
   }
 
-  const updateSettings = (propertiesToEdit) => {
-    const nextSettings = { ...settings }
-    for (const property in propertiesToEdit) {
-      nextSettings[property] = propertiesToEdit[property]
-    }
-    setSettings(nextSettings)
-  }
-
   const submitAddHabitForm = (form) => {
     // const form = event.target.parentElement
     const formData = new FormData(form)
@@ -143,7 +131,6 @@ export const HabitsProvider = ({ children }) => {
     deleteHabit,
     promoteHabit,
     demoteHabit,
-    updateSettings,
     submitAddHabitForm,
   }
 
@@ -177,6 +164,7 @@ export const HabitsProvider = ({ children }) => {
       day: 1,
       taskDone: "half-assed",
     })
+    console.log(settings)
   }, [])
 
   useEffect(() => {
@@ -188,16 +176,16 @@ export const HabitsProvider = ({ children }) => {
   }, [habits])
 
   return (
-    <HabitContext.Provider
-      value={{
-        habits: habits,
-        settings: settings,
-        habitFunctions: habitFunctions,
-      }}
-    >
-      {children}
-    </HabitContext.Provider>
+    <SettingsProvider>
+      <HabitContext.Provider
+        value={{
+          habits: habits,
+          settings: settings,
+          habitFunctions: habitFunctions,
+        }}
+      >
+        {children}
+      </HabitContext.Provider>
+    </SettingsProvider>
   )
 }
-
-
