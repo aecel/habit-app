@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react"
 import newHabit from "./newHabit"
-import { SettingsProvider, useSettings } from "./useSettings"
+import { useSettings } from "./useSettings.js"
 
 const HabitContext = createContext()
 export const useHabits = () => useContext(HabitContext)
@@ -164,7 +164,6 @@ export const HabitsProvider = ({ children }) => {
       day: 1,
       taskDone: "half-assed",
     })
-    console.log(settings)
   }, [])
 
   useEffect(() => {
@@ -173,19 +172,17 @@ export const HabitsProvider = ({ children }) => {
     // console.table(Object.entries(habits[0].readCalendar()[2022]))
     // console.log("Unstable Habit Table:")
     // console.table(Object.entries(habits[1].readCalendar()[2022]))
+    console.log(settings)
   }, [habits])
 
   return (
-    <SettingsProvider>
-      <HabitContext.Provider
-        value={{
-          habits: habits,
-          settings: settings,
-          habitFunctions: habitFunctions,
-        }}
-      >
-        {children}
-      </HabitContext.Provider>
-    </SettingsProvider>
+    <HabitContext.Provider
+      value={{
+        habits: habits,
+        habitFunctions: habitFunctions,
+      }}
+    >
+      {children}
+    </HabitContext.Provider>
   )
 }

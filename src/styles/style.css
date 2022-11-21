@@ -241,13 +241,20 @@ label[for="unstable"] {
 /* Settings Route */
 
 #Settings {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#settings-card {
   margin: 50px;
   padding: 40px;
   background-color: var(--darkest-gray);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* align-items: center; */
+  align-items: center;
   gap: 50px;
   border-radius: 10px;
   width: 300px;
