@@ -4,9 +4,28 @@ import { useHabits } from "../useHabits"
 
 const AddHabit = () => {
   const habitFunctions = useHabits().habitFunctions
-  const submitAddHabitForm = habitFunctions.submitAddHabitForm
+  const createHabit = habitFunctions.createHabit
   const formRef = useRef()
   const modal = document.getElementById("AddHabitModal")
+
+  const submitAddHabitForm = (form) => {
+    const formData = new FormData(form)
+    const name = formData.get("habit-name")
+    const stability = formData.get("stability")
+    let stable
+    if (stability === "stable") {
+      stable = true
+    } else {
+      stable = false
+    }
+    const trigger = formData.get("trigger")
+    const immediateReward = formData.get("immediate-reward")
+
+    const properties = { name, stable, trigger, immediateReward }
+    createHabit(properties)
+    form.reset()
+  }
+
   const onSubmit = (event) => {
     event.preventDefault()
     submitAddHabitForm(formRef.current)
@@ -16,6 +35,7 @@ const AddHabit = () => {
     },5000)
   }
 
+  // We only use this name for the AddHabitModal pop-up
   const [name, setName] = useState()
   const onInputNameChange = (event) => {
     setName(event.target.value)

@@ -2,10 +2,12 @@
 
 :root {
   font-family: "Lato", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  color: rgb(236, 236, 236);
+  --white: rgb(236, 236, 236);
+  --light-gray: rgb(215, 215, 215);
   --dark-green: #145820;
   --gray: #272727;
   --darkest-gray: #0d1117;
+  color: var(--white);
 }
 
 html,
@@ -198,8 +200,7 @@ input[type="radio"] {
   gap: 20px;
 }
 
-label[for="stable"],
-label[for="unstable"] {
+.form-item-radio > label {
   cursor: pointer;
 }
 
@@ -254,8 +255,14 @@ label[for="unstable"] {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   gap: 50px;
   border-radius: 10px;
   width: 300px;
+}
+
+#settings-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 50px;
 }

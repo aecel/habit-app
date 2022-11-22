@@ -19,8 +19,13 @@ export const SettingsProvider = ({ children }) => {
     setSettings(nextSettings)
   }
 
+  const revertToDefaultSettings = () => {
+    setSettings(defaultSettings)
+  }
+
   const settingFunctions = {
     updateSettings,
+    revertToDefaultSettings,
   }
 
   return (

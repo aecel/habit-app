@@ -29,8 +29,9 @@ export const HabitsProvider = ({ children }) => {
     return index
   }
 
-  const createHabit = (habit) => {
+  const createHabit = (habitProperties) => {
     const nextHabits = [...habits]
+    const habit = newHabit(habitProperties)
     nextHabits.push(habit)
     setHabits(nextHabits)
   }
@@ -101,26 +102,6 @@ export const HabitsProvider = ({ children }) => {
     setHabits(nextHabits)
   }
 
-  const submitAddHabitForm = (form) => {
-    // const form = event.target.parentElement
-    const formData = new FormData(form)
-    const name = formData.get("habit-name")
-    const stability = formData.get("stability")
-    let stable
-    if (stability === "stable") {
-      stable = true
-    } else {
-      stable = false
-    }
-    const trigger = formData.get("trigger")
-    const immediateReward = formData.get("immediate-reward")
-
-    const properties = { name, stable, trigger, immediateReward }
-    const habitToCreate = newHabit(properties)
-    createHabit(habitToCreate)
-    form.reset()
-  }
-
   const habitFunctions = {
     getIndexById,
     createHabit,
@@ -131,39 +112,38 @@ export const HabitsProvider = ({ children }) => {
     deleteHabit,
     promoteHabit,
     demoteHabit,
-    submitAddHabitForm,
   }
 
   useEffect(() => {
     // deleteHabit(habit1.readId())
-    updateDay({
-      id: habit1.readId(),
-      year: 2022,
-      month: 11,
-      day: 4,
-      taskDone: "half-assed",
-    })
-    updateDay({
-      id: habit1.readId(),
-      year: 2022,
-      month: 11,
-      day: 5,
-      taskDone: "half-assed",
-    })
-    updateDay({
-      id: habit1.readId(),
-      year: 2022,
-      month: 11,
-      day: 6,
-      taskDone: "so true",
-    })
-    updateDay({
-      id: habit2.readId(),
-      year: 2022,
-      month: 11,
-      day: 1,
-      taskDone: "half-assed",
-    })
+    // updateDay({
+    //   id: habit1.readId(),
+    //   year: 2022,
+    //   month: 11,
+    //   day: 4,
+    //   taskDone: "half-assed",
+    // })
+    // updateDay({
+    //   id: habit1.readId(),
+    //   year: 2022,
+    //   month: 11,
+    //   day: 5,
+    //   taskDone: "half-assed",
+    // })
+    // updateDay({
+    //   id: habit1.readId(),
+    //   year: 2022,
+    //   month: 11,
+    //   day: 6,
+    //   taskDone: "so true",
+    // })
+    // updateDay({
+    //   id: habit2.readId(),
+    //   year: 2022,
+    //   month: 11,
+    //   day: 1,
+    //   taskDone: "half-assed",
+    // })
   }, [])
 
   useEffect(() => {
@@ -172,7 +152,6 @@ export const HabitsProvider = ({ children }) => {
     // console.table(Object.entries(habits[0].readCalendar()[2022]))
     // console.log("Unstable Habit Table:")
     // console.table(Object.entries(habits[1].readCalendar()[2022]))
-    console.log(settings)
   }, [habits])
 
   return (
