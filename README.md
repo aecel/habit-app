@@ -29,6 +29,7 @@ This is a non-punishing app that will help the user form habits.
 21. Just an idea: stable habits can evolve to solidified habits. There can be 10 levels, all levels named after the mohs scale levels. (Talc to Diamond)
 22. Add a sound/animation when you update a day
 23. When you drag through squares, they all change to green or darkgreen or whatever
+24. Add a legend on the green colors of the calendar
 
 ## Known bugs
 1. When switching from an empty route to a route like Add Habit or Test Habits, the navbar jumps. It's not super aligned.

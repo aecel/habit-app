@@ -15,7 +15,13 @@ const Settings = () => {
   }
 
   const updateTheme = (event) => {
-    updateSettings({ theme: `${event.target.value}` })
+    const theme = event.target.value
+    updateSettings({ theme: `${theme}` })
+    const root = document.getElementsByClassName("Root")[0]
+
+    root.style.setProperty("--text-color", `var(--${theme}-theme-text)`)
+    root.style.setProperty("--bg-color", `var(--${theme}-theme-bg)`)
+    root.style.setProperty("--card-color", `var(--${theme}-theme-card)`)
   }
 
   const updateIntegerSettingProperty = (event) => {
@@ -63,6 +69,7 @@ const Settings = () => {
             <input
               id="daysToStableHabit"
               name="daysToStableHabit"
+              type="text"
               value={settings.daysToStableHabit}
               onChange={updateIntegerSettingProperty}
             />
@@ -74,6 +81,7 @@ const Settings = () => {
             <input
               id="daysToBreakHabit"
               name="daysToBreakHabit"
+              type="text"
               value={settings.daysToBreakHabit}
               onChange={updateIntegerSettingProperty}
             />
@@ -85,6 +93,7 @@ const Settings = () => {
             <input
               id="unstableHabitLimit"
               name="unstableHabitLimit"
+              type="text"
               value={settings.unstableHabitLimit}
               onChange={updateIntegerSettingProperty}
             />

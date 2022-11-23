@@ -1,5 +1,7 @@
+import { useEffect, useState } from "react"
 import getDayDiff from "../getDayDiff"
 import { useHabits } from "../useHabits"
+import { useSettings } from "../useSettings"
 
 const TestHabitCards = () => {
   const habits = useHabits().habits
@@ -11,10 +13,23 @@ const TestHabitCards = () => {
   const monthNow = today.getMonth() + 1
   const yearNow = today.getFullYear()
 
-  const lightGreen = "#39D353"
-  const darkGreen = "#006D32"
+  const settings = useSettings().settings
+
+  const [deepGreen, setDeepGreen] = useState("")
+  const [green, setGreen] = useState("")
+
   const darkGray = "#1e242d"
   const darkerGray = "#0D1117"
+
+  useEffect(() => {
+    if (settings.theme === "light") {
+      setGreen("#006D32")
+      setDeepGreen("#39D353")
+    } else {
+      setGreen("#39D353")
+      setDeepGreen("#006D32")
+    }
+  }, [settings.theme])
   return (
     <>
       <div className="habit-cards">
@@ -75,14 +90,20 @@ const TestHabitCards = () => {
                                 cursor: "pointer",
                                 backgroundColor: `${
                                   day[1]["done"] === "so true"
-                                    ? `${lightGreen}`
+                                    ? `${green}`
                                     : day[1]["done"] === "half-assed"
-                                    ? `${darkGreen}`
-                                    : `${darkGray}`
+                                    ? `${deepGreen}`
+                                    : "var(--bg-color)"
+                                }`,
+                                color: `${
+                                  day[1]["done"] === "so true" ||
+                                  day[1]["done"] === "half-assed"
+                                    ? "var(--white)"
+                                    : "var(--dark-gray)"
                                 }`,
                               }
                             : {
-                                backgroundColor: `${darkerGray}`,
+                                backgroundColor: "var(--card-color)",
                               }
                         }
                       >
@@ -107,7 +128,7 @@ const TestHabitCards = () => {
                                 triToggleDay({
                                   id: habit.readId(),
                                   year: yearNow,
-                                  month: month[0], 
+                                  month: month[0],
                                   day: day[0],
                                 })
                               }
@@ -120,14 +141,20 @@ const TestHabitCards = () => {
                                 cursor: "pointer",
                                 backgroundColor: `${
                                   day[1]["done"] === "so true"
-                                    ? `${lightGreen}`
+                                    ? `${green}`
                                     : day[1]["done"] === "half-assed"
-                                    ? `${darkGreen}`
-                                    : `${darkGray}`
+                                    ? `${deepGreen}`
+                                    : "var(--bg-color)"
+                                }`,
+                                color: `${
+                                  day[1]["done"] === "so true" ||
+                                  day[1]["done"] === "half-assed"
+                                    ? "var(--white)"
+                                    : "var(--dark-gray)"
                                 }`,
                               }
                             : {
-                                backgroundColor: `${darkerGray}`,
+                                backgroundColor: "var(--card-color)",
                               }
                         }
                       >
