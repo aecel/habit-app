@@ -36,11 +36,19 @@ const NavBar = () => {
               : "header-tab"
           }
         >
-          <img
-            className="header-tab-svg"
-            src={settings.theme === "dark" ? testHabitsSvg : testHabitsSvgBlack}
-            alt=""
-          />
+          {({ isActive }) => (
+            <img
+              className="header-tab-svg"
+              src={
+                isActive
+                  ? testHabitsSvg
+                  : settings.theme === "light"
+                  ? testHabitsSvgBlack
+                  : testHabitsSvg
+              }
+              alt=""
+            />
+          )}
         </NavLink>
         <NavLink
           data-tip="All Habits"
@@ -54,11 +62,19 @@ const NavBar = () => {
               : "header-tab"
           }
         >
-          <img
-            className="header-tab-svg"
-            src={settings.theme === "dark" ? allHabitsSvg : allHabitsSvgBlack}
-            alt=""
-          />
+          {({ isActive }) => (
+            <img
+              className="header-tab-svg"
+              src={
+                isActive
+                  ? allHabitsSvg
+                  : settings.theme === "light"
+                  ? allHabitsSvgBlack
+                  : allHabitsSvg
+              }
+              alt=""
+            />
+          )}
         </NavLink>
         <NavLink
           data-tip="Calendar"
@@ -72,11 +88,19 @@ const NavBar = () => {
               : "header-tab"
           }
         >
-          <img
-            className="header-tab-svg"
-            src={settings.theme === "dark" ? calendarSvg : calendarSvgBlack}
-            alt=""
-          />
+          {({ isActive }) => (
+            <img
+              className="header-tab-svg"
+              src={
+                isActive
+                  ? calendarSvg
+                  : settings.theme === "light"
+                  ? calendarSvgBlack
+                  : calendarSvg
+              }
+              alt=""
+            />
+          )}
         </NavLink>
         <NavLink
           data-tip="Home"
@@ -88,11 +112,19 @@ const NavBar = () => {
               : "header-tab"
           }
         >
-          <img
-            className="header-tab-svg"
-            src={settings.theme === "dark" ? homeSvg : homeSvgBlack}
-            alt=""
-          />
+          {({ isActive }) => (
+            <img
+              className="header-tab-svg"
+              src={
+                isActive
+                  ? homeSvg
+                  : settings.theme === "light"
+                  ? homeSvgBlack
+                  : homeSvg
+              }
+              alt=""
+            />
+          )}
         </NavLink>
         <NavLink
           data-tip="Stable Habits"
@@ -106,13 +138,19 @@ const NavBar = () => {
               : "header-tab"
           }
         >
-          <img
-            className="header-tab-svg"
-            src={
-              settings.theme === "dark" ? stableHabitsSvg : stableHabitsSvgBlack
-            }
-            alt=""
-          />
+          {({ isActive }) => (
+            <img
+              className="header-tab-svg"
+              src={
+                isActive
+                  ? stableHabitsSvg
+                  : settings.theme === "light"
+                  ? stableHabitsSvgBlack
+                  : stableHabitsSvg
+              }
+              alt=""
+            />
+          )}
         </NavLink>
         <NavLink
           data-tip="Stats"
@@ -126,11 +164,19 @@ const NavBar = () => {
               : "header-tab"
           }
         >
-          <img
-            className="header-tab-svg"
-            src={settings.theme === "dark" ? statsSvg : statsSvgBlack}
-            alt=""
-          />
+          {({ isActive }) => (
+            <img
+              className="header-tab-svg"
+              src={
+                isActive
+                  ? statsSvg
+                  : settings.theme === "light"
+                  ? statsSvgBlack
+                  : statsSvg
+              }
+              alt=""
+            />
+          )}
         </NavLink>
         <NavLink
           data-tip="Settings"
@@ -144,11 +190,19 @@ const NavBar = () => {
               : "header-tab"
           }
         >
-          <img
-            className="header-tab-svg"
-            src={settings.theme === "dark" ? settingsSvg : settingsSvgBlack}
-            alt=""
-          />
+          {({ isActive }) => (
+            <img
+              className="header-tab-svg"
+              src={
+                isActive
+                  ? settingsSvg
+                  : settings.theme === "light"
+                  ? settingsSvgBlack
+                  : settingsSvg
+              }
+              alt=""
+            />
+          )}
         </NavLink>
         <NavLink
           data-tip="Add Habit"
@@ -162,11 +216,19 @@ const NavBar = () => {
               : "header-tab"
           }
         >
-          <img
-            className="header-tab-svg"
-            src={settings.theme === "dark" ? addHabitSvg : addHabitSvgBlack}
-            alt=""
-          />
+          {({ isActive }) => (
+            <img
+              className="header-tab-svg"
+              src={
+                isActive
+                  ? addHabitSvg
+                  : settings.theme === "light"
+                  ? addHabitSvgBlack
+                  : addHabitSvg
+              }
+              alt=""
+            />
+          )}
         </NavLink>
       </nav>
     </footer>

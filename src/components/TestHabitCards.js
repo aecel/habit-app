@@ -15,19 +15,19 @@ const TestHabitCards = () => {
 
   const settings = useSettings().settings
 
-  const [deepGreen, setDeepGreen] = useState("")
-  const [green, setGreen] = useState("")
+  const [lessGreen, setLessGreen] = useState("")
+  const [moreGreen, setMoreGreen] = useState("")
 
   const darkGray = "#1e242d"
   const darkerGray = "#0D1117"
 
   useEffect(() => {
     if (settings.theme === "light") {
-      setGreen("#006D32")
-      setDeepGreen("#39D353")
+      setMoreGreen("#006D32")
+      setLessGreen("#39D353")
     } else {
-      setGreen("#39D353")
-      setDeepGreen("#006D32")
+      setMoreGreen("#39D353")
+      setLessGreen("#006D32")
     }
   }, [settings.theme])
   return (
@@ -90,9 +90,9 @@ const TestHabitCards = () => {
                                 cursor: "pointer",
                                 backgroundColor: `${
                                   day[1]["done"] === "so true"
-                                    ? `${green}`
+                                    ? `${moreGreen}`
                                     : day[1]["done"] === "half-assed"
-                                    ? `${deepGreen}`
+                                    ? `${lessGreen}`
                                     : "var(--bg-color)"
                                 }`,
                                 color: `${
@@ -141,9 +141,9 @@ const TestHabitCards = () => {
                                 cursor: "pointer",
                                 backgroundColor: `${
                                   day[1]["done"] === "so true"
-                                    ? `${green}`
+                                    ? `${moreGreen}`
                                     : day[1]["done"] === "half-assed"
-                                    ? `${deepGreen}`
+                                    ? `${lessGreen}`
                                     : "var(--bg-color)"
                                 }`,
                                 color: `${

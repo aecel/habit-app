@@ -2,8 +2,8 @@
 
 :root {
   font-family: "Lato", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  --dark-green: #559561;
-  /* --dark-green: #145820; */
+  /* --dark-green: #559561; */
+  --dark-green: #145820;
   --white: rgb(236, 236, 236);
   --light-gray: rgb(215, 215, 215);
   --gray: #272727;
