@@ -5,18 +5,13 @@ import ReactTooltip from "react-tooltip"
 import { HabitsProvider } from "../useHabits.js"
 import { SettingsProvider } from "../useSettings"
 import NavBar from "../components/NavBar"
+import Main from "./Main"
 
 const Root = () => {
   return (
     <SettingsProvider>
       <HabitsProvider>
-        <div className="Root">
-          <div className="top-ghost-div"></div>
-          <Outlet />
-          <NavBar />
-          <div className="bottom-ghost-div"></div>
-          <ReactTooltip />
-        </div>
+        <Main />
       </HabitsProvider>
     </SettingsProvider>
   )

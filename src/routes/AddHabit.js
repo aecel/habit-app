@@ -30,9 +30,9 @@ const AddHabit = () => {
     event.preventDefault()
     submitAddHabitForm(formRef.current)
     modal.style.display = "block"
-    setTimeout(()=>{
-      modal.style.display="none"
-    },5000)
+    setTimeout(() => {
+      modal.style.display = "none"
+    }, 5000)
   }
 
   // We only use this name for the AddHabitModal pop-up

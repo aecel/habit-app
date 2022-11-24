@@ -28,14 +28,14 @@ export const SettingsProvider = ({ children }) => {
     revertToDefaultSettings,
   }
 
-  useEffect(() => {
-    const theme = settings.theme
-    const root = document.getElementsByClassName("Root")[0]
+  // useEffect(() => {
+  //   const theme = settings.theme
+  //   const root = document.getElementsByClassName("Root")[0]
 
-    root.style.setProperty("--text-color", `var(--${theme}-theme-text)`)
-    root.style.setProperty("--bg-color", `var(--${theme}-theme-bg)`)
-    root.style.setProperty("--card-color", `var(--${theme}-theme-card)`)
-  }, [])
+  //   root.style.setProperty("--text-color", `var(--${theme}-theme-text)`)
+  //   root.style.setProperty("--bg-color", `var(--${theme}-theme-bg)`)
+  //   root.style.setProperty("--card-color", `var(--${theme}-theme-card)`)
+  // }, [])
   
   return (
     <SettingsContext.Provider
