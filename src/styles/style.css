@@ -23,7 +23,7 @@ body {
   margin: 0;
 }
 
-.Root {
+#Main {
   /* --text-color: var(--dark-theme-text);
   --bg-color: var(--dark-theme-bg);
   --card-color: var(--dark-theme-card); */
@@ -108,13 +108,13 @@ nav {
   gap: 20px;
 }
 
-.header-tab {
+.footer-nav {
   padding: 15px;
   border-radius: 50%;
   cursor: pointer;
 }
 
-.chosen-tab {
+.chosen-nav {
   background-color: var(--dark-green);
 }
 
@@ -126,7 +126,7 @@ nav {
   height: 20px;
 }
 
-.header-tab-svg {
+.footer-nav-svg {
   display: flex;
   justify-content: center;
   align-items: center;

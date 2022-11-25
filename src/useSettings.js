@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from "react"
+import { createContext, useContext, useState } from "react"
 
 const SettingsContext = createContext()
 export const useSettings = () => useContext(SettingsContext)
@@ -25,17 +25,8 @@ export const SettingsProvider = ({ children }) => {
 
   const settingFunctions = {
     updateSettings,
-    revertToDefaultSettings,
+    revertToDefaultSettings
   }
-
-  // useEffect(() => {
-  //   const theme = settings.theme
-  //   const root = document.getElementsByClassName("Root")[0]
-
-  //   root.style.setProperty("--text-color", `var(--${theme}-theme-text)`)
-  //   root.style.setProperty("--bg-color", `var(--${theme}-theme-bg)`)
-  //   root.style.setProperty("--card-color", `var(--${theme}-theme-card)`)
-  // }, [])
   
   return (
     <SettingsContext.Provider

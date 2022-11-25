@@ -5,19 +5,21 @@ import { useSettings } from "../useSettings"
 
 const Main = () => {
   const settings = useSettings().settings
+  const theme = settings.theme
+
   return (
     <div
-      className="Root"
+      id="Main"
       style={{
-        "--text-color": `var(--${settings.theme}-theme-text)`,
-        "--bg-color": `var(--${settings.theme}-theme-bg)`,
-        "--card-color": `var(--${settings.theme}-theme-card)`,
+        "--text-color": `var(--${theme}-theme-text)`,
+        "--bg-color": `var(--${theme}-theme-bg)`,
+        "--card-color": `var(--${theme}-theme-card)`,
       }}
     >
       <div className="top-ghost-div"></div>
       <Outlet />
-      <NavBar />
       <div className="bottom-ghost-div"></div>
+      <NavBar />
       <ReactTooltip />
     </div>
   )

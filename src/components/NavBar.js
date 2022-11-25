@@ -30,15 +30,15 @@ const NavBar = () => {
           id="testhabits"
           className={({ isActive, isPending }) =>
             isActive
-              ? "header-tab chosen-tab"
+              ? "footer-nav chosen-nav"
               : isPending
-              ? "header-tab"
-              : "header-tab"
+              ? "footer-nav"
+              : "footer-nav"
           }
         >
           {({ isActive }) => (
             <img
-              className="header-tab-svg"
+              className="footer-nav-svg"
               src={
                 isActive
                   ? testHabitsSvg
@@ -56,15 +56,15 @@ const NavBar = () => {
           id="allhabits"
           className={({ isActive, isPending }) =>
             isActive
-              ? "header-tab chosen-tab"
+              ? "footer-nav chosen-nav"
               : isPending
-              ? "header-tab"
-              : "header-tab"
+              ? "footer-nav"
+              : "footer-nav"
           }
         >
           {({ isActive }) => (
             <img
-              className="header-tab-svg"
+              className="footer-nav-svg"
               src={
                 isActive
                   ? allHabitsSvg
@@ -82,15 +82,15 @@ const NavBar = () => {
           id="yearcalendar"
           className={({ isActive, isPending }) =>
             isActive
-              ? "header-tab chosen-tab"
+              ? "footer-nav chosen-nav"
               : isPending
-              ? "header-tab"
-              : "header-tab"
+              ? "footer-nav"
+              : "footer-nav"
           }
         >
           {({ isActive }) => (
             <img
-              className="header-tab-svg"
+              className="footer-nav-svg"
               src={
                 isActive
                   ? calendarSvg
@@ -108,13 +108,13 @@ const NavBar = () => {
           id="home"
           className={() =>
             window.location.hash === "#/" || window.location.hash === ""
-              ? "header-tab chosen-tab"
-              : "header-tab"
+              ? "footer-nav chosen-nav"
+              : "footer-nav"
           }
         >
           {({ isActive }) => (
             <img
-              className="header-tab-svg"
+              className="footer-nav-svg"
               src={
                 isActive
                   ? homeSvg
@@ -132,15 +132,15 @@ const NavBar = () => {
           id="stablehabits"
           className={({ isActive, isPending }) =>
             isActive
-              ? "header-tab chosen-tab"
+              ? "footer-nav chosen-nav"
               : isPending
-              ? "header-tab"
-              : "header-tab"
+              ? "footer-nav"
+              : "footer-nav"
           }
         >
           {({ isActive }) => (
             <img
-              className="header-tab-svg"
+              className="footer-nav-svg"
               src={
                 isActive
                   ? stableHabitsSvg
@@ -158,15 +158,15 @@ const NavBar = () => {
           id="stats"
           className={({ isActive, isPending }) =>
             isActive
-              ? "header-tab chosen-tab"
+              ? "footer-nav chosen-nav"
               : isPending
-              ? "header-tab"
-              : "header-tab"
+              ? "footer-nav"
+              : "footer-nav"
           }
         >
           {({ isActive }) => (
             <img
-              className="header-tab-svg"
+              className="footer-nav-svg"
               src={
                 isActive
                   ? statsSvg
@@ -184,15 +184,15 @@ const NavBar = () => {
           id="settings"
           className={({ isActive, isPending }) =>
             isActive
-              ? "header-tab chosen-tab"
+              ? "footer-nav chosen-nav"
               : isPending
-              ? "header-tab"
-              : "header-tab"
+              ? "footer-nav"
+              : "footer-nav"
           }
         >
           {({ isActive }) => (
             <img
-              className="header-tab-svg"
+              className="footer-nav-svg"
               src={
                 isActive
                   ? settingsSvg
@@ -210,15 +210,15 @@ const NavBar = () => {
           id="addhabit"
           className={({ isActive, isPending }) =>
             isActive
-              ? "header-tab chosen-tab"
+              ? "footer-nav chosen-nav"
               : isPending
-              ? "header-tab"
-              : "header-tab"
+              ? "footer-nav"
+              : "footer-nav"
           }
         >
           {({ isActive }) => (
             <img
-              className="header-tab-svg"
+              className="footer-nav-svg"
               src={
                 isActive
                   ? addHabitSvg

@@ -1,11 +1,9 @@
-import { useRef } from "react"
 import { useSettings } from "../useSettings"
 
 const Settings = () => {
   const settings = useSettings().settings
   const settingFunctions = useSettings().settingFunctions
   const updateSettings = settingFunctions.updateSettings
-  const formRef = useRef()
 
   const isPositiveInteger = (value) => {
     if (Number.isInteger(Number(value)) && Number(value) >= 1) {
@@ -17,11 +15,6 @@ const Settings = () => {
   const updateTheme = (event) => {
     const theme = event.target.value
     updateSettings({ theme: `${theme}` })
-    const root = document.getElementsByClassName("Root")[0]
-
-    root.style.setProperty("--text-color", `var(--${theme}-theme-text)`)
-    root.style.setProperty("--bg-color", `var(--${theme}-theme-bg)`)
-    root.style.setProperty("--card-color", `var(--${theme}-theme-card)`)
   }
 
   const updateIntegerSettingProperty = (event) => {
@@ -36,7 +29,7 @@ const Settings = () => {
   return (
     <div id="Settings">
       <div id="settings-card">
-        <form id="settings-form" ref={formRef} action="">
+        <form id="settings-form" action="">
           <div className="form-item-radios">
             <label>Theme</label>
             <div className="form-item-radio">
