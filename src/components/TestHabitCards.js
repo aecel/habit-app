@@ -18,9 +18,6 @@ const TestHabitCards = () => {
   const [lessGreen, setLessGreen] = useState("")
   const [moreGreen, setMoreGreen] = useState("")
 
-  const darkGray = "#1e242d"
-  const darkerGray = "#0D1117"
-
   useEffect(() => {
     if (settings.theme === "light") {
       setMoreGreen("#006D32")

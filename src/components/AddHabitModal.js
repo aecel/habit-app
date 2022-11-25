@@ -10,7 +10,7 @@ const AddHabitModal = ({ name }) => {
       <span className="close" onClick={onClick}>
         &times;
       </span>
-      <p>{JSON.stringify(name)} added to your habits</p>
+      <p className="modal-text">{JSON.stringify(name)} added to your habits</p>
     </div>
   )
 }

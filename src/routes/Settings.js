@@ -29,6 +29,11 @@ const Settings = () => {
   return (
     <div id="Settings">
       <div id="settings-card">
+        <h3>Settings</h3>
+        <p>
+          Warning: All changes will take effect immediately without
+          confirmation. (for now lol)
+        </p>
         <form id="settings-form" action="">
           <div className="form-item-radios">
             <label>Theme</label>
@@ -58,7 +63,9 @@ const Settings = () => {
           <div className="form-item">
             <label htmlFor="daysToStableHabit">
               Number of Days to Stabilize Habit<br></br>
-              (This will only apply to newly added habits)
+              <div className="sub-text">
+                This will only apply to newly added habits.
+              </div>
             </label>
             <input
               id="daysToStableHabit"
@@ -71,7 +78,9 @@ const Settings = () => {
           <div className="form-item">
             <label htmlFor="daysToBreakHabit">
               Number of Days to Break a Stable Habit<br></br>
-              (This will only apply to newly added habits)
+              <div className="sub-text">
+                This will only apply to newly added habits.
+              </div>
             </label>
             <input
               id="daysToBreakHabit"
@@ -84,6 +93,9 @@ const Settings = () => {
           <div className="form-item">
             <label htmlFor="unstableHabitLimit">
               Maximum Number of Unstable Habits
+              <div className="sub-text">
+                1-3 is recommended.
+              </div>
             </label>
             <input
               id="unstableHabitLimit"

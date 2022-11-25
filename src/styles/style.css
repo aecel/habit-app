@@ -13,6 +13,11 @@
 /* --bg-color */
 /* --card-color */
 
+/* Colors that are unaffected by the theme change: */
+/* The --dark-green var which is the main accent color */
+/* The gray of the class "sub-text" */
+/* The colors of the close button of modals */
+
 @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 
 :root {
@@ -159,16 +164,24 @@ nav {
   align-items: center;
 }
 
-#add-habit-form {
+#add-habit-card {
   padding: 40px;
   background-color: var(--card-color);
+  border-radius: 10px;
+  width: 300px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 50px;
+}
+
+#add-habit-form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   /* align-items: center; */
   gap: 50px;
-  border-radius: 10px;
-  width: 300px;
 }
 
 button {
@@ -233,6 +246,12 @@ input[type="radio"] {
   cursor: pointer;
 }
 
+.sub-text {
+  margin-top: 5px;
+  font-size: 0.8rem;
+  color: gray;
+}
+
 /* Add Habit Modal */
 
 #AddHabitModal {
@@ -245,6 +264,7 @@ input[type="radio"] {
   opacity: 90%;
   width: 200px;
   padding: 20px;
+  padding-top: 10px;
   /* margin: 10% auto; */
   margin-top: 20px;
   border-top-right-radius: 10px;
@@ -253,7 +273,11 @@ input[type="radio"] {
   border: none;
 }
 
-/* The Close Button */
+.modal-text {
+  margin-top: 30px;
+}
+
+/* The Close Button for Add Habit Modal */
 .close {
   color: white;
   float: right;
@@ -294,4 +318,39 @@ input[type="radio"] {
   flex-direction: column;
   justify-content: center;
   gap: 50px;
+}
+
+/* Confirmation Modal */
+
+#ConfirmationModal {
+  display: none;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.447);
+}
+
+.confirmation-box {
+  margin: 10% auto;
+  padding: 30px;
+  width: 300px;
+  background-color: var(--bg-color);
+  border-radius: 15px;
+}
+
+.confirmation-text {
+  margin-top: 60px;
+}
+
+.side-by-side-buttons {
+  margin-top: 50px;
+  display: flex;
+  justify-content: right;
+  gap: 30px;
+}
+
+.no-button {
+  background-color: rgb(92, 40, 40);
 }

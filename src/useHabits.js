@@ -5,7 +5,7 @@ import { useSettings } from "./useSettings.js"
 const HabitContext = createContext()
 export const useHabits = () => useContext(HabitContext)
 export const HabitsProvider = ({ children }) => {
-  const settings = useSettings().settings
+  
   const habit1 = newHabit({
     name: "Stable Habit",
     stable: true,
