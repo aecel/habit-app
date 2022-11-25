@@ -57,7 +57,8 @@ const Settings = () => {
           </div>
           <div className="form-item">
             <label htmlFor="daysToStableHabit">
-              Number of Days to Stabilize Habit
+              Number of Days to Stabilize Habit<br></br>
+              (This will only apply to newly added habits)
             </label>
             <input
               id="daysToStableHabit"
@@ -69,7 +70,8 @@ const Settings = () => {
           </div>
           <div className="form-item">
             <label htmlFor="daysToBreakHabit">
-              Number of Days to Break a Stable Habit
+              Number of Days to Break a Stable Habit<br></br>
+              (This will only apply to newly added habits)
             </label>
             <input
               id="daysToBreakHabit"

@@ -1,8 +1,10 @@
 import { useRef, useState } from "react"
 import AddHabitModal from "../components/AddHabitModal"
 import { useHabits } from "../useHabits"
+import { useSettings } from "../useSettings"
 
 const AddHabit = () => {
+  const settings = useSettings().settings
   const habitFunctions = useHabits().habitFunctions
   const createHabit = habitFunctions.createHabit
   const formRef = useRef()
@@ -21,7 +23,14 @@ const AddHabit = () => {
     const trigger = formData.get("trigger")
     const immediateReward = formData.get("immediate-reward")
 
-    const properties = { name, stable, trigger, immediateReward }
+    const properties = {
+      name,
+      stable,
+      trigger,
+      immediateReward,
+      daysToStableHabit: settings.daysToStableHabit,
+      daysToBreakHabit: settings.daysToBreakHabit,
+    }
     createHabit(properties)
     form.reset()
   }

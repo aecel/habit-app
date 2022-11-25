@@ -1,3 +1,18 @@
+/* Styles that are not in this document: */
+
+/* TestHabitCards.js */
+/* The colors of the squares that represent the days (green, light green, black, white) */
+
+/* ErrorElement.js */
+/* The whole Error Element component */
+
+/* Main.js */
+/* Variables that depend on the theme */
+/* This is where the following are set: */
+/* --text-color */
+/* --bg-color */
+/* --card-color */
+
 @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 
 :root {
