@@ -12,6 +12,7 @@
 /* --text-color */
 /* --bg-color */
 /* --card-color */
+/* main body color */
 
 /* Colors that are unaffected by the theme change: */
 /* The --dark-green var which is the main accent color */
@@ -35,12 +36,6 @@
   --dark-theme-bg: var(--gray);
   --light-theme-card: var(--light-gray);
   --dark-theme-card: var(--darkest-gray);
-}
-
-html,
-body {
-  background-color: var(--bg-color);
-  margin: 0;
 }
 
 #Main {
@@ -353,4 +348,27 @@ input[type="radio"] {
 
 .no-button {
   background-color: rgb(92, 40, 40);
+}
+
+/* Calendar Route */
+
+#Calendar {
+  margin: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+#calendar-card {
+  padding: 40px;
+  background-color: var(--card-color);
+  border-radius: 10px;
+  width: 300px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 50px;
 }

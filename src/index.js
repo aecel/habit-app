@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client"
 import { createHashRouter, RouterProvider } from "react-router-dom"
 import TestHabitCards from "./components/TestHabitCards"
 import AddHabit from "./routes/AddHabit"
+import Calendar from "./routes/Calendar"
 import ErrorElement from "./routes/ErrorElement"
 import Root from "./routes/Root"
 import Settings from "./routes/Settings"
@@ -30,7 +31,7 @@ const router = createHashRouter([
           },
           {
             path: "/yearcalendar",
-            element: <></>,
+            element: <Calendar />,
           },
           {
             path: "/stablehabits",
