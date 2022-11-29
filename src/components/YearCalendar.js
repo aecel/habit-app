@@ -1,5 +1,6 @@
 const YearCalendar = ({
   habit,
+  year,
   yearNow,
   monthNow,
   dayNow,
@@ -7,9 +8,19 @@ const YearCalendar = ({
   moreGreen,
   lessGreen,
 }) => {
+  // Gets the first day of the year
+  // represented by a num (Sun = 1)
+  // This is for shifting the first square in the calendar grid
+  const jan1day = new Date(year, 0, 1).getDay() + 1
+
   return (
-    <div className="year-calendar">
-      {Object.entries(habit.readCalendar()[yearNow]).map((month) => {
+    <div
+      className="year-calendar"
+      style={{
+        "--jan-1-day": jan1day,
+      }}
+    >
+      {Object.entries(habit.readCalendar()[year]).map((month) => {
         return Object.entries(month[1]).map((day) => {
           return (
             <div
@@ -17,12 +28,15 @@ const YearCalendar = ({
               data-key={day[0]}
               className="year-calendar-day"
               onClick={
-                (dayNow >= day[0] && monthNow === Number(month[0])) ||
-                monthNow > month[0]
+                (year === yearNow &&
+                  dayNow >= day[0] &&
+                  monthNow === Number(month[0])) ||
+                (year === yearNow && monthNow > month[0]) ||
+                year < yearNow
                   ? () => {
                       triToggleDay({
                         id: habit.readId(),
-                        year: yearNow,
+                        year: year,
                         month: month[0],
                         day: day[0],
                       })
@@ -30,8 +44,11 @@ const YearCalendar = ({
                   : () => {}
               }
               style={
-                (dayNow >= day[0] && monthNow === Number(month[0])) ||
-                monthNow > month[0]
+                (year === yearNow &&
+                  dayNow >= day[0] &&
+                  monthNow === Number(month[0])) ||
+                (year === yearNow && monthNow > month[0]) ||
+                year < yearNow
                   ? {
                       cursor: "pointer",
                       backgroundColor: `${

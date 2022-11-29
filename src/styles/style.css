@@ -19,6 +19,9 @@
 /* The gray of the class "sub-text" */
 /* The colors of the close button of modals */
 
+/* YearCalendar.js */
+/* --jan-1-day */
+
 @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 
 :root {
@@ -121,6 +124,10 @@ body {
   width: 15px;
   border-radius: 5px;
   font-size: 8px;
+}
+
+.year-calendar-day:nth-child(1) {
+  grid-row-start: var(--jan-1-day);
 }
 
 /* NavBar */

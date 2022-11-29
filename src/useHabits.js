@@ -1,6 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react"
 import newHabit from "./newHabit"
-import { useSettings } from "./useSettings.js"
 
 const HabitContext = createContext()
 export const useHabits = () => useContext(HabitContext)

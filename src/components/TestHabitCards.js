@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import getDay from "../getDay"
 import getDayDiff from "../getDayDiff"
 import { useHabits } from "../useHabits"
 import { useSettings } from "../useSettings"
@@ -14,6 +15,7 @@ const TestHabitCards = () => {
   const dayNow = today.getDate()
   const monthNow = today.getMonth() + 1
   const yearNow = today.getFullYear()
+  console.log(getDay(yearNow, monthNow - 1, dayNow))
 
   const settings = useSettings().settings
 
@@ -75,6 +77,17 @@ const TestHabitCards = () => {
               />
               <YearCalendar
                 habit={habit}
+                year={2021}
+                yearNow={yearNow}
+                monthNow={monthNow}
+                dayNow={dayNow}
+                triToggleDay={triToggleDay}
+                moreGreen={moreGreen}
+                lessGreen={lessGreen}
+              />
+              <YearCalendar
+                habit={habit}
+                year={2022}
                 yearNow={yearNow}
                 monthNow={monthNow}
                 dayNow={dayNow}
