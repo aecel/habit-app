@@ -53,7 +53,7 @@ const YearCalendar = ({
                     }
               }
             >
-              {/* {day[0]} */}
+              {day[0]}
             </div>
           )
         })
