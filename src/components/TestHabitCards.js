@@ -2,6 +2,8 @@ import { useEffect, useState } from "react"
 import getDayDiff from "../getDayDiff"
 import { useHabits } from "../useHabits"
 import { useSettings } from "../useSettings"
+import MonthCalendar from "./MonthCalendar"
+import YearCalendar from "./YearCalendar"
 
 const TestHabitCards = () => {
   const habits = useHabits().habits
@@ -62,105 +64,24 @@ const TestHabitCards = () => {
                 Is it about to be demoted?{" "}
                 {habit.isAboutToBeDemoted() ? "Yep" : "Nope"}
               </p>
-              <div className="calendar">
-                {Object.entries(habit.readCalendar()[yearNow][monthNow]).map(
-                  (day) => {
-                    return (
-                      <div
-                        key={day[0]}
-                        className="day"
-                        onClick={
-                          dayNow >= day[0]
-                            ? () => {
-                                triToggleDay({
-                                  id: habit.readId(),
-                                  year: yearNow,
-                                  month: monthNow,
-                                  day: day[0],
-                                })
-                              }
-                            : () => {}
-                        }
-                        style={
-                          dayNow >= day[0]
-                            ? {
-                                cursor: "pointer",
-                                backgroundColor: `${
-                                  day[1]["done"] === "so true"
-                                    ? `${moreGreen}`
-                                    : day[1]["done"] === "half-assed"
-                                    ? `${lessGreen}`
-                                    : "var(--bg-color)"
-                                }`,
-                                color: `${
-                                  day[1]["done"] === "so true" ||
-                                  day[1]["done"] === "half-assed"
-                                    ? "var(--white)"
-                                    : "var(--dark-gray)"
-                                }`,
-                              }
-                            : {
-                                backgroundColor: "var(--card-color)",
-                              }
-                        }
-                      >
-                        {day[0]}
-                      </div>
-                    )
-                  }
-                )}
-              </div>
-              <div className="year-calendar">
-                {Object.entries(habit.readCalendar()[yearNow]).map((month) => {
-                  return Object.entries(month[1]).map((day) => {
-                    return (
-                      <div
-                        key={day[0]}
-                        data-key={day[0]}
-                        className="year-calendar-day"
-                        onClick={
-                          (dayNow >= day[0] && monthNow === Number(month[0])) ||
-                          monthNow > month[0]
-                            ? () => {
-                                triToggleDay({
-                                  id: habit.readId(),
-                                  year: yearNow,
-                                  month: month[0],
-                                  day: day[0],
-                                })
-                              }
-                            : () => {}
-                        }
-                        style={
-                          (dayNow >= day[0] && monthNow === Number(month[0])) ||
-                          monthNow > month[0]
-                            ? {
-                                cursor: "pointer",
-                                backgroundColor: `${
-                                  day[1]["done"] === "so true"
-                                    ? `${moreGreen}`
-                                    : day[1]["done"] === "half-assed"
-                                    ? `${lessGreen}`
-                                    : "var(--bg-color)"
-                                }`,
-                                color: `${
-                                  day[1]["done"] === "so true" ||
-                                  day[1]["done"] === "half-assed"
-                                    ? "var(--white)"
-                                    : "var(--dark-gray)"
-                                }`,
-                              }
-                            : {
-                                backgroundColor: "var(--card-color)",
-                              }
-                        }
-                      >
-                        {day[0]}
-                      </div>
-                    )
-                  })
-                })}
-              </div>
+              <MonthCalendar
+                habit={habit}
+                yearNow={yearNow}
+                monthNow={monthNow}
+                dayNow={dayNow}
+                triToggleDay={triToggleDay}
+                moreGreen={moreGreen}
+                lessGreen={lessGreen}
+              />
+              <YearCalendar
+                habit={habit}
+                yearNow={yearNow}
+                monthNow={monthNow}
+                dayNow={dayNow}
+                triToggleDay={triToggleDay}
+                moreGreen={moreGreen}
+                lessGreen={lessGreen}
+              />
             </div>
           )
         })}

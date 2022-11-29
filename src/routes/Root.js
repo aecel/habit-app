@@ -1,4 +1,3 @@
-import { useEffect } from "react"
 import "../styles/style.css"
 import { HabitsProvider } from "../useHabits.js"
 import { SettingsProvider } from "../useSettings"

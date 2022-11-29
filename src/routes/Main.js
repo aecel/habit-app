@@ -16,17 +16,17 @@ const Main = () => {
   // Maybe because it's above <div id="root"> ???
   useEffect(() => {
     const body = document.getElementsByTagName("body")[0]
-    console.log(body)
     body.style.backgroundColor = bgColor
+    // body.style.margin = "0"
   }, [bgColor])
 
   return (
     <div
       id="Main"
       style={{
-        "--text-color": `${textColor}`,
-        "--bg-color": `${bgColor}`,
-        "--card-color": `${cardColor}`,
+        "--text-color": textColor,
+        "--bg-color": bgColor,
+        "--card-color": cardColor,
       }}
     >
       <div className="top-ghost-div"></div>

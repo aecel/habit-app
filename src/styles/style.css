@@ -38,6 +38,10 @@
   --dark-theme-card: var(--darkest-gray);
 }
 
+body {
+  margin: 0;
+}
+
 #Main {
   /* --text-color: var(--dark-theme-text);
   --bg-color: var(--dark-theme-bg);
@@ -66,13 +70,15 @@
   text-align: center;
 }
 
-.calendar {
+/* Month Calendar Component */
+
+.month-calendar {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 8px;
 }
 
-.day {
+.month-calendar-day {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -82,6 +88,8 @@
   border-radius: 50%;
   font-size: 12px;
 }
+
+/* Year Calendar Component */
 
 .year-calendar {
   margin-top: 20px;
@@ -96,9 +104,9 @@
   align-items: center;
   justify-content: center;
   padding: 2px;
-  height: 12px;
-  width: 12px;
-  border-radius: 5px;
+  height: 6px;
+  width: 6px;
+  border-radius: 2px;
   font-size: 8px;
 }
 
@@ -361,7 +369,7 @@ input[type="radio"] {
   height: 100%;
 }
 
-#calendar-card {
+.calendar-card {
   padding: 40px;
   background-color: var(--card-color);
   border-radius: 10px;
