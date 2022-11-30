@@ -77,16 +77,6 @@ const TestHabitCards = () => {
               />
               <YearCalendar
                 habit={habit}
-                year={2021}
-                yearNow={yearNow}
-                monthNow={monthNow}
-                dayNow={dayNow}
-                triToggleDay={triToggleDay}
-                moreGreen={moreGreen}
-                lessGreen={lessGreen}
-              />
-              <YearCalendar
-                habit={habit}
                 year={2022}
                 yearNow={yearNow}
                 monthNow={monthNow}

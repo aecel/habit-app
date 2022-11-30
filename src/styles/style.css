@@ -108,26 +108,60 @@ body {
 
 /* Year Calendar Component */
 
-.year-calendar {
+.year-calendar-container {
   margin-top: 20px;
-  padding: 30px;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  overflow: scroll;
+  width: 280px;
+  padding: 15px;
+}
+
+/* Keep gap of .year-calendar the same */
+.year-calendar-months {
+  font-size: 0.6rem;
   display: grid;
+  align-items: center;
+  gap: 3px;
+  border-radius: 15px;
+  box-sizing: border-box;
+}
+
+
+/* Keep height and padding of .year-calendar-day the same */
+.year-calendar-month {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  height: 15px;
+  box-sizing: border-box;
+}
+
+/* Keep gap of .year-calendar-months the same */
+.year-calendar {
+  
+  display: grid;
+  align-items: center;
   grid-template-rows: repeat(7, 1fr);
   grid-auto-flow: column;
   gap: 3px;
-  width: 300px;
-  overflow: scroll;
+  width: 200px;
+  /* overflow: scroll; */
+  box-sizing: border-box;
 }
 
+/* Keep height and padding of .year-calendar-month the same */
 .year-calendar-day {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2px;
+  /* padding: 2px; */
   height: 15px;
   width: 15px;
   border-radius: 5px;
-  font-size: 8px;
+  font-size: 0.4rem;
+  box-sizing: border-box;
 }
 
 .year-calendar-day:nth-child(1) {
