@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/habit-app/static/css/main.0a388167.css",
-    "main.js": "/habit-app/static/js/main.d0234b90.js",
+    "main.css": "/habit-app/static/css/main.6f7b6eda.css",
+    "main.js": "/habit-app/static/js/main.5b655d39.js",
     "static/media/peepo-sad.gif": "/habit-app/static/media/peepo-sad.f67eeae981afbf81e543.gif",
     "static/media/calendar-black.svg": "/habit-app/static/media/calendar-black.3c989cff70a5c37d0027393bc61f1469.svg",
     "static/media/settings-black.svg": "/habit-app/static/media/settings-black.98ccc1c77e1eb27dc1092a6e29a34d9c.svg",
@@ -20,11 +20,11 @@
     "static/media/home.svg": "/habit-app/static/media/home.df5e37596d9d6be45855f9f0be96abe7.svg",
     "static/media/stats.svg": "/habit-app/static/media/stats.70c2fed94bd672b58f684ba84de6fa9b.svg",
     "index.html": "/habit-app/index.html",
-    "main.0a388167.css.map": "/habit-app/static/css/main.0a388167.css.map",
-    "main.d0234b90.js.map": "/habit-app/static/js/main.d0234b90.js.map"
+    "main.6f7b6eda.css.map": "/habit-app/static/css/main.6f7b6eda.css.map",
+    "main.5b655d39.js.map": "/habit-app/static/js/main.5b655d39.js.map"
   },
   "entrypoints": [
-    "static/css/main.0a388167.css",
-    "static/js/main.d0234b90.js"
+    "static/css/main.6f7b6eda.css",
+    "static/js/main.5b655d39.js"
   ]
 }
