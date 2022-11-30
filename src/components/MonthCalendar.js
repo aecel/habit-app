@@ -1,5 +1,7 @@
 const MonthCalendar = ({
   habit,
+  year,
+  month,
   yearNow,
   monthNow,
   dayNow,
@@ -7,27 +9,41 @@ const MonthCalendar = ({
   moreGreen,
   lessGreen,
 }) => {
+  // Gets the first day of the month
+  // represented by a num (Sun = 1)
+  // This is for shifting the first square in the month grid
+  const startOfMonthDay = new Date(year, month - 1, 1).getDay() + 1
+
   return (
-    <div className="month-calendar">
-      {Object.entries(habit.readCalendar()[yearNow][monthNow]).map((day) => {
+    <div
+      className="month-calendar"
+      style={{
+        "--start-of-month-day": startOfMonthDay,
+      }}
+    >
+      {Object.entries(habit.readCalendar()[year][month]).map((day) => {
         return (
           <div
             key={day[0]}
             className="month-calendar-day"
             onClick={
-              dayNow >= day[0]
+              year < yearNow ||
+              (year === yearNow && month < monthNow) ||
+              (year === yearNow && month === monthNow && dayNow >= day[0])
                 ? () => {
                     triToggleDay({
                       id: habit.readId(),
-                      year: yearNow,
-                      month: monthNow,
+                      year: year,
+                      month: month,
                       day: day[0],
                     })
                   }
                 : () => {}
             }
             style={
-              dayNow >= day[0]
+              year < yearNow ||
+              (year === yearNow && month < monthNow) ||
+              (year === yearNow && month === monthNow && dayNow >= day[0])
                 ? {
                     cursor: "pointer",
                     backgroundColor: `${

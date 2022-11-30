@@ -102,6 +102,10 @@ body {
   font-size: 12px;
 }
 
+.month-calendar-day:nth-child(1) {
+  grid-column-start: var(--start-of-month-day);
+}
+
 /* Year Calendar Component */
 
 .year-calendar {
