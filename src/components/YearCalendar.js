@@ -37,22 +37,22 @@ const YearCalendar = ({
                 key={day[0]}
                 data-key={day[0]}
                 className="year-calendar-day"
-                onClick={
-                  (year === yearNow &&
-                    dayNow >= day[0] &&
-                    monthNow === Number(month[0])) ||
-                  (year === yearNow && monthNow > month[0]) ||
-                  year < yearNow
-                    ? () => {
-                        triToggleDay({
-                          id: habit.readId(),
-                          year: year,
-                          month: month[0],
-                          day: day[0],
-                        })
-                      }
-                    : () => {}
-                }
+                // onClick={
+                //   (year === yearNow &&
+                //     dayNow >= day[0] &&
+                //     monthNow === Number(month[0])) ||
+                //   (year === yearNow && monthNow > month[0]) ||
+                //   year < yearNow
+                //     ? () => {
+                //         triToggleDay({
+                //           id: habit.readId(),
+                //           year: year,
+                //           month: month[0],
+                //           day: day[0],
+                //         })
+                //       }
+                //     : () => {}
+                // }
                 style={
                   (year === yearNow &&
                     dayNow >= day[0] &&
@@ -60,7 +60,7 @@ const YearCalendar = ({
                   (year === yearNow && monthNow > month[0]) ||
                   year < yearNow
                     ? {
-                        cursor: "pointer",
+                        // cursor: "pointer",
                         backgroundColor: `${
                           day[1]["done"] === "so true"
                             ? `${moreGreen}`

@@ -34,6 +34,7 @@ This is a non-punishing app that will help the user form habits.
 ## Known bugs
 1. When switching from an empty route to a route like Add Habit or Test Habits, the navbar jumps. It's not super aligned.
 2. Not really a bug, but in AddHabit.js line 11, document.getblahblah was used, because I couldn't get useRef() to work lmao.
+3. Not really a bug. Search how scrollbars work lol. Looks fine on mobile, kinda weird on PC.
 
 ## What I learned
 1. Use setHabits only once every update. Don't use more than two functions to use setHabits at the same time.
