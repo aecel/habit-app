@@ -1,3 +1,5 @@
+import { useEffect, useRef } from "react"
+
 const YearCalendar = ({
   habit,
   year,
@@ -12,9 +14,16 @@ const YearCalendar = ({
   // represented by a num (Sun = 1)
   // This is for shifting the first square in the calendar grid
   const jan1day = new Date(year, 0, 1).getDay() + 1
+  const yearCalendarRef = useRef()
+
+  // This makes the calendar scroll to the end by default
+  useEffect(() => {
+    const yearCalendar = yearCalendarRef.current
+    yearCalendar.scrollLeft = yearCalendar.scrollWidth
+  }, [])
 
   return (
-    <div class="year-calendar-container">
+    <div className="year-calendar-container">
       <div className="year-calendar-months">
         <div className="year-calendar-month">Sun</div>
         <div className="year-calendar-month">Mon</div>
@@ -26,6 +35,7 @@ const YearCalendar = ({
       </div>
       <div
         className="year-calendar"
+        ref={yearCalendarRef}
         style={{
           "--jan-1-day": jan1day,
         }}

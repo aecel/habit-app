@@ -8,6 +8,7 @@ const AddHabit = () => {
   const habitFunctions = useHabits().habitFunctions
   const createHabit = habitFunctions.createHabit
   const formRef = useRef()
+  // Input modalRef into AddHabit to fix this
   const modal = document.getElementById("AddHabitModal")
 
   const submitAddHabitForm = (form) => {

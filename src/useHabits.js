@@ -115,34 +115,34 @@ export const HabitsProvider = ({ children }) => {
 
   useEffect(() => {
     // deleteHabit(habit1.readId())
-    // updateDay({
-    //   id: habit1.readId(),
-    //   year: 2022,
-    //   month: 11,
-    //   day: 4,
-    //   taskDone: "half-assed",
-    // })
-    // updateDay({
-    //   id: habit1.readId(),
-    //   year: 2022,
-    //   month: 11,
-    //   day: 5,
-    //   taskDone: "half-assed",
-    // })
-    // updateDay({
-    //   id: habit1.readId(),
-    //   year: 2022,
-    //   month: 11,
-    //   day: 6,
-    //   taskDone: "so true",
-    // })
-    // updateDay({
-    //   id: habit2.readId(),
-    //   year: 2022,
-    //   month: 11,
-    //   day: 1,
-    //   taskDone: "half-assed",
-    // })
+    updateDay({
+      id: habit1.readId(),
+      year: 2022,
+      month: 11,
+      day: 4,
+      taskDone: "half-assed",
+    })
+    updateDay({
+      id: habit1.readId(),
+      year: 2022,
+      month: 11,
+      day: 5,
+      taskDone: "half-assed",
+    })
+    updateDay({
+      id: habit1.readId(),
+      year: 2022,
+      month: 11,
+      day: 6,
+      taskDone: "so true",
+    })
+    updateDay({
+      id: habit2.readId(),
+      year: 2022,
+      month: 11,
+      day: 1,
+      taskDone: "half-assed",
+    })
   }, [])
 
   useEffect(() => {
