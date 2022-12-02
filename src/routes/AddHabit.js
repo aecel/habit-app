@@ -8,8 +8,7 @@ const AddHabit = () => {
   const habitFunctions = useHabits().habitFunctions
   const createHabit = habitFunctions.createHabit
   const formRef = useRef()
-  // Input modalRef into AddHabit to fix this
-  const modal = document.getElementById("AddHabitModal")
+  const modalRef = useRef()
 
   const submitAddHabitForm = (form) => {
     const formData = new FormData(form)
@@ -37,6 +36,7 @@ const AddHabit = () => {
   }
 
   const onSubmit = (event) => {
+    const modal = modalRef.current
     event.preventDefault()
     submitAddHabitForm(formRef.current)
     modal.style.display = "block"
@@ -120,7 +120,7 @@ const AddHabit = () => {
           <button id="add-habit-submit" type="submit">
             Add Habit
           </button>
-          <AddHabitModal name={name} />
+          <AddHabitModal name={name} modalRef={modalRef}/>
         </form>
       </div>
     </div>

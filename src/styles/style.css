@@ -65,7 +65,7 @@ body {
 }
 
 .habit-card {
-  padding: 20px;
+  padding: 40px 20px 40px 20px;
   background-color: var(--card-color);
   display: flex;
   flex-direction: column;
@@ -73,6 +73,7 @@ body {
   justify-content: center;
   border-radius: 10px;
   text-align: center;
+  gap: 30px;
 }
 
 /* Ghost Divs */
@@ -87,11 +88,25 @@ body {
 
 /* Month Calendar Component */
 
-.month-calendar {
+/* .month-calendar-container {
   margin: 30px 0px 30px 0px;
+} */
+
+.month-calendar-label {
+  font-weight: bold;
+  font-size: 0.8rem;
+  margin-bottom: 10px;
+}
+
+.month-calendar {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 8px;
+}
+
+.month-calendar-day-label {
+  font-size: 0.7rem;
+  margin-bottom: 5px;
 }
 
 .month-calendar-day {
@@ -102,16 +117,22 @@ body {
   height: 20px;
   width: 20px;
   border-radius: 50%;
-  font-size: 12px;
+  font-size: 0.7rem;
 }
 
-.month-calendar-day:nth-child(1) {
+.month-calendar-day:nth-child(8) {
   grid-column-start: var(--start-of-month-day);
 }
 
 /* Year Calendar Component */
 
-.year-calendar-container {
+.year-calendar-label {
+  font-weight: bold;
+  font-size: 0.8rem;
+  margin-bottom: 10px;
+}
+
+.year-calendar-grid {
   /* margin: 30px 0px 30px 0px; */
   display: flex;
   gap: 10px;
@@ -133,7 +154,6 @@ body {
   /* overflow-x: scroll; */
 }
 
-
 /* Keep height and padding of .year-calendar-day the same */
 .year-calendar-month {
   display: flex;
@@ -145,7 +165,6 @@ body {
 
 /* Keep gap of .year-calendar-months the same */
 .year-calendar {
-  
   display: grid;
   align-items: center;
   grid-template-rows: repeat(7, 1fr);
@@ -154,7 +173,7 @@ body {
   width: 260px;
   overflow-x: scroll;
   scrollbar-width: none;
-  padding: 20px;
+  padding: 0px 20px 0px 20px;
   box-sizing: border-box;
 }
 

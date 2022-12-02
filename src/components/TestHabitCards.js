@@ -67,7 +67,7 @@ const TestHabitCards = () => {
               <MonthCalendar
                 habit={habit}
                 year={2022}
-                month={11}
+                month={12}
                 yearNow={yearNow}
                 monthNow={monthNow}
                 dayNow={dayNow}

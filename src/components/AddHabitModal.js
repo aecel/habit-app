@@ -1,7 +1,4 @@
-import { useRef } from "react"
-
-const AddHabitModal = ({ name }) => {
-  const modalRef = useRef()
+const AddHabitModal = ({ name, modalRef }) => {
   const onClick = () => {
     modalRef.current.style.display = "none"
   }
