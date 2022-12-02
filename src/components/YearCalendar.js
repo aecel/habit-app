@@ -88,7 +88,8 @@ const YearCalendar = ({
                           }`,
                         }
                       : {
-                          backgroundColor: "var(--card-color)",
+                          // backgroundColor: "var(--card-color)",
+                          display: "none",
                         }
                   }
                 >

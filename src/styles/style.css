@@ -88,9 +88,12 @@ body {
 
 /* Month Calendar Component */
 
-/* .month-calendar-container {
-  margin: 30px 0px 30px 0px;
-} */
+.month-calendar-container {
+  /* margin: 30px 0px 30px 0px; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 .month-calendar-label {
   font-weight: bold;
@@ -125,6 +128,12 @@ body {
 }
 
 /* Year Calendar Component */
+
+.year-calendar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 .year-calendar-label {
   font-weight: bold;
@@ -408,13 +417,15 @@ input[type="radio"] {
   height: 100%;
   width: 100%;
   position: fixed;
+  top: 0px;
+  left: 0px;
   z-index: 1;
   background-color: rgb(0, 0, 0);
   background-color: rgba(0, 0, 0, 0.447);
 }
 
 .confirmation-box {
-  margin: 20% auto;
+  margin: 25% auto;
   padding: 30px;
   width: 300px;
   background-color: var(--bg-color);

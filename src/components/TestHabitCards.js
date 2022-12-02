@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import getDayDiff from "../getDayDiff"
 import { useHabits } from "../useHabits"
 import { useSettings } from "../useSettings"
+import ConfirmationModal from "./ConfirmationModal"
 import MonthCalendar from "./MonthCalendar"
 import YearCalendar from "./YearCalendar"
 
@@ -19,6 +20,12 @@ const TestHabitCards = () => {
 
   const [lessGreen, setLessGreen] = useState("")
   const [moreGreen, setMoreGreen] = useState("")
+
+  const confirmationModalRef = useRef()
+  const popUpModal = () => {
+    const modal = confirmationModalRef.current
+    modal.style.display = "block"
+  }
 
   useEffect(() => {
     if (settings.theme === "light") {
@@ -88,6 +95,14 @@ const TestHabitCards = () => {
             </div>
           )
         })}
+        <button onClick={popUpModal}>Click to Test ConfirmationModal</button>
+        <ConfirmationModal
+          modalRef={confirmationModalRef}
+          func={() => {
+            console.log("Clicked Yes!")
+          }}
+          text="Are you sure you want to blah blah blah blah blah blah blah?"
+        />
       </div>
     </>
   )

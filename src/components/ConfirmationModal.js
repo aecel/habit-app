@@ -1,7 +1,4 @@
-import { useRef } from "react"
-
-const ConfirmationModal = ({ text, func }) => {
-  const modalRef = useRef()
+const ConfirmationModal = ({ modalRef, text, func }) => {
   const closeModal = () => {
     modalRef.current.style.display = "none"
   }

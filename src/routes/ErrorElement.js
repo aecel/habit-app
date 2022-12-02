@@ -1,11 +1,6 @@
-import ConfirmationModal from "../components/ConfirmationModal"
 import peepoSad from "../images/peepo-sad.gif"
 
 const ErrorElement = () => {
-  const popUpModal = () => {
-    const modal = document.getElementById("ConfirmationModal")
-    modal.style.display = "block"
-  }
   return (
     <div
       style={{
@@ -28,13 +23,6 @@ const ErrorElement = () => {
         }}
       />
       Error
-      <button onClick={popUpModal}>Click to Test ConfirmationModal</button>
-      <ConfirmationModal
-        func={() => {
-          console.log("Clicked Yes!")
-        }}
-        text="Are you sure you want to blah blah blah blah blah blah blah?"
-      />
     </div>
   )
 }

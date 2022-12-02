@@ -32,8 +32,23 @@ const Calendar = () => {
       {habits.map((habit) => {
         return (
           <div className="calendar-card" key={habit.readId()}>
-            <h3>{habit.readName()}</h3>
-            <div>{yearNow}</div>
+            <h3
+              style={{
+                marginBottom: "0px",
+              }}
+            >
+              {habit.readName()}
+            </h3>
+            <YearCalendar
+              habit={habit}
+              year={yearNow-1}
+              yearNow={yearNow}
+              monthNow={monthNow}
+              dayNow={dayNow}
+              triToggleDay={triToggleDay}
+              moreGreen={moreGreen}
+              lessGreen={lessGreen}
+            />
             <YearCalendar
               habit={habit}
               year={yearNow}
