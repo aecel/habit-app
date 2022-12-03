@@ -74,6 +74,7 @@ body {
   border-radius: 10px;
   text-align: center;
   gap: 30px;
+  font-size: 0.8rem;
 }
 
 /* Ghost Divs */
@@ -460,6 +461,30 @@ input[type="radio"] {
 }
 
 .calendar-card {
+  padding: 40px;
+  background-color: var(--card-color);
+  border-radius: 10px;
+  width: 300px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 50px;
+}
+
+/* All Habits Route */
+
+#AllHabits {
+  margin: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  gap: 30px;
+}
+
+.all-habits-card {
   padding: 40px;
   background-color: var(--card-color);
   border-radius: 10px;

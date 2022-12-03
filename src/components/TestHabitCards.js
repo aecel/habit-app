@@ -42,35 +42,35 @@ const TestHabitCards = () => {
         {habits.map((habit) => {
           return (
             <div key={habit.readId()} className="habit-card">
-              <p>Title: {habit.readName()}</p>
-              <p>Id: {habit.readId()}</p>
-              <p>Stable: {habit.isStable() ? "Sooo truue" : "False"}</p>
-              <p>Trigger: {habit.readTrigger()}</p>
-              <p>Immediate Reward: {habit.readImmediateReward()}</p>
-              <p>Date Created: {habit.readDateCreated()}</p>
-              <p>Green Tasks: {habit.countGreenTasks()}</p>
-              <p>Streaks: {JSON.stringify(habit.getStreaks())}</p>
-              <p>Longest Streak: {habit.getMaxStreak()}</p>
-              <p>Current Streak: {habit.getCurrentStreak()}</p>
-              <p>
+              <div>Title: {habit.readName()}</div>
+              <div>Id: {habit.readId()}</div>
+              <div>Stable: {habit.isStable() ? "Sooo truue" : "False"}</div>
+              <div>Trigger: {habit.readTrigger()}</div>
+              <div>Immediate Reward: {habit.readImmediateReward()}</div>
+              <div>Date Created: {habit.readDateCreated()}</div>
+              <div>Green Tasks: {habit.countGreenTasks()}</div>
+              <div>Streaks: {JSON.stringify(habit.getStreaks())}</div>
+              <div>Longest Streak: {habit.getMaxStreak()}</div>
+              <div>Current Streak: {habit.getCurrentStreak()}</div>
+              <div>
                 Last Updated:{" "}
                 {habit.getLastUpdated() !== undefined
                   ? habit.readLastUpdated()
                   : "It's undefined bruh"}
-              </p>
-              <p>Last Missed Streak: {habit.getLastMissedStreak()}</p>
-              <p>Days to Stabilize Habit: {habit.readDaysToStableHabit()}</p>
-              <p>Days to Break Habit: {habit.readDaysToBreakHabit()}</p>
-              <p>
+              </div>
+              <div>Last Missed Streak: {habit.getLastMissedStreak()}</div>
+              <div>Days to Stabilize Habit: {habit.readDaysToStableHabit()}</div>
+              <div>Days to Break Habit: {habit.readDaysToBreakHabit()}</div>
+              <div>
                 Day Diff: {getDayDiff(new Date(), habit.getLastUpdated())} days
-              </p>
-              <p>
+              </div>
+              <div>
                 Is Update Needed? {habit.isUpdateNeeded() ? "Yeppers" : "Nope"}
-              </p>
-              <p>
+              </div>
+              <div>
                 Is it about to be demoted?{" "}
                 {habit.isAboutToBeDemoted() ? "Yep" : "Nope"}
-              </p>
+              </div>
               <MonthCalendar
                 habit={habit}
                 year={2022}

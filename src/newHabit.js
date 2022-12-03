@@ -228,10 +228,10 @@ const newHabit = ({
     const calendarClone = calendar
     const currentTaskDone = calendarClone[year][month][day].done
     if (currentTaskDone === "") {
-      calendarClone[year][month][day].done = "so true"
-    } else if (currentTaskDone === "so true") {
-      calendarClone[year][month][day].done = "half-assed"
-    } else if (currentTaskDone === "half-assed") {
+      calendarClone[year][month][day].done = "Done completely"
+    } else if (currentTaskDone === "Done completely") {
+      calendarClone[year][month][day].done = "Half-assed"
+    } else if (currentTaskDone === "Half-assed") {
       calendarClone[year][month][day].done = ""
     }
 

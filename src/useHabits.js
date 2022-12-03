@@ -120,28 +120,28 @@ export const HabitsProvider = ({ children }) => {
       year: 2022,
       month: 11,
       day: 4,
-      taskDone: "half-assed",
+      taskDone: "Half-assed",
     })
     updateDay({
       id: habit1.readId(),
       year: 2022,
       month: 11,
       day: 5,
-      taskDone: "half-assed",
+      taskDone: "Half-assed",
     })
     updateDay({
       id: habit1.readId(),
       year: 2022,
       month: 11,
       day: 6,
-      taskDone: "so true",
+      taskDone: "Done completely",
     })
     updateDay({
       id: habit2.readId(),
       year: 2022,
       month: 11,
       day: 1,
-      taskDone: "half-assed",
+      taskDone: "Half-assed",
     })
   }, [])
 

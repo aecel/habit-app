@@ -1,4 +1,6 @@
 import { useEffect, useRef } from "react"
+import ReactTooltip from "react-tooltip"
+import getMonthFromNum from "../getMonthFromNum"
 
 const YearCalendar = ({
   habit,
@@ -15,11 +17,38 @@ const YearCalendar = ({
   // This is for shifting the first square in the calendar grid
   const jan1day = new Date(year, 0, 1).getDay() + 1
   const yearCalendarRef = useRef()
+  const getDayTooltip = (day, month) => {
+    if (day[1]["done"] !== "") {
+      return (
+        day[1]["done"] +
+        " on " +
+        getMonthFromNum(Number(month[0])) +
+        " " +
+        day[0] +
+        " " +
+        year
+      )
+    } else {
+      return getMonthFromNum(Number(month[0])) + " " + day[0] + " " + year
+    }
+  }
 
-  // This makes the calendar scroll to the end by default
   useEffect(() => {
+    // This makes the calendar scroll to the end by default
     const yearCalendar = yearCalendarRef.current
     yearCalendar.scrollLeft = yearCalendar.scrollWidth
+
+    // This makes the scroll be horizontal even if you scroll vertically or horizontally
+    // I haven't checked if this breaks mobile
+    yearCalendar.addEventListener("wheel", function (e) {
+      if (e.deltaY > 0 || e.deltaX > 0) {
+        yearCalendar.scrollLeft += 100
+        e.preventDefault()
+      } else if (e.deltaY <= 0 || e.deltaX <= 0) {
+        yearCalendar.scrollLeft -= 100
+        e.preventDefault()
+      }
+    })
   }, [])
 
   return (
@@ -48,6 +77,7 @@ const YearCalendar = ({
                 <div
                   key={day[0]}
                   data-key={day[0]}
+                  data-tip={getDayTooltip(day, month)}
                   className="year-calendar-day"
                   // onClick={
                   //   (year === yearNow &&
@@ -74,15 +104,15 @@ const YearCalendar = ({
                       ? {
                           // cursor: "pointer",
                           backgroundColor: `${
-                            day[1]["done"] === "so true"
+                            day[1]["done"] === "Done completely"
                               ? `${moreGreen}`
-                              : day[1]["done"] === "half-assed"
+                              : day[1]["done"] === "Half-assed"
                               ? `${lessGreen}`
                               : "var(--bg-color)"
                           }`,
                           color: `${
-                            day[1]["done"] === "so true" ||
-                            day[1]["done"] === "half-assed"
+                            day[1]["done"] === "Done completely" ||
+                            day[1]["done"] === "Half-assed"
                               ? "var(--white)"
                               : "var(--dark-gray)"
                           }`,
@@ -100,6 +130,7 @@ const YearCalendar = ({
           })}
         </div>
       </div>
+      <ReactTooltip backgroundColor="#1a1a1a7c"/>
     </div>
   )
 }

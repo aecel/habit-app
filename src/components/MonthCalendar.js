@@ -60,15 +60,15 @@ const MonthCalendar = ({
                   ? {
                       cursor: "pointer",
                       backgroundColor: `${
-                        day[1]["done"] === "so true"
+                        day[1]["done"] === "Done completely"
                           ? `${moreGreen}`
-                          : day[1]["done"] === "half-assed"
+                          : day[1]["done"] === "Half-assed"
                           ? `${lessGreen}`
                           : "var(--bg-color)"
                       }`,
                       color: `${
-                        day[1]["done"] === "so true" ||
-                        day[1]["done"] === "half-assed"
+                        day[1]["done"] === "Done completely" ||
+                        day[1]["done"] === "Half-assed"
                           ? "var(--white)"
                           : "var(--dark-gray)"
                       }`,
