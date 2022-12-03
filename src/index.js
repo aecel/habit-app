@@ -6,6 +6,7 @@ import AddHabit from "./routes/AddHabit"
 import AllHabits from "./routes/AllHabits"
 import Calendar from "./routes/Calendar"
 import ErrorElement from "./routes/ErrorElement"
+import Home from "./routes/Home"
 import Root from "./routes/Root"
 import Settings from "./routes/Settings"
 
@@ -20,7 +21,7 @@ const router = createHashRouter([
         children: [
           {
             index: true,
-            element: <ErrorElement />,
+            element: <Home />,
           },
           {
             path: "/testhabits",
@@ -40,7 +41,7 @@ const router = createHashRouter([
           },
           {
             path: "/stats",
-            element: <></>,
+            element: <ErrorElement />,
           },
           {
             path: "/settings",
