@@ -6,12 +6,12 @@ export const useHabits = () => useContext(HabitContext)
 export const HabitsProvider = ({ children }) => {
   
   const habit1 = newHabit({
-    name: "Stable Habit",
+    name: "Flossing",
     stable: true,
     lastUpdated: new Date("2022-10-30"),
   })
   const habit2 = newHabit({
-    name: "Unstable Habit",
+    name: "Going to bed early",
     stable: false,
     daysToStableHabit: 3,
   })

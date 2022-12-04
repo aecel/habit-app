@@ -87,6 +87,44 @@ body {
   height: 20px;
 }
 
+/* Week Calendar Component */
+
+.week-calendar-container {
+  /* margin: 30px 0px 30px 0px; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.week-calendar-label {
+  font-weight: bold;
+  font-size: 0.8rem;
+  margin-bottom: 10px;
+}
+
+.week-calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+}
+
+.week-calendar-day-label {
+  font-size: 0.7rem;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.week-calendar-day {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  height: 20px;
+  width: 20px;
+  border-radius: 6px;
+  font-size: 0.7rem;
+}
+
 /* Month Calendar Component */
 
 .month-calendar-container {
@@ -111,6 +149,7 @@ body {
 .month-calendar-day-label {
   font-size: 0.7rem;
   margin-bottom: 5px;
+  text-align: center;
 }
 
 .month-calendar-day {
@@ -485,6 +524,30 @@ input[type="radio"] {
 }
 
 .all-habits-card {
+  padding: 40px;
+  background-color: var(--card-color);
+  border-radius: 10px;
+  width: 300px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 50px;
+}
+
+/* Home Route */
+
+#Home {
+  margin: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  gap: 30px;
+}
+
+.home-card {
   padding: 40px;
   background-color: var(--card-color);
   border-radius: 10px;

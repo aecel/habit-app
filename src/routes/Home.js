@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import getThisWeek from "../getThisWeek"
+import WeekCalendar from "../components/WeekCalendar"
 import { useHabits } from "../useHabits"
 import { useSettings } from "../useSettings"
 
@@ -28,11 +28,30 @@ const Home = () => {
     }
   }, [settings.theme])
 
-  console.log(getThisWeek({ yearNow, monthNow, dayNow }))
   return (
     <div id="Home">
       {habits.map((habit) => {
-        return <div className="home-card" key={habit.readId()}></div>
+        return (
+          <div className="home-card" key={habit.readId()}>
+            <h3
+              style={{
+                marginBottom: "0px",
+                textAlign: "center",
+              }}
+            >
+              {habit.readName()}
+            </h3>
+            <WeekCalendar
+              habit={habit}
+              yearNow={yearNow}
+              monthNow={monthNow}
+              dayNow={dayNow}
+              triToggleDay={triToggleDay}
+              moreGreen={moreGreen}
+              lessGreen={lessGreen}
+            />
+          </div>
+        )
       })}
     </div>
   )
