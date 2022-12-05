@@ -1,7 +1,10 @@
-import getThisWeek from "../getThisWeek"
+import { getThisWeek } from "../calendarFunctions"
 
 const WeekCalendar = ({
   habit,
+  year,
+  month,
+  day,
   yearNow,
   monthNow,
   dayNow,
@@ -9,8 +12,7 @@ const WeekCalendar = ({
   moreGreen,
   lessGreen,
 }) => {
-  const weekArray = getThisWeek({ yearNow, monthNow, dayNow })
-
+  const weekArray = getThisWeek({ year: year, month: month, day: day })
   return (
     <div className="week-calendar-container">
       <div className="week-calendar-label">

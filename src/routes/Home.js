@@ -35,14 +35,18 @@ const Home = () => {
           <div className="home-card" key={habit.readId()}>
             <h3
               style={{
+                // marginTop: "0px",
                 marginBottom: "0px",
-                textAlign: "center",
+                // textAlign: "center",
               }}
             >
               {habit.readName()}
             </h3>
             <WeekCalendar
               habit={habit}
+              year={yearNow}
+              month={monthNow}
+              day={dayNow}
               yearNow={yearNow}
               monthNow={monthNow}
               dayNow={dayNow}

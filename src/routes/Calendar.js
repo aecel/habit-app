@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import MonthCalendar from "../components/MonthCalendar"
 import YearCalendar from "../components/YearCalendar"
 import { useHabits } from "../useHabits"
 import { useSettings } from "../useSettings"
@@ -39,9 +40,20 @@ const Calendar = () => {
             >
               {habit.readName()}
             </h3>
-            <YearCalendar
+            {/* <YearCalendar
               habit={habit}
-              year={yearNow-1}
+              year={yearNow - 1}
+              yearNow={yearNow}
+              monthNow={monthNow}
+              dayNow={dayNow}
+              triToggleDay={triToggleDay}
+              moreGreen={moreGreen}
+              lessGreen={lessGreen}
+            /> */}
+            <MonthCalendar
+              habit={habit}
+              year={yearNow}
+              month={monthNow}
               yearNow={yearNow}
               monthNow={monthNow}
               dayNow={dayNow}
