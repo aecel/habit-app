@@ -1,32 +1,31 @@
-import { useEffect, useState } from "react"
-import MonthCalendar from "../components/MonthCalendar"
+// import { useEffect, useState } from "react"
 import { useHabits } from "../useHabits"
-import { useSettings } from "../useSettings"
+// import { useSettings } from "../useSettings"
 
 const AllHabits = () => {
   const habits = useHabits().habits
-  const habitFunctions = useHabits().habitFunctions
-  const triToggleDay = habitFunctions.triToggleDay
+  // const habitFunctions = useHabits().habitFunctions
+  // const triToggleDay = habitFunctions.triToggleDay
 
-  const today = new Date()
-  const dayNow = today.getDate()
-  const monthNow = today.getMonth() + 1
-  const yearNow = today.getFullYear()
+  // const today = new Date()
+  // const dayNow = today.getDate()
+  // const monthNow = today.getMonth() + 1
+  // const yearNow = today.getFullYear()
 
-  const settings = useSettings().settings
+  // const settings = useSettings().settings
 
-  const [lessGreen, setLessGreen] = useState("")
-  const [moreGreen, setMoreGreen] = useState("")
+  // const [lessGreen, setLessGreen] = useState("")
+  // const [moreGreen, setMoreGreen] = useState("")
 
-  useEffect(() => {
-    if (settings.theme === "light") {
-      setMoreGreen("#006D32")
-      setLessGreen("#39D353")
-    } else {
-      setMoreGreen("#39D353")
-      setLessGreen("#006D32")
-    }
-  }, [settings.theme])
+  // useEffect(() => {
+  //   if (settings.theme === "light") {
+  //     setMoreGreen("#006D32")
+  //     setLessGreen("#39D353")
+  //   } else {
+  //     setMoreGreen("#39D353")
+  //     setLessGreen("#006D32")
+  //   }
+  // }, [settings.theme])
 
   return (
     <div id="AllHabits">
@@ -40,28 +39,6 @@ const AllHabits = () => {
             >
               {habit.readName()}
             </h3>
-            <MonthCalendar
-              habit={habit}
-              year={yearNow}
-              month={monthNow === 1 ? 12 : monthNow - 1}
-              yearNow={monthNow === 1 ? yearNow-1 : yearNow}
-              monthNow={monthNow}
-              dayNow={dayNow}
-              triToggleDay={triToggleDay}
-              moreGreen={moreGreen}
-              lessGreen={lessGreen}
-            />
-            <MonthCalendar
-              habit={habit}
-              year={yearNow}
-              month={monthNow}
-              yearNow={yearNow}
-              monthNow={monthNow}
-              dayNow={dayNow}
-              triToggleDay={triToggleDay}
-              moreGreen={moreGreen}
-              lessGreen={lessGreen}
-            />
           </div>
         )
       })}

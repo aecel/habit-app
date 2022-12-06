@@ -1,10 +1,14 @@
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import ReactTooltip from "react-tooltip"
 import getMonthFromNum from "../getMonthFromNum"
+import leftArrow from "../images/SVG/left-arrow.svg"
+import leftArrowBlack from "../images/SVG/left-arrow-black.svg"
+import rightArrow from "../images/SVG/right-arrow.svg"
+import rightArrowBlack from "../images/SVG/right-arrow-black.svg"
+import { useSettings } from "../useSettings"
 
 const YearCalendar = ({
   habit,
-  year,
   yearNow,
   monthNow,
   dayNow,
@@ -12,6 +16,22 @@ const YearCalendar = ({
   moreGreen,
   lessGreen,
 }) => {
+  const settings = useSettings().settings
+  const theme = settings.theme
+  const [year, setYear] = useState(yearNow)
+
+  const setPreviousYear = () => {
+    if (year - 1 in habit.readCalendar()) {
+      setYear(year - 1)
+    }
+  }
+
+  const setNextYear = () => {
+    if (year + 1 in habit.readCalendar()) {
+      setYear(year + 1)
+    }
+  }
+
   // Gets the first day of the year
   // represented by a num (Sun = 1)
   // This is for shifting the first square in the calendar grid
@@ -53,7 +73,38 @@ const YearCalendar = ({
 
   return (
     <div className="year-calendar-container">
-      <div className="year-calendar-label">{year}</div>
+      <div className="year-calendar-top">
+        {year - 1 in habit.readCalendar() ? (
+          <div className="year-calendar-arrow" onClick={setPreviousYear}>
+            <img
+              className="year-calendar-arrow-icon"
+              src={theme === "dark" ? leftArrow : leftArrowBlack}
+              alt=""
+            />
+          </div>
+        ) : (
+          <div
+            className="year-calendar-arrow"
+            style={{ cursor: "unset" }}
+          ></div>
+        )}
+        <div className="year-calendar-label">{year}</div>
+
+        {year + 1 in habit.readCalendar() ? (
+          <div className="year-calendar-arrow" onClick={setNextYear}>
+            <img
+              className="year-calendar-arrow-icon"
+              src={theme === "dark" ? rightArrow : rightArrowBlack}
+              alt=""
+            />
+          </div>
+        ) : (
+          <div
+            className="year-calendar-arrow"
+            style={{ cursor: "unset" }}
+          ></div>
+        )}
+      </div>
       <div className="year-calendar-grid">
         <div className="year-calendar-months">
           <div className="year-calendar-month">Sun</div>
@@ -130,7 +181,7 @@ const YearCalendar = ({
           })}
         </div>
       </div>
-      <ReactTooltip backgroundColor="#1a1a1a7c"/>
+      <ReactTooltip backgroundColor="#1a1a1a7c" />
     </div>
   )
 }

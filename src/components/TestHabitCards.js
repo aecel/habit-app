@@ -3,7 +3,6 @@ import getDayDiff from "../getDayDiff"
 import { useHabits } from "../useHabits"
 import { useSettings } from "../useSettings"
 import ConfirmationModal from "./ConfirmationModal"
-import MonthCalendar from "./MonthCalendar"
 import YearCalendar from "./YearCalendar"
 
 const TestHabitCards = () => {
@@ -71,17 +70,6 @@ const TestHabitCards = () => {
                 Is it about to be demoted?{" "}
                 {habit.isAboutToBeDemoted() ? "Yep" : "Nope"}
               </div>
-              <MonthCalendar
-                habit={habit}
-                year={2022}
-                month={12}
-                yearNow={yearNow}
-                monthNow={monthNow}
-                dayNow={dayNow}
-                triToggleDay={triToggleDay}
-                moreGreen={moreGreen}
-                lessGreen={lessGreen}
-              />
               <YearCalendar
                 habit={habit}
                 year={2022}
