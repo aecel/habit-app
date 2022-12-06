@@ -1,4 +1,6 @@
 import getMonthFromNum from "../getMonthFromNum"
+import leftArrow from "../images/SVG/left-arrow.svg"
+import rightArrow from "../images/SVG/right-arrow.svg"
 
 const MonthCalendar = ({
   habit,
@@ -18,8 +20,17 @@ const MonthCalendar = ({
 
   return (
     <div className="month-calendar-container">
-      <div className="month-calendar-label">
-        {getMonthFromNum(month)} {year}
+      <div className="month-calendar-top">
+        <div className="month-calendar-arrow">
+          <img className="month-calendar-arrow-icon" src={leftArrow} alt="" />
+        </div>
+        <div className="month-calendar-label">
+          {getMonthFromNum(month)} {year}
+        </div>
+
+        <div className="month-calendar-arrow">
+          <img className="month-calendar-arrow-icon" src={rightArrow} alt="" />
+        </div>
       </div>
       <div
         className="month-calendar"
