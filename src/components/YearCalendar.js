@@ -54,22 +54,24 @@ const YearCalendar = ({
   }
 
   useEffect(() => {
-    // This makes the calendar scroll to the end by default
-    const yearCalendar = yearCalendarRef.current
-    yearCalendar.scrollLeft = yearCalendar.scrollWidth
-
     // This makes the scroll be horizontal even if you scroll vertically or horizontally
-    // I haven't checked if this breaks mobile
+    const yearCalendar = yearCalendarRef.current
     yearCalendar.addEventListener("wheel", function (e) {
       if (e.deltaY > 0 || e.deltaX > 0) {
-        yearCalendar.scrollLeft += 100
+        yearCalendar.scrollLeft += 15
         e.preventDefault()
       } else if (e.deltaY <= 0 || e.deltaX <= 0) {
-        yearCalendar.scrollLeft -= 100
+        yearCalendar.scrollLeft -= 15
         e.preventDefault()
       }
     })
   }, [])
+
+  useEffect(() => {
+    // This makes the calendar scroll to the end by default
+    const yearCalendar = yearCalendarRef.current
+    yearCalendar.scrollLeft = yearCalendar.scrollWidth
+  }, [year])
 
   return (
     <div className="year-calendar-container">
@@ -90,7 +92,7 @@ const YearCalendar = ({
         )}
         <div className="year-calendar-label">{year}</div>
 
-        {year + 1 in habit.readCalendar() ? (
+        {year + 2 in habit.readCalendar() ? (
           <div className="year-calendar-arrow" onClick={setNextYear}>
             <img
               className="year-calendar-arrow-icon"
@@ -181,7 +183,7 @@ const YearCalendar = ({
           })}
         </div>
       </div>
-      <ReactTooltip backgroundColor="#1a1a1a7c" />
+      <ReactTooltip />
     </div>
   )
 }

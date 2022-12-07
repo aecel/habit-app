@@ -67,6 +67,16 @@ const WeekCalendar = ({
                           ? `${lessGreen}`
                           : "var(--bg-color)"
                       }`,
+                      color: `${
+                        habit.readCalendar()[date.year][date.month][date.day][
+                          "done"
+                        ] === "Done completely" ||
+                        habit.readCalendar()[date.year][date.month][date.day][
+                          "done"
+                        ] === "Half-assed"
+                          ? "var(--white)"
+                          : "var(--dark-gray)"
+                      }`,
                     }
                   : { backgroundColor: "var(--card-color)" }
               }

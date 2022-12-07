@@ -15,6 +15,8 @@ const Main = () => {
   // Doesn't work when on style.css for some reason
   // Maybe because it's above <div id="root"> ???
   useEffect(() => {
+    const html = document.getElementsByTagName("html")[0]
+    html.style.backgroundColor = bgColor
     const body = document.getElementsByTagName("body")[0]
     body.style.backgroundColor = bgColor
     // body.style.margin = "0"

@@ -61,7 +61,6 @@ const Calendar = () => {
             />
             <YearCalendar
               habit={habit}
-              year={yearNow}
               yearNow={yearNow}
               monthNow={monthNow}
               dayNow={dayNow}
