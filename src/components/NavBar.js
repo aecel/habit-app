@@ -24,7 +24,7 @@ const NavBar = () => {
   return (
     <footer className="navbar">
       <nav>
-        <NavLink
+        {/* <NavLink
           data-tip="Test Habits"
           to={"/testhabits"}
           id="testhabits"
@@ -49,11 +49,11 @@ const NavBar = () => {
               alt=""
             />
           )}
-        </NavLink>
+        </NavLink> */}
         <NavLink
-          data-tip="All Habits"
-          to={"/allhabits"}
-          id="allhabits"
+          data-tip="Add Habit"
+          to={"/addhabit"}
+          id="addhabit"
           className={({ isActive, isPending }) =>
             isActive
               ? "footer-nav chosen-nav"
@@ -67,10 +67,10 @@ const NavBar = () => {
               className="footer-nav-svg"
               src={
                 isActive
-                  ? allHabitsSvg
+                  ? addHabitSvg
                   : settings.theme === "light"
-                  ? allHabitsSvgBlack
-                  : allHabitsSvg
+                  ? addHabitSvgBlack
+                  : addHabitSvg
               }
               alt=""
             />
@@ -102,6 +102,33 @@ const NavBar = () => {
             />
           )}
         </NavLink>
+        <NavLink
+          data-tip="All Habits"
+          to={"/allhabits"}
+          id="allhabits"
+          className={({ isActive, isPending }) =>
+            isActive
+              ? "footer-nav chosen-nav"
+              : isPending
+              ? "footer-nav"
+              : "footer-nav"
+          }
+        >
+          {({ isActive }) => (
+            <img
+              className="footer-nav-svg"
+              src={
+                isActive
+                  ? allHabitsSvg
+                  : settings.theme === "light"
+                  ? allHabitsSvgBlack
+                  : allHabitsSvg
+              }
+              alt=""
+            />
+          )}
+        </NavLink>
+
         <NavLink
           data-tip="Home"
           to={"/"}
@@ -199,32 +226,6 @@ const NavBar = () => {
                   : settings.theme === "light"
                   ? settingsSvgBlack
                   : settingsSvg
-              }
-              alt=""
-            />
-          )}
-        </NavLink>
-        <NavLink
-          data-tip="Add Habit"
-          to={"/addhabit"}
-          id="addhabit"
-          className={({ isActive, isPending }) =>
-            isActive
-              ? "footer-nav chosen-nav"
-              : isPending
-              ? "footer-nav"
-              : "footer-nav"
-          }
-        >
-          {({ isActive }) => (
-            <img
-              className="footer-nav-svg"
-              src={
-                isActive
-                  ? addHabitSvg
-                  : settings.theme === "light"
-                  ? addHabitSvgBlack
-                  : addHabitSvg
               }
               alt=""
             />
