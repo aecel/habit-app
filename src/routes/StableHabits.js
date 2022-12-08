@@ -3,10 +3,10 @@ import WeekCalendar from "../components/WeekCalendar"
 import { useHabits } from "../useHabits"
 import { useSettings } from "../useSettings"
 
-const Home = () => {
+const StableHabits = () => {
   const habits = useHabits().habits
   const habitFunctions = useHabits().habitFunctions
-  const readUnstableHabits = habitFunctions.readUnstableHabits
+  const readStableHabits = habitFunctions.readStableHabits
   const triToggleDay = habitFunctions.triToggleDay
 
   const today = new Date()
@@ -30,10 +30,10 @@ const Home = () => {
   }, [settings.theme])
 
   return (
-    <div id="Home">
-      {readUnstableHabits().map((habit) => {
+    <div id="StableHabits">
+      {readStableHabits().map((habit) => {
         return (
-          <div className="home-card" key={habit.readId()}>
+          <div className="stable-habits-card" key={habit.readId()}>
             <h3
               style={{
                 // marginTop: "0px",
@@ -62,4 +62,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default StableHabits

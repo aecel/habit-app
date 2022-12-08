@@ -608,3 +608,27 @@ input[type="radio"] {
   justify-content: center;
   gap: 50px;
 }
+
+/* StableHabits Route */
+
+#StableHabits {
+  margin: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  gap: 30px;
+}
+
+.stable-habits-card {
+  padding: 40px;
+  background-color: var(--card-color);
+  border-radius: 10px;
+  width: 300px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 50px;
+}
