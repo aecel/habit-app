@@ -37,10 +37,10 @@ const TestHabitCards = () => {
   }, [settings.theme])
   return (
     <>
-      <div className="habit-cards">
+      <div className="test-habit-cards">
         {habits.map((habit) => {
           return (
-            <div key={habit.readId()} className="habit-card">
+            <div key={habit.readId()} className="test-habit-card">
               <div>Title: {habit.readName()}</div>
               <div>Id: {habit.readId()}</div>
               <div>Stable: {habit.isStable() ? "Sooo truue" : "False"}</div>
