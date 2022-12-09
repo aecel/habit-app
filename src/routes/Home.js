@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <div id="Home">
       {readUnstableHabits().map((habit) => {
-        return <HabitCard habit={habit} />
+        return <HabitCard habit={habit} key={habit.readId()}/>
       })}
     </div>
   )

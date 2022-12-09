@@ -28,7 +28,7 @@
   font-family: "Lato", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   /* --dark-green: #559561; */
   --dark-green: #145820;
-  --white: rgb(236, 236, 236);
+  --white: #f2f2f2;
   --light-gray: rgb(215, 215, 215);
   --gray: #272727;
   --darkest-gray: #0d1117;
@@ -602,13 +602,30 @@ input[type="radio"] {
 /* Habit Card Component */
 
 .habit-card {
-  padding: 40px;
+  padding: 20px;
   background-color: var(--card-color);
-  border-radius: 10px;
-  width: 300px;
+  border-radius: 20px;
+  height: 240px;
+  width: 370px;
+  box-sizing: border-box;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 50px;
+}
+
+.dark-habit-card {
+  background: url(../images/card-assets/card-bg-curvy.png);
+  background-size: cover;
+}
+
+.light-habit-card {
+  background: url(../images/card-assets/card-bg-curvy-light.png);
+  background-size: cover;
+}
+
+.card-star {
+  height: 30px;
+  width: auto;
 }

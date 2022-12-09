@@ -2,6 +2,8 @@ import { useEffect, useState } from "react"
 import WeekCalendar from "../components/WeekCalendar"
 import { useHabits } from "../useHabits"
 import { useSettings } from "../useSettings"
+import starDark from "../images/card-assets/star-dark.svg"
+import starLight from "../images/card-assets/star-light.svg"
 
 const HabitCard = ({ habit }) => {
   const habitFunctions = useHabits().habitFunctions
@@ -29,17 +31,24 @@ const HabitCard = ({ habit }) => {
 
   return (
     <div
-      className="habit-card"
-      key={habit.readId()}
-      style={
+      className={
         habit.isStable()
-          ? {
-              backgroundColor: "black",
-            }
-          : {}
+          ? settings.theme === "dark"
+            ? "dark-habit-card habit-card"
+            : "light-habit-card habit-card"
+          : "habit-card"
       }
     >
-      <h3
+      {habit.isStable() ? (
+        settings.theme === "dark" ? (
+          <img className="card-star" src={starDark} alt="" />
+        ) : (
+          <img className="card-star" src={starLight} alt="" />
+        )
+      ) : (
+        <></>
+      )}
+      {/* <h3
         style={{
           // marginTop: "0px",
           marginBottom: "0px",
@@ -47,7 +56,7 @@ const HabitCard = ({ habit }) => {
         }}
       >
         {habit.readName()}
-      </h3>
+      </h3> */}
       <WeekCalendar
         habit={habit}
         year={yearNow}

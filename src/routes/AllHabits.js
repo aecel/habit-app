@@ -7,7 +7,7 @@ const AllHabits = () => {
   return (
     <div id="AllHabits">
       {habits.map((habit) => {
-        return <HabitCard habit={habit} />
+        return <HabitCard habit={habit} key={habit.readId()}/>
       })}
     </div>
   )
