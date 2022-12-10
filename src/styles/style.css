@@ -90,63 +90,6 @@ body {
   height: 20px;
 }
 
-/* Week Calendar Component */
-
-.week-calendar-container {
-  /* margin: 30px 0px 30px 0px; */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.week-calendar-label {
-  font-weight: bold;
-  font-size: 0.8rem;
-  margin-bottom: 10px;
-}
-
-.week-calendar {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  row-gap: 5px;
-  column-gap: 22px;
-}
-
-.week-calendar-day-label {
-  font-size: 0.7rem;
-  /* margin-bottom: 2px; */
-  text-align: center;
-}
-
-.week-calendar-day-number {
-  font-size: 0.5rem;
-  margin-bottom: 5px;
-  text-align: center;
-}
-
-.week-calendar-day {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2px;
-  height: 20px;
-  width: 20px;
-  border-radius: 6px;
-  font-size: 0.7rem;
-}
-
-.week-calendar-day-icon {
-  height: 15px;
-  width: auto;
-}
-
-.week-calendar-day-circle {
-  height: 8px;
-  width: 8px;
-  border-radius: 50%;
-  background-color: var(--circle-color);
-}
-
 /* Month Calendar Component */
 
 .month-calendar-container {
@@ -621,15 +564,74 @@ input[type="radio"] {
   gap: 30px;
 }
 
+/* Week Calendar Component */
+
+.week-calendar-container {
+  /* margin: 30px 0px 30px 0px; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.week-calendar-label {
+  font-weight: bold;
+  font-size: 0.8rem;
+  margin-bottom: 10px;
+}
+
+.week-calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  row-gap: 5px;
+  column-gap: 20px;
+}
+
+.week-calendar-day-label {
+  font-size: 0.7rem;
+  /* margin-bottom: 2px; */
+  text-align: center;
+}
+
+.week-calendar-day-number {
+  font-size: 0.5rem;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.week-calendar-day {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  height: 20px;
+  width: 20px;
+  border-radius: 6px;
+  font-size: 0.7rem;
+}
+
+.week-calendar-day-icon {
+  height: 15px;
+  width: auto;
+}
+
+.week-calendar-day-circle {
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  background-color: var(--circle-color);
+}
+
 /* Habit Card Component */
 
 .habit-card {
-  padding: 30px;
+  padding: 25px;
   padding-bottom: 10px;
   background-color: var(--card-color);
-  border-radius: 20px;
-  height: 210px;
-  width: 370px;
+  border-radius: 15px;
+  /* height: 210px;
+  width: 370px; */
+  height: 190px;
+  width: 350px;
   box-sizing: border-box;
 
   display: flex;
@@ -637,6 +639,10 @@ input[type="radio"] {
   justify-content: space-between;
   position: relative;
   overflow: clip;
+
+  /* border-bottom: gray 1px solid;
+  border-right: gray 1px solid; */
+  box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.124);
 }
 
 .habit-card-title {
@@ -656,9 +662,9 @@ input[type="radio"] {
 
 .card-star {
   position: absolute;
-  top: 25px;
-  right: 25px;
-  height: 30px;
+  top: 22px;
+  right: 15px;
+  height: 25px;
   width: auto;
 }
 
@@ -671,6 +677,28 @@ input[type="radio"] {
 }
 
 .card-bottom {
-  padding: 10px;
+  padding: 5px;
   /* background-color: #fff; */
+}
+
+.card-options {
+  height: 50px;
+  width: 50px;
+  /* background-color: gray; */
+  border-radius: 50%;
+  position: absolute;
+  bottom: -8px;
+  right: 5px;
+
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-options-circle {
+  height: 4px;
+  width: 4px;
+  border-radius: 50%;
+  background-color: var(--white);
 }

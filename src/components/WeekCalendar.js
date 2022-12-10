@@ -26,7 +26,7 @@ const WeekCalendar = ({
         <div className="week-calendar-day-label">Fri</div>
         <div className="week-calendar-day-label">Sat</div>
         {weekArray.map((date) => {
-          return <div class="week-calendar-day-number">{date.day}</div>
+          return <div className="week-calendar-day-number" key={date.day}>{date.day}</div>
         })}
         {weekArray.map((date) => {
           return (

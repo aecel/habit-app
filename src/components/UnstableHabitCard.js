@@ -34,7 +34,7 @@ const UnstableHabitCard = ({ habit }) => {
       <div
         className="card-color-bar"
         style={{
-          backgroundColor: "var(--dark-green)",
+        //   backgroundColor: "var(--dark-green)",
         }}
       ></div>
       <div className="habit-card-title">{habit.readName()}</div>
@@ -53,6 +53,11 @@ const UnstableHabitCard = ({ habit }) => {
         halfCheck={settings.theme === "dark" ? darkCheck : brightCheck}
       />
       <div className="card-bottom"></div>
+      <div className="card-options">
+        <div className="card-options-circle"></div>
+        <div className="card-options-circle"></div>
+        <div className="card-options-circle"></div>
+      </div>
     </div>
   )
 }

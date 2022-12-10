@@ -68,6 +68,11 @@ const StableHabitCard = ({ habit }) => {
         halfCheck={settings.theme === "dark" ? halfCheckDark : halfCheckLight}
       />
       <div className="card-bottom"></div>
+      <div className="card-options">
+        <div className="card-options-circle"></div>
+        <div className="card-options-circle"></div>
+        <div className="card-options-circle"></div>
+      </div>
     </div>
   )
 }
