@@ -1,8 +1,10 @@
 {
   "files": {
-    "main.css": "/habit-app/static/css/main.ad91a18e.css",
-    "main.js": "/habit-app/static/js/main.620a3b78.js",
+    "main.css": "/habit-app/static/css/main.feff5104.css",
+    "main.js": "/habit-app/static/js/main.8e1bdd28.js",
     "static/media/peepo-sad.gif": "/habit-app/static/media/peepo-sad.f67eeae981afbf81e543.gif",
+    "static/media/card-bg-curvy-light.png": "/habit-app/static/media/card-bg-curvy-light.a61e63355832bed90c77.png",
+    "static/media/card-bg-curvy.png": "/habit-app/static/media/card-bg-curvy.f0364ac13a4bfb285330.png",
     "static/media/calendar-black.svg": "/habit-app/static/media/calendar-black.3c989cff70a5c37d0027393bc61f1469.svg",
     "static/media/settings-black.svg": "/habit-app/static/media/settings-black.98ccc1c77e1eb27dc1092a6e29a34d9c.svg",
     "static/media/stablehabits-black.svg": "/habit-app/static/media/stablehabits-black.2e3140deec25c9bcc8f564cbd470f4bd.svg",
@@ -15,6 +17,8 @@
     "static/media/stats-black.svg": "/habit-app/static/media/stats-black.ce40ae5bcaa1881f0c76b82be4fa7f9a.svg",
     "static/media/stablehabits.svg": "/habit-app/static/media/stablehabits.4999e0aa92efe500c101752e79446bf2.svg",
     "static/media/allhabits.svg": "/habit-app/static/media/allhabits.1f8fe30c80bd0af8f530ef06076edfd3.svg",
+    "static/media/star-light.svg": "/habit-app/static/media/star-light.8c3691a80f7f22242b794c2e856761ba.svg",
+    "static/media/star-dark.svg": "/habit-app/static/media/star-dark.8b67f08e25f25899f436e27413ee3912.svg",
     "static/media/testhabits.svg": "/habit-app/static/media/testhabits.4810b2eca1084e338beb2ed3a4138950.svg",
     "static/media/addhabit.svg": "/habit-app/static/media/addhabit.0a6a38648265fea02f7fdc60522b3f70.svg",
     "static/media/home.svg": "/habit-app/static/media/home.df5e37596d9d6be45855f9f0be96abe7.svg",
@@ -24,11 +28,17 @@
     "static/media/left-arrow.svg": "/habit-app/static/media/left-arrow.e67f0519222c121aa74f1710905ecf2c.svg",
     "static/media/right-arrow.svg": "/habit-app/static/media/right-arrow.7d4cfb879be2ef5ff035bc4e303e820c.svg",
     "index.html": "/habit-app/index.html",
-    "main.ad91a18e.css.map": "/habit-app/static/css/main.ad91a18e.css.map",
-    "main.620a3b78.js.map": "/habit-app/static/js/main.620a3b78.js.map"
+    "static/media/bright-check.svg": "/habit-app/static/media/bright-check.7073699ccba1b970681353aa83af8434.svg",
+    "static/media/check-done-light.svg": "/habit-app/static/media/check-done-light.5e7c4a1740b410e217c4f71e55d38ff7.svg",
+    "static/media/check-half-dark.svg": "/habit-app/static/media/check-half-dark.f50441f9ea4847468694eb2f95c8d4b0.svg",
+    "static/media/check-half-light.svg": "/habit-app/static/media/check-half-light.b219298c03d48160716f1d4e77b0bc62.svg",
+    "static/media/dark-check.svg": "/habit-app/static/media/dark-check.c07c41e92172fbb588f2af842613e0ca.svg",
+    "static/media/check-done-dark.svg": "/habit-app/static/media/check-done-dark.13d5457e278d43fd685bde3aab2541cc.svg",
+    "main.feff5104.css.map": "/habit-app/static/css/main.feff5104.css.map",
+    "main.8e1bdd28.js.map": "/habit-app/static/js/main.8e1bdd28.js.map"
   },
   "entrypoints": [
-    "static/css/main.ad91a18e.css",
-    "static/js/main.620a3b78.js"
+    "static/css/main.feff5104.css",
+    "static/js/main.8e1bdd28.js"
   ]
 }
