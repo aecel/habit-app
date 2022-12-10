@@ -39,6 +39,9 @@
   --dark-theme-bg: var(--gray);
   --light-theme-card: var(--light-gray);
   --dark-theme-card: var(--darkest-gray);
+
+  --dark-theme-circle: rgb(58, 58, 58);
+  --light-theme-circle: var(--white);
 }
 
 body {
@@ -105,11 +108,18 @@ body {
 .week-calendar {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 8px;
+  row-gap: 5px;
+  column-gap: 22px;
 }
 
 .week-calendar-day-label {
   font-size: 0.7rem;
+  /* margin-bottom: 2px; */
+  text-align: center;
+}
+
+.week-calendar-day-number {
+  font-size: 0.5rem;
   margin-bottom: 5px;
   text-align: center;
 }
@@ -123,6 +133,18 @@ body {
   width: 20px;
   border-radius: 6px;
   font-size: 0.7rem;
+}
+
+.week-calendar-day-icon {
+  height: 15px;
+  width: auto;
+}
+
+.week-calendar-day-circle {
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  background-color: var(--circle-color);
 }
 
 /* Month Calendar Component */
@@ -602,17 +624,24 @@ input[type="radio"] {
 /* Habit Card Component */
 
 .habit-card {
-  padding: 20px;
+  padding: 30px;
+  padding-bottom: 10px;
   background-color: var(--card-color);
   border-radius: 20px;
-  height: 240px;
+  height: 210px;
   width: 370px;
   box-sizing: border-box;
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 50px;
+  justify-content: space-between;
+  position: relative;
+  overflow: clip;
+}
+
+.habit-card-title {
+  font-size: 0.9rem;
+  font-weight: bold;
 }
 
 .dark-habit-card {
@@ -626,6 +655,22 @@ input[type="radio"] {
 }
 
 .card-star {
+  position: absolute;
+  top: 25px;
+  right: 25px;
   height: 30px;
   width: auto;
+}
+
+.card-color-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 240px;
+  width: 6px;
+}
+
+.card-bottom {
+  padding: 10px;
+  /* background-color: #fff; */
 }

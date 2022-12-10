@@ -10,6 +10,7 @@ const Main = () => {
   const textColor = `var(--${theme}-theme-text)`
   const bgColor = `var(--${theme}-theme-bg)`
   const cardColor = `var(--${theme}-theme-card)`
+  const circleColor = `var(--${theme}-theme-circle)`
 
   // Setting the main document bg color here
   // Doesn't work when on style.css for some reason
@@ -29,6 +30,7 @@ const Main = () => {
         "--text-color": textColor,
         "--bg-color": bgColor,
         "--card-color": cardColor,
+        "--circle-color": circleColor,
       }}
     >
       <div className="top-ghost-div"></div>

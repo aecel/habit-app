@@ -130,7 +130,7 @@ const NavBar = () => {
         </NavLink>
 
         <NavLink
-          data-tip="Home"
+          data-tip="Unstable Habits"
           to={"/"}
           id="home"
           className={() =>

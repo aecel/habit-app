@@ -11,14 +11,12 @@ const WeekCalendar = ({
   triToggleDay,
   moreGreen,
   lessGreen,
+  doneCheck,
+  halfCheck,
 }) => {
   const weekArray = getThisWeek({ year: year, month: month, day: day })
   return (
     <div className="week-calendar-container">
-      <div className="week-calendar-label">
-        {/* {getMonthFromNum(monthNow)} {yearNow} */}
-        This week
-      </div>
       <div className="week-calendar">
         <div className="week-calendar-day-label">Sun</div>
         <div className="week-calendar-day-label">Mon</div>
@@ -27,6 +25,9 @@ const WeekCalendar = ({
         <div className="week-calendar-day-label">Thu</div>
         <div className="week-calendar-day-label">Fri</div>
         <div className="week-calendar-day-label">Sat</div>
+        {weekArray.map((date) => {
+          return <div class="week-calendar-day-number">{date.day}</div>
+        })}
         {weekArray.map((date) => {
           return (
             <div
@@ -56,32 +57,32 @@ const WeekCalendar = ({
                   date.day <= dayNow)
                   ? {
                       cursor: "pointer",
-                      backgroundColor: `${
-                        habit.readCalendar()[date.year][date.month][date.day][
-                          "done"
-                        ] === "Done completely"
-                          ? `${moreGreen}`
-                          : habit.readCalendar()[date.year][date.month][
-                              date.day
-                            ]["done"] === "Half-assed"
-                          ? `${lessGreen}`
-                          : "var(--bg-color)"
-                      }`,
-                      color: `${
-                        habit.readCalendar()[date.year][date.month][date.day][
-                          "done"
-                        ] === "Done completely" ||
-                        habit.readCalendar()[date.year][date.month][date.day][
-                          "done"
-                        ] === "Half-assed"
-                          ? "var(--white)"
-                          : "var(--dark-gray)"
-                      }`,
                     }
-                  : { backgroundColor: "var(--card-color)" }
+                  : {}
               }
             >
-              {date.day}
+              {habit.readCalendar()[date.year][date.month][date.day]["done"] ===
+                "Done completely" ||
+              habit.readCalendar()[date.year][date.month][date.day]["done"] ===
+                "Half-assed" ? (
+                <img
+                  className="week-calendar-day-icon"
+                  alt=""
+                  src={
+                    habit.readCalendar()[date.year][date.month][date.day][
+                      "done"
+                    ] === "Done completely"
+                      ? doneCheck
+                      : habit.readCalendar()[date.year][date.month][date.day][
+                          "done"
+                        ] === "Half-assed"
+                      ? halfCheck
+                      : "none"
+                  }
+                />
+              ) : (
+                <div className="week-calendar-day-circle"></div>
+              )}
             </div>
           )
         })}
