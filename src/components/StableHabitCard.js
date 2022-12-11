@@ -44,7 +44,9 @@ const StableHabitCard = ({ habit }) => {
       <div
         className="card-color-bar"
         style={{
-          backgroundColor: "#FFD700",
+          backgroundColor: `${
+            settings.theme === "dark" ? "#FFD700" : "#C0A900"
+          }`,
         }}
       ></div>
       {settings.theme === "dark" ? (
@@ -52,7 +54,11 @@ const StableHabitCard = ({ habit }) => {
       ) : (
         <img className="card-star" src={starLight} alt="" />
       )}
-      <div className="habit-card-title">{habit.readName()}</div>
+      <div className="habit-card-title" style={{
+          color: `${
+            settings.theme === "light" ? "#C0A900" : "var(--text-color)"
+          }`,
+        }}>{habit.readName()}</div>
       <WeekCalendar
         habit={habit}
         year={yearNow}
@@ -62,8 +68,6 @@ const StableHabitCard = ({ habit }) => {
         monthNow={monthNow}
         dayNow={dayNow}
         triToggleDay={triToggleDay}
-        moreGreen={moreGreen}
-        lessGreen={lessGreen}
         doneCheck={settings.theme === "dark" ? doneCheckDark : doneCheckLight}
         halfCheck={settings.theme === "dark" ? halfCheckDark : halfCheckLight}
       />

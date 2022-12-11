@@ -31,13 +31,17 @@ const UnstableHabitCard = ({ habit }) => {
 
   return (
     <div className="habit-card">
-      <div
+      {/* <div
         className="card-color-bar"
         style={{
-        //   backgroundColor: "var(--dark-green)",
+          backgroundColor: "var(--dark-green)",
         }}
-      ></div>
-      <div className="habit-card-title">{habit.readName()}</div>
+      ></div> */}
+      <div className="habit-card-title" style={{
+          color: `${
+            settings.theme === "light" ? "#006D32" : "var(--text-color)"
+          }`,
+        }}>{habit.readName()}</div>
       <WeekCalendar
         habit={habit}
         year={yearNow}
@@ -47,8 +51,6 @@ const UnstableHabitCard = ({ habit }) => {
         monthNow={monthNow}
         dayNow={dayNow}
         triToggleDay={triToggleDay}
-        moreGreen={moreGreen}
-        lessGreen={lessGreen}
         doneCheck={settings.theme === "dark" ? brightCheck : darkCheck}
         halfCheck={settings.theme === "dark" ? darkCheck : brightCheck}
       />

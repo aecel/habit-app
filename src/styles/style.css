@@ -263,7 +263,7 @@ body {
 .navbar {
   position: fixed;
   bottom: 0;
-  height: 80px;
+  height: 60px;
   width: 100%;
   box-sizing: border-box;
   color: white;
@@ -301,10 +301,16 @@ nav {
   width: auto;
 }
 
+@media (min-width: 770px) {
+  nav {
+    gap: 30px;
+  }
+}
+
 /* Add Habit Route */
 
 #AddHabit {
-  margin: 50px;
+  margin: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -449,7 +455,7 @@ input[type="radio"] {
 }
 
 #settings-card {
-  margin: 50px;
+  margin: 20px;
   padding: 40px;
   background-color: var(--card-color);
   display: flex;
@@ -507,7 +513,7 @@ input[type="radio"] {
 /* Calendar Route */
 
 #Calendar {
-  margin: 50px;
+  margin: 40px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -520,7 +526,8 @@ input[type="radio"] {
   padding: 40px;
   background-color: var(--card-color);
   border-radius: 10px;
-  width: 300px;
+  width: 350px;
+  box-sizing: border-box;
 
   display: flex;
   flex-direction: column;
@@ -528,40 +535,35 @@ input[type="radio"] {
   gap: 50px;
 }
 
+@media (min-width: 770px) {
+  #Calendar {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+/* Cards Route */
+/* includes: */
 /* All Habits Route */
-
-#AllHabits {
-  margin: 50px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  gap: 30px;
-}
-
 /* Home Route */
-
-#Home {
-  margin: 50px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  gap: 30px;
-}
-
 /* StableHabits Route */
 
-#StableHabits {
-  margin: 50px;
+.cards-route {
+  margin: 40px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   height: 100%;
   gap: 30px;
+}
+
+@media (min-width: 770px) {
+  .cards-route {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
 
 /* Week Calendar Component */

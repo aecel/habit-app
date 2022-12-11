@@ -41,6 +41,10 @@ const getNextDay = ({ year, month, day }) => {
     return { year: year, month: month, day: day + 1 }
   }
 }
+
+// Gets this week Sun to Sat
+// Different from getThisWeekArray
+// Not used anymore in Week Calendar component
 const getThisWeek = ({ year, month, day }) => {
   const today = new Date(year, month - 1, day)
 
@@ -66,6 +70,43 @@ const getThisWeek = ({ year, month, day }) => {
   return weekArray
 }
 
+const getDayName = ({ year, month, day }) => {
+  const date = new Date(year, month - 1, day)
+  const dayNum = date.getDay()
+  const dayArray = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+  return dayArray[dayNum]
+}
+
+// Gets this week, from today to six days ago
+// Different from getThisWeek
+// contains dayName (Sunday, Monday, etc.)
+// Used in Week Calendar component
+const getThisWeekArray = ({ year, month, day }) => {
+  let weekArray = []
+
+  let dayReference = {
+    year: year,
+    month: month,
+    day: day,
+  }
+
+  // push today into the array first and then the previous 6 days
+  let dayToPush = dayReference
+  for (let i = 0; i < 7; i++) {
+    const dayNameToAdd = {
+      dayName: getDayName({
+        year: dayToPush.year,
+        month: dayToPush.month,
+        day: dayToPush.day,
+      }),
+    }
+    const objectToPush = { ...dayToPush, ...dayNameToAdd }
+    weekArray.unshift(objectToPush)
+    dayToPush = getPreviousDay(dayToPush)
+  }
+  return weekArray
+}
+
 export {
   getDaysInMonth,
   getPreviousMonth,
@@ -73,4 +114,5 @@ export {
   getNextMonth,
   getNextDay,
   getThisWeek,
+  getThisWeekArray,
 }

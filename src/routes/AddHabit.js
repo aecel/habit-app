@@ -9,6 +9,7 @@ const AddHabit = () => {
   const createHabit = habitFunctions.createHabit
   const formRef = useRef()
   const modalRef = useRef()
+  const inputNameRef = useRef()
 
   const submitAddHabitForm = (form) => {
     const formData = new FormData(form)
@@ -34,8 +35,12 @@ const AddHabit = () => {
     createHabit(properties)
     form.reset()
   }
+  
+  // We only use this name for the AddHabitModal pop-up
+  const [habitName, setHabitName] = useState()
 
   const onSubmit = (event) => {
+    setHabitName(inputNameRef.current.value)
     const modal = modalRef.current
     event.preventDefault()
     submitAddHabitForm(formRef.current)
@@ -43,12 +48,6 @@ const AddHabit = () => {
     setTimeout(() => {
       modal.style.display = "none"
     }, 5000)
-  }
-
-  // We only use this name for the AddHabitModal pop-up
-  const [name, setName] = useState()
-  const onInputNameChange = (event) => {
-    setName(event.target.value)
   }
 
   return (
@@ -59,12 +58,11 @@ const AddHabit = () => {
         <form id="add-habit-form" ref={formRef} action="" onSubmit={onSubmit}>
           <div className="form-item">
             <label htmlFor="habit-name">Name of Habit *</label>
-            <input
+            <input ref={inputNameRef}
               id="habit-name"
               name="habit-name"
               type="text"
               required
-              onChange={onInputNameChange}
             />
           </div>
           <div className="form-item-radios">
@@ -120,7 +118,7 @@ const AddHabit = () => {
           <button id="add-habit-submit" type="submit">
             Add Habit
           </button>
-          <AddHabitModal name={name} modalRef={modalRef}/>
+          <AddHabitModal name={habitName} modalRef={modalRef}/>
         </form>
       </div>
     </div>

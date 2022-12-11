@@ -5,7 +5,7 @@ const AllHabits = () => {
   const habits = useHabits().habits
 
   return (
-    <div id="AllHabits">
+    <div id="AllHabits" className="cards-route">
       {habits.map((habit) => {
         return <HabitCard habit={habit} key={habit.readId()}/>
       })}

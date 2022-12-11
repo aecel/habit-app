@@ -6,7 +6,7 @@ const Home = () => {
   const readUnstableHabits = habitFunctions.readUnstableHabits
 
   return (
-    <div id="Home">
+    <div id="Home" className="cards-route">
       {readUnstableHabits().map((habit) => {
         return <HabitCard habit={habit} key={habit.readId()}/>
       })}

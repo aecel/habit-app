@@ -33,13 +33,13 @@ const Calendar = () => {
       {habits.map((habit) => {
         return (
           <div className="calendar-card" key={habit.readId()}>
-            <h3
+            <div
               style={{
                 marginBottom: "0px",
               }}
             >
               {habit.readName()}
-            </h3>
+            </div>
             {/* <YearCalendar
               habit={habit}
               year={yearNow - 1}

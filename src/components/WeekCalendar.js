@@ -1,4 +1,4 @@
-import { getThisWeek } from "../calendarFunctions"
+import { getThisWeekArray } from "../calendarFunctions"
 
 const WeekCalendar = ({
   habit,
@@ -9,24 +9,26 @@ const WeekCalendar = ({
   monthNow,
   dayNow,
   triToggleDay,
-  moreGreen,
-  lessGreen,
   doneCheck,
   halfCheck,
 }) => {
-  const weekArray = getThisWeek({ year: year, month: month, day: day })
+  const weekArray = getThisWeekArray({ year: year, month: month, day: day })
   return (
     <div className="week-calendar-container">
       <div className="week-calendar">
-        <div className="week-calendar-day-label">Sun</div>
-        <div className="week-calendar-day-label">Mon</div>
-        <div className="week-calendar-day-label">Tue</div>
-        <div className="week-calendar-day-label">Wed</div>
-        <div className="week-calendar-day-label">Thu</div>
-        <div className="week-calendar-day-label">Fri</div>
-        <div className="week-calendar-day-label">Sat</div>
         {weekArray.map((date) => {
-          return <div className="week-calendar-day-number" key={date.day}>{date.day}</div>
+          return (
+            <div className="week-calendar-day-label" key={date.dayName}>
+              {date.dayName}
+            </div>
+          )
+        })}
+        {weekArray.map((date) => {
+          return (
+            <div className="week-calendar-day-number" key={date.day}>
+              {date.day}
+            </div>
+          )
         })}
         {weekArray.map((date) => {
           return (
