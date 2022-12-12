@@ -91,6 +91,8 @@ const getThisWeekArray = ({ year, month, day }) => {
   }
 
   // push today into the array first and then the previous 6 days
+  // object looks like this:
+  // {year, month, day, dayName}
   let dayToPush = dayReference
   for (let i = 0; i < 7; i++) {
     const dayNameToAdd = {

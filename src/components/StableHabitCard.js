@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react"
 import { useHabits } from "../useHabits"
 import { useSettings } from "../useSettings"
-import starDark from "../images/card-assets/star-dark.svg"
-import starLight from "../images/card-assets/star-light.svg"
 import doneCheckDark from "../images/card-assets/check-done-dark.svg"
 import halfCheckDark from "../images/card-assets/check-half-dark.svg"
 import doneCheckLight from "../images/card-assets/check-done-light.svg"
 import halfCheckLight from "../images/card-assets/check-half-light.svg"
 import WeekCalendar from "./WeekCalendar"
+import CardStar from "./CardStar"
 
 const StableHabitCard = ({ habit }) => {
   const habitFunctions = useHabits().habitFunctions
@@ -49,16 +48,17 @@ const StableHabitCard = ({ habit }) => {
           }`,
         }}
       ></div>
-      {settings.theme === "dark" ? (
-        <img className="card-star" src={starDark} alt="" />
-      ) : (
-        <img className="card-star" src={starLight} alt="" />
-      )}
-      <div className="habit-card-title" style={{
+      <CardStar />
+      <div
+        className="habit-card-title"
+        style={{
           color: `${
             settings.theme === "light" ? "#C0A900" : "var(--text-color)"
           }`,
-        }}>{habit.readName()}</div>
+        }}
+      >
+        {habit.readName()}
+      </div>
       <WeekCalendar
         habit={habit}
         year={yearNow}
