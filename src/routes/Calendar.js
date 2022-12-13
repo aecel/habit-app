@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import CalendarCard from "../components/CalendarCard"
 import CardStar from "../components/CardStar"
 import MonthCalendar from "../components/MonthCalendar"
 import YearCalendar from "../components/YearCalendar"
@@ -23,36 +24,7 @@ const Calendar = () => {
   return (
     <div id="Calendar">
       {habits.map((habit) => {
-        return (
-          <div className="calendar-card" key={habit.readId()}>
-            {habit.isStable() ? <CardStar /> : <></>}
-            <div
-              style={{
-                marginBottom: "0px",
-              }}
-            >
-              {habit.readName()}
-            </div>
-            <MonthCalendar
-              habit={habit}
-              yearNow={yearNow}
-              monthNow={monthNow}
-              dayNow={dayNow}
-              triToggleDay={triToggleDay}
-              moreGreen={moreGreen}
-              lessGreen={lessGreen}
-            />
-            <YearCalendar
-              habit={habit}
-              yearNow={yearNow}
-              monthNow={monthNow}
-              dayNow={dayNow}
-              triToggleDay={triToggleDay}
-              moreGreen={moreGreen}
-              lessGreen={lessGreen}
-            />
-          </div>
-        )
+        return <CalendarCard habit={habit} />
       })}
     </div>
   )

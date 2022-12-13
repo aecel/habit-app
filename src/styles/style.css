@@ -536,6 +536,11 @@ input[type="radio"] {
   position: relative;
 }
 
+.calendar-card-title {
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
 @media (min-width: 770px) {
   #Calendar {
     flex-direction: row;
