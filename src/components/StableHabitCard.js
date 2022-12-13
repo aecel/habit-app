@@ -19,18 +19,8 @@ const StableHabitCard = ({ habit }) => {
 
   const settings = useSettings().settings
 
-  const [lessGreen, setLessGreen] = useState("")
-  const [moreGreen, setMoreGreen] = useState("")
-
-  useEffect(() => {
-    if (settings.theme === "light") {
-      setMoreGreen("#006D32")
-      setLessGreen("#39D353")
-    } else {
-      setMoreGreen("#39D353")
-      setLessGreen("#006D32")
-    }
-  }, [settings.theme])
+  const colors = useSettings().colors
+  const moreGold = colors.moreGold
 
   return (
     <div
@@ -43,9 +33,7 @@ const StableHabitCard = ({ habit }) => {
       <div
         className="card-color-bar"
         style={{
-          backgroundColor: `${
-            settings.theme === "dark" ? "#FFD700" : "#C0A900"
-          }`,
+          backgroundColor: moreGold,
         }}
       ></div>
       <CardStar />
@@ -53,7 +41,7 @@ const StableHabitCard = ({ habit }) => {
         className="habit-card-title"
         style={{
           color: `${
-            settings.theme === "light" ? "#C0A900" : "var(--text-color)"
+            settings.theme === "light" ? moreGold : "var(--text-color)"
           }`,
         }}
       >

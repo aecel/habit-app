@@ -15,19 +15,8 @@ const UnstableHabitCard = ({ habit }) => {
   const yearNow = today.getFullYear()
 
   const settings = useSettings().settings
-
-  const [lessGreen, setLessGreen] = useState("")
-  const [moreGreen, setMoreGreen] = useState("")
-
-  useEffect(() => {
-    if (settings.theme === "light") {
-      setMoreGreen("#006D32")
-      setLessGreen("#39D353")
-    } else {
-      setMoreGreen("#39D353")
-      setLessGreen("#006D32")
-    }
-  }, [settings.theme])
+  const colors = useSettings().colors
+  const moreGreen = colors.moreGreen
 
   return (
     <div className="habit-card">
@@ -37,11 +26,16 @@ const UnstableHabitCard = ({ habit }) => {
           backgroundColor: "var(--dark-green)",
         }}
       ></div> */}
-      <div className="habit-card-title" style={{
+      <div
+        className="habit-card-title"
+        style={{
           color: `${
-            settings.theme === "light" ? "#006D32" : "var(--text-color)"
+            settings.theme === "light" ? moreGreen : "var(--text-color)"
           }`,
-        }}>{habit.readName()}</div>
+        }}
+      >
+        {habit.readName()}
+      </div>
       <WeekCalendar
         habit={habit}
         year={yearNow}

@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react"
+import { createContext, useContext, useEffect, useState } from "react"
 
 const SettingsContext = createContext()
 export const useSettings = () => useContext(SettingsContext)
@@ -10,6 +10,30 @@ export const SettingsProvider = ({ children }) => {
     daysToBreakHabit: 3,
   }
   const [settings, setSettings] = useState(defaultSettings)
+
+  const colorsDark = {
+    moreGreen: "#39D353",
+    lessGreen: "#006D32",
+    moreGold: "#FFD700",
+    lessGold: "#605000",
+  }
+
+  const colorsLight = {
+    moreGreen: "#006D32",
+    lessGreen: "#39D353",
+    moreGold: "#C0A900",
+    lessGold: "#CCC076",
+  }
+
+  const [colors, setColors] = useState({})
+
+  useEffect(() => {
+    if (settings.theme === "light") {
+      setColors(colorsLight)
+    } else {
+      setColors(colorsDark)
+    }
+  }, [settings.theme])
 
   const updateSettings = (propertiesToEdit) => {
     const nextSettings = { ...settings }
@@ -25,14 +49,15 @@ export const SettingsProvider = ({ children }) => {
 
   const settingFunctions = {
     updateSettings,
-    revertToDefaultSettings
+    revertToDefaultSettings,
   }
-  
+
   return (
     <SettingsContext.Provider
       value={{
         settings: settings,
         settingFunctions: settingFunctions,
+        colors: colors,
       }}
     >
       {children}

@@ -16,9 +16,9 @@ const TestHabitCards = () => {
   const yearNow = today.getFullYear()
 
   const settings = useSettings().settings
-
-  const [lessGreen, setLessGreen] = useState("")
-  const [moreGreen, setMoreGreen] = useState("")
+  const colors = useSettings().colors
+  const moreGreen = colors.moreGreen
+  const lessGreen = colors.lessGreen
 
   const confirmationModalRef = useRef()
   const popUpModal = () => {
@@ -26,15 +26,6 @@ const TestHabitCards = () => {
     modal.style.display = "block"
   }
 
-  useEffect(() => {
-    if (settings.theme === "light") {
-      setMoreGreen("#006D32")
-      setLessGreen("#39D353")
-    } else {
-      setMoreGreen("#39D353")
-      setLessGreen("#006D32")
-    }
-  }, [settings.theme])
   return (
     <>
       <div className="test-habit-cards">
@@ -58,7 +49,9 @@ const TestHabitCards = () => {
                   : "It's undefined bruh"}
               </div>
               <div>Last Missed Streak: {habit.getLastMissedStreak()}</div>
-              <div>Days to Stabilize Habit: {habit.readDaysToStableHabit()}</div>
+              <div>
+                Days to Stabilize Habit: {habit.readDaysToStableHabit()}
+              </div>
               <div>Days to Break Habit: {habit.readDaysToBreakHabit()}</div>
               <div>
                 Day Diff: {getDayDiff(new Date(), habit.getLastUpdated())} days

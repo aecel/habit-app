@@ -16,19 +16,10 @@ const Calendar = () => {
   const yearNow = today.getFullYear()
 
   const settings = useSettings().settings
+  const colors = useSettings().colors
+  const moreGreen = colors.moreGreen
+  const lessGreen = colors.lessGreen
 
-  const [lessGreen, setLessGreen] = useState("")
-  const [moreGreen, setMoreGreen] = useState("")
-
-  useEffect(() => {
-    if (settings.theme === "light") {
-      setMoreGreen("#006D32")
-      setLessGreen("#39D353")
-    } else {
-      setMoreGreen("#39D353")
-      setLessGreen("#006D32")
-    }
-  }, [settings.theme])
   return (
     <div id="Calendar">
       {habits.map((habit) => {
@@ -42,16 +33,6 @@ const Calendar = () => {
             >
               {habit.readName()}
             </div>
-            {/* <YearCalendar
-              habit={habit}
-              year={yearNow - 1}
-              yearNow={yearNow}
-              monthNow={monthNow}
-              dayNow={dayNow}
-              triToggleDay={triToggleDay}
-              moreGreen={moreGreen}
-              lessGreen={lessGreen}
-            /> */}
             <MonthCalendar
               habit={habit}
               yearNow={yearNow}
