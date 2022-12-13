@@ -1,6 +1,5 @@
 import { useHabits } from "../useHabits"
 import { useSettings } from "../useSettings"
-import CardStar from "./CardStar"
 import MonthCalendar from "./MonthCalendar"
 import YearCalendar from "./YearCalendar"
 
@@ -13,7 +12,6 @@ const UnstableCalendarCard = ({ habit }) => {
   const monthNow = today.getMonth() + 1
   const yearNow = today.getFullYear()
 
-  const settings = useSettings().settings
   const colors = useSettings().colors
   const moreGreen = colors.moreGreen
   const lessGreen = colors.lessGreen

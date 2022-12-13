@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react"
 import { useHabits } from "../useHabits"
 import { useSettings } from "../useSettings"
 import brightCheck from "../images/card-assets/bright-check.svg"
 import darkCheck from "../images/card-assets/dark-check.svg"
 import WeekCalendar from "./WeekCalendar"
+import CardOptions from "./CardOptions"
 
 const UnstableHabitCard = ({ habit }) => {
   const habitFunctions = useHabits().habitFunctions
@@ -49,11 +49,7 @@ const UnstableHabitCard = ({ habit }) => {
         halfCheck={settings.theme === "dark" ? darkCheck : brightCheck}
       />
       <div className="card-bottom"></div>
-      <div className="card-options">
-        <div className="card-options-circle"></div>
-        <div className="card-options-circle"></div>
-        <div className="card-options-circle"></div>
-      </div>
+      <CardOptions habit={habit} />
     </div>
   )
 }

@@ -13,7 +13,6 @@ const StableCalendarCard = ({ habit }) => {
   const monthNow = today.getMonth() + 1
   const yearNow = today.getFullYear()
 
-  const settings = useSettings().settings
   const colors = useSettings().colors
   const moreGold = colors.moreGold
   const lessGold = colors.lessGold

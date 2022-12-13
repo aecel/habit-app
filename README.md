@@ -14,7 +14,7 @@ This is a non-punishing app that will help the user form habits.
 6. You can only add 1 "unstable habit" at a time, to prevent being overwhelmed. This is your main focus.
 7. You can add any number of "stable habits". Honor system na lang lol.
 8. If you have more than 1 "unstable habit" somehow, you need to choose between them. You need to delete one. This will gray it out or something idk. Or maybe there's a setting where you can have up to 3 unstable habits idk not sure. I'm not sure if this is a good idea lol. Actually baka it might incentivize me to lie lol so maybe don't delete them. Maybe choose na lang which will be your main focus.
-9. With "stable habits", you don't need to mark them all done, automatic na siya na green everyday because it's annoying to be asked everyday. You only need to mark it if you didn't do it a particular day. Be honest hopefully lol. Maybe there's this  button saying "Yup this is still accurate, I'm still doing it" Last checked some_date_here. If, after a lot of days, you haven't checked that habit, there will be a pop up to ask you to update its status. Idk is that annoying?
+9. With "stable habits", you don't need to mark them all done, automatic na siya na green everyday because it's annoying to be asked everyday. You only need to mark it if you didn't do it a particular day. Be honest hopefully lol. Maybe there's this button saying "Yup this is still accurate, I'm still doing it" Last checked some_date_here. If, after a lot of days, you haven't checked that habit, there will be a pop up to ask you to update its status. Idk is that annoying?
 10. All days are editable, (green to gray, gray to green) you don't need to check the app everyday. It won't punish you.
 11. Hoping on the honesty of the user who is me lol.
 12. The only thing you need to mark everyday or every whatever day is your 1 unstable habit.
@@ -23,7 +23,7 @@ This is a non-punishing app that will help the user form habits.
 15. When setting up a new unstable habit for the first time, there would be a guide for the user to make it a small step muna. Give examples like, if you want to go to the gym early, make it so that you wake up early muna ganun. The unstable habit can also evolve. From "wake up early" to "wake up early and change to gym shoes" and then to "wake up early and change to gym clothes" until you reach your main goal to go to the gym early. Ganern. I'm not completely sure how to implement this. Maybe after a certain number of days, there would be a pop-up asking you to edit the unstable habit to its next step or something. Idk. Or make it so that these steps are the children of your main goal.
 16. Make the stable habits very pretty/cool so it's a dopamine hit when you see them. It should look better the longer it is.
 17. There is an option where you only half assed the task. (e.g. You only flossed your bottom teeth instead of all your teeth lol) This will continue your streak pa rin. So there are 3 colors na, gray, dark green, green.
-18. You can choose to reward yourself when you hit a number of days that you have set (e.g. I will buy myself a slice of Gouda when I hit 15 days) 
+18. You can choose to reward yourself when you hit a number of days that you have set (e.g. I will buy myself a slice of Gouda when I hit 15 days)
 19. Make an option to set an alarm during a particular time. Either that or a trigger/situation. What happens before or after the habit?
 20. Display your progress in percentage, current streak, longest streak.
 21. Just an idea: stable habits can evolve to solidified habits. There can be 10 levels, all levels named after the mohs scale levels. (Talc to Diamond)
@@ -32,11 +32,13 @@ This is a non-punishing app that will help the user form habits.
 24. Add a legend on the green colors of the calendar
 
 ## Known bugs
+
 1. When switching from an empty route to a route like Add Habit or Test Habits, the navbar jumps. It's not super aligned.
 2. Not really a bug, but in AddHabit.js line 11, document.getblahblah was used, because I couldn't get useRef() to work lmao.
 3. The scrollbars of the year calendar can only scroll left to right. Might not work with a mouse.
 
 ## What I learned
+
 1. Use setHabits only once every update. Don't use more than two functions to use setHabits at the same time.
 2. !"" === true lmao
 3. Convert dates to utc for cases where dates span a DST change
@@ -44,6 +46,7 @@ This is a non-punishing app that will help the user form habits.
 5. Cannot use useRef outside of the thing you ref lmao
 
 # To Dos
+
 1. Make card options work; it has more info, update, delete, etc
 2. Make StableCalendarCard and UnstableCalendarCard
 3. Make unstable habit limit work
@@ -58,3 +61,4 @@ This is a non-punishing app that will help the user form habits.
 12. Add month names on year calendar
 13. Add a visual reminder if a stable habit is about to be demoted
 14. There will be a StableStatsCard and UnstableStatsCard
+15. Put something on screen when there is nothing to list (e.g. there are no stable habits, no unstable habits, or both)
