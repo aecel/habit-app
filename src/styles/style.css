@@ -731,7 +731,7 @@ input[type="radio"] {
 
 .card-options-popup-circle {
   border-radius: 50%;
-  background-color: var(--white);
+  background-color: var(--circle-color);
   height: 25px;
   width: 25px;
   cursor: pointer;

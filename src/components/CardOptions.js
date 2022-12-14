@@ -1,6 +1,7 @@
 import { useRef } from "react"
 import ReactTooltip from "react-tooltip"
 import { useHabits } from "../useHabits"
+import ConfirmationModal from "./ConfirmationModal"
 
 const CardOptions = ({ habit }) => {
   const habitFunctions = useHabits().habitFunctions
@@ -15,6 +16,8 @@ const CardOptions = ({ habit }) => {
     }
   }
 
+  const deleteRef = useRef()
+
   return (
     <div className="card-options">
       <div className="card-options-popup" ref={cardOptionsPopUpRef}>
@@ -23,9 +26,7 @@ const CardOptions = ({ habit }) => {
         <div
           className="card-options-popup-circle"
           data-tip="Delete"
-          onClick={() => {
-            deleteHabit(habit.readId())
-          }}
+          ref={deleteRef}
         ></div>
       </div>
       <div
@@ -38,6 +39,13 @@ const CardOptions = ({ habit }) => {
         <div className="card-options-circle"></div>
       </div>
       <ReactTooltip />
+      <ConfirmationModal
+        triggerRef={deleteRef}
+        text={`Are you sure you want to delete "${habit.readName()}"?`}
+        func={() => {
+          deleteHabit(habit.readId())
+        }}
+      />
     </div>
   )
 }

@@ -1,4 +1,12 @@
-const ConfirmationModal = ({ modalRef, text, func }) => {
+import { useEffect, useRef } from "react"
+
+const ConfirmationModal = ({ triggerRef, text, func }) => {
+  const modalRef = useRef()
+  const popUpModal = () => {
+    const modal = modalRef.current
+    modal.style.display = "block"
+    // console.log("add event listener")
+  }
   const closeModal = () => {
     modalRef.current.style.display = "none"
   }
@@ -6,6 +14,15 @@ const ConfirmationModal = ({ modalRef, text, func }) => {
     func()
     closeModal()
   }
+  useEffect(() => {
+    const trigger = triggerRef.current
+    trigger.addEventListener("click", popUpModal)
+
+    return () => {
+      trigger.removeEventListener("click", popUpModal)
+      // console.log("remove event listener")
+    }
+  }, [triggerRef])
   return (
     <div id="ConfirmationModal" ref={modalRef}>
       <div className="confirmation-box">

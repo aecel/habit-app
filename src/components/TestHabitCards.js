@@ -19,11 +19,12 @@ const TestHabitCards = () => {
   const moreGreen = colors.moreGreen
   const lessGreen = colors.lessGreen
 
-  const confirmationModalRef = useRef()
-  const popUpModal = () => {
-    const modal = confirmationModalRef.current
-    modal.style.display = "block"
-  }
+  const confModalRef = useRef()
+  // const confirmationModalRef = useRef()
+  // const popUpModal = () => {
+  //   const modal = confirmationModalRef.current
+  //   modal.style.display = "block"
+  // }
 
   return (
     <>
@@ -74,9 +75,9 @@ const TestHabitCards = () => {
             </div>
           )
         })}
-        <button onClick={popUpModal}>Click to Test ConfirmationModal</button>
+        <button ref={confModalRef}>Click to Test ConfirmationModal</button>
         <ConfirmationModal
-          modalRef={confirmationModalRef}
+          triggerRef={confModalRef}
           func={() => {
             console.log("Clicked Yes!")
           }}
