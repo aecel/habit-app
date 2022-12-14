@@ -4,7 +4,7 @@ const AddHabitModal = ({ name, modalRef }) => {
   }
   return (
     <div id="AddHabitModal" ref={modalRef}>
-      <span className="close" onClick={onClick}>
+      <span className="close-modal" onClick={onClick}>
         &times;
       </span>
       <p className="modal-text">{JSON.stringify(name)} added to your habits</p>
