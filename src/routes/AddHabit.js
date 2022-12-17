@@ -1,4 +1,4 @@
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import AddHabitModal from "../components/AddHabitModal"
 import { useHabits } from "../useHabits"
 import { useSettings } from "../useSettings"
@@ -7,6 +7,7 @@ const AddHabit = () => {
   const settings = useSettings().settings
   const habitFunctions = useHabits().habitFunctions
   const createHabit = habitFunctions.createHabit
+  const readUnstableHabits = habitFunctions.readUnstableHabits
   const formRef = useRef()
   const modalRef = useRef()
   const inputNameRef = useRef()
@@ -35,7 +36,7 @@ const AddHabit = () => {
     createHabit(properties)
     form.reset()
   }
-  
+
   // We only use this name for the AddHabitModal pop-up
   const [habitName, setHabitName] = useState()
 
@@ -50,6 +51,24 @@ const AddHabit = () => {
     }, 5000)
   }
 
+  // For checking if maximum number of unstable habits is reached
+  // If limit has been reached, the radio button input for unstable habit is disabled
+  const unstableHabitRef = useRef()
+  const unstableLabelRef = useRef()
+  useEffect(() => {
+    const unstableHabit = unstableHabitRef.current
+    const unstableLabel = unstableLabelRef.current
+    if (readUnstableHabits().length >= settings.unstableHabitLimit) {
+      unstableHabit.disabled = true
+      const mainText = unstableLabel.getElementsByClassName("unstable-text")[0]
+      mainText.style.textDecoration = "line-through"
+      const subtext = unstableLabel.getElementsByClassName("sub-text")[0]
+      subtext.textContent = "Limit of unstable habits has been reached."
+    } else {
+      unstableHabit.defaultChecked = true
+    }
+  }, [settings.unstableHabitLimit, readUnstableHabits])
+
   return (
     <div id="AddHabit">
       <div id="add-habit-card">
@@ -58,7 +77,8 @@ const AddHabit = () => {
         <form id="add-habit-form" ref={formRef} action="" onSubmit={onSubmit}>
           <div className="form-item">
             <label htmlFor="habit-name">Name of Habit *</label>
-            <input ref={inputNameRef}
+            <input
+              ref={inputNameRef}
               id="habit-name"
               name="habit-name"
               type="text"
@@ -73,12 +93,24 @@ const AddHabit = () => {
                 name="stability"
                 type="radio"
                 value="unstable"
-                defaultChecked
+                ref={unstableHabitRef}
+                required
               />
-              <label htmlFor="unstable">This is a habit I want to form</label>
+              <label htmlFor="unstable" ref={unstableLabelRef}>
+                <div className="unstable-text">
+                  This is a habit I want to form
+                </div>
+                <div className="sub-text"></div>
+              </label>
             </div>
             <div className="form-item-radio">
-              <input id="stable" name="stability" type="radio" value="stable" />
+              <input
+                id="stable"
+                name="stability"
+                type="radio"
+                value="stable"
+                required
+              />
               <label htmlFor="stable">
                 This is a stable habit <br></br>
                 <div className="sub-text">
@@ -118,7 +150,7 @@ const AddHabit = () => {
           <button id="add-habit-submit" type="submit">
             Add Habit
           </button>
-          <AddHabitModal name={habitName} modalRef={modalRef}/>
+          <AddHabitModal name={habitName} modalRef={modalRef} />
         </form>
       </div>
     </div>

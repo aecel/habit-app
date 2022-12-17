@@ -34,8 +34,6 @@ This is a non-punishing app that will help the user form habits.
 ## Known bugs
 
 1. When switching from an empty route to a route like Add Habit or Test Habits, the navbar jumps. It's not super aligned.
-2. Not really a bug, but in AddHabit.js line 11, document.getblahblah was used, because I couldn't get useRef() to work lmao.
-3. The scrollbars of the year calendar can only scroll left to right. Might not work with a mouse.
 
 ## What I learned
 
