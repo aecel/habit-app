@@ -480,6 +480,8 @@ input[type="radio"] {
 
 #ConfirmationModal {
   display: none;
+  justify-content: center;
+  align-items: center;
   height: 100%;
   width: 100%;
   position: fixed;
@@ -491,7 +493,7 @@ input[type="radio"] {
 }
 
 .confirmation-box {
-  margin: 25% auto;
+  /* margin: 25% auto; */
   padding: 30px;
   width: 300px;
   background-color: var(--bg-color);
@@ -500,6 +502,8 @@ input[type="radio"] {
 }
 
 .confirmation-text {
+  white-space: pre-line;
+  text-align: center;
   margin-top: 60px;
 }
 
@@ -739,4 +743,12 @@ input[type="radio"] {
   height: 25px;
   width: 25px;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-options-svg {
+  height: 12px;
+  width: 12px;
 }

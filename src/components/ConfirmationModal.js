@@ -4,7 +4,7 @@ const ConfirmationModal = ({ triggerRef, text, func }) => {
   const modalRef = useRef()
   const popUpModal = () => {
     const modal = modalRef.current
-    modal.style.display = "block"
+    modal.style.display = "flex"
     // console.log("add event listener")
   }
   const closeModal = () => {
