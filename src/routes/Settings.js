@@ -64,7 +64,9 @@ const Settings = () => {
             <label htmlFor="daysToStableHabit">
               Number of Days to Stabilize Habit<br></br>
               <div className="sub-text">
-                This will only apply to newly added habits.
+                This will only apply to newly added unstable habits.<br></br><br></br>
+                66 is the average, but it can take anywhere from <br></br>
+                18 days to 254 days for people to form a new habit.
               </div>
             </label>
             <input
@@ -79,7 +81,7 @@ const Settings = () => {
             <label htmlFor="daysToBreakHabit">
               Number of Days to Break a Stable Habit<br></br>
               <div className="sub-text">
-                This will only apply to newly added habits.
+                This will only apply to newly added stable habits.
               </div>
             </label>
             <input
@@ -94,7 +96,9 @@ const Settings = () => {
             <label htmlFor="unstableHabitLimit">
               Maximum Number of Unstable Habits
               <div className="sub-text">
-                1-3 is recommended.
+                These are the habits you want to form.<br></br>
+                It is advised to focus on only a few.<br></br>
+                1-3 is recommended to prevent being overwhelmed.
               </div>
             </label>
             <input
@@ -106,11 +110,11 @@ const Settings = () => {
             />
           </div>
         </form>
-        <p>-----------------------------------------------------</p>
+        {/* <p>-----------------------------------------------------</p>
         <p>Theme: {settings.theme}</p>
         <p>Days to Stabilize Habit: {settings.daysToStableHabit}</p>
         <p>Days to Break Habit: {settings.daysToBreakHabit}</p>
-        <p>Maximum Number of Unstable Habits: {settings.unstableHabitLimit}</p>
+        <p>Maximum Number of Unstable Habits: {settings.unstableHabitLimit}</p> */}
       </div>
     </div>
   )

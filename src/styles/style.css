@@ -403,6 +403,7 @@ input[type="radio"] {
   margin-top: 5px;
   font-size: 0.8rem;
   color: gray;
+  white-space: pre-line;
 }
 
 /* Add Habit Modal */

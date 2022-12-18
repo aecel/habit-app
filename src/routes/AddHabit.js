@@ -60,10 +60,13 @@ const AddHabit = () => {
     const unstableLabel = unstableLabelRef.current
     if (readUnstableHabits().length >= settings.unstableHabitLimit) {
       unstableHabit.disabled = true
+      unstableHabit.defaultChecked = false
       const mainText = unstableLabel.getElementsByClassName("unstable-text")[0]
       mainText.style.textDecoration = "line-through"
       const subtext = unstableLabel.getElementsByClassName("sub-text")[0]
-      subtext.textContent = "Limit of unstable habits has been reached."
+      subtext.style.whiteSpace = "pre-line"
+      subtext.textContent =
+        "Limit has been reached. \r\nGo to settings to add more."
     } else {
       unstableHabit.defaultChecked = true
     }
@@ -98,7 +101,7 @@ const AddHabit = () => {
               />
               <label htmlFor="unstable" ref={unstableLabelRef}>
                 <div className="unstable-text">
-                  This is a habit I want to form
+                  This is a habit I want to form.
                 </div>
                 <div className="sub-text"></div>
               </label>
@@ -112,7 +115,7 @@ const AddHabit = () => {
                 required
               />
               <label htmlFor="stable">
-                This is a stable habit <br></br>
+                This is a stable habit. <br></br>
                 <div className="sub-text">
                   I have been doing this daily <br></br>for 66 days or more
                 </div>
