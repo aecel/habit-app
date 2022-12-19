@@ -61,3 +61,4 @@ This is a non-punishing app that will help the user form habits.
 14. There will be a StableStatsCard and UnstableStatsCard
 15. Put something on screen when there is nothing to list (e.g. there are no stable habits, no unstable habits, or both)
 16. Actually code lol
+17. Make something happen (maybe use party-js) when an unstable habit gets promoted to a stable habit. Right now it just disappears when viewed from Home.
