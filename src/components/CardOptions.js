@@ -11,6 +11,7 @@ import editLight from "../images/card-assets/edit-light.svg"
 import deleteDark from "../images/card-assets/delete-dark.svg"
 import deleteLight from "../images/card-assets/delete-light.svg"
 import HabitInfoModal from "./HabitInfoModal"
+import HabitEditModal from "./HabitEditModal"
 
 const CardOptions = ({ habit }) => {
   const habitFunctions = useHabits().habitFunctions
@@ -29,6 +30,7 @@ const CardOptions = ({ habit }) => {
 
   const deleteRef = useRef()
   const moreInfoRef = useRef()
+  const editRef = useRef()
 
   return (
     <div className="card-options">
@@ -44,7 +46,11 @@ const CardOptions = ({ habit }) => {
             src={theme === "dark" ? infoDark : infoLight}
           />
         </div>
-        <div className="card-options-popup-circle" data-tip="Edit">
+        <div
+          className="card-options-popup-circle"
+          data-tip="Edit"
+          ref={editRef}
+        >
           <img
             className="card-options-svg"
             alt=""
@@ -81,6 +87,7 @@ const CardOptions = ({ habit }) => {
         }}
       />
       <HabitInfoModal triggerRef={moreInfoRef} habit={habit} />
+      <HabitEditModal triggerRef={editRef} habit={habit} />
     </div>
   )
 }

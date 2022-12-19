@@ -771,9 +771,47 @@ input[type="radio"] {
 
 .habit-info-box {
   /* margin: 25% auto; */
+  height: 500px;
   padding: 30px;
   width: 300px;
   background-color: var(--bg-color);
   border-radius: 15px;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 0.9rem;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+
+/* Habit Edit Modal */
+
+#HabitEditModal {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 1;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.447);
+}
+
+.habit-edit-box {
+  /* margin: 25% auto; */
+  padding: 30px;
+  width: 300px;
+  background-color: var(--bg-color);
+  border-radius: 15px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 0.9rem;
+  overflow-y: scroll;
+  scrollbar-width: none;
 }

@@ -26,6 +26,20 @@ const HabitInfoModal = ({ triggerRef, habit }) => {
           &times;
         </span>
         <div>{habit.readName()}</div>
+        <div>{habit.isStable() ? "Stable Habit" : "Unstable Habit"}</div>
+        <div>Trigger: {habit.readTrigger()}</div>
+        <div>Immediate Reward: {habit.readImmediateReward()}</div>
+        <div>Green/Gold Tasks: {habit.countGreenTasks()}</div>
+        <div>Longest Streak: {habit.getMaxStreak()}</div>
+        <div>Current Streak: {habit.getCurrentStreak()}</div>
+        <div>Days to Stabilize Habit: {habit.readDaysToStableHabit()}</div>
+        <div>Days to Break Habit: {habit.readDaysToBreakHabit()}</div>
+        <div>
+          Is it about to be demoted?{" "}
+          {habit.isAboutToBeDemoted() ? "Yep" : "Nope"}
+        </div>
+        <div>Date Created: {habit.readDateCreated()}</div>
+        <div>Last Updated: {habit.readLastUpdated()}</div>
       </div>
     </div>
   )
