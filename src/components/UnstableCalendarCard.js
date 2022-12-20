@@ -1,5 +1,6 @@
 import { useHabits } from "../useHabits"
 import { useSettings } from "../useSettings"
+import CardOptions from "./CardOptions"
 import MonthCalendar from "./MonthCalendar"
 import YearCalendar from "./YearCalendar"
 
@@ -37,6 +38,8 @@ const UnstableCalendarCard = ({ habit }) => {
         moreGreen={moreGreen}
         lessGreen={lessGreen}
       />
+      <div className="card-bottom"></div>
+      <CardOptions habit={habit} />
     </div>
   )
 }

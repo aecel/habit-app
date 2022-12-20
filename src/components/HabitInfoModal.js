@@ -25,7 +25,7 @@ const HabitInfoModal = ({ triggerRef, habit }) => {
         <span className="close-modal" onClick={closeModal}>
           &times;
         </span>
-        <div>{habit.readName()}</div>
+        <div style={{ fontWeight: "bold" }}>{habit.readName()}</div>
         <div>{habit.isStable() ? "Stable Habit" : "Unstable Habit"}</div>
         <div>Trigger: {habit.readTrigger()}</div>
         <div>Immediate Reward: {habit.readImmediateReward()}</div>

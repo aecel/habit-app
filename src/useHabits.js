@@ -4,7 +4,6 @@ import newHabit from "./newHabit"
 const HabitContext = createContext()
 export const useHabits = () => useContext(HabitContext)
 export const HabitsProvider = ({ children }) => {
-  
   const habit1 = newHabit({
     name: "Flossing",
     stable: true,
@@ -76,6 +75,15 @@ export const HabitsProvider = ({ children }) => {
     setHabits(nextHabits)
   }
 
+  const updateHabit = ({ id, properties }) => {
+    const nextHabits = [...habits]
+    const index = getIndexById(id)
+    const habitToUpdate = nextHabits[index]
+    const updatedHabit = habitToUpdate.updateProperties(properties)
+    nextHabits[index] = updatedHabit
+    setHabits(nextHabits)
+  }
+
   const deleteHabit = (id) => {
     const nextHabits = [...habits]
     const index = getIndexById(id)
@@ -85,21 +93,21 @@ export const HabitsProvider = ({ children }) => {
     }
   }
 
-  const promoteHabit = (index) => {
-    const nextHabits = [...habits]
-    const updatedHabit = nextHabits[index].updateProperties({ newStable: true })
-    nextHabits[index] = updatedHabit
-    setHabits(nextHabits)
-  }
+  // const promoteHabit = (index) => {
+  //   const nextHabits = [...habits]
+  //   const updatedHabit = nextHabits[index].updateProperties({ newStable: true })
+  //   nextHabits[index] = updatedHabit
+  //   setHabits(nextHabits)
+  // }
 
-  const demoteHabit = (index) => {
-    const nextHabits = [...habits]
-    const updatedHabit = nextHabits[index].updateProperties({
-      newStable: false,
-    })
-    nextHabits[index] = updatedHabit
-    setHabits(nextHabits)
-  }
+  // const demoteHabit = (index) => {
+  //   const nextHabits = [...habits]
+  //   const updatedHabit = nextHabits[index].updateProperties({
+  //     newStable: false,
+  //   })
+  //   nextHabits[index] = updatedHabit
+  //   setHabits(nextHabits)
+  // }
 
   const habitFunctions = {
     getIndexById,
@@ -108,9 +116,10 @@ export const HabitsProvider = ({ children }) => {
     readUnstableHabits,
     triToggleDay,
     updateDay,
+    updateHabit,
     deleteHabit,
-    promoteHabit,
-    demoteHabit,
+    // promoteHabit,
+    // demoteHabit,
   }
 
   useEffect(() => {

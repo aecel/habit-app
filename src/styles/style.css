@@ -308,6 +308,7 @@ nav {
 }
 
 /* Add Habit Route */
+/* Default Form styles are also here */
 
 #AddHabit {
   margin: 20px;
@@ -381,6 +382,7 @@ input[type="radio"] {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  margin: 20px 0px 20px 0px;
 }
 
 .form-item-radios {
@@ -496,7 +498,7 @@ input[type="radio"] {
   /* margin: 25% auto; */
   padding: 30px;
   width: 300px;
-  background-color: var(--bg-color);
+  background-color: var(--card-color);
   border-radius: 15px;
   position: relative;
 }
@@ -770,11 +772,10 @@ input[type="radio"] {
 }
 
 .habit-info-box {
-  /* margin: 25% auto; */
-  height: 500px;
-  padding: 30px;
-  width: 300px;
-  background-color: var(--bg-color);
+  max-height: 500px;
+  padding: 40px;
+  width: 350px;
+  background-color: var(--card-color);
   border-radius: 15px;
   position: relative;
   display: flex;
@@ -783,6 +784,7 @@ input[type="radio"] {
   font-size: 0.9rem;
   overflow-y: scroll;
   scrollbar-width: none;
+  box-sizing: border-box;
 }
 
 /* Habit Edit Modal */
@@ -803,15 +805,27 @@ input[type="radio"] {
 
 .habit-edit-box {
   /* margin: 25% auto; */
-  padding: 30px;
-  width: 300px;
-  background-color: var(--bg-color);
+  max-height: 500px;
+  width: 350px;
+  background-color: var(--card-color);
   border-radius: 15px;
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 20px;
   font-size: 0.9rem;
   overflow-y: scroll;
   scrollbar-width: none;
+  padding: 40px;
+
+  box-sizing: border-box;
 }
+
+#habit-edit-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+  gap: 50px;
+}
+
+/* Other form elements were already styled in Add Habit Route */
