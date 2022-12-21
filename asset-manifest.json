@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/habit-app/static/css/main.d82b339e.css",
-    "main.js": "/habit-app/static/js/main.ae5a0abd.js",
+    "main.css": "/habit-app/static/css/main.d364affe.css",
+    "main.js": "/habit-app/static/js/main.3ebe7395.js",
     "static/media/peepo-sad.gif": "/habit-app/static/media/peepo-sad.f67eeae981afbf81e543.gif",
     "static/media/card-bg-curvy-light.png": "/habit-app/static/media/card-bg-curvy-light.a61e63355832bed90c77.png",
     "static/media/card-bg-curvy.png": "/habit-app/static/media/card-bg-curvy.f0364ac13a4bfb285330.png",
@@ -25,6 +25,7 @@
     "static/media/stats.svg": "/habit-app/static/media/stats.70c2fed94bd672b58f684ba84de6fa9b.svg",
     "static/media/delete-dark.svg": "/habit-app/static/media/delete-dark.fd1fc9b3d7a2ca04f8b185e7f68759ff.svg",
     "static/media/delete-light.svg": "/habit-app/static/media/delete-light.a5a3cb200e9d19102d7ad81e7c7d21ed.svg",
+    "static/media/to-be-demoted.svg": "/habit-app/static/media/to-be-demoted.5674bb5b781057178feffbfa016b3fde.svg",
     "static/media/edit-dark.svg": "/habit-app/static/media/edit-dark.c2e370c0ee74c1477edc37d1cef581aa.svg",
     "static/media/edit-light.svg": "/habit-app/static/media/edit-light.f9a507886ca8a3713e7a1f80d6b1c745.svg",
     "static/media/left-arrow-black.svg": "/habit-app/static/media/left-arrow-black.8d7b5b34d4c3f42e425d06fd31c6fd79.svg",
@@ -40,11 +41,11 @@
     "static/media/check-done-dark.svg": "/habit-app/static/media/check-done-dark.13d5457e278d43fd685bde3aab2541cc.svg",
     "static/media/info-dark.svg": "/habit-app/static/media/info-dark.8536204d0d7d88d7ce6b7ce41bc8ba10.svg",
     "static/media/info-light.svg": "/habit-app/static/media/info-light.a6df85845e43b4f062b9633a19605f8c.svg",
-    "main.d82b339e.css.map": "/habit-app/static/css/main.d82b339e.css.map",
-    "main.ae5a0abd.js.map": "/habit-app/static/js/main.ae5a0abd.js.map"
+    "main.d364affe.css.map": "/habit-app/static/css/main.d364affe.css.map",
+    "main.3ebe7395.js.map": "/habit-app/static/js/main.3ebe7395.js.map"
   },
   "entrypoints": [
-    "static/css/main.d82b339e.css",
-    "static/js/main.ae5a0abd.js"
+    "static/css/main.d364affe.css",
+    "static/js/main.3ebe7395.js"
   ]
 }
