@@ -42,6 +42,7 @@ This is a non-punishing app that will help the user form habits.
 3. Convert dates to utc for cases where dates span a DST change
 4. Use onSubmit for forms instead of onClick, so that the "required" fields work
 5. Cannot use useRef outside of the thing you ref lmao
+6. Functional state updates setBlahBlah(()=>{})
 
 # To Dos
 

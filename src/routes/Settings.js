@@ -62,7 +62,7 @@ const Settings = () => {
           </div>
           <div className="form-item">
             <label htmlFor="daysToStableHabit">
-              Number of Days to Stabilize Habit<br></br>
+              Number of Days to Stabilize a Habit<br></br>
               <div className="sub-text">
                 This will only apply to newly added unstable habits.<br></br><br></br>
                 66 is the average, but it can take anywhere from <br></br>
