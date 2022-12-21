@@ -45,7 +45,7 @@ This is a non-punishing app that will help the user form habits.
 
 # To Dos
 
-1. Make card options work; it has more info, update, delete, etc
+<!-- 1. Make card options work; it has more info, update, delete, etc -->
 <!-- 2. Make StableCalendarCard and UnstableCalendarCard -->
 <!-- 3. Make unstable habit limit work -->
 4. Make auto check for stable habit cards; it can be turned off in options (is this a bad idea?)

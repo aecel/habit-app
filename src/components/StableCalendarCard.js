@@ -4,6 +4,7 @@ import CardOptions from "./CardOptions"
 import CardStar from "./CardStar"
 import MonthCalendar from "./MonthCalendar"
 import YearCalendar from "./YearCalendar"
+import toBeDemotedSvg from "../images/card-assets/to-be-demoted.svg"
 
 const StableCalendarCard = ({ habit }) => {
   const habitFunctions = useHabits().habitFunctions
@@ -40,6 +41,8 @@ const StableCalendarCard = ({ habit }) => {
         moreGreen={moreGold}
         lessGreen={lessGold}
       />
+      {/* {habit.isAboutToBeDemoted() ? <img className="to-be-demoted" alt="" src={toBeDemotedSvg} /> : <></>} */}
+      <img className="to-be-demoted" alt="" src={toBeDemotedSvg} />
       <div className="card-bottom"></div>
       <CardOptions habit={habit} />
     </div>

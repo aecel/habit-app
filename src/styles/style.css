@@ -645,7 +645,7 @@ input[type="radio"] {
   padding: 25px;
   padding-bottom: 10px;
   background-color: var(--card-color);
-  border-radius: 15px;
+  border-radius: 8px;
   /* height: 210px;
   width: 370px; */
   height: 190px;
@@ -656,7 +656,7 @@ input[type="radio"] {
   flex-direction: column;
   justify-content: space-between;
   position: relative;
-  overflow: clip;
+  /* overflow: clip; */
 
   /* border-bottom: gray 1px solid;
   border-right: gray 1px solid; */
@@ -688,15 +688,25 @@ input[type="radio"] {
 
 .card-color-bar {
   position: absolute;
-  top: 0;
-  left: 0;
-  height: 240px;
+  top: 0px;
+  left: 0px;
+  height: 190px;
   width: 6px;
+  box-sizing: border-box;
+  border-radius: 10px 0 0 10px;
 }
 
 .card-bottom {
   padding: 5px;
   /* background-color: #fff; */
+}
+
+.to-be-demoted {
+  position: absolute;
+  bottom: 20px;
+  left: -9.5px;
+  height: 30px;
+  width: auto;
 }
 
 /* Card Options Pop Up Component */
