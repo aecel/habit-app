@@ -6,7 +6,7 @@ export const SettingsProvider = ({ children }) => {
   const defaultSettings = {
     theme: "dark",
     daysToStableHabit: 66,
-    unstableHabitLimit: 1,
+    unstableHabitLimit: 2,
     daysToBreakHabit: 3,
   }
   const [settings, setSettings] = useState(defaultSettings)

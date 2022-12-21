@@ -7,8 +7,7 @@ import halfCheckLight from "../images/card-assets/check-half-light.svg"
 import WeekCalendar from "./WeekCalendar"
 import CardStar from "./CardStar"
 import CardOptions from "./CardOptions"
-import toBeDemotedSvg from "../images/card-assets/to-be-demoted.svg"
-import ReactTooltip from "react-tooltip"
+import CardWarning from "./CardWarning"
 
 const StableHabitCard = ({ habit }) => {
   const habitFunctions = useHabits().habitFunctions
@@ -61,20 +60,10 @@ const StableHabitCard = ({ habit }) => {
         doneCheck={settings.theme === "dark" ? doneCheckDark : doneCheckLight}
         halfCheck={settings.theme === "dark" ? halfCheckDark : halfCheckLight}
       />
-      {habit.isAboutToBeDemoted() ? (
-        <img
-          className="to-be-demoted"
-          data-tip="This habit is about to be demoted."
-          alt=""
-          src={toBeDemotedSvg}
-        />
-      ) : (
-        <></>
-      )}
-
       <div className="card-bottom"></div>
+      
+      <CardWarning habit={habit} />
       <CardOptions habit={habit} />
-      <ReactTooltip />
     </div>
   )
 }

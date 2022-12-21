@@ -4,6 +4,8 @@ import newHabit from "./newHabit"
 const HabitContext = createContext()
 export const useHabits = () => useContext(HabitContext)
 export const HabitsProvider = ({ children }) => {
+  const [postUpdate, setPostUpdate] = useState(false)
+
   const habit1 = newHabit({
     name: "Flossing",
     stable: true,
@@ -84,6 +86,24 @@ export const HabitsProvider = ({ children }) => {
     setHabits(nextHabits)
   }
 
+  // Use functional state updates to prevent bugs lmao
+  const updateHabitStability = ({ id }) => {
+    setHabits((currHabits) => {
+      const nextHabits = [...currHabits]
+      const index = getIndexById(id)
+      const habitToUpdate = nextHabits[index]
+
+      const updatedHabit = habitToUpdate.updateStability()
+      nextHabits[index] = updatedHabit
+      // console.log(
+      //   "next habits: ",
+      //   nextHabits.map((h) => `${h.readName()} s: ${h.isStable()}`)
+      // )
+
+      return nextHabits
+    })
+  }
+
   const deleteHabit = (id) => {
     const nextHabits = [...habits]
     const index = getIndexById(id)
@@ -117,6 +137,7 @@ export const HabitsProvider = ({ children }) => {
     triToggleDay,
     updateDay,
     updateHabit,
+    updateHabitStability,
     deleteHabit,
     // promoteHabit,
     // demoteHabit,
@@ -146,21 +167,43 @@ export const HabitsProvider = ({ children }) => {
       taskDone: "Done completely",
     })
     updateDay({
+      id: habit1.readId(),
+      year: 2022,
+      month: 12,
+      day: 18,
+      taskDone: "Done completely",
+    })
+    updateDay({
       id: habit2.readId(),
       year: 2022,
       month: 11,
       day: 1,
       taskDone: "Half-assed",
     })
+
+    setPostUpdate(true)
   }, [])
 
   useEffect(() => {
+    if (!postUpdate) return
+
+    for (const habit of habits) {
+      // console.log("updating stability of " + habit.readName())
+      updateHabitStability({ id: habit.readId() })
+    }
     // console.table(habits)
     // console.log("Stable Habit Table:")
     // console.table(Object.entries(habits[0].readCalendar()[2022]))
     // console.log("Unstable Habit Table:")
     // console.table(Object.entries(habits[1].readCalendar()[2022]))
-  }, [habits])
+  }, [postUpdate])
+
+  // useEffect(() => {
+  //   console.log("============================")
+  //   for (const habit of habits) {
+  //     console.log("Name: " + habit.readName() + ", Stable: " + habit.isStable())
+  //   }
+  // }, [habits])
 
   return (
     <HabitContext.Provider

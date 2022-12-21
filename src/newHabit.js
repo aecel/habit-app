@@ -116,7 +116,7 @@ const newHabit = ({
         for (const day in calendar[year][month]) {
           if (calendar[year][month][day].done !== "") {
             count++
-          }
+          } 
         }
       }
     }
@@ -212,6 +212,14 @@ const newHabit = ({
     return calculatedStable
   }
 
+  const updateStability = () => {
+    const newStable = getCalculatedStable()
+    return updateProperties({
+      newStable: newStable,
+    })
+
+  }
+
   // Returns an updated newHabit clone
   const updateDay = ({ year, month, day, taskDone, taskNotes }) => {
     const calendarClone = calendar
@@ -243,7 +251,7 @@ const newHabit = ({
   }
 
   const isAboutToBeDemoted = () => {
-    if (stable && daysToBreakHabit - 1 === getLastMissedStreak()) {
+    if (stable && daysToBreakHabit - 1 <= getLastMissedStreak()) {
       return true
     } else {
       return false
@@ -287,6 +295,7 @@ const newHabit = ({
     getStreaks,
     getMaxStreak,
     getCurrentStreak,
+    updateStability,
     getLastMissedStreak,
     triToggleDay,
     updateDay,

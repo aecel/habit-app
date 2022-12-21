@@ -42,6 +42,7 @@
 
   --dark-theme-circle: rgb(58, 58, 58);
   --light-theme-circle: var(--white);
+  scrollbar-width: thin;
 }
 
 body {
@@ -701,10 +702,15 @@ input[type="radio"] {
   /* background-color: #fff; */
 }
 
-.to-be-demoted {
+/* Card Warning Component */
+
+.to-be-demoted-container {
   position: absolute;
   bottom: 20px;
-  left: -9.5px;
+  left: -10px;
+}
+
+.to-be-demoted-svg {
   height: 30px;
   width: auto;
 }
