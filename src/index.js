@@ -10,6 +10,7 @@ import Home from "./routes/Home"
 import Root from "./routes/Root"
 import Settings from "./routes/Settings"
 import StableHabits from "./routes/StableHabits"
+import Stats from "./routes/Stats"
 
 const router = createHashRouter([
   {
@@ -42,7 +43,7 @@ const router = createHashRouter([
           },
           {
             path: "/stats",
-            element: <ErrorElement />,
+            element: <Stats />,
           },
           {
             path: "/settings",

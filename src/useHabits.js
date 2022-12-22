@@ -170,7 +170,7 @@ export const HabitsProvider = ({ children }) => {
       id: habit1.readId(),
       year: 2022,
       month: 12,
-      day: 18,
+      day: 19,
       taskDone: "Done completely",
     })
     updateDay({

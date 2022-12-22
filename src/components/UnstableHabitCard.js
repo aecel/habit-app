@@ -4,6 +4,7 @@ import brightCheck from "../images/card-assets/bright-check.svg"
 import darkCheck from "../images/card-assets/dark-check.svg"
 import WeekCalendar from "./WeekCalendar"
 import CardOptions from "./CardOptions"
+import ProgressDoughnutChart from "./ProgressDoughnutChart"
 
 const UnstableHabitCard = ({ habit }) => {
   const habitFunctions = useHabits().habitFunctions
@@ -50,6 +51,8 @@ const UnstableHabitCard = ({ habit }) => {
       />
       <div className="card-bottom"></div>
       <CardOptions habit={habit} />
+
+      <ProgressDoughnutChart habit={habit} />
     </div>
   )
 }

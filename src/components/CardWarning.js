@@ -2,7 +2,7 @@ import toBeDemotedSvg from "../images/card-assets/to-be-demoted.svg"
 import ReactTooltip from "react-tooltip"
 
 const CardWarning = ({ habit }) => {
-  const tooltipText = `You are about to break this habit. <br /> Immediately put a check in the last ${habit.readDaysToBreakHabit()} days <br />to prevent this from happening.`
+  const tooltipText = `You are about to break this habit. <br /> Put a check in the last ${habit.readDaysToBreakHabit()} days <br />to prevent this from happening.`
   return habit.isAboutToBeDemoted() ? (
     <div className="to-be-demoted-container">
       <img

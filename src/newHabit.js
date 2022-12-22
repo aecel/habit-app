@@ -116,7 +116,7 @@ const newHabit = ({
         for (const day in calendar[year][month]) {
           if (calendar[year][month][day].done !== "") {
             count++
-          } 
+          }
         }
       }
     }
@@ -194,7 +194,9 @@ const newHabit = ({
   const getCurrentStreak = () => {
     const streaks = getStreaks()
 
-    if (streaks.length > 0 && getLastMissedStreak() < daysToBreakHabit) {
+    // this was in the if() before, I don't know why lol
+    // && getLastMissedStreak() < daysToBreakHabit
+    if (streaks.length > 0) {
       return streaks[streaks.length - 1]
     } else {
       return 0
@@ -217,7 +219,6 @@ const newHabit = ({
     return updateProperties({
       newStable: newStable,
     })
-
   }
 
   // Returns an updated newHabit clone
@@ -270,8 +271,9 @@ const newHabit = ({
   }
 
   const getPercentageToStable = () => {
-    const percent = Math.round(getCurrentStreak() / daysToStableHabit)
-    return percent
+    const percent = Math.round((getCurrentStreak() / daysToStableHabit) * 100)
+    const percentString = `${percent}%`
+    return percentString
   }
 
   return {
