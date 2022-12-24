@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/habit-app/static/css/main.0f17d152.css",
-    "main.js": "/habit-app/static/js/main.6c8ffd86.js",
+    "main.js": "/habit-app/static/js/main.1d8739fe.js",
     "static/media/peepo-sad.gif": "/habit-app/static/media/peepo-sad.f67eeae981afbf81e543.gif",
     "static/media/card-bg-curvy-light.png": "/habit-app/static/media/card-bg-curvy-light.a61e63355832bed90c77.png",
     "static/media/card-bg-curvy.png": "/habit-app/static/media/card-bg-curvy.f0364ac13a4bfb285330.png",
@@ -43,10 +43,10 @@
     "static/media/info-dark.svg": "/habit-app/static/media/info-dark.8536204d0d7d88d7ce6b7ce41bc8ba10.svg",
     "static/media/info-light.svg": "/habit-app/static/media/info-light.a6df85845e43b4f062b9633a19605f8c.svg",
     "main.0f17d152.css.map": "/habit-app/static/css/main.0f17d152.css.map",
-    "main.6c8ffd86.js.map": "/habit-app/static/js/main.6c8ffd86.js.map"
+    "main.1d8739fe.js.map": "/habit-app/static/js/main.1d8739fe.js.map"
   },
   "entrypoints": [
     "static/css/main.0f17d152.css",
-    "static/js/main.6c8ffd86.js"
+    "static/js/main.1d8739fe.js"
   ]
 }
