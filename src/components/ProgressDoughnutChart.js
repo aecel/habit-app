@@ -27,14 +27,24 @@ const ProgressDoughnutChart = ({ habit }) => {
         right: "10px",
         height: "45px",
         width: "45px",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        // border: "pink 1px solid"
       }}
     >
       <div
         style={{
           position: "absolute",
-          top: "22px",
-          right: "13px",
+          top: "5px",
+          right: "0px",
           fontSize: "0.6rem",
+          height: "45px",
+          width: "45px",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          // border: "white 1px solid"
         }}
       >
         {habit.getPercentageToStable()}
