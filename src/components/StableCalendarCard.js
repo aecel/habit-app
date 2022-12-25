@@ -21,7 +21,7 @@ const StableCalendarCard = ({ habit }) => {
 
   return (
     <div className="calendar-card" key={habit.readId()}>
-      <CardStar />
+      <CardStar habit={habit} />
       <div className="calendar-card-title">{habit.readName()}</div>
       <MonthCalendar
         habit={habit}

@@ -14,7 +14,7 @@ export const HabitsProvider = ({ children }) => {
   const habit2 = newHabit({
     name: "Going to bed early",
     stable: false,
-    daysToStableHabit: 3,
+    daysToStableHabit: 7,
   })
 
   const [habits, setHabits] = useState([habit1, habit2])

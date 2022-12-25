@@ -37,7 +37,7 @@ const StableHabitCard = ({ habit }) => {
           backgroundColor: moreGold,
         }}
       ></div>
-      <CardStar />
+      <CardStar habit={habit} />
       <div
         className="habit-card-title"
         style={{
@@ -61,7 +61,7 @@ const StableHabitCard = ({ habit }) => {
         halfCheck={settings.theme === "dark" ? halfCheckDark : halfCheckLight}
       />
       <div className="card-bottom"></div>
-      
+
       <CardWarning habit={habit} />
       <CardOptions habit={habit} />
     </div>

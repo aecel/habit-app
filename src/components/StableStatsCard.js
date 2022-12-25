@@ -9,7 +9,7 @@ const StableStatsCard = ({ habit }) => {
 
   return (
     <div className="stats-card" key={habit.readId()}>
-      <CardStar />
+      <CardStar habit={habit} />
       <div className="stats-card-title">{habit.readName()}</div>
 
       <div className="card-bottom"></div>

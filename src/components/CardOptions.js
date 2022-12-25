@@ -71,7 +71,7 @@ const CardOptions = ({ habit }) => {
       </div>
       <div
         className="card-options-button"
-        data-tip="Card Options"
+        // data-tip="Card Options"
         onClick={togglePopUp}
       >
         <div className="card-options-circle"></div>

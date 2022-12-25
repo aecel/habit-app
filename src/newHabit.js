@@ -276,6 +276,11 @@ const newHabit = ({
     return percentString
   }
 
+  // returns days to go before habit stabilizes
+  const getDaysToGo = () => {
+    return daysToStableHabit - getCurrentStreak()
+  }
+
   return {
     readName,
     readId,
@@ -304,6 +309,7 @@ const newHabit = ({
     isAboutToBeDemoted,
     isUpdateNeeded,
     getPercentageToStable,
+    getDaysToGo,
   }
 }
 

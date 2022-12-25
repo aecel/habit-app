@@ -13,6 +13,7 @@ const UnstableStatsCard = ({ habit }) => {
       <div className="card-bottom"></div>
 
       <CardOptions habit={habit} />
+      <ProgressDoughnutChart habit={habit} />
     </div>
   )
 }

@@ -2,6 +2,7 @@ import { useHabits } from "../useHabits"
 import { useSettings } from "../useSettings"
 import CardOptions from "./CardOptions"
 import MonthCalendar from "./MonthCalendar"
+import ProgressDoughnutChart from "./ProgressDoughnutChart"
 import YearCalendar from "./YearCalendar"
 
 const UnstableCalendarCard = ({ habit }) => {
@@ -40,6 +41,7 @@ const UnstableCalendarCard = ({ habit }) => {
       />
       <div className="card-bottom"></div>
       <CardOptions habit={habit} />
+      <ProgressDoughnutChart habit={habit} />
     </div>
   )
 }

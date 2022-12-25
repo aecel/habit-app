@@ -10,6 +10,7 @@ const ErrorElement = () => {
         justifyContent: "center",
         alignItems: "center",
         gap: "50px",
+        color: "var(--text-color)",
       }}
     >
       <img
