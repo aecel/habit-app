@@ -48,6 +48,10 @@ export const HabitsProvider = ({ children }) => {
     })
   }
 
+  // calendarUpdate and stableUpdate were separated
+  // to have a delay in between
+  // So that the doughnut chart can be seen updating to 100%
+  // before being promoted to a stable habit
   const triToggleDay = ({ id, year, month, day }) => {
     // propertiesToEdit sample:
     // {
@@ -57,9 +61,19 @@ export const HabitsProvider = ({ children }) => {
     const nextHabits = [...habits]
     const index = getIndexById(id)
     const habitToEdit = nextHabits[index]
-    const updatedHabit = habitToEdit.triToggleDay({ year, month, day })
-    nextHabits[index] = updatedHabit
+    const [calendarUpdate, stableUpdate] = habitToEdit.triToggleDay({
+      year,
+      month,
+      day,
+    })
+    nextHabits[index] = calendarUpdate
     setHabits(nextHabits)
+
+    setTimeout(() => {
+      const nextNextHabits = [...habits]
+      nextNextHabits[index] = stableUpdate
+      setHabits(nextNextHabits)
+    }, 1000)
   }
 
   const updateDay = ({ id, year, month, day, taskDone, taskNotes }) => {

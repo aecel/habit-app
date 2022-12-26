@@ -206,12 +206,19 @@ const newHabit = ({
   const getCalculatedStable = () => {
     let calculatedStable = stable
     if (!stable && getCurrentStreak() >= daysToStableHabit) {
+      // Do something here and also delay the line below
+
       calculatedStable = true
+      return calculatedStable
     } else if (stable && getLastMissedStreak() >= daysToBreakHabit) {
       calculatedStable = false
+
+      return calculatedStable
+    } else {
+      return stable
     }
 
-    return calculatedStable
+    // return calculatedStable
   }
 
   const updateStability = () => {
@@ -233,6 +240,10 @@ const newHabit = ({
     })
   }
 
+  // calendarUpdate and stableUpdate were separated
+  // to have a delay in between
+  // So that the doughnut chart can be seen updating to 100%
+  // before being promoted to a stable habit
   const triToggleDay = ({ year, month, day }) => {
     const calendarClone = calendar
     const currentTaskDone = calendarClone[year][month][day].done
@@ -244,11 +255,16 @@ const newHabit = ({
       calendarClone[year][month][day].done = ""
     }
 
-    return updateProperties({
-      newStable: getCalculatedStable(),
+    const calendarUpdate = updateProperties({
       newCalendar: calendarClone,
       newLastUpdated: new Date(),
     })
+
+    const stableUpdate = updateProperties({
+      newStable: getCalculatedStable(),
+    })
+
+    return [calendarUpdate, stableUpdate]
   }
 
   const isAboutToBeDemoted = () => {
