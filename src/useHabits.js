@@ -69,7 +69,7 @@ export const HabitsProvider = ({ children }) => {
     nextHabits[index] = calendarUpdate
     setHabits(nextHabits)
 
-    // Wait 1 second before updating stability
+    // Wait half a second before updating stability
     setTimeout(() => {
       const nextNextHabits = [...habits]
       nextNextHabits[index] = stableUpdate

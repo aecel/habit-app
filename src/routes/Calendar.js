@@ -1,4 +1,6 @@
 import CalendarCard from "../components/CalendarCard"
+import CardLegend from "../components/CardLegend"
+import Instructions from "../components/Instructions"
 import NothingHere from "../components/NothingHere"
 import { useHabits } from "../useHabits"
 
@@ -9,8 +11,15 @@ const Calendar = () => {
   })
 
   return (
-    <div id="Calendar">
-      {calendarCards.length === 0 ? <NothingHere /> : calendarCards}
+    <div className="cards-route-container">
+      {calendarCards.length === 0 ? (
+        <NothingHere text={`Click on "Add Habit" to start forming habits!`} />
+      ) : (
+        <div>
+          <Instructions />
+          <div id="Calendar">{calendarCards}</div>
+        </div>
+      )}
     </div>
   )
 }

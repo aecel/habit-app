@@ -17,6 +17,16 @@ const Settings = () => {
     updateSettings({ theme: `${theme}` })
   }
 
+  const updateInstructions = (event) => {
+    const instructions = event.target.value
+    updateSettings({ instructions: `${instructions}` })
+  }
+
+  const updateLegend = (event) => {
+    const legend = event.target.value
+    updateSettings({ cardLegend: `${legend}` })
+  }
+
   const updateIntegerSettingProperty = (event) => {
     const propertyKey = event.target.id
     const property = {}
@@ -60,11 +70,75 @@ const Settings = () => {
               <label htmlFor="light">Light</label>
             </div>
           </div>
+
+          <div className="form-item-radios">
+            <label>
+              Text Instructions on Top
+              <div className="sub-text">
+                Shows/hides the text instructions on All Habits, Stable Habits,
+                Calendar, and Stats
+              </div>
+            </label>
+            <div className="form-item-radio">
+              <input
+                id="instructions-on"
+                name="instructions"
+                type="radio"
+                value="on"
+                checked={settings.instructions === "on"}
+                onChange={updateInstructions}
+              />
+              <label htmlFor="instructions-on">On</label>
+            </div>
+            <div className="form-item-radio">
+              <input
+                id="instructions-off"
+                name="instructions"
+                type="radio"
+                value="off"
+                checked={settings.instructions === "off"}
+                onChange={updateInstructions}
+              />
+              <label htmlFor="instructions-off">Off</label>
+            </div>
+          </div>
+
+          <div className="form-item-radios">
+            <label>
+              Legend at the Bottom
+              <div className="sub-text">
+                Shows/hides the legend on All Habits and Stable Habits
+              </div>
+            </label>
+            <div className="form-item-radio">
+              <input
+                id="legend-on"
+                name="legend"
+                type="radio"
+                value="on"
+                checked={settings.cardLegend === "on"}
+                onChange={updateLegend}
+              />
+              <label htmlFor="legend-on">On</label>
+            </div>
+            <div className="form-item-radio">
+              <input
+                id="legend-off"
+                name="legend"
+                type="radio"
+                value="off"
+                checked={settings.cardLegend === "off"}
+                onChange={updateLegend}
+              />
+              <label htmlFor="legend-off">Off</label>
+            </div>
+          </div>
           <div className="form-item">
             <label htmlFor="daysToStableHabit">
               Number of Days to Stabilize a Habit<br></br>
               <div className="sub-text">
-                This will only apply to newly added unstable habits.<br></br><br></br>
+                This will only apply to newly added unstable habits.<br></br>
+                <br></br>
                 66 is the average, but it can take anywhere from <br></br>
                 18 days to 254 days for people to form a new habit.
               </div>

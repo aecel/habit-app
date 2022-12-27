@@ -1,4 +1,6 @@
+import CardLegend from "../components/CardLegend"
 import HabitCard from "../components/HabitCard"
+import Instructions from "../components/Instructions"
 import NothingHere from "../components/NothingHere"
 import { useHabits } from "../useHabits"
 
@@ -8,11 +10,17 @@ const AllHabits = () => {
     return <HabitCard habit={habit} key={habit.readId()} />
   })
   return (
-    <div id="AllHabits" className="cards-route">
+    <div className="cards-route-container">
       {allHabits.length === 0 ? (
         <NothingHere text={`Click on "Add Habit" to start forming habits!`} />
       ) : (
-        allHabits
+        <div>
+          <Instructions />
+          <div id="AllHabits" className="cards-route">
+            {allHabits}
+          </div>
+          <CardLegend />
+        </div>
       )}
     </div>
   )

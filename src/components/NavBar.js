@@ -102,7 +102,7 @@ const NavBar = () => {
             />
           )}
         </NavLink>
-        <NavLink
+        {/* <NavLink
           data-tip="All Habits"
           to={"/allhabits"}
           id="allhabits"
@@ -127,10 +127,10 @@ const NavBar = () => {
               alt=""
             />
           )}
-        </NavLink>
+        </NavLink> */}
 
         <NavLink
-          data-tip="Unstable Habits"
+          data-tip="All Habits"
           to={"/"}
           id="home"
           className={() =>

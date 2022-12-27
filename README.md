@@ -60,7 +60,7 @@ This is a non-punishing app that will help the user form habits.
 12. Add month names on year calendar
 <!-- 13. Add a visual reminder if a stable habit is about to be demoted -->
 14. There will be a StableStatsCard and UnstableStatsCard
-15. Put something on screen when there is nothing to list (e.g. there are no stable habits, no unstable habits, or both)
+<!-- 15. Put something on screen when there is nothing to list (e.g. there are no stable habits, no unstable habits, or both) -->
 16. Actually code lol
-17. Make something happen (maybe use party-js) when an unstable habit gets promoted to a stable habit. Right now it just disappears when viewed from Home. Make something happen when a stable habit gets demoted.
+<!-- 17. Make something happen (maybe use party-js) when an unstable habit gets promoted to a stable habit. Right now it just disappears when viewed from Home. Make something happen when a stable habit gets demoted. -->
 18. Make a better looking HabitInfoModal
