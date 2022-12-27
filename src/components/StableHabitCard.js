@@ -8,10 +8,13 @@ import WeekCalendar from "./WeekCalendar"
 import CardStar from "./CardStar"
 import CardOptions from "./CardOptions"
 import CardWarning from "./CardWarning"
+import { useEffect, useRef } from "react"
+import party from "party-js"
 
 const StableHabitCard = ({ habit }) => {
   const habitFunctions = useHabits().habitFunctions
   const triToggleDay = habitFunctions.triToggleDay
+  const habitDaysToGo = habit.getDaysToGo()
 
   const today = new Date()
   const dayNow = today.getDate()
@@ -23,6 +26,18 @@ const StableHabitCard = ({ habit }) => {
   const colors = useSettings().colors
   const moreGold = colors.moreGold
 
+  const habitCardRef = useRef()
+  useEffect(() => {
+    const habitCard = habitCardRef.current
+    if (habitDaysToGo === 0) {
+      party.sparkles(habitCard, {
+        // Specify further (optional) configuration here.
+        count: party.variation.range(10, 25),
+        speed: party.variation.range(50, 300),
+      })
+    }
+  }, [habitDaysToGo])
+
   return (
     <div
       className={
@@ -30,6 +45,7 @@ const StableHabitCard = ({ habit }) => {
           ? "dark-habit-card habit-card"
           : "light-habit-card habit-card"
       }
+      ref={habitCardRef}
     >
       <div
         className="card-color-bar"

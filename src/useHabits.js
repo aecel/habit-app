@@ -14,7 +14,7 @@ export const HabitsProvider = ({ children }) => {
   const habit2 = newHabit({
     name: "Going to bed early",
     stable: false,
-    daysToStableHabit: 7,
+    daysToStableHabit: 5,
   })
 
   const [habits, setHabits] = useState([habit1, habit2])
@@ -69,11 +69,12 @@ export const HabitsProvider = ({ children }) => {
     nextHabits[index] = calendarUpdate
     setHabits(nextHabits)
 
+    // Wait 1 second before updating stability
     setTimeout(() => {
       const nextNextHabits = [...habits]
       nextNextHabits[index] = stableUpdate
       setHabits(nextNextHabits)
-    }, 1000)
+    }, 500)
   }
 
   const updateDay = ({ id, year, month, day, taskDone, taskNotes }) => {
