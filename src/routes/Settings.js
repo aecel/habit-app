@@ -88,7 +88,7 @@ const Settings = () => {
                 checked={settings.instructions === "on"}
                 onChange={updateInstructions}
               />
-              <label htmlFor="instructions-on">On</label>
+              <label htmlFor="instructions-on">Show</label>
             </div>
             <div className="form-item-radio">
               <input
@@ -99,7 +99,7 @@ const Settings = () => {
                 checked={settings.instructions === "off"}
                 onChange={updateInstructions}
               />
-              <label htmlFor="instructions-off">Off</label>
+              <label htmlFor="instructions-off">Hide</label>
             </div>
           </div>
 
@@ -119,7 +119,7 @@ const Settings = () => {
                 checked={settings.cardLegend === "on"}
                 onChange={updateLegend}
               />
-              <label htmlFor="legend-on">On</label>
+              <label htmlFor="legend-on">Show</label>
             </div>
             <div className="form-item-radio">
               <input
@@ -130,7 +130,7 @@ const Settings = () => {
                 checked={settings.cardLegend === "off"}
                 onChange={updateLegend}
               />
-              <label htmlFor="legend-off">Off</label>
+              <label htmlFor="legend-off">Hide</label>
             </div>
           </div>
           <div className="form-item">

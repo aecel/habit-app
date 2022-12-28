@@ -26,6 +26,7 @@ const StableHabitCard = ({ habit }) => {
   const colors = useSettings().colors
   const moreGold = colors.moreGold
 
+  // Sparkle effect when a habit gets promoted
   const habitCardRef = useRef()
   useEffect(() => {
     const habitCard = habitCardRef.current

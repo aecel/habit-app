@@ -5,10 +5,13 @@ import CardStar from "./CardStar"
 import MonthCalendar from "./MonthCalendar"
 import YearCalendar from "./YearCalendar"
 import CardWarning from "./CardWarning"
+import { useEffect, useRef } from "react"
+import party from "party-js"
 
 const StableCalendarCard = ({ habit }) => {
   const habitFunctions = useHabits().habitFunctions
   const triToggleDay = habitFunctions.triToggleDay
+  const habitDaysToGo = habit.getDaysToGo()
 
   const today = new Date()
   const dayNow = today.getDate()
@@ -19,8 +22,21 @@ const StableCalendarCard = ({ habit }) => {
   const moreGold = colors.moreGold
   const lessGold = colors.lessGold
 
+  // Sparkle effect when a habit gets promoted
+  const habitCardRef = useRef()
+  useEffect(() => {
+    const habitCard = habitCardRef.current
+    if (habitDaysToGo === 0) {
+      party.sparkles(habitCard, {
+        // Specify further (optional) configuration here.
+        count: party.variation.range(10, 25),
+        speed: party.variation.range(50, 300),
+      })
+    }
+  }, [habitDaysToGo])
+
   return (
-    <div className="calendar-card" key={habit.readId()}>
+    <div className="calendar-card" key={habit.readId()} ref={habitCardRef}>
       <CardStar habit={habit} />
       <div className="calendar-card-title">{habit.readName()}</div>
       <MonthCalendar

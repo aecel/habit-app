@@ -12,11 +12,11 @@ const StableHabits = () => {
   })
 
   return (
-    <div className="cards-route-container">
+    <>
       {stableHabits.length === 0 ? (
         <NothingHere text={"Promote a habit to see them here!"} />
       ) : (
-        <div>
+        <div className="cards-route-container">
           <Instructions />
           <div id="StableHabits" className="cards-route">
             {stableHabits}
@@ -24,7 +24,7 @@ const StableHabits = () => {
           <CardLegend />
         </div>
       )}
-    </div>
+    </>
   )
 }
 

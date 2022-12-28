@@ -51,8 +51,8 @@ This is a non-punishing app that will help the user form habits.
 <!-- 3. Make unstable habit limit work -->
 4. Make auto check for stable habit cards; it can be turned off in options (is this a bad idea?)
 5. Make a filter by date, streak, etc
-6. Add instructions on top; it can be turned off in options
-7. Add legends at the bottom; it can be turned off in options
+<!-- 6. Add instructions on top; it can be turned off in options -->
+<!-- 7. Add legends at the bottom; it can be turned off in options -->
 8. Store in local storage
 9. Firebase
 10. If auto check for stable habits is turned on, make a reminder to update the habit when it hasn't been updated in a while, maybe 30 days or something.

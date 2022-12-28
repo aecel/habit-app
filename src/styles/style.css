@@ -574,6 +574,7 @@ input[type="radio"] {
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100%;
 }
 
 .cards-route {
@@ -889,6 +890,20 @@ input[type="radio"] {
   position: relative;
 }
 
+.stats-card-chart {
+  padding: 20px;
+  background-color: var(--card-color);
+  border-radius: 10px;
+  width: 350px;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
 .stats-card-title {
   font-size: 0.9rem;
   font-weight: bold;
@@ -942,4 +957,10 @@ input[type="radio"] {
   height: 8px;
   width: 8px;
   border-radius: 50%;
+}
+
+@media (min-width: 770px) {
+  .card-legend {
+    width: 700px;
+  }
 }

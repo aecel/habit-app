@@ -24,7 +24,7 @@ const CardLegend = () => {
           className="card-legend-circle"
           style={{
             backgroundColor: `${
-              theme === "dark" ? "rgb(58, 58, 58)" : "var(--light-gray)"
+              theme === "dark" ? "rgb(58, 58, 58)" : "white"
             }`,
           }}
         ></div>

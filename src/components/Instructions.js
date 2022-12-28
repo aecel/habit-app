@@ -12,10 +12,7 @@ const Instructions = () => {
       <div>Tap circle once to mark the task as "done"</div>
       <div>Tap circle twice to mark the task as "partially done"</div>
       <div>A partially done task still counts towards your streak</div>
-      <div>
-        You can turn off these instructions<br></br>by
-        changing the settings
-      </div>
+      <div>You can hide these instructions by changing the settings</div>
     </div>
   )
 }
