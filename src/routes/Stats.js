@@ -16,9 +16,10 @@ const Stats = () => {
         <NothingHere text={`Click on "Add Habit" to start forming habits!`} />
       ) : (
         <div className="cards-route-container">
-          <Instructions />
+          {/* <Instructions /> */}
           <div id="Stats" className="cards-route">
             <div className="stats-card-chart">
+              <div className="stats-card-title">Title of Chart</div>
               <div
                 style={{
                   width: "310px",
