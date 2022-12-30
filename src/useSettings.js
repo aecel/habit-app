@@ -18,6 +18,10 @@ export const SettingsProvider = ({ children }) => {
     lessGreen: "#006D32",
     moreGold: "#FFD700",
     lessGold: "#605000",
+    textColor: "#f2f2f2",
+    bgColor: "#272727",
+    cardColor: "#0d1117",
+    circleColor: "rgb(58, 58, 58)",
   }
 
   const colorsLight = {
@@ -25,6 +29,10 @@ export const SettingsProvider = ({ children }) => {
     lessGreen: "#39D353",
     moreGold: "#C0A900",
     lessGold: "#CCC076",
+    textColor: "#0d1117",
+    bgColor: "#f2f2f2",
+    cardColor: "rgb(215, 215, 215)",
+    circleColor: "#f2f2f2",
   }
 
   const [colors, setColors] = useState({})

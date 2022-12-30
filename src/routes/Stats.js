@@ -1,8 +1,8 @@
 import BarChart from "../components/BarChart"
-import Instructions from "../components/Instructions"
 import NothingHere from "../components/NothingHere"
 import StatsCard from "../components/StatsCard"
 import { useHabits } from "../useHabits"
+import { useSettings } from "../useSettings"
 
 const Stats = () => {
   const habits = useHabits().habits
@@ -10,19 +10,21 @@ const Stats = () => {
     return <StatsCard habit={habit} key={habit.readId()} />
   })
 
+  const colors = useSettings().colors
+  const textColor = colors.textColor
   return (
     <>
       {allHabits.length === 0 ? (
         <NothingHere text={`Click on "Add Habit" to start forming habits!`} />
       ) : (
         <div className="cards-route-container">
-          {/* <Instructions /> */}
           <div id="Stats" className="cards-route">
             <div className="stats-card-chart">
               <div className="stats-card-title">Title of Chart</div>
               <div
                 style={{
                   width: "310px",
+                  height: "400px",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
@@ -30,7 +32,7 @@ const Stats = () => {
                   boxSizing: "border-box",
                 }}
               >
-                <BarChart />
+                <BarChart textColor={textColor} />
               </div>
               <div className="card-bottom"></div>
             </div>
