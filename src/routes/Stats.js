@@ -12,6 +12,13 @@ const Stats = () => {
 
   const colors = useSettings().colors
   const textColor = colors.textColor
+
+  const countGreenTasksByYear = useHabits().habitFunctions.countGreenTasksByYear
+  const greenTaskArray = countGreenTasksByYear(2022)
+  const totalCount = greenTaskArray.reduce(
+    (total, currentValue) => total + currentValue,
+    0
+  )
   return (
     <>
       {allHabits.length === 0 ? (
@@ -20,7 +27,9 @@ const Stats = () => {
         <div className="cards-route-container">
           <div id="Stats" className="cards-route">
             <div className="stats-card-chart">
-              <div className="stats-card-title">Title of Chart</div>
+              <div className="stats-card-title">
+                Number of Green/Gold Tasks This Year
+              </div>
               <div
                 style={{
                   width: "310px",
@@ -32,8 +41,9 @@ const Stats = () => {
                   boxSizing: "border-box",
                 }}
               >
-                <BarChart textColor={textColor} />
+                <BarChart textColor={textColor} dataArray={greenTaskArray} />
               </div>
+              <div>Total Green/Gold Tasks: {totalCount}</div>
               <div className="card-bottom"></div>
             </div>
             {allHabits}

@@ -40,6 +40,7 @@ const HabitInfoModal = ({ triggerRef, habit }) => {
         </div>
         <div>Date Created: {habit.readDateCreated()}</div>
         <div>Last Updated: {habit.readLastUpdated()}</div>
+        <div>Green Tasks Array: {JSON.stringify(habit.countGreenTasksByYear(2022))}</div>
       </div>
     </div>
   )

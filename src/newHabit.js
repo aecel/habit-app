@@ -123,6 +123,22 @@ const newHabit = ({
     return count
   }
 
+  const countGreenTasksByYear = (year) => {
+    let count = 0
+    let countArray = []
+    for (const month in calendar[year]) {
+      for (const day in calendar[year][month]) {
+        if (calendar[year][month][day].done !== "") {
+          count++
+        }
+      }
+      countArray.push(count)
+      count = 0
+    }
+
+    return countArray
+  }
+
   const getStreaks = () => {
     let streaks = []
     let currentCount = 0
@@ -315,6 +331,7 @@ const newHabit = ({
     getLastUpdated,
     updateProperties,
     countGreenTasks,
+    countGreenTasksByYear,
     getStreaks,
     getMaxStreak,
     getCurrentStreak,

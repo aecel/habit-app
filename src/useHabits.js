@@ -128,6 +128,25 @@ export const HabitsProvider = ({ children }) => {
     }
   }
 
+  const countGreenTasksByYear = (year) => {
+    let arrayToBeAdded = []
+    let countArray = []
+
+    for (const habit of habits) {
+      arrayToBeAdded = habit.countGreenTasksByYear(year)
+
+      if (countArray.length === 0) {
+        countArray = arrayToBeAdded
+      } else {
+        for (let i = 0; i < countArray.length - 1; i++) {
+          countArray[i] = countArray[i] + arrayToBeAdded[i]
+        }
+      }
+    }
+
+    return countArray
+  }
+
   // const promoteHabit = (index) => {
   //   const nextHabits = [...habits]
   //   const updatedHabit = nextHabits[index].updateProperties({ newStable: true })
@@ -154,6 +173,7 @@ export const HabitsProvider = ({ children }) => {
     updateHabit,
     updateHabitStability,
     deleteHabit,
+    countGreenTasksByYear,
     // promoteHabit,
     // demoteHabit,
   }
