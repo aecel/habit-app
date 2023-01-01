@@ -64,3 +64,4 @@ This is a non-punishing app that will help the user form habits.
 16. Actually code lol
 <!-- 17. Make something happen (maybe use party-js) when an unstable habit gets promoted to a stable habit. Right now it just disappears when viewed from Home. Make something happen when a stable habit gets demoted. -->
 18. Make a better looking HabitInfoModal
+19. Take a break
