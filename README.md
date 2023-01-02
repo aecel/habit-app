@@ -9,27 +9,21 @@ This is a non-punishing app that will help the user form habits.
 1. Have two groups: "stable habits" and "unstable habits"
 2. It takes 66 days on average to form a habit, but it's actually a range depending on the person and the habit (from 18 days to 254 days)
 3. 66 days is the default streak that you need to have in order to change an "unstable habit" to a "stable habit"
-4. Maybe the number of days can be changed somehow? Idk how. Set it yourself? Or some kind of computation depending on your streaks and broken streaks but I don't want to think about this right now.
-5. If a "stable habit" is a daily task, and you miss 3 days, it will be demoted to an "unstable habit". When this happens, you can provide a reason (or not lol) why the habit was broken so you can revisit it later when you try again.
-6. You can only add 1 "unstable habit" at a time, to prevent being overwhelmed. This is your main focus.
-7. You can add any number of "stable habits". Honor system na lang lol.
-8. If you have more than 1 "unstable habit" somehow, you need to choose between them. You need to delete one. This will gray it out or something idk. Or maybe there's a setting where you can have up to 3 unstable habits idk not sure. I'm not sure if this is a good idea lol. Actually baka it might incentivize me to lie lol so maybe don't delete them. Maybe choose na lang which will be your main focus.
-9. With "stable habits", you don't need to mark them all done, automatic na siya na green everyday because it's annoying to be asked everyday. You only need to mark it if you didn't do it a particular day. Be honest hopefully lol. Maybe there's this button saying "Yup this is still accurate, I'm still doing it" Last checked some_date_here. If, after a lot of days, you haven't checked that habit, there will be a pop up to ask you to update its status. Idk is that annoying?
-10. All days are editable, (green to gray, gray to green) you don't need to check the app everyday. It won't punish you.
-11. Hoping on the honesty of the user who is me lol.
-12. The only thing you need to mark everyday or every whatever day is your 1 unstable habit.
-13. If you have been doing your unstable habit for 66 days (or whatever number of days), then it would be a big deal, so big dopamine hit lol. You can also start another unstable habit.
-14. There should be a warning if a stable habit is about to be demoted to an unstable habit. (2 consecutive days not done)
-15. When setting up a new unstable habit for the first time, there would be a guide for the user to make it a small step muna. Give examples like, if you want to go to the gym early, make it so that you wake up early muna ganun. The unstable habit can also evolve. From "wake up early" to "wake up early and change to gym shoes" and then to "wake up early and change to gym clothes" until you reach your main goal to go to the gym early. Ganern. I'm not completely sure how to implement this. Maybe after a certain number of days, there would be a pop-up asking you to edit the unstable habit to its next step or something. Idk. Or make it so that these steps are the children of your main goal.
-16. Make the stable habits very pretty/cool so it's a dopamine hit when you see them. It should look better the longer it is.
-17. There is an option where you only half assed the task. (e.g. You only flossed your bottom teeth instead of all your teeth lol) This will continue your streak pa rin. So there are 3 colors na, gray, dark green, green.
-18. You can choose to reward yourself when you hit a number of days that you have set (e.g. I will buy myself a slice of Gouda when I hit 15 days)
-19. Make an option to set an alarm during a particular time. Either that or a trigger/situation. What happens before or after the habit?
-20. Display your progress in percentage, current streak, longest streak.
-21. Just an idea: stable habits can evolve to solidified habits. There can be 10 levels, all levels named after the mohs scale levels. (Talc to Diamond)
-22. Add a sound/animation when you update a day
-23. When you drag through squares, they all change to green or darkgreen or whatever
-24. Add a legend on the green colors of the calendar
+4. If a "stable habit" is a daily task, and you miss 3 days, it will be demoted to an "unstable habit". When this happens, you can provide a reason (or not lol) why the habit was broken so you can revisit it later when you try again.
+5. You can only add 1-3 "unstable habit" at a time, to prevent being overwhelmed. These are your main focus.
+6. You can add any number of "stable habits".
+7. All days are editable, (green to gray, gray to green) you don't need to check the app everyday. It won't punish you.
+8. If you have been doing your unstable habit for 66 days (or whatever number of days), then it would be promoted to a stable habit.
+9. There is a warning if a stable habit is about to be demoted to an unstable habit. (e.g 2 consecutive days not done)
+10. When setting up a new unstable habit for the first time, there would be a guide for the user to make it a small step. Give examples like, if you want to go to the gym early, make it so that you wake up early. The unstable habit can also evolve. From "wake up early" to "wake up early and change to gym shoes" and then to "wake up early and change to gym clothes" until you reach your main goal to go to the gym early. there would be a pop-up asking you to edit the unstable habit to its next step.
+11. There is an option where you only partially do the task. This is to encourage the user to do the task daily, even if it's only partially done. It will help them be consistent everyday. (e.g. You only flossed your bottom teeth instead of all your teeth) This will still continue your streak towards promotion to a stable habit.
+12. You can choose to reward yourself when you hit a number of days that you have set (e.g. I will buy myself a slice of Gouda when I hit 15 days)
+13. Make an option to set an alarm during a particular time. Either that or a trigger/situation. What happens before or after the habit?
+14. Display your progress in percentage, current streak, longest streak.
+15. Just an idea: stable habits can evolve to solidified habits. There can be 10 levels, all levels named after the mohs scale levels. (Talc to Diamond)
+16. Add a sound/animation when you update a day
+17. When you drag through squares, they all change to green or darkgreen or whatever
+18. Add a legend on the green colors of the calendar
 
 ## Known bugs
 
@@ -49,19 +43,41 @@ This is a non-punishing app that will help the user form habits.
 <!-- 1. Make card options work; it has more info, update, delete, etc -->
 <!-- 2. Make StableCalendarCard and UnstableCalendarCard -->
 <!-- 3. Make unstable habit limit work -->
+
 4. Make auto check for stable habit cards; it can be turned off in options (is this a bad idea?)
 5. Make a filter by date, streak, etc
-<!-- 6. Add instructions on top; it can be turned off in options -->
-<!-- 7. Add legends at the bottom; it can be turned off in options -->
-8. Store in local storage
-9. Firebase
-10. If auto check for stable habits is turned on, make a reminder to update the habit when it hasn't been updated in a while, maybe 30 days or something.
-11. Stats
-12. Add month names on year calendar
+   <!-- 6. Add instructions on top; it can be turned off in options -->
+   <!-- 7. Add legends at the bottom; it can be turned off in options -->
+6. Store in local storage
+7. Firebase
+8. If auto check for stable habits is turned on, make a reminder to update the habit when it hasn't been updated in a while, maybe 30 days or something.
+9. Stats
+10. Add month names on year calendar
 <!-- 13. Add a visual reminder if a stable habit is about to be demoted -->
-14. There will be a StableStatsCard and UnstableStatsCard
+11. There will be a StableStatsCard and UnstableStatsCard
 <!-- 15. Put something on screen when there is nothing to list (e.g. there are no stable habits, no unstable habits, or both) -->
-16. Actually code lol
+12. Actually code lol
 <!-- 17. Make something happen (maybe use party-js) when an unstable habit gets promoted to a stable habit. Right now it just disappears when viewed from Home. Make something happen when a stable habit gets demoted. -->
-18. Make a better looking HabitInfoModal
-19. Take a break
+13. Make a better looking HabitInfoModal
+14. Take a break
+15. Write a "How it Works" section maybe, simplify and rewrite with chat gpt
+16. Add a Milestone Reward. (I will buy a switch when I reach 100 days or something and then it keeps track of it for you)
+17. Add "evolving habit" option idk yet
+18. Maybe add leaderboard, way to share with friends
+
+# How it Workd
+
+# written by Chat-GPT
+
+1. There are two categories of habits: "stable" and "unstable."
+2. On average, it takes 66 days to form a habit, but the time can vary depending on the person and the habit (from 18 to 254 days).
+   The default streak needed to change an "unstable habit" to a "stable habit" is 66 days.
+3. If a "stable habit" is a daily task and you miss three days, it will be demoted to an "unstable habit." When this happens, you can optionally provide a reason for breaking the habit.
+4. You can only add one to three "unstable habits" at a time to avoid feeling overwhelmed. These are your main focus.
+5. You can add any number of "stable habits."
+6. You can edit your progress on any day (marking it as complete or incomplete). The app will not punish you for not checking it every day.
+7. If you have been working on an "unstable habit" for 66 days (or the number of days you set), it will be promoted to a "stable habit."
+8. There is a warning if a "stable habit" is close to being demoted to an "unstable habit" (e.g., if it has not been completed for two consecutive days).
+9. When setting up a new "unstable habit," there is a guide to help you make it a small, achievable step. For example, if you want to go to the gym early, start by making it a goal to wake up early. The "unstable habit" can evolve over time, from "wake up early" to "wake up early and put on gym shoes," and then to "wake up early and put on gym clothes," until you reach your ultimate goal of going to the gym early. There is an option to edit the "unstable habit" to its next step.
+10. There is an option to partially complete a task to encourage daily consistency (e.g., flossing only your bottom teeth instead of all of them). This will still count towards your streak towards promotion to a "stable habit."
+11. You can choose to reward yourself when you reach a certain number of days (e.g., buying yourself a slice of Gouda when you hit 15 days).

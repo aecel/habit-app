@@ -33,7 +33,7 @@ const Stats = () => {
               <div
                 style={{
                   width: "310px",
-                  height: "400px",
+                  height: "300px",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
