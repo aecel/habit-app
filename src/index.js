@@ -7,6 +7,7 @@ import AllHabits from "./routes/AllHabits"
 import Calendar from "./routes/Calendar"
 import ErrorElement from "./routes/ErrorElement"
 import Home from "./routes/Home"
+import HowItWorks from "./routes/HowItWorks"
 import Root from "./routes/Root"
 import Settings from "./routes/Settings"
 import StableHabits from "./routes/StableHabits"
@@ -52,6 +53,10 @@ const router = createHashRouter([
           {
             path: "/addhabit",
             element: <AddHabit />,
+          },
+          {
+            path: "/howitworks",
+            element: <HowItWorks />,
           },
         ],
       },

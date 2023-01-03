@@ -964,3 +964,31 @@ input[type="radio"] {
     width: 700px;
   }
 }
+
+/* How It Works Route */
+
+#HowItWorks {
+  width: 300px;
+  justify-content: left;
+}
+
+.rule-container {
+  /* display: flex; */
+  gap: 20px;
+}
+
+.rule-number {
+  height: 30px;
+  width: 30px;
+  background-color: var(--dark-green);
+  font-size: 0.8rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.rule {
+  font-size: 0.8rem;
+}

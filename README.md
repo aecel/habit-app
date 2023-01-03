@@ -65,7 +65,7 @@ This is a non-punishing app that will help the user form habits.
 17. Add "evolving habit" option idk yet
 18. Maybe add leaderboard, way to share with friends
 
-# How it Workd
+# How it Works
 
 # written by Chat-GPT
 
@@ -74,10 +74,12 @@ This is a non-punishing app that will help the user form habits.
    The default streak needed to change an "unstable habit" to a "stable habit" is 66 days.
 3. If a "stable habit" is a daily task and you miss three days, it will be demoted to an "unstable habit." When this happens, you can optionally provide a reason for breaking the habit.
 4. You can only add one to three "unstable habits" at a time to avoid feeling overwhelmed. These are your main focus.
-5. You can add any number of "stable habits."
+5. You can add any number of stable habits.
 6. You can edit your progress on any day (marking it as complete or incomplete). The app will not punish you for not checking it every day.
-7. If you have been working on an "unstable habit" for 66 days (or the number of days you set), it will be promoted to a "stable habit."
-8. There is a warning if a "stable habit" is close to being demoted to an "unstable habit" (e.g., if it has not been completed for two consecutive days).
-9. When setting up a new "unstable habit," there is a guide to help you make it a small, achievable step. For example, if you want to go to the gym early, start by making it a goal to wake up early. The "unstable habit" can evolve over time, from "wake up early" to "wake up early and put on gym shoes," and then to "wake up early and put on gym clothes," until you reach your ultimate goal of going to the gym early. There is an option to edit the "unstable habit" to its next step.
-10. There is an option to partially complete a task to encourage daily consistency (e.g., flossing only your bottom teeth instead of all of them). This will still count towards your streak towards promotion to a "stable habit."
+7. If you have been working on an unstable habit for 66 days (or the number of days you set), it will be promoted to a stable habit.
+8. There is a warning if a stable habit is close to being demoted to an unstable habit (e.g., if it has not been completed for two consecutive days).
+9. When setting up a new unstable habit, there is a guide to help you make it a small, achievable step. For example, if you want to go to the gym early, start by making it a goal to wake up early. The unstable habit can evolve over time, from 'wake up early' to 'wake up early and put on gym shoes,' and then to 'wake up early and put on gym clothes,' until you reach your ultimate goal of going to the gym early. There is an option to edit the unstable habit to its next step.
+10. There is an option to partially complete a task to encourage daily consistency (e.g., flossing only your bottom teeth instead of all of them). This will still count towards your streak towards promotion to a stable habit.
 11. You can choose to reward yourself when you reach a certain number of days (e.g., buying yourself a slice of Gouda when you hit 15 days).
+
+9 & 11 not implemented

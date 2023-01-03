@@ -231,6 +231,32 @@ const NavBar = () => {
             />
           )}
         </NavLink>
+        <NavLink
+          data-tip="How It Works"
+          to={"/howitworks"}
+          id="howitworks"
+          className={({ isActive, isPending }) =>
+            isActive
+              ? "footer-nav chosen-nav"
+              : isPending
+              ? "footer-nav"
+              : "footer-nav"
+          }
+        >
+          {({ isActive }) => (
+            <img
+              className="footer-nav-svg"
+              src={
+                isActive
+                  ? testHabitsSvg
+                  : settings.theme === "light"
+                  ? testHabitsSvgBlack
+                  : testHabitsSvg
+              }
+              alt=""
+            />
+          )}
+        </NavLink>
       </nav>
     </footer>
   )
