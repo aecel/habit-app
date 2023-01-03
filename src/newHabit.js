@@ -192,18 +192,18 @@ const newHabit = ({
   // Last Missed Streak does not count today
   // so you still have a chance to do your task and make it green
   const getLastMissedStreak = () => {
-    let count = 0
     const date = dateOfLastGreenTask()
+    const yearNum = Number(date[0])
+    const monthNum = Number(date[1])
+    const dayNum = Number(date[2])
+
     if (date.length === 0) return Infinity
-    for (let year = date[0]; year <= yearNow; year++) {
-      for (let month = date[1]; month <= monthNow; month++) {
-        for (let day = date[2]; day < dayNow; day++) {
-          if (calendar[year][month][day].done === "") {
-            count++
-          }
-        }
-      }
-    }
+
+    const date1 = new Date()
+    const date2 = new Date(`${monthNum}/${dayNum}/${yearNum}`)
+
+    const count = getDayDiff(date1, date2)
+
     return count
   }
 
@@ -222,19 +222,12 @@ const newHabit = ({
   const getCalculatedStable = () => {
     let calculatedStable = stable
     if (!stable && getCurrentStreak() >= daysToStableHabit) {
-      // Do something here and also delay the line below
-
       calculatedStable = true
-      return calculatedStable
-    } else if (stable && getLastMissedStreak() >= daysToBreakHabit) {
+    } else if (stable && getLastMissedStreak() > daysToBreakHabit) {
       calculatedStable = false
-
-      return calculatedStable
-    } else {
-      return stable
     }
 
-    // return calculatedStable
+    return calculatedStable
   }
 
   const updateStability = () => {
@@ -284,7 +277,7 @@ const newHabit = ({
   }
 
   const isAboutToBeDemoted = () => {
-    if (stable && daysToBreakHabit - 1 <= getLastMissedStreak()) {
+    if (stable && daysToBreakHabit - 1 < getLastMissedStreak()) {
       return true
     } else {
       return false
