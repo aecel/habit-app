@@ -60,7 +60,7 @@ const AddHabit = () => {
     const unstableLabel = unstableLabelRef.current
     if (readUnstableHabits().length >= settings.unstableHabitLimit) {
       unstableHabit.disabled = true
-      unstableHabit.defaultChecked = false
+      // unstableHabit.defaultChecked = false
       const mainText = unstableLabel.getElementsByClassName("unstable-text")[0]
       mainText.style.textDecoration = "line-through"
       const subtext = unstableLabel.getElementsByClassName("sub-text")[0]
@@ -68,7 +68,7 @@ const AddHabit = () => {
       subtext.textContent =
         "Limit has been reached. \r\nGo to settings to add more."
     } else {
-      unstableHabit.defaultChecked = true
+      // unstableHabit.defaultChecked = true
     }
   }, [settings.unstableHabitLimit, readUnstableHabits])
 

@@ -24,7 +24,7 @@ const NavBar = () => {
   return (
     <footer className="navbar">
       <nav>
-        <NavLink
+        {/* <NavLink
           data-tip="Test Habits"
           to={"/testhabits"}
           id="testhabits"
@@ -49,7 +49,7 @@ const NavBar = () => {
               alt=""
             />
           )}
-        </NavLink>
+        </NavLink> */}
         <NavLink
           data-tip="Add Habit"
           to={"/addhabit"}

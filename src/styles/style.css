@@ -970,18 +970,20 @@ input[type="radio"] {
 #HowItWorks {
   width: 300px;
   justify-content: left;
+  gap: 50px;
+  font-size: 0.8rem;
 }
 
 .rule-container {
-  /* display: flex; */
-  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 .rule-number {
   height: 30px;
   width: 30px;
   background-color: var(--dark-green);
-  font-size: 0.8rem;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -989,6 +991,15 @@ input[type="radio"] {
   margin-bottom: 10px;
 }
 
-.rule {
-  font-size: 0.8rem;
+.rule-png-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  /* margin-bottom: 30px; */
+  gap: 30px;
+  text-align: center;
+}
+.rule-png {
+  width: 300px;
+  height: auto;
 }

@@ -193,12 +193,12 @@ const newHabit = ({
   // so you still have a chance to do your task and make it green
   const getLastMissedStreak = () => {
     const date = dateOfLastGreenTask()
-    const yearNum = Number(date[0])
-    const monthNum = Number(date[1])
-    const dayNum = Number(date[2])
 
     if (date.length === 0) return Infinity
 
+    const yearNum = Number(date[0])
+    const monthNum = Number(date[1])
+    const dayNum = Number(date[2])
     const date1 = new Date()
     const date2 = new Date(`${monthNum}/${dayNum}/${yearNum}`)
 
