@@ -886,12 +886,12 @@ input[type="radio"] {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 50px;
+  gap: 10px;
   position: relative;
 }
 
 .stats-card-chart {
-  padding: 20px;
+  padding: 40px;
   background-color: var(--card-color);
   border-radius: 10px;
   width: 350px;
@@ -901,12 +901,17 @@ input[type="radio"] {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 10px;
   position: relative;
 }
 
 .stats-card-title {
   font-size: 0.9rem;
   font-weight: bold;
+}
+
+.stats-card-text {
+  font-size: 0.8rem;
 }
 
 @media (min-width: 770px) {
@@ -1004,15 +1009,16 @@ input[type="radio"] {
   height: auto;
 }
 
-/* Bar Chart Container */
+/* Bar Chart Component */
 
 .bar-chart-container {
-  width: 310px;
-  height: 300px;
+  width: 270px;
+  height: 200px;
   display: flex;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
   margin-top: 30px;
   margin-bottom: 30px;
+  align-self: center;
 }

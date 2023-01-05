@@ -12,6 +12,7 @@ const Stats = () => {
 
   const colors = useSettings().colors
   const textColor = colors.textColor
+  const barColor = colors.moreGreen
 
   const countGreenTasksByYear = useHabits().habitFunctions.countGreenTasksByYear
   const greenTaskArray = countGreenTasksByYear(2022)
@@ -31,7 +32,9 @@ const Stats = () => {
                 Number of Green/Gold Tasks This Year
               </div>
               <BarChart textColor={textColor} dataArray={greenTaskArray} />
-              <div>Total Green/Gold Tasks: {totalCount}</div>
+              <div className="stats-card-text">
+                Total Green/Gold Tasks: {totalCount}
+              </div>
               <div className="card-bottom"></div>
             </div>
             {allHabits}

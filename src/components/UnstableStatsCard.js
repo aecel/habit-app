@@ -7,13 +7,18 @@ const UnstableStatsCard = ({ habit }) => {
   const settings = useSettings().settings
   const colors = useSettings().colors
   const textColor = colors.textColor
+  const barColor = colors.moreGreen
 
   const dataArray = habit.countGreenTasksByYear(2022)
 
   return (
     <div className="stats-card" key={habit.readId()}>
       <div className="stats-card-title">{habit.readName()}</div>
-      <BarChart textColor={textColor} dataArray={dataArray} />
+      <BarChart
+        textColor={textColor}
+        dataArray={dataArray}
+        barColor={barColor}
+      />
       <div className="card-bottom"></div>
 
       <CardOptions habit={habit} />

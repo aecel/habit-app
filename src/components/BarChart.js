@@ -12,7 +12,11 @@ import { Bar } from "react-chartjs-2"
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 
-const BarChart = ({ textColor, dataArray }) => {
+const BarChart = ({ textColor, dataArray, barColor }) => {
+  if (!barColor) {
+    barColor = "#145820"
+  }
+  
   const options = {
     maintainAspectRatio: false,
     offset: true,
@@ -74,7 +78,7 @@ const BarChart = ({ textColor, dataArray }) => {
       {
         label: "Green/Gold Tasks",
         data: dataArray,
-        backgroundColor: ["#145820"],
+        backgroundColor: [`${barColor}`],
         //   clip: false,
         //   minBarLength: 100,
       },
