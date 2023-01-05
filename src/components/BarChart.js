@@ -81,7 +81,11 @@ const BarChart = ({ textColor, dataArray }) => {
     ],
   }
 
-  return <Bar options={options} data={data} />
+  return (
+    <div className="bar-chart-container">
+      <Bar options={options} data={data} />
+    </div>
+  )
 }
 
 export default BarChart

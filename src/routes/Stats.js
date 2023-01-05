@@ -30,19 +30,7 @@ const Stats = () => {
               <div className="stats-card-title">
                 Number of Green/Gold Tasks This Year
               </div>
-              <div
-                style={{
-                  width: "310px",
-                  height: "300px",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  // backgroundColor: "white",
-                  boxSizing: "border-box",
-                }}
-              >
-                <BarChart textColor={textColor} dataArray={greenTaskArray} />
-              </div>
+              <BarChart textColor={textColor} dataArray={greenTaskArray} />
               <div>Total Green/Gold Tasks: {totalCount}</div>
               <div className="card-bottom"></div>
             </div>

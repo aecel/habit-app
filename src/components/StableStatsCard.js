@@ -1,4 +1,5 @@
 import { useSettings } from "../useSettings"
+import BarChart from "./BarChart"
 import CardOptions from "./CardOptions"
 import CardStar from "./CardStar"
 import CardWarning from "./CardWarning"
@@ -6,12 +7,15 @@ import CardWarning from "./CardWarning"
 const StableStatsCard = ({ habit }) => {
   const settings = useSettings().settings
   const colors = useSettings().colors
+  const textColor = colors.textColor
+
+  const dataArray = habit.countGreenTasksByYear(2022)
 
   return (
     <div className="stats-card" key={habit.readId()}>
       <CardStar habit={habit} />
       <div className="stats-card-title">{habit.readName()}</div>
-
+      <BarChart textColor={textColor} dataArray={dataArray} />
       <div className="card-bottom"></div>
 
       <CardWarning habit={habit} />

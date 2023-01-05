@@ -1003,3 +1003,16 @@ input[type="radio"] {
   width: 300px;
   height: auto;
 }
+
+/* Bar Chart Container */
+
+.bar-chart-container {
+  width: 310px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
