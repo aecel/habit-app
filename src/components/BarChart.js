@@ -12,6 +12,7 @@ import { Bar } from "react-chartjs-2"
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 
+// Change such that it graphs from last year same month
 const BarChart = ({ textColor, dataArray, barColor }) => {
   if (!barColor) {
     barColor = "#145820"
