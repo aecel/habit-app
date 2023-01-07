@@ -10,7 +10,7 @@ const StableStatsCard = ({ habit }) => {
   const textColor = colors.textColor
   const barColor = colors.moreGold
 
-  const dataArray = habit.countGreenTasksByYear(2022)
+  const dataArray = habit.countGreenTasksThisYear()
 
   return (
     <div className="stats-card" key={habit.readId()}>

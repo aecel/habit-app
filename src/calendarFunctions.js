@@ -1,3 +1,5 @@
+import getMonthFromNum from "./getMonthFromNum"
+
 const getDaysInMonth = (year, month) => {
   return new Date(year, month, 0).getDate()
 }
@@ -134,7 +136,23 @@ const getThisYearArray = ({ year, month, day }) => {
     yearArray.unshift(objectToPush)
     dayToPush = getPreviousDay(dayToPush)
   }
+
   return yearArray
+}
+
+const getThisYearInMonthsArray = () => {
+  const today = new Date()
+  const yearNow = today.getFullYear()
+  const monthNow = today.getMonth() + 1
+
+  let monthArray = []
+  let month = { year: yearNow, month: monthNow }
+  for (let i = 0; i < 13; i++) {
+    monthArray.unshift(getMonthFromNum(month.month))
+    month = getPreviousMonth(month)
+  }
+
+  return monthArray
 }
 
 export {
@@ -146,4 +164,5 @@ export {
   getThisWeek,
   getThisWeekArray,
   getThisYearArray,
+  getThisYearInMonthsArray,
 }

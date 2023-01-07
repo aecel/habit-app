@@ -1,3 +1,4 @@
+import { getThisYearArray } from "./calendarFunctions"
 import getBlankCalendar from "./getBlankCalendar"
 import getDayDiff from "./getDayDiff"
 import getReadableDate from "./getReadableDate"
@@ -123,7 +124,10 @@ const newHabit = ({
     return count
   }
 
-  const countGreenTasksByYear = (year) => {
+  const countGreenTasksByYear = () => {
+    // const today = new Date()
+    // const yearNow = today.getFullYear()
+    const year = 2022
     let count = 0
     let countArray = []
     for (const month in calendar[year]) {
@@ -134,6 +138,53 @@ const newHabit = ({
       }
       countArray.push(count)
       count = 0
+    }
+
+    return countArray
+  }
+
+  const countGreenTasksThisYear = () => {
+    let count = 0
+    let countArray = []
+
+    const today = new Date()
+    const dayNow = today.getDate()
+    const monthNow = today.getMonth() + 1
+    const yearNow = today.getFullYear()
+    const todayObj = { year: yearNow, month: monthNow, day: dayNow }
+
+    const yearArray = getThisYearArray(todayObj)
+
+    let currentMonth = yearArray[0].month
+    let currentYear = yearArray[0].year
+    for (const currentDay of yearArray) {
+      if (
+        currentMonth !== currentDay.month ||
+        currentYear !== currentDay.year
+      ) {
+        currentMonth = currentDay.month
+        currentYear = currentDay.year
+        countArray.push(count)
+        count = 0
+      } else if (
+        currentDay.day === dayNow &&
+        currentDay.month === monthNow &&
+        currentDay.year === yearNow
+      ) {
+        if (
+          calendar[currentDay.year][currentDay.month][currentDay.day].done !==
+          ""
+        ) {
+          count++
+        }
+        countArray.push(count)
+      }
+
+      if (
+        calendar[currentDay.year][currentDay.month][currentDay.day].done !== ""
+      ) {
+        count++
+      }
     }
 
     return countArray
@@ -325,6 +376,7 @@ const newHabit = ({
     updateProperties,
     countGreenTasks,
     countGreenTasksByYear,
+    countGreenTasksThisYear,
     getStreaks,
     getMaxStreak,
     getCurrentStreak,

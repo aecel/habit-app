@@ -128,12 +128,12 @@ export const HabitsProvider = ({ children }) => {
     }
   }
 
-  const countGreenTasksByYear = (year) => {
+  const countGreenTasksByYear = () => {
     let arrayToBeAdded = []
     let countArray = []
 
     for (const habit of habits) {
-      arrayToBeAdded = habit.countGreenTasksByYear(year)
+      arrayToBeAdded = habit.countGreenTasksByYear()
 
       if (countArray.length === 0) {
         countArray = arrayToBeAdded
@@ -144,6 +144,26 @@ export const HabitsProvider = ({ children }) => {
       }
     }
 
+    return countArray
+  }
+
+  const countGreenTasksThisYear = () => {
+    let arrayToBeAdded = []
+    let countArray = []
+
+    for (const habit of habits) {
+      arrayToBeAdded = habit.countGreenTasksThisYear()
+
+      if (countArray.length === 0) {
+        countArray = arrayToBeAdded
+      } else {
+        for (let i = 0; i < countArray.length - 1; i++) {
+          countArray[i] = countArray[i] + arrayToBeAdded[i]
+        }
+      }
+    }
+
+    // console.log(countArray)
     return countArray
   }
 
@@ -174,6 +194,7 @@ export const HabitsProvider = ({ children }) => {
     updateHabitStability,
     deleteHabit,
     countGreenTasksByYear,
+    countGreenTasksThisYear,
     // promoteHabit,
     // demoteHabit,
   }

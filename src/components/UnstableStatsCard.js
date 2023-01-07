@@ -9,7 +9,7 @@ const UnstableStatsCard = ({ habit }) => {
   const textColor = colors.textColor
   const barColor = colors.moreGreen
 
-  const dataArray = habit.countGreenTasksByYear(2022)
+  const dataArray = habit.countGreenTasksThisYear()
 
   return (
     <div className="stats-card" key={habit.readId()}>
@@ -20,7 +20,6 @@ const UnstableStatsCard = ({ habit }) => {
         barColor={barColor}
       />
       <div className="card-bottom"></div>
-
       <CardOptions habit={habit} />
       <ProgressDoughnutChart habit={habit} />
     </div>

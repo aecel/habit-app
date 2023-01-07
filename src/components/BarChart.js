@@ -9,6 +9,7 @@ import {
   Legend,
 } from "chart.js"
 import { Bar } from "react-chartjs-2"
+import { getThisYearInMonthsArray } from "../calendarFunctions"
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 
@@ -43,7 +44,7 @@ const BarChart = ({ textColor, dataArray, barColor }) => {
         ticks: {
           color: `${textColor}`,
           font: {
-            size: 10,
+            size: 8,
           },
         },
       },
@@ -51,27 +52,17 @@ const BarChart = ({ textColor, dataArray, barColor }) => {
         ticks: {
           color: `${textColor}`,
           font: {
-            size: 10,
+            size: 8,
           },
         },
       },
     },
   }
 
-  const labels = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec",
-  ]
+  const today = new Date()
+  const monthNow = today.getMonth() + 1
+
+  const labels = getThisYearInMonthsArray()
 
   const data = {
     labels: labels,
