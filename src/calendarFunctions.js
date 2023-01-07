@@ -90,7 +90,7 @@ const getThisWeekArray = ({ year, month, day }) => {
     day: day,
   }
 
-  // push today into the array first and then the previous 6 days
+  // unshift today into the array first and then the previous 6 days
   // object looks like this:
   // {year, month, day, dayName}
   let dayToPush = dayReference
@@ -109,6 +109,34 @@ const getThisWeekArray = ({ year, month, day }) => {
   return weekArray
 }
 
+const getThisYearArray = ({ year, month, day }) => {
+  let yearArray = []
+
+  let dayReference = {
+    year: year,
+    month: month,
+    day: day,
+  }
+
+  // unshift today into the array first and then the previous 6 days
+  // object looks like this:
+  // {year, month, day, dayName}
+  let dayToPush = dayReference
+  for (let i = 0; i < 365; i++) {
+    const dayNameToAdd = {
+      dayName: getDayName({
+        year: dayToPush.year,
+        month: dayToPush.month,
+        day: dayToPush.day,
+      }),
+    }
+    const objectToPush = { ...dayToPush, ...dayNameToAdd }
+    yearArray.unshift(objectToPush)
+    dayToPush = getPreviousDay(dayToPush)
+  }
+  return yearArray
+}
+
 export {
   getDaysInMonth,
   getPreviousMonth,
@@ -117,4 +145,5 @@ export {
   getNextDay,
   getThisWeek,
   getThisWeekArray,
+  getThisYearArray,
 }
