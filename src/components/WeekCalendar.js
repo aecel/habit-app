@@ -66,7 +66,7 @@ const WeekCalendar = ({
               {habit.readCalendar()[date.year][date.month][date.day]["done"] ===
                 "Done completely" ||
               habit.readCalendar()[date.year][date.month][date.day]["done"] ===
-                "Half-assed" ? (
+                "Partially done" ? (
                 <img
                   className="week-calendar-day-icon"
                   alt=""
@@ -77,7 +77,7 @@ const WeekCalendar = ({
                       ? doneCheck
                       : habit.readCalendar()[date.year][date.month][date.day][
                           "done"
-                        ] === "Half-assed"
+                        ] === "Partially done"
                       ? halfCheck
                       : "none"
                   }

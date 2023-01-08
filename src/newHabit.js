@@ -3,10 +3,10 @@ import getBlankCalendar from "./getBlankCalendar"
 import getDayDiff from "./getDayDiff"
 import getReadableDate from "./getReadableDate"
 
-const today = new Date()
-const dayNow = today.getDate()
-const monthNow = today.getMonth() + 1
-const yearNow = today.getFullYear()
+// const today = new Date()
+// const dayNow = today.getDate()
+// const monthNow = today.getMonth() + 1
+// const yearNow = today.getFullYear()
 
 const newHabit = ({
   name = "",
@@ -24,15 +24,48 @@ const newHabit = ({
   daysToStableHabit = 66,
   daysToBreakHabit = 3,
 }) => {
-  // const addAYear = (calendarObj) => {
-  //   // Get the latest year of the calendar object input
-  //   const index = calendarObj.length - 1
-  //   const latestYear = Object.keys(calendarObj)[index]
+  // Returns the calendarObject + next years
+  // Used in addYearsToCalendar in useHabits
+  // Actually doesn't need to be here but I don't know where else to put it
+  const addYears = (calendarObject) => {
+    const today = new Date()
+    const yearNow = today.getFullYear()
 
-  //   // Append the next year to the calendar object
-  //   const yearToAdd = calendarObject.getCalendar([latestYear + 1])
-  //   calendarObj.push(yearToAdd)
-  // }
+    // Get the latest year of the calendar object
+    const index = Object.keys(calendarObject).length - 1
+    const latestYear = Number(Object.keys(calendarObject)[index])
+    const yearNext = latestYear + 1
+
+    const yearDiff = yearNow - latestYear
+    let yearArray = []
+    if (yearDiff <= 0) {
+      return calendarObject
+    } else {
+      for (let i = 0; i < yearDiff; i++) {
+        yearArray.push([yearNext + i])
+      }
+    }
+    const calObject = require("calendar-object")
+
+    const yearsToAdd = calObject.getCalendar(...yearArray)
+    for (const year in yearsToAdd) {
+      for (const month in yearsToAdd[year]) {
+        for (const day in yearsToAdd[year][month]) {
+          // initial state of a day in the calendar
+          yearsToAdd[year][month][day] = {
+            done: "",
+            notes: "",
+          }
+        }
+      }
+    }
+
+    // Append the next years to the calendar object
+    const newCalendar = Object.assign(calendarObject, yearsToAdd)
+
+    console.table(newCalendar)
+    return newCalendar
+  }
 
   const readProperties = () => {
     return {
@@ -143,6 +176,7 @@ const newHabit = ({
     return countArray
   }
 
+  // Counts green tasks from last year, same day
   const countGreenTasksThisYear = () => {
     let count = 0
     let countArray = []
@@ -310,8 +344,8 @@ const newHabit = ({
     if (currentTaskDone === "") {
       calendarClone[year][month][day].done = "Done completely"
     } else if (currentTaskDone === "Done completely") {
-      calendarClone[year][month][day].done = "Half-assed"
-    } else if (currentTaskDone === "Half-assed") {
+      calendarClone[year][month][day].done = "Partially done"
+    } else if (currentTaskDone === "Partially done") {
       calendarClone[year][month][day].done = ""
     }
 
@@ -358,6 +392,7 @@ const newHabit = ({
   }
 
   return {
+    addYears,
     readName,
     readId,
     isStable,

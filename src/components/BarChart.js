@@ -10,6 +10,7 @@ import {
 } from "chart.js"
 import { Bar } from "react-chartjs-2"
 import { getThisYearInMonthsArray } from "../calendarFunctions"
+import getArrayTotal from "../getArrayTotal"
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 
@@ -18,7 +19,7 @@ const BarChart = ({ textColor, dataArray, barColor }) => {
   if (!barColor) {
     barColor = "#145820"
   }
-  
+
   const options = {
     maintainAspectRatio: false,
     offset: true,
@@ -59,9 +60,6 @@ const BarChart = ({ textColor, dataArray, barColor }) => {
     },
   }
 
-  const today = new Date()
-  const monthNow = today.getMonth() + 1
-
   const labels = getThisYearInMonthsArray()
 
   const data = {
@@ -77,9 +75,15 @@ const BarChart = ({ textColor, dataArray, barColor }) => {
     ],
   }
 
+  const totalCount = getArrayTotal(dataArray)
   return (
-    <div className="bar-chart-container">
-      <Bar options={options} data={data} />
+    <div>
+      <div className="bar-chart-container">
+        <Bar options={options} data={data} />
+      </div>
+      <div className="stats-card-text">
+        Total Green/Gold Tasks: {totalCount}
+      </div>
     </div>
   )
 }

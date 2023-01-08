@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from "react"
 import ReactTooltip from "react-tooltip"
-import getMonthFromNum from "../getMonthFromNum"
 import leftArrow from "../images/SVG/left-arrow.svg"
 import leftArrowBlack from "../images/SVG/left-arrow-black.svg"
 import rightArrow from "../images/SVG/right-arrow.svg"
 import rightArrowBlack from "../images/SVG/right-arrow-black.svg"
 import { useSettings } from "../useSettings"
+import { getMonthFromNum } from "../calendarFunctions"
 
 const YearCalendar = ({
   habit,
@@ -159,13 +159,13 @@ const YearCalendar = ({
                           backgroundColor: `${
                             day[1]["done"] === "Done completely"
                               ? `${moreGreen}`
-                              : day[1]["done"] === "Half-assed"
+                              : day[1]["done"] === "Partially done"
                               ? `${lessGreen}`
                               : "var(--bg-color)"
                           }`,
                           color: `${
                             day[1]["done"] === "Done completely" ||
-                            day[1]["done"] === "Half-assed"
+                            day[1]["done"] === "Partially done"
                               ? "var(--white)"
                               : "var(--dark-gray)"
                           }`,

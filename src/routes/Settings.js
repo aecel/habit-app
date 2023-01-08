@@ -42,7 +42,7 @@ const Settings = () => {
         <h3>Settings</h3>
         <p>
           Warning: All changes will take effect immediately without
-          confirmation. (for now lol)
+          confirmation.
         </p>
         <form id="settings-form" action="">
           <div className="form-item-radios">
@@ -76,7 +76,7 @@ const Settings = () => {
               Text Instructions on Top
               <div className="sub-text">
                 Shows/hides the text instructions on All Habits, Stable Habits,
-                Calendar, and Stats
+                and Calendar
               </div>
             </label>
             <div className="form-item-radio">
@@ -107,7 +107,8 @@ const Settings = () => {
             <label>
               Legend at the Bottom
               <div className="sub-text">
-                Shows/hides the legend on All Habits and Stable Habits
+                Shows/hides the legend on All Habits, Stable Habits, and
+                Calendar
               </div>
             </label>
             <div className="form-item-radio">

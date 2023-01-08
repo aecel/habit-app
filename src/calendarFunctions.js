@@ -1,4 +1,21 @@
-import getMonthFromNum from "./getMonthFromNum"
+const getMonthFromNum = (num) => {
+  const monthArray = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ]
+
+  return monthArray[num - 1]
+}
 
 const getDaysInMonth = (year, month) => {
   return new Date(year, month, 0).getDate()
@@ -111,6 +128,7 @@ const getThisWeekArray = ({ year, month, day }) => {
   return weekArray
 }
 
+// Counts days from last year, same day
 const getThisYearArray = ({ year, month, day }) => {
   let yearArray = []
 
@@ -124,7 +142,7 @@ const getThisYearArray = ({ year, month, day }) => {
   // object looks like this:
   // {year, month, day, dayName}
   let dayToPush = dayReference
-  for (let i = 0; i < 365; i++) {
+  for (let i = 0; i < 366; i++) {
     const dayNameToAdd = {
       dayName: getDayName({
         year: dayToPush.year,
@@ -140,6 +158,10 @@ const getThisYearArray = ({ year, month, day }) => {
   return yearArray
 }
 
+// ["Jan Last Year" -> "Jan This Year"]
+// ["Jan", "Feb", ... "Jan"]
+// length: 13
+// Used for charts that need this array as labels
 const getThisYearInMonthsArray = () => {
   const today = new Date()
   const yearNow = today.getFullYear()
@@ -156,6 +178,7 @@ const getThisYearInMonthsArray = () => {
 }
 
 export {
+  getMonthFromNum,
   getDaysInMonth,
   getPreviousMonth,
   getPreviousDay,

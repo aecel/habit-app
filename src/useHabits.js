@@ -101,6 +101,8 @@ export const HabitsProvider = ({ children }) => {
     setHabits(nextHabits)
   }
 
+  // Updates the habit stability
+  // Updates stable habits to unstable upon opening the app
   // Use functional state updates to prevent bugs lmao
   const updateHabitStability = ({ id }) => {
     setHabits((currHabits) => {
@@ -147,6 +149,7 @@ export const HabitsProvider = ({ children }) => {
     return countArray
   }
 
+  // Counts green tasks from last year, same day
   const countGreenTasksThisYear = () => {
     let arrayToBeAdded = []
     let countArray = []
@@ -157,7 +160,7 @@ export const HabitsProvider = ({ children }) => {
       if (countArray.length === 0) {
         countArray = arrayToBeAdded
       } else {
-        for (let i = 0; i < countArray.length - 1; i++) {
+        for (let i = 0; i < countArray.length; i++) {
           countArray[i] = countArray[i] + arrayToBeAdded[i]
         }
       }
@@ -165,6 +168,23 @@ export const HabitsProvider = ({ children }) => {
 
     // console.log(countArray)
     return countArray
+  }
+
+  // Adds years to calendar when a new year comes or
+  // the app has not been opened in a long time
+  const addYearsToCalendar = ({ id }) => {
+    setHabits((currHabits) => {
+      const nextHabits = [...currHabits]
+      const index = getIndexById(id)
+      const habitToUpdate = nextHabits[index]
+      const newCalendar = habitToUpdate.addYears(habitToUpdate.readCalendar())
+
+      const updatedHabit = habitToUpdate.updateProperties({
+        newCalendar: newCalendar,
+      })
+      nextHabits[index] = updatedHabit
+      return nextHabits
+    })
   }
 
   // const promoteHabit = (index) => {
@@ -206,14 +226,14 @@ export const HabitsProvider = ({ children }) => {
       year: 2022,
       month: 11,
       day: 4,
-      taskDone: "Half-assed",
+      taskDone: "Partially done",
     })
     updateDay({
       id: habit1.readId(),
       year: 2022,
       month: 11,
       day: 5,
-      taskDone: "Half-assed",
+      taskDone: "Partially done",
     })
     updateDay({
       id: habit1.readId(),
@@ -230,11 +250,18 @@ export const HabitsProvider = ({ children }) => {
       taskDone: "Done completely",
     })
     updateDay({
+      id: habit1.readId(),
+      year: 2023,
+      month: 1,
+      day: 4,
+      taskDone: "Done completely",
+    })
+    updateDay({
       id: habit2.readId(),
       year: 2022,
       month: 11,
       day: 1,
-      taskDone: "Half-assed",
+      taskDone: "Partially done",
     })
 
     setPostUpdate(true)
@@ -243,9 +270,11 @@ export const HabitsProvider = ({ children }) => {
   useEffect(() => {
     if (!postUpdate) return
 
+    // Updates the habit properties on load
+    // Updates habit stability and calendar
     for (const habit of habits) {
-      // console.log("updating stability of " + habit.readName())
       updateHabitStability({ id: habit.readId() })
+      addYearsToCalendar({ id: habit.readId() })
     }
     // console.table(habits)
     // console.log("Stable Habit Table:")

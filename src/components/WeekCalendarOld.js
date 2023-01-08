@@ -63,7 +63,7 @@ const WeekCalendarOld = ({
                           ? `${moreGreen}`
                           : habit.readCalendar()[date.year][date.month][
                               date.day
-                            ]["done"] === "Half-assed"
+                            ]["done"] === "Partially done"
                           ? `${lessGreen}`
                           : "var(--bg-color)"
                       }`,
@@ -73,7 +73,7 @@ const WeekCalendarOld = ({
                         ] === "Done completely" ||
                         habit.readCalendar()[date.year][date.month][date.day][
                           "done"
-                        ] === "Half-assed"
+                        ] === "Partially done"
                           ? "var(--white)"
                           : "var(--dark-gray)"
                       }`,

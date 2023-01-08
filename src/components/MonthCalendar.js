@@ -1,10 +1,13 @@
 import { useState } from "react"
-import getMonthFromNum from "../getMonthFromNum"
 import leftArrow from "../images/SVG/left-arrow.svg"
 import leftArrowBlack from "../images/SVG/left-arrow-black.svg"
 import rightArrow from "../images/SVG/right-arrow.svg"
 import rightArrowBlack from "../images/SVG/right-arrow-black.svg"
-import { getPreviousMonth, getNextMonth } from "../calendarFunctions"
+import {
+  getPreviousMonth,
+  getNextMonth,
+  getMonthFromNum,
+} from "../calendarFunctions"
 import { useSettings } from "../useSettings"
 
 const MonthCalendar = ({
@@ -123,13 +126,13 @@ const MonthCalendar = ({
                       backgroundColor: `${
                         day[1]["done"] === "Done completely"
                           ? `${moreGreen}`
-                          : day[1]["done"] === "Half-assed"
+                          : day[1]["done"] === "Partially done"
                           ? `${lessGreen}`
                           : "var(--bg-color)"
                       }`,
                       color: `${
                         day[1]["done"] === "Done completely" ||
-                        day[1]["done"] === "Half-assed"
+                        day[1]["done"] === "Partially done"
                           ? "var(--white)"
                           : "var(--dark-gray)"
                       }`,
