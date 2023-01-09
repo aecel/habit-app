@@ -1,5 +1,5 @@
 import { useRef } from "react"
-import getDayDiff from "../getDayDiff"
+import { getDayDiff } from "../calendarFunctions"
 import { useHabits } from "../useHabits"
 import { useSettings } from "../useSettings"
 import ConfirmationModal from "./ConfirmationModal"
