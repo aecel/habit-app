@@ -1,7 +1,6 @@
-import { getThisYearArray } from "./calendarFunctions"
+import { getReadableDate, getThisYearArray } from "./calendarFunctions"
 import getBlankCalendar from "./getBlankCalendar"
 import getDayDiff from "./getDayDiff"
-import getReadableDate from "./getReadableDate"
 
 // const today = new Date()
 // const dayNow = today.getDate()
