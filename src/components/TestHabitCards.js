@@ -20,11 +20,6 @@ const TestHabitCards = () => {
   const lessGreen = colors.lessGreen
 
   const confModalRef = useRef()
-  // const confirmationModalRef = useRef()
-  // const popUpModal = () => {
-  //   const modal = confirmationModalRef.current
-  //   modal.style.display = "block"
-  // }
 
   return (
     <>

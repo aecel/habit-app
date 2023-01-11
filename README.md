@@ -65,6 +65,7 @@ This is a non-punishing app that will help the user form habits.
 17. Add "evolving habit" option idk yet
 18. Maybe add leaderboard, way to share with friends
 <!-- 19. Find a way to add a year to the calendar (when a new year comes or the app has not been opened for a long time) -->
+20. Fix year calendar css bug (Week 2 of January is far away)
 
 # How it Works
 
