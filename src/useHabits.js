@@ -177,8 +177,8 @@ export const HabitsProvider = ({ children }) => {
 
     for (const habit of habits) {
       arrayToBeAdded = habit.countGreenTasksThisYear()
-
-      countArray.push(arrayToBeAdded)
+      const habitObj = { name: habit.readName(), array: arrayToBeAdded }
+      countArray.push(habitObj)
     }
 
     // console.log(countArray)

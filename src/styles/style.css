@@ -991,6 +991,7 @@ div.sub-text {
   height: 30px;
   width: 30px;
   background-color: var(--dark-green);
+  color: var(--white);
   border-radius: 50%;
   display: flex;
   align-items: center;

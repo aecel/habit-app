@@ -3,6 +3,7 @@ import BarChart from "../components/BarChart"
 import NothingHere from "../components/NothingHere"
 import StackedBarChart from "../components/StackedBarChart"
 import StatsCard from "../components/StatsCard"
+import getArrayTotal from "../getArrayTotal"
 import { useHabits } from "../useHabits"
 import { useSettings } from "../useSettings"
 
@@ -23,6 +24,10 @@ const Stats = () => {
   const countGreenTasksArray = useHabits().habitFunctions.countGreenTasksArray
   const greenTaskArray = countGreenTasksArray()
 
+  const countGreenTasksThisYear =
+    useHabits().habitFunctions.countGreenTasksThisYear
+  const total = getArrayTotal(countGreenTasksThisYear())
+
   const dataRangeText = `${monthNow} ${dayNow} ${
     yearNow - 1
   } - ${monthNow} ${dayNow} ${yearNow}`
@@ -42,6 +47,7 @@ const Stats = () => {
               <StackedBarChart
                 textColor={textColor}
                 dataArray={greenTaskArray}
+                total={total}
               />
               <div className="card-bottom"></div>
             </div>

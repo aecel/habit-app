@@ -11,15 +11,12 @@ import {
 import { Bar } from "react-chartjs-2"
 import { getThisYearInMonthsArray } from "../calendarFunctions"
 import getArrayTotal from "../getArrayTotal"
-import getRandomGreen from "../getRandomGreen"
+import getRandomGreenArray from "../getRandomGreenArray"
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 
 // Change such that it graphs from last year same month
-const StackedBarChart = ({ textColor, dataArray, barColor }) => {
-  if (!barColor) {
-    barColor = "#145820"
-  }
+const StackedBarChart = ({ textColor, dataArray, total }) => {
 
   const options = {
     maintainAspectRatio: false,
@@ -64,12 +61,12 @@ const StackedBarChart = ({ textColor, dataArray, barColor }) => {
   }
 
   const labels = getThisYearInMonthsArray()
-
+  const greenArray = getRandomGreenArray(dataArray.length)
   const dataObjectArray = dataArray.map((array) => {
     return {
-      label: "Green/Gold Tasks",
-      data: array,
-      backgroundColor: getRandomGreen(),
+      label: `${array.name}`,
+      data: array.array,
+      backgroundColor: greenArray[dataArray.indexOf(array)],
     }
   })
 
@@ -77,15 +74,14 @@ const StackedBarChart = ({ textColor, dataArray, barColor }) => {
     labels: labels,
     datasets: dataObjectArray,
   }
-
-  const totalCount = getArrayTotal(dataArray)
+  
   return (
     <div>
       <div className="bar-chart-container">
         <Bar options={options} data={data} />
       </div>
       <div className="stats-card-text">
-        Total Green/Gold Tasks: {totalCount}
+        Total Green/Gold Tasks: {total}
       </div>
     </div>
   )

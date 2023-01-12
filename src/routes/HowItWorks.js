@@ -2,8 +2,15 @@ import unstableHabitPng from "../images/how-it-works/unstable-habit.png"
 import stableHabitPng from "../images/how-it-works/stable-habit.png"
 import warningPng from "../images/how-it-works/warning.png"
 import daysToGoPng from "../images/how-it-works/days-to-go.png"
+import unstableHabitLightPng from "../images/how-it-works/unstable-habit-light.png"
+import stableHabitLightPng from "../images/how-it-works/stable-habit-light.png"
+import warningLightPng from "../images/how-it-works/warning-light.png"
+import daysToGoLightPng from "../images/how-it-works/days-to-go-light.png"
+import { useSettings } from "../useSettings"
 
 const HowItWorks = () => {
+  const settings = useSettings().settings
+  const theme = settings.theme
   const rules = [
     "It typically takes 66 days to form a habit, but the time may vary based on the person and the habit (between 18 and 254 days).",
     "There are two types of habits: stable and unstable. To change an unstable habit to a stable habit, you must maintain the habit for 66 days (or the number of days you set).",
@@ -22,9 +29,23 @@ const HowItWorks = () => {
               <div className="rule">{rule}</div>
               {rules.indexOf(rule) + 1 === 2 ? (
                 <div className="rule-png-container">
-                  <img className="rule-png" src={unstableHabitPng} alt="" />
+                  <img
+                    className="rule-png"
+                    src={
+                      theme === "dark"
+                        ? unstableHabitPng
+                        : unstableHabitLightPng
+                    }
+                    alt=""
+                  />
                   <div>Unstable Habit</div>
-                  <img className="rule-png" src={stableHabitPng} alt="" />
+                  <img
+                    className="rule-png"
+                    src={
+                      theme === "dark" ? stableHabitPng : stableHabitLightPng
+                    }
+                    alt=""
+                  />
                   <div>Stable Habit</div>
                 </div>
               ) : (
@@ -32,14 +53,22 @@ const HowItWorks = () => {
               )}
               {rules.indexOf(rule) + 1 === 3 ? (
                 <div className="rule-png-container">
-                  <img className="rule-png" src={daysToGoPng} alt="" />
+                  <img
+                    className="rule-png"
+                    src={theme === "dark" ? daysToGoPng : daysToGoLightPng}
+                    alt=""
+                  />
                 </div>
               ) : (
                 ""
               )}
               {rules.indexOf(rule) + 1 === 6 ? (
                 <div className="rule-png-container">
-                  <img className="rule-png" src={warningPng} alt="" />
+                  <img
+                    className="rule-png"
+                    src={theme === "dark" ? warningPng : warningLightPng}
+                    alt=""
+                  />
                 </div>
               ) : (
                 ""
