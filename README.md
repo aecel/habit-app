@@ -60,12 +60,12 @@ This is a non-punishing app that will help the user form habits.
 <!-- 17. Make something happen (maybe use party-js) when an unstable habit gets promoted to a stable habit. Right now it just disappears when viewed from Home. Make something happen when a stable habit gets demoted. -->
 13. Make a better looking HabitInfoModal
 14. Take a break
-15. Write a "How it Works" section maybe, simplify and rewrite with chat gpt
+<!-- 15. Write a "How it Works" section maybe, simplify and rewrite with chat gpt -->
 16. Add a Milestone Reward. (I will buy a switch when I reach 100 days or something and then it keeps track of it for you)
 17. Add "evolving habit" option idk yet
 18. Maybe add leaderboard, way to share with friends
 <!-- 19. Find a way to add a year to the calendar (when a new year comes or the app has not been opened for a long time) -->
-20. Fix year calendar css bug (Week 2 of January is far away)
+<!-- 20. Fix year calendar css bug (Week 2 of January is far away) -->
 
 # How it Works
 

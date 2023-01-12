@@ -170,6 +170,21 @@ export const HabitsProvider = ({ children }) => {
     return countArray
   }
 
+  // Counts green tasks from last year, same day
+  const countGreenTasksArray = () => {
+    let arrayToBeAdded = []
+    let countArray = []
+
+    for (const habit of habits) {
+      arrayToBeAdded = habit.countGreenTasksThisYear()
+
+      countArray.push(arrayToBeAdded)
+    }
+
+    // console.log(countArray)
+    return countArray
+  }
+
   // Adds years to calendar when a new year comes or
   // the app has not been opened in a long time
   const addYearsToCalendar = ({ id }) => {
@@ -215,6 +230,7 @@ export const HabitsProvider = ({ children }) => {
     deleteHabit,
     countGreenTasksByYear,
     countGreenTasksThisYear,
+    countGreenTasksArray,
     // promoteHabit,
     // demoteHabit,
   }
