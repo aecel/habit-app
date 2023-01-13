@@ -9,7 +9,7 @@ export const SettingsProvider = ({ children }) => {
     unstableHabitLimit: 2,
     daysToBreakHabit: 3,
     instructions: "off",
-    cardLegend: "off",
+    cardLegend: "on",
   }
   const [settings, setSettings] = useState(defaultSettings)
 

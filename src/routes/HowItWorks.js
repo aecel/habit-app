@@ -6,6 +6,8 @@ import unstableHabitLightPng from "../images/how-it-works/unstable-habit-light.p
 import stableHabitLightPng from "../images/how-it-works/stable-habit-light.png"
 import warningLightPng from "../images/how-it-works/warning-light.png"
 import daysToGoLightPng from "../images/how-it-works/days-to-go-light.png"
+
+import arrowDown from "../images/how-it-works/66days-arrow.svg"
 import { useSettings } from "../useSettings"
 
 const HowItWorks = () => {
@@ -39,6 +41,11 @@ const HowItWorks = () => {
                     alt=""
                   />
                   <div>Unstable Habit</div>
+                  <img
+                    style={{ height: "100px", width: "auto" }}
+                    src={arrowDown}
+                    alt=""
+                  />
                   <img
                     className="rule-png"
                     src={

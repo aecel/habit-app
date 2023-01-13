@@ -15,6 +15,7 @@ import settingsSvgBlack from "../images/navlinks/settings-black.svg"
 import stableHabitsSvgBlack from "../images/navlinks/stablehabits-black.svg"
 import statsSvgBlack from "../images/navlinks/stats-black.svg"
 import testHabitsSvgBlack from "../images/navlinks/testhabits-black.svg"
+
 import { NavLink } from "react-router-dom"
 import { useSettings } from "../useSettings"
 
@@ -50,6 +51,32 @@ const NavBar = () => {
             />
           )}
         </NavLink> */}
+        <NavLink
+          data-tip="How It Works"
+          to={"/howitworks"}
+          id="howitworks"
+          className={({ isActive, isPending }) =>
+            isActive
+              ? "footer-nav chosen-nav"
+              : isPending
+              ? "footer-nav"
+              : "footer-nav"
+          }
+        >
+          {({ isActive }) => (
+            <img
+              className="footer-nav-svg"
+              src={
+                isActive
+                  ? testHabitsSvg
+                  : settings.theme === "light"
+                  ? testHabitsSvgBlack
+                  : testHabitsSvg
+              }
+              alt=""
+            />
+          )}
+        </NavLink>
         <NavLink
           data-tip="Add Habit"
           to={"/addhabit"}
@@ -231,32 +258,7 @@ const NavBar = () => {
             />
           )}
         </NavLink>
-        <NavLink
-          data-tip="How It Works"
-          to={"/howitworks"}
-          id="howitworks"
-          className={({ isActive, isPending }) =>
-            isActive
-              ? "footer-nav chosen-nav"
-              : isPending
-              ? "footer-nav"
-              : "footer-nav"
-          }
-        >
-          {({ isActive }) => (
-            <img
-              className="footer-nav-svg"
-              src={
-                isActive
-                  ? testHabitsSvg
-                  : settings.theme === "light"
-                  ? testHabitsSvgBlack
-                  : testHabitsSvg
-              }
-              alt=""
-            />
-          )}
-        </NavLink>
+        
       </nav>
     </footer>
   )
