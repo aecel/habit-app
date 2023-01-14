@@ -1,5 +1,6 @@
 import { useRef } from "react"
 import { getDayDiff } from "../calendarFunctions"
+import getRandomGoldArray from "../getRandomGoldArray"
 import { useHabits } from "../useHabits"
 import { useSettings } from "../useSettings"
 import ConfirmationModal from "./ConfirmationModal"
@@ -24,6 +25,26 @@ const TestHabitCards = () => {
   return (
     <>
       <div className="test-habit-cards">
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(5, 1fr)",
+            gap: "5px",
+          }}
+        >
+          {getRandomGoldArray().map((color) => {
+            return (
+              <div
+                key={color}
+                style={{
+                  height: "30px",
+                  width: "30px",
+                  backgroundColor: `${color}`,
+                }}
+              ></div>
+            )
+          })}
+        </div>
         {habits.map((habit) => {
           return (
             <div key={habit.readId()} className="test-habit-card">
