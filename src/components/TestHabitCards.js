@@ -20,6 +20,8 @@ const TestHabitCards = () => {
   const moreGreen = colors.moreGreen
   const lessGreen = colors.lessGreen
 
+  const goldArray = getRandomGoldArray()
+
   const confModalRef = useRef()
 
   return (
@@ -30,9 +32,11 @@ const TestHabitCards = () => {
             display: "grid",
             gridTemplateColumns: "repeat(5, 1fr)",
             gap: "5px",
+            backgroundColor: "var(--card-color)",
+            padding: "20px",
           }}
         >
-          {getRandomGoldArray().map((color) => {
+          {goldArray.map((color) => {
             return (
               <div
                 key={color}

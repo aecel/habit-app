@@ -1,11 +1,8 @@
 import ShadeGenerator from "shade-generator"
+import { contrast, getShadesArray } from "./colorFunctions"
 
 const getRandomGoldArray = () => {
-  const colorMap = ShadeGenerator.hue("#ffd700").shadesMap("hex")
-  const colorArray = Object.entries(colorMap).map((value) => {
-    return value[1]
-  })
-  return colorArray
+  return getShadesArray("#FFD700")
 }
 
 export default getRandomGoldArray

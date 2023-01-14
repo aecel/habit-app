@@ -19,6 +19,11 @@ ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 const StackedBarChart = ({ textColor, dataArray, total }) => {
 
   const options = {
+    // elements: {
+    //   bar: {
+    //     borderWidth: 1,
+    //   }
+    // },
     maintainAspectRatio: false,
     offset: true,
     responsive: true,
@@ -67,6 +72,7 @@ const StackedBarChart = ({ textColor, dataArray, total }) => {
       label: `${array.name}`,
       data: array.array,
       backgroundColor: greenArray[dataArray.indexOf(array)],
+      borderColor: "white"
     }
   })
 
