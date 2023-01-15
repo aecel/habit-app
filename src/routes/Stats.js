@@ -15,6 +15,7 @@ const Stats = () => {
 
   const colors = useSettings().colors
   const textColor = colors.textColor
+  const cardColor = colors.cardColor
 
   const today = new Date()
   const yearNow = today.getFullYear()
@@ -46,6 +47,7 @@ const Stats = () => {
               </div>
               <StackedBarChart
                 textColor={textColor}
+                cardColor={cardColor}
                 dataArray={greenTaskArray}
                 total={total}
               />

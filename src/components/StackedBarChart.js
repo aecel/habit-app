@@ -12,18 +12,18 @@ import { Bar } from "react-chartjs-2"
 import { getThisYearInMonthsArray } from "../calendarFunctions"
 import getArrayTotal from "../getArrayTotal"
 import getRandomGreenArray from "../getRandomGreenArray"
+import { getShadesArray } from "../colorFunctions"
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 
 // Change such that it graphs from last year same month
-const StackedBarChart = ({ textColor, dataArray, total }) => {
-
+const StackedBarChart = ({ textColor, cardColor, dataArray, total }) => {
   const options = {
-    // elements: {
-    //   bar: {
-    //     borderWidth: 1,
-    //   }
-    // },
+    elements: {
+      bar: {
+        borderWidth: 1,
+      },
+    },
     maintainAspectRatio: false,
     offset: true,
     responsive: true,
@@ -66,13 +66,13 @@ const StackedBarChart = ({ textColor, dataArray, total }) => {
   }
 
   const labels = getThisYearInMonthsArray()
-  const greenArray = getRandomGreenArray(dataArray.length)
+  const greenArray = getShadesArray("#06EB2C")
   const dataObjectArray = dataArray.map((array) => {
     return {
       label: `${array.name}`,
       data: array.array,
-      backgroundColor: greenArray[dataArray.indexOf(array)],
-      borderColor: "white"
+      backgroundColor: greenArray[dataArray.indexOf(array) % 5],
+      borderColor: `${cardColor}`,
     }
   })
 
@@ -80,15 +80,13 @@ const StackedBarChart = ({ textColor, dataArray, total }) => {
     labels: labels,
     datasets: dataObjectArray,
   }
-  
+
   return (
     <div>
       <div className="bar-chart-container">
         <Bar options={options} data={data} />
       </div>
-      <div className="stats-card-text">
-        Total Green/Gold Tasks: {total}
-      </div>
+      <div className="stats-card-text">Total Green/Gold Tasks: {total}</div>
     </div>
   )
 }

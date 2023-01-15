@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react"
+import getArrayTotal from "./getArrayTotal"
 import newHabit from "./newHabit"
 
 const HabitContext = createContext()
@@ -171,13 +172,18 @@ export const HabitsProvider = ({ children }) => {
   }
 
   // Counts green tasks from last year, same day
+  // In array form [habitObj1, habitObj2...]
   const countGreenTasksArray = () => {
     let arrayToBeAdded = []
     let countArray = []
 
     for (const habit of habits) {
       arrayToBeAdded = habit.countGreenTasksThisYear()
-      const habitObj = { name: habit.readName(), array: arrayToBeAdded }
+      const habitObj = {
+        name: habit.readName(),
+        array: arrayToBeAdded,
+        total: getArrayTotal(arrayToBeAdded),
+      }
       countArray.push(habitObj)
     }
 
