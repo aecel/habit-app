@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react"
 import getArrayTotal from "./getArrayTotal"
 import newHabit from "./newHabit"
+import { sortDescendingByProp } from "./sortingFunctions"
 
 const HabitContext = createContext()
 export const useHabits = () => useContext(HabitContext)
@@ -183,12 +184,51 @@ export const HabitsProvider = ({ children }) => {
         name: habit.readName(),
         array: arrayToBeAdded,
         total: getArrayTotal(arrayToBeAdded),
+        stable: habit.isStable(),
       }
       countArray.push(habitObj)
     }
 
     // console.log(countArray)
     return countArray
+  }
+
+  const getTop5UnstableHabits = () => {
+    const habitArray = countGreenTasksArray()
+
+    const unstableHabitArray = habitArray.filter((habit) => {
+      return habit.stable === false
+    })
+
+    const topUnstableHabitArray = sortDescendingByProp(
+      unstableHabitArray,
+      "total"
+    )
+
+    if (topUnstableHabitArray.length <= 5) {
+      return topUnstableHabitArray
+    } else {
+      return topUnstableHabitArray.slice(0, 5)
+    }
+  }
+
+  const getTop5StableHabits = () => {
+    const habitArray = countGreenTasksArray()
+
+    const unstableHabitArray = habitArray.filter((habit) => {
+      return habit.stable === true
+    })
+
+    const topUnstableHabitArray = sortDescendingByProp(
+      unstableHabitArray,
+      "total"
+    )
+
+    if (topUnstableHabitArray.length <= 5) {
+      return topUnstableHabitArray
+    } else {
+      return topUnstableHabitArray.slice(0, 5)
+    }
   }
 
   // Adds years to calendar when a new year comes or
@@ -237,6 +277,8 @@ export const HabitsProvider = ({ children }) => {
     countGreenTasksByYear,
     countGreenTasksThisYear,
     countGreenTasksArray,
+    getTop5UnstableHabits,
+    getTop5StableHabits,
     // promoteHabit,
     // demoteHabit,
   }

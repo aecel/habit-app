@@ -31,13 +31,17 @@ const TestHabitCards = () => {
   const someArray = [5, 4, 9, 10, 6, 7, 3]
 
   const habitArray = habitFunctions.countGreenTasksArray()
+  const unstableHabitArray = habitFunctions.getTop5UnstableHabits()
+  const stableHabitArray = habitFunctions.getTop5StableHabits()
 
   const confModalRef = useRef()
 
   return (
     <>
-      <div>{JSON.stringify(sortAscendingByProp(habitArray, "total"))}</div>
-      <div>{JSON.stringify(sortDescendingByProp(habitArray, "total"))}</div>
+      {/* <div>{JSON.stringify(sortAscendingByProp(habitArray, "total"))}</div>
+      <div>{JSON.stringify(sortDescendingByProp(habitArray, "total"))}</div> */}
+      <div>{JSON.stringify(unstableHabitArray)}</div>
+      <div>{JSON.stringify(stableHabitArray)}</div>
       <div className="test-habit-cards">
         <div
           style={{
