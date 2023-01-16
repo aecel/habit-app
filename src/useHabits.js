@@ -200,34 +200,40 @@ export const HabitsProvider = ({ children }) => {
       return habit.stable === false
     })
 
-    const topUnstableHabitArray = sortDescendingByProp(
+    let topUnstableHabitArray = sortDescendingByProp(
       unstableHabitArray,
       "total"
     )
 
     if (topUnstableHabitArray.length <= 5) {
+      // topUnstableHabitArray.reverse()
       return topUnstableHabitArray
     } else {
-      return topUnstableHabitArray.slice(0, 5)
+      topUnstableHabitArray = topUnstableHabitArray.slice(0, 5)
+      // topUnstableHabitArray.reverse()
+      return topUnstableHabitArray
     }
   }
 
   const getTop5StableHabits = () => {
     const habitArray = countGreenTasksArray()
 
-    const unstableHabitArray = habitArray.filter((habit) => {
+    const stableHabitArray = habitArray.filter((habit) => {
       return habit.stable === true
     })
 
-    const topUnstableHabitArray = sortDescendingByProp(
-      unstableHabitArray,
+    let topStableHabitArray = sortDescendingByProp(
+      stableHabitArray,
       "total"
     )
 
-    if (topUnstableHabitArray.length <= 5) {
-      return topUnstableHabitArray
+    if (topStableHabitArray.length <= 5) {
+      // topStableHabitArray.reverse()
+      return topStableHabitArray
     } else {
-      return topUnstableHabitArray.slice(0, 5)
+      topStableHabitArray = topStableHabitArray.slice(0, 5)
+      // topStableHabitArray.reverse()
+      return topStableHabitArray
     }
   }
 

@@ -76,8 +76,24 @@ const getShadesArray = (hex) => {
   // finalArray gets rid of the first and last colors
   // they are too close to white and black
   // finalArray has 5 shades
-  const finalArray = rgbArray.slice(1, rgbArray.length - 1)
+  let finalArray = rgbArray.slice(1, rgbArray.length - 1)
+  // finalArray.reverse()
   return finalArray
 }
 
-export { contrast, rgbToHex, hexToRgb, getShadesArray }
+const getGoldColorArray = () => {
+  return getShadesArray("#FFD700")
+}
+
+const getGreenColorArray = () => {
+  return getShadesArray("#06EB2C")
+}
+
+export {
+  contrast,
+  rgbToHex,
+  hexToRgb,
+  getShadesArray,
+  getGoldColorArray,
+  getGreenColorArray,
+}

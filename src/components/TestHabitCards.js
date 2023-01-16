@@ -1,13 +1,6 @@
 import { useRef } from "react"
-import { json } from "react-router-dom"
 import { getDayDiff } from "../calendarFunctions"
-import getRandomGoldArray from "../getRandomGoldArray"
-import {
-  sortAscending,
-  sortAscendingByProp,
-  sortDescending,
-  sortDescendingByProp,
-} from "../sortingFunctions"
+import { getGoldColorArray } from "../colorFunctions"
 import { useHabits } from "../useHabits"
 import { useSettings } from "../useSettings"
 import ConfirmationModal from "./ConfirmationModal"
@@ -27,10 +20,8 @@ const TestHabitCards = () => {
   const moreGreen = colors.moreGreen
   const lessGreen = colors.lessGreen
 
-  const goldArray = getRandomGoldArray()
-  const someArray = [5, 4, 9, 10, 6, 7, 3]
+  const goldArray = getGoldColorArray()
 
-  const habitArray = habitFunctions.countGreenTasksArray()
   const unstableHabitArray = habitFunctions.getTop5UnstableHabits()
   const stableHabitArray = habitFunctions.getTop5StableHabits()
 
@@ -38,8 +29,6 @@ const TestHabitCards = () => {
 
   return (
     <>
-      {/* <div>{JSON.stringify(sortAscendingByProp(habitArray, "total"))}</div>
-      <div>{JSON.stringify(sortDescendingByProp(habitArray, "total"))}</div> */}
       <div>{JSON.stringify(unstableHabitArray)}</div>
       <div>{JSON.stringify(stableHabitArray)}</div>
       <div className="test-habit-cards">

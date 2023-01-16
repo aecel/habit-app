@@ -1,4 +1,5 @@
 import { getMonthFromNum } from "../calendarFunctions"
+import { getGoldColorArray, getGreenColorArray } from "../colorFunctions"
 import BarChart from "../components/BarChart"
 import NothingHere from "../components/NothingHere"
 import StackedBarChart from "../components/StackedBarChart"
@@ -22,8 +23,13 @@ const Stats = () => {
   const monthNow = getMonthFromNum(today.getMonth() + 1)
   const dayNow = today.getDate()
 
-  const countGreenTasksArray = useHabits().habitFunctions.countGreenTasksArray
-  const greenTaskArray = countGreenTasksArray()
+  const getTop5UnstableHabits = useHabits().habitFunctions.getTop5UnstableHabits
+  const top5UnstableHabits = getTop5UnstableHabits()
+  const greenColorArray = getGreenColorArray()
+
+  const getTop5StableHabits = useHabits().habitFunctions.getTop5StableHabits
+  const top5StableHabits = getTop5StableHabits()
+  const goldColorArray = getGoldColorArray()
 
   const countGreenTasksThisYear =
     useHabits().habitFunctions.countGreenTasksThisYear
@@ -40,19 +46,22 @@ const Stats = () => {
       ) : (
         <div className="cards-route-container">
           <div id="Stats" className="cards-route">
-            <div className="stats-card-chart">
-              <div className="stats-card-title">
-                Number of Green/Gold Tasks This Year
-                <div className="sub-text">{dataRangeText}</div>
-              </div>
-              <StackedBarChart
-                textColor={textColor}
-                cardColor={cardColor}
-                dataArray={greenTaskArray}
-                total={total}
-              />
-              <div className="card-bottom"></div>
-            </div>
+            <StackedBarChart
+              title="Top 5 Stable Habits This Year"
+              textColor={textColor}
+              cardColor={cardColor}
+              dataArray={top5StableHabits}
+              dataRangeText={dataRangeText}
+              barColorArray={goldColorArray}
+            />
+            <StackedBarChart
+              title="Top 5 Unstable Habits This Year"
+              textColor={textColor}
+              cardColor={cardColor}
+              dataArray={top5UnstableHabits}
+              dataRangeText={dataRangeText}
+              barColorArray={greenColorArray}
+            />
             {allHabits}
           </div>
         </div>
