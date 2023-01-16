@@ -79,8 +79,6 @@ const StackedBarChart = ({
     }
   })
 
-  console.log(dataObjectArray)
-
   const data = {
     labels: labels,
     datasets: dataObjectArray,

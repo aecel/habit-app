@@ -1,6 +1,5 @@
 import { getMonthFromNum } from "../calendarFunctions"
 import { getGoldColorArray, getGreenColorArray } from "../colorFunctions"
-import BarChart from "../components/BarChart"
 import NothingHere from "../components/NothingHere"
 import StackedBarChart from "../components/StackedBarChart"
 import StatsCard from "../components/StatsCard"
