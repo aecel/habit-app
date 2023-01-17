@@ -931,9 +931,16 @@ div.sub-text {
   flex-direction: column;
   text-align: center;
   align-items: center;
-  font-size: 0.8rem;
-  gap: 10px;
+  font-size: 0.7rem;
+  gap: 6px;
   color: gray;
+}
+
+.instructions-icon {
+  height: 13px;
+  width: auto;
+  margin-left: 7px;
+  margin-right: 5px;
 }
 
 /* Card Legend Component */

@@ -10,7 +10,7 @@ export const HabitsProvider = ({ children }) => {
 
   const habit1 = newHabit({
     name: "Flossing",
-    stable: true,
+    stable: false,
     lastUpdated: new Date("2022-10-30"),
   })
   const habit2 = newHabit({
@@ -18,8 +18,13 @@ export const HabitsProvider = ({ children }) => {
     stable: false,
     daysToStableHabit: 5,
   })
+  const habit3 = newHabit({
+    name: "Stretching in the Morning",
+    stable: true,
+    lastUpdated: new Date("2022-10-30"),
+  })
 
-  const [habits, setHabits] = useState([habit1, habit2])
+  const [habits, setHabits] = useState([habit1, habit2, habit3])
 
   const getIndexById = (id) => {
     // Get index of a habit if you give the id
@@ -222,10 +227,7 @@ export const HabitsProvider = ({ children }) => {
       return habit.stable === true
     })
 
-    let topStableHabitArray = sortDescendingByProp(
-      stableHabitArray,
-      "total"
-    )
+    let topStableHabitArray = sortDescendingByProp(stableHabitArray, "total")
 
     if (topStableHabitArray.length <= 5) {
       // topStableHabitArray.reverse()
@@ -327,13 +329,83 @@ export const HabitsProvider = ({ children }) => {
       taskDone: "Done completely",
     })
     updateDay({
+      id: habit1.readId(),
+      year: 2023,
+      month: 1,
+      day: 14,
+      taskDone: "Done completely",
+    })
+    updateDay({
+      id: habit1.readId(),
+      year: 2023,
+      month: 1,
+      day: 15,
+      taskDone: "Partially done",
+    })
+    updateDay({
+      id: habit1.readId(),
+      year: 2023,
+      month: 1,
+      day: 16,
+      taskDone: "Done completely",
+    })
+    updateDay({
+      id: habit1.readId(),
+      year: 2023,
+      month: 1,
+      day: 17,
+      taskDone: "Done completely",
+    })
+    updateDay({
       id: habit2.readId(),
       year: 2022,
       month: 11,
       day: 1,
       taskDone: "Partially done",
     })
+    updateDay({
+      id: habit2.readId(),
+      year: 2023,
+      month: 1,
+      day: 16,
+      taskDone: "Partially done",
+    })
+    updateDay({
+      id: habit2.readId(),
+      year: 2023,
+      month: 1,
+      day: 17,
+      taskDone: "Partially done",
+    })
 
+    updateDay({
+      id: habit3.readId(),
+      year: 2023,
+      month: 1,
+      day: 11,
+      taskDone: "Done completely",
+    })
+    updateDay({
+      id: habit3.readId(),
+      year: 2023,
+      month: 1,
+      day: 12,
+      taskDone: "Done completely",
+    })
+    updateDay({
+      id: habit3.readId(),
+      year: 2023,
+      month: 1,
+      day: 13,
+      taskDone: "Done completely",
+    })
+    updateDay({
+      id: habit3.readId(),
+      year: 2023,
+      month: 1,
+      day: 14,
+      taskDone: "Partially done",
+    })
     setPostUpdate(true)
   }, [])
 
