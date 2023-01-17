@@ -42,7 +42,7 @@ const StackedBarChart = ({
             size: 10,
           },
           color: `${textColor}`,
-          boxWidth: 30,
+          boxWidth: 20,
         },
       },
       // title: {

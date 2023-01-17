@@ -61,7 +61,7 @@ const Stats = () => {
               dataRangeText={dataRangeText}
               barColorArray={greenColorArray}
             />
-            {/* {allHabits} */}
+            {allHabits}
           </div>
         </div>
       )}

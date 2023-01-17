@@ -29,10 +29,12 @@ const BarChart = ({ textColor, dataArray, barColor }) => {
         position: "bottom",
         color: "#fff",
         labels: {
+          padding: 20,
           font: {
             size: 10,
           },
           color: `${textColor}`,
+          boxWidth: 20,
         },
       },
       // title: {
@@ -48,6 +50,12 @@ const BarChart = ({ textColor, dataArray, barColor }) => {
             size: 8,
           },
         },
+        grid: {
+          color: "transparent",
+        },
+        border: {
+          color: "transparent",
+        },
       },
       x: {
         ticks: {
@@ -55,6 +63,12 @@ const BarChart = ({ textColor, dataArray, barColor }) => {
           font: {
             size: 8,
           },
+        },
+        grid: {
+          color: "transparent",
+        },
+        border: {
+          color: "rgb(128, 128, 128)",
         },
       },
     },
