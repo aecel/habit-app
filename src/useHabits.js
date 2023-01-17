@@ -378,33 +378,16 @@ export const HabitsProvider = ({ children }) => {
       taskDone: "Partially done",
     })
 
+    const today = new Date()
+    const dayNow = today.getDate()
+    const monthNow = today.getMonth() + 1
+    const yearNow = today.getFullYear()
     updateDay({
       id: habit3.readId(),
-      year: 2023,
-      month: 1,
-      day: 11,
+      year: yearNow,
+      month: monthNow,
+      day: dayNow,
       taskDone: "Done completely",
-    })
-    updateDay({
-      id: habit3.readId(),
-      year: 2023,
-      month: 1,
-      day: 12,
-      taskDone: "Done completely",
-    })
-    updateDay({
-      id: habit3.readId(),
-      year: 2023,
-      month: 1,
-      day: 13,
-      taskDone: "Done completely",
-    })
-    updateDay({
-      id: habit3.readId(),
-      year: 2023,
-      month: 1,
-      day: 14,
-      taskDone: "Partially done",
     })
     setPostUpdate(true)
   }, [])
