@@ -1025,3 +1025,25 @@ div.sub-text {
   margin-bottom: 30px;
   align-self: center;
 }
+
+/* Stacked Bar Chart Component */
+
+.stacked-bar-chart-container {
+  width: 270px;
+  height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  margin-top: 30px;
+  /* margin-bottom: 30px; */
+  align-self: center;
+}
+
+.sub-sub-text {
+  margin-top: 5px;
+  font-size: 0.65rem;
+  color: gray;
+  white-space: pre-line;
+  font-weight: 400;
+}

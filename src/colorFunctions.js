@@ -77,7 +77,7 @@ const getShadesArray = (hex) => {
   // they are too close to white and black
   // finalArray has 5 shades
   let finalArray = rgbArray.slice(1, rgbArray.length - 1)
-  // finalArray.reverse()
+  finalArray.reverse()
   return finalArray
 }
 

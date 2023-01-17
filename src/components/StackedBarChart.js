@@ -25,7 +25,7 @@ const StackedBarChart = ({
   const options = {
     elements: {
       bar: {
-        borderWidth: 1,
+        borderWidth: 2,
       },
     },
     maintainAspectRatio: false,
@@ -33,13 +33,16 @@ const StackedBarChart = ({
     responsive: true,
     plugins: {
       legend: {
+        align: "start",
         position: "bottom",
         color: "#fff",
         labels: {
+          padding: 20,
           font: {
             size: 10,
           },
           color: `${textColor}`,
+          boxWidth: 30,
         },
       },
       // title: {
@@ -56,6 +59,12 @@ const StackedBarChart = ({
             size: 8,
           },
         },
+        grid: {
+          color: "transparent",
+        },
+        border: {
+          color: "transparent",
+        },
       },
       x: {
         stacked: true,
@@ -64,6 +73,12 @@ const StackedBarChart = ({
           font: {
             size: 8,
           },
+        },
+        grid: {
+          color: "transparent",
+        },
+        border: {
+          color: "rgb(128, 128, 128)",
         },
       },
     },
@@ -76,6 +91,7 @@ const StackedBarChart = ({
       data: array.array,
       backgroundColor: barColorArray[dataArray.indexOf(array) % 5],
       borderColor: `${cardColor}`,
+      // borderColor: "#f2f2f2",
     }
   })
 
@@ -89,11 +105,12 @@ const StackedBarChart = ({
       <div className="stats-card-title">
         {title}
         <div className="sub-text">{dataRangeText}</div>
+        <div className="sub-sub-text">"Done" or "Partially done" tasks</div>
       </div>
-      <div className="bar-chart-container">
+      <div className="stacked-bar-chart-container">
         <Bar options={options} data={data} />
       </div>
-      <div className="card-bottom"></div>
+      {/* <div className="card-bottom"></div> */}
     </div>
   )
 }
