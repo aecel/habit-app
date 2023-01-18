@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react"
+import { getPreviousDay } from "./calendarFunctions"
 import getArrayTotal from "./getArrayTotal"
 import newHabit from "./newHabit"
 import { sortDescendingByProp } from "./sortingFunctions"
@@ -11,7 +12,7 @@ export const HabitsProvider = ({ children }) => {
   const habit1 = newHabit({
     name: "Flossing",
     stable: false,
-    lastUpdated: new Date("2022-10-30"),
+    // lastUpdated: new Date("2022-10-30"),
   })
   const habit2 = newHabit({
     name: "Going to bed early",
@@ -21,7 +22,6 @@ export const HabitsProvider = ({ children }) => {
   const habit3 = newHabit({
     name: "Stretching in the Morning",
     stable: true,
-    lastUpdated: new Date("2022-10-30"),
   })
 
   const [habits, setHabits] = useState([habit1, habit2, habit3])
@@ -382,13 +382,28 @@ export const HabitsProvider = ({ children }) => {
     const dayNow = today.getDate()
     const monthNow = today.getMonth() + 1
     const yearNow = today.getFullYear()
-    updateDay({
-      id: habit3.readId(),
-      year: yearNow,
-      month: monthNow,
-      day: dayNow,
-      taskDone: "Done completely",
-    })
+
+    let day = dayNow
+    let month = monthNow
+    let year = yearNow
+    for (let i = 0; i < 7; i++) {
+      let taskDone = "Done completely"
+      if (i % 2 === 0) {
+        taskDone = "Partially done"
+      }
+      updateDay({
+        id: habit3.readId(),
+        year: year,
+        month: month,
+        day: day,
+        taskDone: taskDone,
+      })
+
+      const previousDay = getPreviousDay({ year: year, month: month, day: day })
+      day = previousDay.day
+      month = previousDay.month
+      year = previousDay.year
+    }
     setPostUpdate(true)
   }, [])
 
