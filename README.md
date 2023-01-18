@@ -4,7 +4,7 @@
 
 This is a non-punishing app that will help the user form habits.
 
-## Rules (In progress)
+<!-- ## Rules (In progress)
 
 1. Have two groups: "stable habits" and "unstable habits"
 2. It takes 66 days on average to form a habit, but it's actually a range depending on the person and the habit (from 18 days to 254 days)
@@ -27,7 +27,7 @@ This is a non-punishing app that will help the user form habits.
 
 ## Known bugs
 
-1. When switching from an empty route to a route like Add Habit or Test Habits, the navbar jumps. It's not super aligned.
+1. When switching from an empty route to a route like Add Habit or Test Habits, the navbar jumps. It's not super aligned. Unknown cause.
 
 ## What I learned
 
@@ -61,11 +61,11 @@ This is a non-punishing app that will help the user form habits.
 13. Make a better looking HabitInfoModal
 14. Take a break
 <!-- 15. Write a "How it Works" section maybe, simplify and rewrite with chat gpt -->
-16. Add a Milestone Reward. (I will buy a switch when I reach 100 days or something and then it keeps track of it for you)
-17. Add "evolving habit" option idk yet
-18. Maybe add leaderboard, way to share with friends
-<!-- 19. Find a way to add a year to the calendar (when a new year comes or the app has not been opened for a long time) -->
-<!-- 20. Fix year calendar css bug (Week 2 of January is far away) -->
+15. Add a Milestone Reward. (I will buy a switch when I reach 100 days or something and then it keeps track of it for you)
+16. Add "evolving habit" option idk yet
+17. Maybe add leaderboard, way to share with friends
+    <!-- 19. Find a way to add a year to the calendar (when a new year comes or the app has not been opened for a long time) -->
+    <!-- 20. Fix year calendar css bug (Week 2 of January is far away) -->
 
 # How it Works
 
@@ -84,18 +84,18 @@ This is a non-punishing app that will help the user form habits.
 11. There is an option to partially complete a task to encourage daily consistency (e.g., flossing only your bottom teeth instead of all of them). This will still count towards your streak towards promotion to a stable habit.
 12. You can choose to reward yourself when you reach a certain number of days (e.g., buying yourself a slice of Gouda when you hit 15 days).
 
-10 & 12 not implemented
+10 & 12 not implemented -->
 
-# How it Works Again
+# How it Works
 
-# rewritten by Chat-GPT
+It typically takes 66 days to form a habit, but the time may vary based on the person and the habit (between 18 and 254 days).
 
-There are two types of habits: stable and unstable. It typically takes 66 days to form a habit, but the time may vary based on the person and the habit (between 18 and 254 days).
-To change an unstable habit to a stable habit, you must maintain the habit for 66 days (or the number of days you set).
+There are two types of habits: stable and unstable. To change an unstable habit to a stable habit, you must maintain the habit for 66 days (or the number of days you set).
+
+You can partially complete a task (e.g., flossing only your bottom teeth) to encourage daily consistency. This will still count towards your streak towards promotion to a stable habit. Tap a gray circle once to mark the task as done. Tap it twice to mark the task as partially done.
+
 You can only add up to three unstable habits at a time to prevent feeling overwhelmed. These are your main focus. You can add any number of stable habits.
-If you miss three days (or the number of days you set) of a daily stable habit, it will be demoted to an unstable habit.
-You can edit your progress on any day by marking it as complete or incomplete. The app will not penalize you for not checking it every day.
-When setting up a new unstable habit, there is a guide to help you make it a small, achievable step. For example, if your ultimate goal is to go to the gym early, you might start by making it a goal to wake up early. The unstable habit can evolve over time, from 'wake up early' to 'wake up early and put on gym shoes,' and then to 'wake up early and put on gym clothes.' You can edit the unstable habit to its next step.
-You can partially complete a task (e.g., flossing only your bottom teeth) to encourage daily consistency. This will still count towards your streak towards promotion to a stable habit.
-There is a warning if a stable habit is close to being demoted to an unstable habit (e.g., if it has not been completed for two consecutive days).
-You can choose to reward yourself when you reach a certain number of days (e.g., buying yourself a slice of Gouda when you hit 15 days).
+
+If you miss three days (or the number of days you set) of a stable habit, it will be demoted to an unstable habit.
+
+There is a warning if a stable habit is close to being demoted to an unstable habit (e.g., if it has not been completed for three consecutive days).
