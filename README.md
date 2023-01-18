@@ -40,51 +40,20 @@ This is a non-punishing app that will help the user form habits.
 
 # To Dos
 
-<!-- 1. Make card options work; it has more info, update, delete, etc -->
-<!-- 2. Make StableCalendarCard and UnstableCalendarCard -->
-<!-- 3. Make unstable habit limit work -->
-
 4. Make auto check for stable habit cards; it can be turned off in options (is this a bad idea?)
 5. Make a filter by date, streak, etc
-   <!-- 6. Add instructions on top; it can be turned off in options -->
-   <!-- 7. Add legends at the bottom; it can be turned off in options -->
 6. Store in local storage
 7. Firebase
 8. If auto check for stable habits is turned on, make a reminder to update the habit when it hasn't been updated in a while, maybe 30 days or something.
 9. Stats
 10. Add month names on year calendar
-<!-- 13. Add a visual reminder if a stable habit is about to be demoted -->
 11. There will be a StableStatsCard and UnstableStatsCard
-<!-- 15. Put something on screen when there is nothing to list (e.g. there are no stable habits, no unstable habits, or both) -->
 12. Actually code lol
-<!-- 17. Make something happen (maybe use party-js) when an unstable habit gets promoted to a stable habit. Right now it just disappears when viewed from Home. Make something happen when a stable habit gets demoted. -->
 13. Make a better looking HabitInfoModal
 14. Take a break
-<!-- 15. Write a "How it Works" section maybe, simplify and rewrite with chat gpt -->
 15. Add a Milestone Reward. (I will buy a switch when I reach 100 days or something and then it keeps track of it for you)
 16. Add "evolving habit" option idk yet
-17. Maybe add leaderboard, way to share with friends
-    <!-- 19. Find a way to add a year to the calendar (when a new year comes or the app has not been opened for a long time) -->
-    <!-- 20. Fix year calendar css bug (Week 2 of January is far away) -->
-
-# How it Works
-
-# written by Chat-GPT
-
-1. There are two categories of habits: "stable" and "unstable."
-2. On average, it takes 66 days to form a habit, but the time can vary depending on the person and the habit (from 18 to 254 days).
-3. The default streak needed to change an "unstable habit" to a "stable habit" is 66 days.
-4. If a "stable habit" is a daily task and you miss three days, it will be demoted to an "unstable habit." When this happens, you can optionally provide a reason for breaking the habit.
-5. You can only add one to three "unstable habits" at a time to avoid feeling overwhelmed. These are your main focus.
-6. You can add any number of stable habits.
-7. You can edit your progress on any day (marking it as complete or incomplete). The app will not punish you for not checking it every day.
-8. If you have been working on an unstable habit for 66 days (or the number of days you set), it will be promoted to a stable habit.
-9. There is a warning if a stable habit is close to being demoted to an unstable habit (e.g., if it has not been completed for two consecutive days).
-10. When setting up a new unstable habit, there is a guide to help you make it a small, achievable step. For example, if you want to go to the gym early, start by making it a goal to wake up early. The unstable habit can evolve over time, from 'wake up early' to 'wake up early and put on gym shoes,' and then to 'wake up early and put on gym clothes,' until you reach your ultimate goal of going to the gym early. There is an option to edit the unstable habit to its next step.
-11. There is an option to partially complete a task to encourage daily consistency (e.g., flossing only your bottom teeth instead of all of them). This will still count towards your streak towards promotion to a stable habit.
-12. You can choose to reward yourself when you reach a certain number of days (e.g., buying yourself a slice of Gouda when you hit 15 days).
-
-10 & 12 not implemented -->
+17. Maybe add leaderboard, way to share with friends -->
 
 # How it Works
 
