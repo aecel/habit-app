@@ -9,7 +9,7 @@ const getRandomGreen = () => {
 // returns an array like this:
 // ["rgb(0,green1,0)","rgb(0,green2,0)"...]
 // where the previous green and the current green has at least a difference of 50
-// for better constrast
+// for better contrast
 const getRandomGreenArray = (length) => {
   const green1 = getRandomGreen()
   let greenArray = [`rgb(0,${green1},0`]

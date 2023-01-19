@@ -57,14 +57,14 @@ This is a non-punishing app that will help the user form habits.
 
 # How it Works
 
-It typically takes 66 days to form a habit, but the time may vary based on the person and the habit (between 18 and 254 days).
+1. It typically takes 66 days to form a habit, but the time may vary based on the person and the habit (between 18 and 254 days).
 
-There are two types of habits: stable and unstable. To change an unstable habit to a stable habit, you must maintain the habit for 66 days (or the number of days you set).
+2. There are two types of habits: stable and unstable. To change an unstable habit to a stable habit, you must maintain the habit for 66 days (or the number of days you set).
 
-You can partially complete a task (e.g., flossing only your bottom teeth) to encourage daily consistency. This will still count towards your streak towards promotion to a stable habit. Tap a gray circle once to mark the task as done. Tap it twice to mark the task as partially done.
+3. You can partially complete a task (e.g., flossing only your bottom teeth) to encourage daily consistency. This will still count towards your streak towards promotion to a stable habit. Tap a gray circle once to mark the task as done. Tap it twice to mark the task as partially done.
 
-You can only add up to three unstable habits at a time to prevent feeling overwhelmed. These are your main focus. You can add any number of stable habits.
+4. You can only add up to three unstable habits at a time to prevent feeling overwhelmed. These are your main focus. You can add any number of stable habits.
 
-If you miss three days (or the number of days you set) of a stable habit, it will be demoted to an unstable habit.
+5. If you miss three days (or the number of days you set) of a stable habit, it will be demoted to an unstable habit.
 
-There is a warning if a stable habit is close to being demoted to an unstable habit (e.g., if it has not been completed for three consecutive days).
+6. There is a warning if a stable habit is close to being demoted to an unstable habit (e.g., if it has not been completed for three consecutive days).
