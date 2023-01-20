@@ -1,6 +1,7 @@
 import { getMonthFromNum } from "../calendarFunctions"
 import { getGoldColorArray, getGreenColorArray } from "../colorFunctions"
 import NothingHere from "../components/NothingHere"
+import PolarAreaChart from "../components/PolarAreaChart"
 import StackedBarChart from "../components/StackedBarChart"
 import StatsCard from "../components/StatsCard"
 import getArrayTotal from "../getArrayTotal"
@@ -30,9 +31,8 @@ const Stats = () => {
   const top5StableHabits = getTop5StableHabits()
   const goldColorArray = getGoldColorArray()
 
-  const countGreenTasksThisYear =
-    useHabits().habitFunctions.countGreenTasksThisYear
-  const total = getArrayTotal(countGreenTasksThisYear())
+  const getTop5Habits = useHabits().habitFunctions.getTop5Habits
+  const top5Habits = getTop5Habits()
 
   const dataRangeText = `${monthNow} ${dayNow} ${
     yearNow - 1
@@ -60,6 +60,14 @@ const Stats = () => {
               dataArray={top5UnstableHabits}
               dataRangeText={dataRangeText}
               barColorArray={greenColorArray}
+            />
+            <PolarAreaChart
+              title="Top 5 Habits This Year"
+              textColor={textColor}
+              cardColor={cardColor}
+              dataArray={top5Habits}
+              dataRangeText={dataRangeText}
+              barColorArray={goldColorArray}
             />
             {allHabits}
           </div>

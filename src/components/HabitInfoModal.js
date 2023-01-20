@@ -1,6 +1,25 @@
 import { useEffect, useRef } from "react"
+import { getMonthFromNum } from "../calendarFunctions"
+import { useSettings } from "../useSettings"
+import BarChart from "./BarChart"
+import StatsCard from "./StatsCard"
 
 const HabitInfoModal = ({ triggerRef, habit }) => {
+  const colors = useSettings().colors
+  const textColor = colors.textColor
+  const barColor = colors.moreGold
+
+  const dataArray = habit.countGreenTasksThisYear()
+
+  const today = new Date()
+  const yearNow = today.getFullYear()
+  const monthNow = getMonthFromNum(today.getMonth() + 1)
+  const dayNow = today.getDate()
+
+  const dataRangeText = `${monthNow} ${dayNow} ${
+    yearNow - 1
+  } - ${monthNow} ${dayNow} ${yearNow}`
+
   const modalRef = useRef()
   const popUpModal = () => {
     const modal = modalRef.current
@@ -41,6 +60,15 @@ const HabitInfoModal = ({ triggerRef, habit }) => {
         <div>Date Created: {habit.readDateCreated()}</div>
         <div>Last Updated: {habit.readLastUpdated()}</div>
         {/* <div>Green Tasks Array: {JSON.stringify(habit.countGreenTasksThisYear())}</div> */}
+        <div className="stats-card-title">
+          {habit.readName()}
+          <div className="sub-text">{dataRangeText}</div>
+        </div>
+        <BarChart
+          textColor={textColor}
+          dataArray={dataArray}
+          barColor={barColor}
+        />
       </div>
     </div>
   )

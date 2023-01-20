@@ -198,6 +198,21 @@ export const HabitsProvider = ({ children }) => {
     return countArray
   }
 
+  const getTop5Habits = () => {
+    const habitArray = countGreenTasksArray()
+
+    let topHabitArray = sortDescendingByProp(habitArray, "total")
+
+    if (topHabitArray.length <= 5) {
+      // topHabitArray.reverse()
+      return topHabitArray
+    } else {
+      topHabitArray = topHabitArray.slice(0, 5)
+      // topHabitArray.reverse()
+      return topHabitArray
+    }
+  }
+
   const getTop5UnstableHabits = () => {
     const habitArray = countGreenTasksArray()
 
@@ -285,6 +300,7 @@ export const HabitsProvider = ({ children }) => {
     countGreenTasksByYear,
     countGreenTasksThisYear,
     countGreenTasksArray,
+    getTop5Habits,
     getTop5UnstableHabits,
     getTop5StableHabits,
     // promoteHabit,
