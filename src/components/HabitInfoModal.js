@@ -20,8 +20,8 @@ const HabitInfoModal = ({ triggerRef, habit }) => {
     }
   }, [triggerRef])
   return (
-    <div id="HabitInfoModal" ref={modalRef}>
-      <div className="habit-info-box">
+    <div id="HabitInfoModal" ref={modalRef} onClick={closeModal}>
+      <div className="habit-info-box" onClick={(e) => e.stopPropagation()}>
         <span className="close-modal" onClick={closeModal}>
           &times;
         </span>

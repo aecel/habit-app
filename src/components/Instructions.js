@@ -23,7 +23,7 @@ const Instructions = () => {
           src={theme === "dark" ? testHabitsSvg : testHabitsSvgBlack}
           alt=""
         />
-        "How it Works" if this is your first time here
+        How it Works if this is your first time here
       </div>
       <div>Tap a gray circle once to mark the task as done</div>
       <div>Tap it twice to mark the task as partially done</div>
@@ -34,7 +34,7 @@ const Instructions = () => {
           src={theme === "dark" ? addHabitSvg : addHabitSvgBlack}
           alt=""
         />
-        "Add Habit"
+        Add Habit
       </div>
       {/* <div>A partially done task still counts towards your streak</div> */}
       <div>
@@ -44,7 +44,7 @@ const Instructions = () => {
           src={theme === "dark" ? settingsSvg : settingsSvgBlack}
           alt=""
         />
-        "Settings"
+        Settings
       </div>
     </div>
   )

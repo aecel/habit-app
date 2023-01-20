@@ -24,8 +24,8 @@ const ConfirmationModal = ({ triggerRef, text, func }) => {
     }
   }, [triggerRef])
   return (
-    <div id="ConfirmationModal" ref={modalRef}>
-      <div className="confirmation-box">
+    <div id="ConfirmationModal" ref={modalRef} onClick={closeModal}>
+      <div className="confirmation-box" onClick={(e) => e.stopPropagation()}>
         <span className="close-modal" onClick={closeModal}>
           &times;
         </span>

@@ -12,6 +12,8 @@ const HabitEditModal = ({ triggerRef, habit }) => {
     modal.style.display = "flex"
   }
   const closeModal = () => {
+    const form = formRef.current
+    form.reset()
     modalRef.current.style.display = "none"
   }
 
@@ -39,9 +41,7 @@ const HabitEditModal = ({ triggerRef, habit }) => {
 
   const onSubmit = (event) => {
     event.preventDefault()
-    const form = formRef.current
     updateHabit({ id: habit.readId(), properties: properties })
-    form.reset()
     closeModal()
   }
 
@@ -55,8 +55,8 @@ const HabitEditModal = ({ triggerRef, habit }) => {
   }, [triggerRef])
 
   return (
-    <div id="HabitEditModal" ref={modalRef}>
-      <div className="habit-edit-box">
+    <div id="HabitEditModal" ref={modalRef} onClick={closeModal}>
+      <div className="habit-edit-box" onClick={(e) => e.stopPropagation()}>
         <span className="close-modal" onClick={closeModal}>
           &times;
         </span>

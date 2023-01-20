@@ -39,6 +39,7 @@ const CardOptions = ({ habit }) => {
           className="card-options-popup-circle"
           data-tip="More Info"
           ref={moreInfoRef}
+          onClick={togglePopUp}
         >
           <img
             className="card-options-svg"
@@ -50,6 +51,7 @@ const CardOptions = ({ habit }) => {
           className="card-options-popup-circle"
           data-tip="Edit"
           ref={editRef}
+          onClick={togglePopUp}
         >
           <img
             className="card-options-svg"
@@ -61,6 +63,7 @@ const CardOptions = ({ habit }) => {
           className="card-options-popup-circle"
           data-tip="Delete"
           ref={deleteRef}
+          onClick={togglePopUp}
         >
           <img
             className="card-options-svg"
