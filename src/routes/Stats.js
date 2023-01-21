@@ -1,5 +1,9 @@
 import { getMonthFromNum } from "../calendarFunctions"
-import { getGoldColorArray, getGreenColorArray } from "../colorFunctions"
+import {
+  getGoldColorArray,
+  getGreenColorArray,
+  getShadesArray,
+} from "../colorFunctions"
 import NothingHere from "../components/NothingHere"
 import PolarAreaChart from "../components/PolarAreaChart"
 import StackedBarChart from "../components/StackedBarChart"
@@ -45,6 +49,14 @@ const Stats = () => {
       ) : (
         <div className="cards-route-container">
           <div id="Stats" className="cards-route">
+            <PolarAreaChart
+              title="Top 5 Habits This Year"
+              textColor={textColor}
+              cardColor={cardColor}
+              dataArray={top5Habits}
+              dataRangeText={dataRangeText}
+              barColorArray={getShadesArray("#145820")}
+            />
             <StackedBarChart
               title="Top 5 Stable Habits This Year"
               textColor={textColor}
@@ -60,14 +72,6 @@ const Stats = () => {
               dataArray={top5UnstableHabits}
               dataRangeText={dataRangeText}
               barColorArray={greenColorArray}
-            />
-            <PolarAreaChart
-              title="Top 5 Habits This Year"
-              textColor={textColor}
-              cardColor={cardColor}
-              dataArray={top5Habits}
-              dataRangeText={dataRangeText}
-              barColorArray={goldColorArray}
             />
             {allHabits}
           </div>

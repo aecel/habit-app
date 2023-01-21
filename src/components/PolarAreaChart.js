@@ -55,7 +55,7 @@ const PolarAreaChart = ({
       {
         // label: "# of Votes",
         data: dataTotal,
-        backgroundColor: getShadesArray("#145820"),
+        backgroundColor: barColorArray,
         borderWidth: 1,
       },
     ],
