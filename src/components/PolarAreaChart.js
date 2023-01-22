@@ -7,12 +7,9 @@ import {
   Legend,
 } from "chart.js"
 import { PolarArea } from "react-chartjs-2"
-import { getThisYearInMonthsArray } from "../calendarFunctions"
-import { getShadesArray } from "../colorFunctions"
 
 ChartJS.register(RadialLinearScale, ArcElement, Tooltip, Legend)
 
-// Change such that it graphs from last year same month
 const PolarAreaChart = ({
   title,
   textColor,
@@ -39,10 +36,6 @@ const PolarAreaChart = ({
           boxWidth: 20,
         },
       },
-      // title: {
-      //   display: true,
-      //   text: "Chart.js Bar Chart",
-      // },
     },
   }
 

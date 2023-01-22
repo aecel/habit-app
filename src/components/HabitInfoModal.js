@@ -2,12 +2,12 @@ import { useEffect, useRef } from "react"
 import { getMonthFromNum } from "../calendarFunctions"
 import { useSettings } from "../useSettings"
 import BarChart from "./BarChart"
-import StatsCard from "./StatsCard"
 
 const HabitInfoModal = ({ triggerRef, habit }) => {
   const colors = useSettings().colors
   const textColor = colors.textColor
-  const barColor = colors.moreGold
+  const barColorGold = colors.moreGold
+  const barColorGreen = colors.moreGreen
 
   const dataArray = habit.countGreenTasksThisYear()
 
@@ -24,7 +24,6 @@ const HabitInfoModal = ({ triggerRef, habit }) => {
   const popUpModal = () => {
     const modal = modalRef.current
     modal.style.display = "flex"
-    // console.log("add event listener")
   }
   const closeModal = () => {
     modalRef.current.style.display = "none"
@@ -35,7 +34,6 @@ const HabitInfoModal = ({ triggerRef, habit }) => {
 
     return () => {
       trigger.removeEventListener("click", popUpModal)
-      // console.log("remove event listener")
     }
   }, [triggerRef])
   return (
@@ -59,7 +57,6 @@ const HabitInfoModal = ({ triggerRef, habit }) => {
         </div>
         <div>Date Created: {habit.readDateCreated()}</div>
         <div>Last Updated: {habit.readLastUpdated()}</div>
-        {/* <div>Green Tasks Array: {JSON.stringify(habit.countGreenTasksThisYear())}</div> */}
         <div className="stats-card-title">
           {habit.readName()}
           <div className="sub-text">{dataRangeText}</div>
@@ -67,7 +64,7 @@ const HabitInfoModal = ({ triggerRef, habit }) => {
         <BarChart
           textColor={textColor}
           dataArray={dataArray}
-          barColor={barColor}
+          barColor={habit.isStable() ? barColorGold : barColorGreen}
         />
       </div>
     </div>

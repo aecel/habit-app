@@ -54,7 +54,8 @@ This is a non-punishing app that will help the user form habits.
 15. Add a Milestone Reward. (I will buy a switch when I reach 100 days or something and then it keeps track of it for you)
 16. Add "evolving habit" option idk yet
 17. Maybe add leaderboard, way to share with friends 
-18. Add more graphs for individual habits and overall stats: best streaks, percentage doughnut graph, frequency (x-axis month, y-axis day of the week) (is this good?) -->
+18. Add more graphs for individual habits and overall stats: best streaks, percentage doughnut graph, frequency (x-axis month, y-axis day of the week) (is this good?) 
+19. Change appearance of data labels of polar chart -->
 
 # How it Works
 

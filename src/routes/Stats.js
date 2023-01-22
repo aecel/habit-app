@@ -8,7 +8,6 @@ import NothingHere from "../components/NothingHere"
 import PolarAreaChart from "../components/PolarAreaChart"
 import StackedBarChart from "../components/StackedBarChart"
 import StatsCard from "../components/StatsCard"
-import getArrayTotal from "../getArrayTotal"
 import { useHabits } from "../useHabits"
 import { useSettings } from "../useSettings"
 
@@ -73,7 +72,7 @@ const Stats = () => {
               dataRangeText={dataRangeText}
               barColorArray={greenColorArray}
             />
-            {allHabits}
+            {/* {allHabits} */}
           </div>
         </div>
       )}
