@@ -19,6 +19,21 @@ const PolarAreaChart = ({
   cardColor,
 }) => {
   const options = {
+    scales: {
+      r: {
+        // pointLabels: {
+        //   color: "red",
+        //   display: true,
+        // },
+        ticks: {
+          color: "white",
+          backdropColor: cardColor,
+        },
+        grid: {
+          color: "white",
+        },
+      },
+    },
     maintainAspectRatio: false,
     offset: true,
     responsive: true,
@@ -32,7 +47,7 @@ const PolarAreaChart = ({
           font: {
             size: 10,
           },
-          color: `${textColor}`,
+          color: textColor,
           boxWidth: 20,
         },
       },
@@ -50,6 +65,8 @@ const PolarAreaChart = ({
         data: dataTotal,
         backgroundColor: barColorArray,
         borderWidth: 1,
+        borderColor: cardColor,
+        color: textColor,
       },
     ],
   }

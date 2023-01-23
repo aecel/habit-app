@@ -54,9 +54,9 @@ const StackedBarChart = ({
       y: {
         stacked: true,
         ticks: {
-          color: `${textColor}`,
+          color: textColor,
           font: {
-            size: 8,
+            size: 10,
           },
         },
         grid: {
@@ -69,16 +69,16 @@ const StackedBarChart = ({
       x: {
         stacked: true,
         ticks: {
-          color: `${textColor}`,
+          color: textColor,
           font: {
-            size: 8,
+            size: 10,
           },
         },
         grid: {
           color: "transparent",
         },
         border: {
-          color: "rgb(128, 128, 128)",
+          color: "white",
         },
       },
     },
