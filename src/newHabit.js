@@ -226,6 +226,11 @@ const newHabit = ({
     return countArray
   }
 
+  // returns an array like this
+  // [4,5,1,...]
+  // represents streaks (partially done tasks included)
+  // "done", "partially done", "done", "", "partially done", ""
+  // becomes [3,1]
   const getStreaks = () => {
     let streaks = []
     let currentCount = 0
@@ -248,6 +253,60 @@ const newHabit = ({
           ) {
             streaks.push(currentCount)
             currentCount = 0
+          }
+        }
+      }
+    }
+
+    return streaks
+  }
+
+  // returns an array like this
+  // [4,5,1,...]
+  // represents streaks (partially done tasks included)
+  // "done", "partially done", "done", "", "partially done", ""
+  // becomes [3,1,1,1]
+  const getStreaksAndBlanks = () => {
+    let streaks = []
+    let currentCount = 0
+    let currentCountBlank = 0
+    let previousDay = "none"
+    for (const year in calendar) {
+      for (const month in calendar[year]) {
+        for (const day in calendar[year][month]) {
+          if (
+            calendar[year][month][day].done !== "" &&
+            previousDay === "none"
+          ) {
+            currentCount++
+            previousDay = "green"
+          } else if (
+            calendar[year][month][day].done !== "" &&
+            previousDay === "" &&
+            currentCountBlank > 0
+          ) {
+            streaks.push(currentCountBlank)
+            currentCountBlank = 0
+            currentCount = 1
+            previousDay = "green"
+          } else if (
+            calendar[year][month][day].done === "" &&
+            previousDay === "green" &&
+            currentCount > 0
+          ) {
+            streaks.push(currentCount)
+            currentCount = 0
+            currentCountBlank = 1
+            previousDay = ""
+          } else if (calendar[year][month][day].done !== "") {
+            previousDay = "green"
+            currentCount++
+          } else if (
+            calendar[year][month][day].done === "" &&
+            previousDay === ""
+          ) {
+            currentCountBlank++
+            previousDay = ""
           }
         }
       }
@@ -415,6 +474,7 @@ const newHabit = ({
     countGreenTasksByYear,
     countGreenTasksThisYear,
     getStreaks,
+    getStreaksAndBlanks,
     getMaxStreak,
     getCurrentStreak,
     updateStability,

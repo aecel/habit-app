@@ -26,11 +26,11 @@ const PolarAreaChart = ({
         //   display: true,
         // },
         ticks: {
-          color: "white",
+          color: textColor,
           backdropColor: cardColor,
         },
         grid: {
-          color: "white",
+          color: textColor,
         },
       },
     },

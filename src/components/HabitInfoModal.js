@@ -57,6 +57,10 @@ const HabitInfoModal = ({ triggerRef, habit }) => {
         </div>
         <div>Date Created: {habit.readDateCreated()}</div>
         <div>Last Updated: {habit.readLastUpdated()}</div>
+
+        <div>
+          GetStreaksAndBlanks: {JSON.stringify(habit.getStreaksAndBlanks())}
+        </div>
         <div className="stats-card-title">
           {habit.readName()}
           <div className="sub-text">{dataRangeText}</div>

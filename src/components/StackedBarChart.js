@@ -41,7 +41,7 @@ const StackedBarChart = ({
           font: {
             size: 10,
           },
-          color: `${textColor}`,
+          color: textColor,
           boxWidth: 20,
         },
       },
@@ -87,10 +87,10 @@ const StackedBarChart = ({
   const labels = getThisYearInMonthsArray()
   const dataObjectArray = dataArray.map((array) => {
     return {
-      label: `${array.name}`,
+      label: array.name,
       data: array.array,
       backgroundColor: barColorArray[dataArray.indexOf(array) % 5],
-      borderColor: `${cardColor}`,
+      borderColor: cardColor,
       // borderColor: "#f2f2f2",
     }
   })
