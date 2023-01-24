@@ -61,6 +61,7 @@ const HabitInfoModal = ({ triggerRef, habit }) => {
         <div>
           GetStreaksAndBlanks: {JSON.stringify(habit.getStreaksAndBlanks())}
         </div>
+        <div>adjustedStreaks: {JSON.stringify(habit.getAdjustedStreaks())}</div>
         <div className="stats-card-title">
           {habit.readName()}
           <div className="sub-text">{dataRangeText}</div>

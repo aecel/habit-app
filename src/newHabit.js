@@ -275,8 +275,8 @@ const newHabit = ({
       for (const month in calendar[year]) {
         for (const day in calendar[year][month]) {
           if (
-            calendar[year][month][day].done !== "" &&
-            previousDay === "none"
+            previousDay === "none" &&
+            calendar[year][month][day].done !== ""
           ) {
             currentCount++
             previousDay = "green"
@@ -313,6 +313,56 @@ const newHabit = ({
     }
 
     return streaks
+  }
+
+  const getAdjustedStreaks = () => {
+    const adjustStreak = (streaks) => {
+      let adjustedStreaks = []
+      let prevMerged = false
+
+      for (let i = 0; i < streaks.length; i++) {
+        if (i % 2 !== 0) {
+          if (streaks[i] <= daysToBreakHabit && !prevMerged) {
+            adjustedStreaks.push(streaks[i - 1] + streaks[i + 1])
+            prevMerged = true
+          } else if (streaks[i] <= daysToBreakHabit && prevMerged) {
+            adjustedStreaks[adjustedStreaks.length - 1] =
+              adjustedStreaks[adjustedStreaks.length - 1] + streaks[i + 1]
+            prevMerged = true
+          } else {
+            adjustedStreaks.push(streaks[i - 1])
+            adjustedStreaks.push(streaks[i])
+            prevMerged = false
+          }
+        }
+      }
+
+      return adjustedStreaks
+    }
+
+    const checkIfStreakNeedsAdjusting = (adjustedStreaks) => {
+      if (adjustedStreaks.length < 3) {
+        return false
+      }
+      for (let i = 0; i < adjustedStreaks.length; i++) {
+        if (i % 2 !== 0 && adjustedStreaks[i] <= daysToBreakHabit) {
+          return true
+        }
+      }
+
+      return false
+    }
+
+    const streaks = getStreaksAndBlanks()
+    let adjustedStreaks = streaks
+
+    let count = 0
+    while (checkIfStreakNeedsAdjusting(adjustedStreaks) && count <= 100) {
+      count++
+      adjustedStreaks = adjustStreak(adjustedStreaks)
+    }
+
+    return adjustedStreaks
   }
 
   const getMaxStreak = () => {
@@ -354,10 +404,12 @@ const newHabit = ({
   }
 
   const getCurrentStreak = () => {
-    const streaks = getStreaks()
+    // This is the code before
+    // Enable if you don't want the grace period
+    // Makes the app stricter / no gaps towards streak
+    // const streaks = getStreaks()
+    const streaks = getAdjustedStreaks()
 
-    // this was in the if() before, I don't know why lol
-    // && getLastMissedStreak() < daysToBreakHabit
     if (streaks.length > 0) {
       return streaks[streaks.length - 1]
     } else {
@@ -475,6 +527,7 @@ const newHabit = ({
     countGreenTasksThisYear,
     getStreaks,
     getStreaksAndBlanks,
+    getAdjustedStreaks,
     getMaxStreak,
     getCurrentStreak,
     updateStability,
