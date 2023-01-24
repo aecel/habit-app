@@ -322,30 +322,37 @@ const newHabit = ({
 
       for (let i = 0; i < streaks.length; i++) {
         if (i % 2 !== 0) {
-          if (streaks[i] <= daysToBreakHabit && !prevMerged) {
+          if (streaks[i] < daysToBreakHabit && !prevMerged) {
             adjustedStreaks.push(streaks[i - 1] + streaks[i + 1])
             prevMerged = true
-          } else if (streaks[i] <= daysToBreakHabit && prevMerged) {
+          } else if (streaks[i] < daysToBreakHabit && prevMerged) {
             adjustedStreaks[adjustedStreaks.length - 1] =
               adjustedStreaks[adjustedStreaks.length - 1] + streaks[i + 1]
             prevMerged = true
-          } else {
+          } else if (!prevMerged) {
             adjustedStreaks.push(streaks[i - 1])
             adjustedStreaks.push(streaks[i])
             prevMerged = false
+          } else {
+            adjustedStreaks.push(streaks[i])
+            prevMerged = false
           }
+        }
+
+        if (i === streaks.length - 1 && !prevMerged) {
+          adjustedStreaks.push(streaks[i])
         }
       }
 
       return adjustedStreaks
     }
 
-    const checkIfStreakNeedsAdjusting = (adjustedStreaks) => {
-      if (adjustedStreaks.length < 3) {
+    const streakNeedsAdjusting = (streak) => {
+      if (streak.length < 3) {
         return false
       }
-      for (let i = 0; i < adjustedStreaks.length; i++) {
-        if (i % 2 !== 0 && adjustedStreaks[i] <= daysToBreakHabit) {
+      for (let i = 0; i < streak.length; i++) {
+        if (i % 2 !== 0 && streak[i] < daysToBreakHabit) {
           return true
         }
       }
@@ -355,12 +362,15 @@ const newHabit = ({
 
     const streaks = getStreaksAndBlanks()
     let adjustedStreaks = streaks
-
-    let count = 0
-    while (checkIfStreakNeedsAdjusting(adjustedStreaks) && count <= 100) {
-      count++
+    if (streakNeedsAdjusting(adjustedStreaks)) {
       adjustedStreaks = adjustStreak(adjustedStreaks)
     }
+
+    // let count = 0
+    // while (checkIfStreakNeedsAdjusting(adjustedStreaks) && count <= 100) {
+    //   count++
+    //   adjustedStreaks = adjustStreak(adjustedStreaks)
+    // }
 
     return adjustedStreaks
   }
@@ -495,6 +505,9 @@ const newHabit = ({
 
   const getPercentageToStable = () => {
     const percent = Math.round((getCurrentStreak() / daysToStableHabit) * 100)
+    if (percent > 100) {
+      return "100%"
+    }
     const percentString = `${percent}%`
     return percentString
   }
