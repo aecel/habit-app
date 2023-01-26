@@ -12,10 +12,8 @@ const ProgressDoughnutChart = ({ habit }) => {
 
   ChartJS.register(ArcElement, Tooltip, Legend)
   const data = {
-    // labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
     datasets: [
       {
-        // label: "# of Votes",
         data: [habit.getCurrentStreak(), habit.getDaysToGo()],
         backgroundColor: ["rgb(20, 88, 32)", "rgb(242,242,242)"],
         borderWidth: 0,
@@ -35,7 +33,6 @@ const ProgressDoughnutChart = ({ habit }) => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        // border: "pink 1px solid"
       }}
       data-tip={chartDataTip}
       data-for="doughnut"
@@ -51,7 +48,6 @@ const ProgressDoughnutChart = ({ habit }) => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          // border: "white 1px solid"
         }}
       >
         {habit.getPercentageToStable()}

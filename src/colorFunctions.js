@@ -57,7 +57,7 @@ const getShadesArray = (hex) => {
 
   // colorsArray has 19 shades
   // fewColorsArray whittles it down to 7 shades, these colors have higher contrast difference levels
-  const colorsArray = arrayMap.map((value) => {
+  arrayMap.map((value) => {
     if (i % 3 === 0) {
       fewColorsArray.push(value[1])
     }
