@@ -154,9 +154,12 @@ const Settings = () => {
           </div>
           <div className="form-item">
             <label htmlFor="daysToBreakHabit">
-              Number of Days to Break a Stable Habit<br></br>
+              Grace Period (days)<br></br>
               <div className="sub-text">
-                This will only apply to newly added stable habits.
+                The number of days to break a stable habit.
+                Also the number of days that will break your streak towards
+                stabilizing an unstable habit.
+                This will only apply to newly added habits.
               </div>
             </label>
             <input
