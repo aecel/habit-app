@@ -24,6 +24,7 @@ const HowItWorks = () => {
   return (
     <div className="cards-route-container">
       <div id="HowItWorks" className="cards-route">
+        <h3>How It Works</h3>
         {rules.map((rule) => {
           return (
             <div className="rule-container" key={rules.indexOf(rule) + 1}>
