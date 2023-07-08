@@ -49,7 +49,7 @@
   scrollbar-width: thin;
 
   --habit-card-height: 230px;
-  --habit-card-width: 400px;
+  --habit-card-width: 360px;
   line-height: 1.5;
 }
 
@@ -355,11 +355,11 @@ textarea {
   border: none;
 }
 
-label,
+/* label,
 input[type="text"],
 textarea {
-  /* font-size: 0.9rem; */
-}
+  font-size: 0.9rem;
+} */
 
 input[type="radio"] {
   width: 20px;
