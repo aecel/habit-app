@@ -50,6 +50,7 @@
 
   --habit-card-height: 230px;
   --habit-card-width: 400px;
+  line-height: 1.5;
 }
 
 body {
@@ -315,7 +316,7 @@ nav {
   padding: 40px;
   background-color: var(--card-color);
   border-radius: 10px;
-  width: 300px;
+  width: var(--habit-card-width);
 
   display: flex;
   flex-direction: column;
@@ -459,7 +460,7 @@ div.sub-text {
   justify-content: center;
   gap: 50px;
   border-radius: 10px;
-  width: 300px;
+  width: var(--habit-card-width);
 }
 
 #settings-form {
@@ -526,7 +527,7 @@ div.sub-text {
   padding: 40px;
   background-color: var(--card-color);
   border-radius: 10px;
-  width: 350px;
+  width: var(--habit-card-width);
   box-sizing: border-box;
 
   display: flex;
@@ -869,7 +870,7 @@ div.sub-text {
   padding: 40px;
   background-color: var(--card-color);
   border-radius: 10px;
-  width: 350px;
+  width: var(--habit-card-width);
   box-sizing: border-box;
 
   display: flex;
@@ -954,7 +955,7 @@ div.sub-text {
 /* How It Works Route */
 
 #HowItWorks {
-  width: 300px;
+  width: var(--habit-card-width);
   justify-content: left;
   gap: 50px;
   /* font-size: 0.8rem; */
@@ -984,6 +985,7 @@ div.sub-text {
   margin-top: 30px;
   gap: 30px;
   text-align: center;
+  align-self: center;
 }
 .rule-png {
   width: 300px;
