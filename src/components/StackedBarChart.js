@@ -39,7 +39,7 @@ const StackedBarChart = ({
         labels: {
           padding: 20,
           font: {
-            size: 10,
+            size: 14,
           },
           color: textColor,
           boxWidth: 20,
@@ -56,7 +56,7 @@ const StackedBarChart = ({
         ticks: {
           color: textColor,
           font: {
-            size: 10,
+            size: 14,
           },
         },
         grid: {
@@ -71,7 +71,7 @@ const StackedBarChart = ({
         ticks: {
           color: textColor,
           font: {
-            size: 10,
+            size: 14,
           },
         },
         grid: {

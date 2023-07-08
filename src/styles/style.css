@@ -694,7 +694,7 @@ div.sub-text {
 }
 
 .card-star {
-  height: 25px;
+  height: 32px;
   width: auto;
 }
 
@@ -995,7 +995,7 @@ div.sub-text {
 /* Bar Chart Component */
 
 .bar-chart-container {
-  width: 270px;
+  width: calc(var(--habit-card-width) - 80px);
   height: 200px;
   display: flex;
   align-items: center;
@@ -1009,7 +1009,7 @@ div.sub-text {
 /* Stacked Bar Chart Component */
 
 .stacked-bar-chart-container {
-  width: 270px;
+  width: calc(var(--habit-card-width) - 80px);
   height: 350px;
   display: flex;
   align-items: center;

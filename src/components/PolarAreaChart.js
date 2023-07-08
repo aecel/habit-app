@@ -45,7 +45,7 @@ const PolarAreaChart = ({
         labels: {
           padding: 20,
           font: {
-            size: 10,
+            size: 14,
           },
           color: textColor,
           boxWidth: 20,
