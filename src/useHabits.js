@@ -309,90 +309,90 @@ export const HabitsProvider = ({ children }) => {
 
   useEffect(() => {
     // deleteHabit(habit1.readId())
-    updateDay({
-      id: habit1.readId(),
-      year: 2022,
-      month: 11,
-      day: 4,
-      taskDone: "Partially done",
-    })
-    updateDay({
-      id: habit1.readId(),
-      year: 2022,
-      month: 11,
-      day: 5,
-      taskDone: "Partially done",
-    })
-    updateDay({
-      id: habit1.readId(),
-      year: 2022,
-      month: 11,
-      day: 6,
-      taskDone: "Done completely",
-    })
-    updateDay({
-      id: habit1.readId(),
-      year: 2022,
-      month: 12,
-      day: 19,
-      taskDone: "Done completely",
-    })
-    updateDay({
-      id: habit1.readId(),
-      year: 2023,
-      month: 1,
-      day: 4,
-      taskDone: "Done completely",
-    })
-    updateDay({
-      id: habit1.readId(),
-      year: 2023,
-      month: 1,
-      day: 14,
-      taskDone: "Done completely",
-    })
-    updateDay({
-      id: habit1.readId(),
-      year: 2023,
-      month: 1,
-      day: 15,
-      taskDone: "Partially done",
-    })
-    updateDay({
-      id: habit1.readId(),
-      year: 2023,
-      month: 1,
-      day: 16,
-      taskDone: "Done completely",
-    })
-    updateDay({
-      id: habit1.readId(),
-      year: 2023,
-      month: 1,
-      day: 17,
-      taskDone: "Done completely",
-    })
-    updateDay({
-      id: habit2.readId(),
-      year: 2022,
-      month: 11,
-      day: 1,
-      taskDone: "Partially done",
-    })
-    updateDay({
-      id: habit2.readId(),
-      year: 2023,
-      month: 1,
-      day: 16,
-      taskDone: "Partially done",
-    })
-    updateDay({
-      id: habit2.readId(),
-      year: 2023,
-      month: 1,
-      day: 17,
-      taskDone: "Partially done",
-    })
+    // updateDay({
+    //   id: habit1.readId(),
+    //   year: 2022,
+    //   month: 11,
+    //   day: 4,
+    //   taskDone: "Partially done",
+    // })
+    // updateDay({
+    //   id: habit1.readId(),
+    //   year: 2022,
+    //   month: 11,
+    //   day: 5,
+    //   taskDone: "Partially done",
+    // })
+    // updateDay({
+    //   id: habit1.readId(),
+    //   year: 2022,
+    //   month: 11,
+    //   day: 6,
+    //   taskDone: "Done completely",
+    // })
+    // updateDay({
+    //   id: habit1.readId(),
+    //   year: 2022,
+    //   month: 12,
+    //   day: 19,
+    //   taskDone: "Done completely",
+    // })
+    // updateDay({
+    //   id: habit1.readId(),
+    //   year: 2023,
+    //   month: 1,
+    //   day: 4,
+    //   taskDone: "Done completely",
+    // })
+    // updateDay({
+    //   id: habit1.readId(),
+    //   year: 2023,
+    //   month: 1,
+    //   day: 14,
+    //   taskDone: "Done completely",
+    // })
+    // updateDay({
+    //   id: habit1.readId(),
+    //   year: 2023,
+    //   month: 1,
+    //   day: 15,
+    //   taskDone: "Partially done",
+    // })
+    // updateDay({
+    //   id: habit1.readId(),
+    //   year: 2023,
+    //   month: 1,
+    //   day: 16,
+    //   taskDone: "Done completely",
+    // })
+    // updateDay({
+    //   id: habit1.readId(),
+    //   year: 2023,
+    //   month: 1,
+    //   day: 17,
+    //   taskDone: "Done completely",
+    // })
+    // updateDay({
+    //   id: habit2.readId(),
+    //   year: 2022,
+    //   month: 11,
+    //   day: 1,
+    //   taskDone: "Partially done",
+    // })
+    // updateDay({
+    //   id: habit2.readId(),
+    //   year: 2023,
+    //   month: 1,
+    //   day: 16,
+    //   taskDone: "Partially done",
+    // })
+    // updateDay({
+    //   id: habit2.readId(),
+    //   year: 2023,
+    //   month: 1,
+    //   day: 17,
+    //   taskDone: "Partially done",
+    // })
 
     const today = new Date()
     const dayNow = today.getDate()
